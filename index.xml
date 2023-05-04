@@ -865,6 +865,17 @@ RAII（资源获取即初始化）是一种C++编程技术，它利用了对象�
 &lt;/div&gt;</description>
         </item>
         <item>
+        <title>python高级语法</title>
+        <link>https://jhrsya.github.io/p/python/</link>
+        <pubDate>Thu, 04 May 2023 00:00:00 +0000</pubDate>
+        
+        <guid>https://jhrsya.github.io/p/python/</guid>
+        <description>&lt;h1 id=&#34;python高级功能&#34;&gt;python高级功能&lt;/h1&gt;
+&lt;h2 id=&#34;python装饰器&#34;&gt;python装饰器&lt;/h2&gt;
+&lt;p&gt;在Python中，装饰器是一种语法，用于在不修改被装饰函数源代码的情况下，动态地修改函数行为。它们通常用于添加功能，例如日志记录、性能测量、授权检查等。装饰器是一种高阶函数，它接受一个函数作为参数，并返回一个新的函数，通常包装了原始函数。&lt;/p&gt;
+</description>
+        </item>
+        <item>
         <title>区块链概念</title>
         <link>https://jhrsya.github.io/p/%E5%8C%BA%E5%9D%97%E9%93%BE/</link>
         <pubDate>Sun, 23 Apr 2023 00:00:00 +0000</pubDate>
