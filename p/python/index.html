@@ -10,7 +10,7 @@
 <meta property='og:description' content='python后端开发所用的库介绍'>
 <meta property='og:url' content='https://jhrsya.github.io/p/python/'>
 <meta property='og:site_name' content='steve lannister'>
-<meta property='og:type' content='article'><meta property='article:section' content='Post' /><meta property='article:tag' content='python高级语法' /><meta property='article:tag' content='python' /><meta property='article:published_time' content='2023-05-04T00:00:00&#43;00:00'/><meta property='article:modified_time' content='2023-05-04T00:00:00&#43;00:00'/>
+<meta property='og:type' content='article'><meta property='article:section' content='Post' /><meta property='article:tag' content='python库' /><meta property='article:tag' content='python' /><meta property='article:published_time' content='2023-05-04T00:00:00&#43;00:00'/><meta property='article:modified_time' content='2023-05-04T00:00:00&#43;00:00'/>
 <meta name="twitter:title" content="python库介绍">
 <meta name="twitter:description" content="python后端开发所用的库介绍">
     </head>
@@ -249,7 +249,29 @@
         <div class="widget--toc">
             <nav id="TableOfContents">
   <ol>
-    <li><a href="#python装饰器">python装饰器</a></li>
+    <li><a href="#pydantic">pydantic</a>
+      <ol>
+        <li>
+          <ol>
+            <li><a href="#1-定义数据模型">1. 定义数据模型</a></li>
+            <li><a href="#2-验证数据模型">2. 验证数据模型</a></li>
+            <li><a href="#3-序列化数据模型">3. 序列化数据模型</a></li>
+            <li><a href="#4-padantic的validator">4. padantic的validator</a></li>
+          </ol>
+        </li>
+      </ol>
+    </li>
+    <li><a href="#fastapi">fastapi</a></li>
+    <li><a href="#peewee库">peewee库</a>
+      <ol>
+        <li><a href="#1-存储数据">1. 存储数据</a></li>
+        <li><a href="#2-检索数据库">2. 检索数据库</a>
+          <ol>
+            <li><a href="#1-获取单个记录">1. 获取单个记录</a></li>
+          </ol>
+        </li>
+      </ol>
+    </li>
   </ol>
 </nav>
         </div>
@@ -277,12 +299,12 @@
 
     <div class="article-title-wrapper">
         <h2 class="article-title">
-            <a href="/p/python/">python库介绍</a>
+            <a href="/p/python/">python高级语法</a>
         </h2>
     
         
         <h3 class="article-subtitle">
-            python后端开发所用的库介绍
+            python高级语法
         </h3>
         
     </div>
@@ -318,7 +340,7 @@
 
 
                 <time class="article-time--reading">
-                    阅读时长: 2 分钟
+                    阅读时长: 1 分钟
                 </time>
             </div>
         
@@ -333,10 +355,248 @@
     <section class="article-content">
     
     
-    <h1 id="python高级功能">python高级功能</h1>
-<h2 id="python装饰器">python装饰器</h2>
-<p>在Python中，装饰器是一种语法，用于在不修改被装饰函数源代码的情况下，动态地修改函数行为。它们通常用于添加功能，例如日志记录、性能测量、授权检查等。装饰器是一种高阶函数，它接受一个函数作为参数，并返回一个新的函数，通常包装了原始函数。</p>
+    <h1 id="python库">python库</h1>
+<h2 id="pydantic">pydantic</h2>
+<p>pydantic 是一个用于数据验证和数据序列化的 Python 库，它提供了一个基于类型注释的数据模型定义方式，可以帮助开发者轻松地定义和验证数据模型。以下是 pydantic 库的一些常用功能和用法示例。</p>
+<h4 id="1-定义数据模型">1. 定义数据模型</h4>
+<p>使用 pydantic 定义数据模型时，可以通过继承 pydantic.BaseModel 类并使用类型注释来定义类的成员变量。例如：</p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre tabindex="0" class="chroma"><code><span class="lnt">1
+</span><span class="lnt">2
+</span><span class="lnt">3
+</span><span class="lnt">4
+</span><span class="lnt">5
+</span><span class="lnt">6
+</span></code></pre></td>
+<td class="lntd">
+<pre tabindex="0" class="chroma"><code class="language-python" data-lang="python"><span class="kn">from</span> <span class="nn">pydantic</span> <span class="kn">import</span> <span class="n">BaseModel</span>
 
+<span class="k">class</span> <span class="nc">User</span><span class="p">(</span><span class="n">BaseModel</span><span class="p">):</span>
+    <span class="nb">id</span><span class="p">:</span> <span class="nb">int</span>
+    <span class="n">name</span><span class="p">:</span> <span class="nb">str</span>
+    <span class="n">email</span><span class="p">:</span> <span class="nb">str</span>
+</code></pre></td></tr></table>
+</div>
+</div><h4 id="2-验证数据模型">2. 验证数据模型</h4>
+<p>使用 pydantic 验证数据模型时，可以通过创建一个类的实例并传入要验证的数据来验证数据模型的正确性。例如：</p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre tabindex="0" class="chroma"><code><span class="lnt">1
+</span><span class="lnt">2
+</span><span class="lnt">3
+</span><span class="lnt">4
+</span><span class="lnt">5
+</span><span class="lnt">6
+</span></code></pre></td>
+<td class="lntd">
+<pre tabindex="0" class="chroma"><code class="language-python" data-lang="python"><span class="n">user_data</span> <span class="o">=</span> <span class="p">{</span>
+    <span class="s1">&#39;id&#39;</span><span class="p">:</span> <span class="s1">&#39;1&#39;</span><span class="p">,</span>   <span class="c1"># 注意这里将 id 赋值为字符串类型，不符合定义</span>
+    <span class="s1">&#39;name&#39;</span><span class="p">:</span> <span class="s1">&#39;Alice&#39;</span><span class="p">,</span>
+    <span class="s1">&#39;email&#39;</span><span class="p">:</span> <span class="s1">&#39;alice@example.com&#39;</span>
+<span class="p">}</span>
+<span class="n">user</span> <span class="o">=</span> <span class="n">User</span><span class="p">(</span><span class="o">**</span><span class="n">user_data</span><span class="p">)</span>
+</code></pre></td></tr></table>
+</div>
+</div><p>这个示例中，user_data 是一个包含用户数据的字典，其中 id 键的值为字符串类型。在创建 User 类的实例时，pydantic 会根据定义的类型注释和传入的数据对数据模型进行验证。由于 id 的定义是整型，而实际传入的值是字符串类型，所以会抛出一个 ValueError 异常，提示 id 的类型不正确。</p>
+<h4 id="3-序列化数据模型">3. 序列化数据模型</h4>
+<p>使用 pydantic 序列化数据模型时，可以通过将一个数据模型对象转换为字典或 JSON 格式的字符串来实现。例如：</p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre tabindex="0" class="chroma"><code><span class="lnt">1
+</span><span class="lnt">2
+</span><span class="lnt">3
+</span><span class="lnt">4
+</span><span class="lnt">5
+</span><span class="lnt">6
+</span><span class="lnt">7
+</span></code></pre></td>
+<td class="lntd">
+<pre tabindex="0" class="chroma"><code class="language-python" data-lang="python"><span class="n">user</span> <span class="o">=</span> <span class="n">User</span><span class="p">(</span><span class="nb">id</span><span class="o">=</span><span class="mi">1</span><span class="p">,</span> <span class="n">name</span><span class="o">=</span><span class="s1">&#39;Alice&#39;</span><span class="p">,</span> <span class="n">email</span><span class="o">=</span><span class="s1">&#39;alice@example.com&#39;</span><span class="p">)</span>
+
+<span class="c1"># 转换为字典</span>
+<span class="n">user_dict</span> <span class="o">=</span> <span class="n">user</span><span class="o">.</span><span class="n">dict</span><span class="p">()</span>
+
+<span class="c1"># 转换为 JSON 字符串</span>
+<span class="n">user_json</span> <span class="o">=</span> <span class="n">user</span><span class="o">.</span><span class="n">json</span><span class="p">()</span>
+</code></pre></td></tr></table>
+</div>
+</div><h4 id="4-padantic的validator">4. padantic的validator</h4>
+<p>pydantic 库中的 validator 是用于定义数据模型的验证规则的装饰器。通过 validator 装饰器，我们可以在数据模型定义中为一个或多个成员变量添加自定义的验证函数，来验证这些成员变量的取值是否合法。以下是一个 validator 装饰器的使用示例：</p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre tabindex="0" class="chroma"><code><span class="lnt"> 1
+</span><span class="lnt"> 2
+</span><span class="lnt"> 3
+</span><span class="lnt"> 4
+</span><span class="lnt"> 5
+</span><span class="lnt"> 6
+</span><span class="lnt"> 7
+</span><span class="lnt"> 8
+</span><span class="lnt"> 9
+</span><span class="lnt">10
+</span><span class="lnt">11
+</span></code></pre></td>
+<td class="lntd">
+<pre tabindex="0" class="chroma"><code class="language-python" data-lang="python"><span class="kn">from</span> <span class="nn">pydantic</span> <span class="kn">import</span> <span class="n">BaseModel</span><span class="p">,</span> <span class="n">validator</span>
+
+<span class="k">class</span> <span class="nc">Person</span><span class="p">(</span><span class="n">BaseModel</span><span class="p">):</span>
+    <span class="n">name</span><span class="p">:</span> <span class="nb">str</span>
+    <span class="n">age</span><span class="p">:</span> <span class="nb">int</span>
+
+    <span class="nd">@validator</span><span class="p">(</span><span class="s1">&#39;age&#39;</span><span class="p">)</span>
+    <span class="k">def</span> <span class="nf">check_age</span><span class="p">(</span><span class="bp">cls</span><span class="p">,</span> <span class="n">value</span><span class="p">):</span>
+        <span class="k">if</span> <span class="n">value</span> <span class="o">&lt;</span> <span class="mi">0</span><span class="p">:</span>
+            <span class="k">raise</span> <span class="ne">ValueError</span><span class="p">(</span><span class="s1">&#39;Age must be non-negative&#39;</span><span class="p">)</span>
+        <span class="k">return</span> <span class="n">value</span>
+</code></pre></td></tr></table>
+</div>
+</div><p>在这个示例中，Person 类定义了两个成员变量 name 和 age，分别为字符串类型和整型。使用 @validator(&lsquo;age&rsquo;) 装饰器为 age 成员变量添加了一个名为 check_age 的验证函数。check_age 函数接受一个参数 value，表示要验证的值。如果这个值小于 0，则抛出一个 ValueError 异常，提示年龄必须为非负数。否则，返回原始值。</p>
+<p>使用 validator 装饰器时，需要指定要验证的成员变量名。可以通过以下方式指定要验证多个成员变量：</p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre tabindex="0" class="chroma"><code><span class="lnt">1
+</span><span class="lnt">2
+</span><span class="lnt">3
+</span><span class="lnt">4
+</span><span class="lnt">5
+</span></code></pre></td>
+<td class="lntd">
+<pre tabindex="0" class="chroma"><code class="language-python" data-lang="python"><span class="nd">@validator</span><span class="p">(</span><span class="s1">&#39;name&#39;</span><span class="p">,</span> <span class="s1">&#39;age&#39;</span><span class="p">)</span>
+<span class="k">def</span> <span class="nf">check_person</span><span class="p">(</span><span class="bp">cls</span><span class="p">,</span> <span class="n">values</span><span class="p">):</span>
+    <span class="n">name</span><span class="p">,</span> <span class="n">age</span> <span class="o">=</span> <span class="n">values</span>
+    <span class="c1"># 进行验证逻辑</span>
+    <span class="k">return</span> <span class="n">values</span>
+</code></pre></td></tr></table>
+</div>
+</div><p>在这个示例中，check_person 函数接受一个参数 values，它是一个字典，包含了要验证的所有成员变量的键值对。可以通过解包字典的方式来获取每个成员变量的值，并进行验证。</p>
+<p>validator 装饰器还支持在整个数据模型上进行验证，而不仅限于单个成员变量。可以通过在类定义上使用 @root_validator 装饰器来实现这个功能。例如：</p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre tabindex="0" class="chroma"><code><span class="lnt"> 1
+</span><span class="lnt"> 2
+</span><span class="lnt"> 3
+</span><span class="lnt"> 4
+</span><span class="lnt"> 5
+</span><span class="lnt"> 6
+</span><span class="lnt"> 7
+</span><span class="lnt"> 8
+</span><span class="lnt"> 9
+</span><span class="lnt">10
+</span><span class="lnt">11
+</span><span class="lnt">12
+</span></code></pre></td>
+<td class="lntd">
+<pre tabindex="0" class="chroma"><code class="language-python" data-lang="python"><span class="k">class</span> <span class="nc">Person</span><span class="p">(</span><span class="n">BaseModel</span><span class="p">):</span>
+    <span class="n">name</span><span class="p">:</span> <span class="nb">str</span>
+    <span class="n">age</span><span class="p">:</span> <span class="nb">int</span>
+
+    <span class="nd">@root_validator</span>
+    <span class="k">def</span> <span class="nf">check_person</span><span class="p">(</span><span class="bp">cls</span><span class="p">,</span> <span class="n">values</span><span class="p">):</span>
+        <span class="n">name</span><span class="p">,</span> <span class="n">age</span> <span class="o">=</span> <span class="n">values</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="s1">&#39;name&#39;</span><span class="p">),</span> <span class="n">values</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="s1">&#39;age&#39;</span><span class="p">)</span>
+        <span class="k">if</span> <span class="n">age</span> <span class="o">&lt;</span> <span class="mi">0</span><span class="p">:</span>
+            <span class="k">raise</span> <span class="ne">ValueError</span><span class="p">(</span><span class="s1">&#39;Age must be non-negative&#39;</span><span class="p">)</span>
+        <span class="k">if</span> <span class="ow">not</span> <span class="n">name</span><span class="p">:</span>
+            <span class="k">raise</span> <span class="ne">ValueError</span><span class="p">(</span><span class="s1">&#39;Name must not be empty&#39;</span><span class="p">)</span>
+        <span class="k">return</span> <span class="n">values</span>
+</code></pre></td></tr></table>
+</div>
+</div><p>在这个示例中，@root_validator 装饰器用于为整个数据模型添加一个验证函数。check_person 函数接受一个参数 values，它是一个字典，包含了所有成员变量的键值对。在这个示例中，check_person 函数对 name 和 age 进行了验证，如果发现不合法的值，则抛出一个 ValueError 异常。否则，返回原始的字典。</p>
+<h2 id="fastapi">fastapi</h2>
+<p>设置请求头中的key-value时，要保证key的合法性，不合法会出现422 Unprocessable Entity。</p>
+<p>学习知识点：依赖注入, Path, Query, Header, Body</p>
+<h2 id="peewee库">peewee库</h2>
+<p>拿到数据库中的一张表的数据的方法：</p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre tabindex="0" class="chroma"><code><span class="lnt"> 1
+</span><span class="lnt"> 2
+</span><span class="lnt"> 3
+</span><span class="lnt"> 4
+</span><span class="lnt"> 5
+</span><span class="lnt"> 6
+</span><span class="lnt"> 7
+</span><span class="lnt"> 8
+</span><span class="lnt"> 9
+</span><span class="lnt">10
+</span><span class="lnt">11
+</span><span class="lnt">12
+</span><span class="lnt">13
+</span><span class="lnt">14
+</span><span class="lnt">15
+</span><span class="lnt">16
+</span><span class="lnt">17
+</span><span class="lnt">18
+</span><span class="lnt">19
+</span><span class="lnt">20
+</span><span class="lnt">21
+</span></code></pre></td>
+<td class="lntd">
+<pre tabindex="0" class="chroma"><code class="language-python" data-lang="python"><span class="kn">from</span> <span class="nn">peewee</span> <span class="kn">import</span> <span class="o">*</span>
+
+<span class="c1"># 这个db可以在其他地方初始化好</span>
+<span class="n">db</span> <span class="o">=</span> <span class="n">SqliteDatabase</span><span class="p">(</span><span class="s1">&#39;people.db&#39;</span><span class="p">)</span>
+
+<span class="k">class</span> <span class="nc">Person</span><span class="p">(</span><span class="n">Model</span><span class="p">):</span>
+    <span class="n">name</span> <span class="o">=</span> <span class="n">CharField</span><span class="p">()</span>
+    <span class="n">birthday</span> <span class="o">=</span> <span class="n">DateField</span><span class="p">()</span>
+
+    <span class="k">class</span> <span class="nc">Meta</span><span class="p">:</span>
+        <span class="n">database</span> <span class="o">=</span> <span class="n">db</span> <span class="c1"># This model uses the &#34;people.db&#34; database.</span>
+
+
+<span class="c1"># 使用外部的键值关系, owner不是people.db中的</span>
+<span class="k">class</span> <span class="nc">Pet</span><span class="p">(</span><span class="n">Model</span><span class="p">):</span>
+    <span class="n">owner</span> <span class="o">=</span> <span class="n">ForeignKeyField</span><span class="p">(</span><span class="n">Person</span><span class="p">,</span> <span class="n">backref</span><span class="o">=</span><span class="s1">&#39;pets&#39;</span><span class="p">)</span>
+    <span class="n">name</span> <span class="o">=</span> <span class="n">CharField</span><span class="p">()</span>
+    <span class="n">animal_type</span> <span class="o">=</span> <span class="n">CharField</span><span class="p">()</span>
+
+    <span class="k">class</span> <span class="nc">Meta</span><span class="p">:</span>
+        <span class="n">database</span> <span class="o">=</span> <span class="n">db</span> <span class="c1"># this model uses the &#34;people.db&#34; database</span>
+</code></pre></td></tr></table>
+</div>
+</div><h3 id="1-存储数据">1. 存储数据</h3>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre tabindex="0" class="chroma"><code><span class="lnt">1
+</span><span class="lnt">2
+</span><span class="lnt">3
+</span><span class="lnt">4
+</span><span class="lnt">5
+</span><span class="lnt">6
+</span><span class="lnt">7
+</span><span class="lnt">8
+</span><span class="lnt">9
+</span></code></pre></td>
+<td class="lntd">
+<pre tabindex="0" class="chroma"><code class="language-python" data-lang="python"><span class="kn">from</span> <span class="nn">datetime</span> <span class="kn">import</span> <span class="n">date</span>
+<span class="n">uncle_bob</span> <span class="o">=</span> <span class="n">Person</span><span class="p">(</span><span class="n">name</span><span class="o">=</span><span class="s1">&#39;Bob&#39;</span><span class="p">,</span> <span class="n">birthday</span><span class="o">=</span><span class="n">date</span><span class="p">(</span><span class="mi">1960</span><span class="p">,</span> <span class="mi">1</span><span class="p">,</span> <span class="mi">15</span><span class="p">))</span>
+<span class="n">uncle_bob</span><span class="o">.</span><span class="n">save</span><span class="p">()</span> <span class="c1"># bob is now stored in the database</span>
+
+
+
+<span class="c1"># 也可以使用create创建实例</span>
+<span class="n">grandma</span> <span class="o">=</span> <span class="n">Person</span><span class="o">.</span><span class="n">create</span><span class="p">(</span><span class="n">name</span><span class="o">=</span><span class="s1">&#39;Grandma&#39;</span><span class="p">,</span> <span class="n">birthday</span><span class="o">=</span><span class="n">date</span><span class="p">(</span><span class="mi">1935</span><span class="p">,</span> <span class="mi">3</span><span class="p">,</span> <span class="mi">1</span><span class="p">))</span>
+<span class="n">herb</span> <span class="o">=</span> <span class="n">Person</span><span class="o">.</span><span class="n">create</span><span class="p">(</span><span class="n">name</span><span class="o">=</span><span class="s1">&#39;Herb&#39;</span><span class="p">,</span> <span class="n">birthday</span><span class="o">=</span><span class="n">date</span><span class="p">(</span><span class="mi">1950</span><span class="p">,</span> <span class="mi">5</span><span class="p">,</span> <span class="mi">5</span><span class="p">))</span>
+</code></pre></td></tr></table>
+</div>
+</div><h3 id="2-检索数据库">2. 检索数据库</h3>
+<h4 id="1-获取单个记录">1. 获取单个记录</h4>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre tabindex="0" class="chroma"><code><span class="lnt">1
+</span><span class="lnt">2
+</span><span class="lnt">3
+</span><span class="lnt">4
+</span></code></pre></td>
+<td class="lntd">
+<pre tabindex="0" class="chroma"><code class="language-python" data-lang="python"><span class="n">grandma</span> <span class="o">=</span> <span class="n">Person</span><span class="o">.</span><span class="n">select</span><span class="p">()</span><span class="o">.</span><span class="n">where</span><span class="p">(</span><span class="n">Person</span><span class="o">.</span><span class="n">name</span> <span class="o">==</span> <span class="s1">&#39;Grandma L.&#39;</span><span class="p">)</span><span class="o">.</span><span class="n">get</span><span class="p">()</span>
+
+<span class="c1"># 上面的代码等价于</span>
+<span class="n">grandma</span> <span class="o">=</span> <span class="n">Person</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="n">Person</span><span class="o">.</span><span class="n">name</span> <span class="o">==</span> <span class="s1">&#39;Grandma L.&#39;</span><span class="p">)</span>
+</code></pre></td></tr></table>
+</div>
+</div>
 </section>
 
 
@@ -344,7 +604,7 @@
     
     <section class="article-tags">
         
-            <a href="/tags/python%E9%AB%98%E7%BA%A7%E8%AF%AD%E6%B3%95/">python高级语法</a>
+            <a href="/tags/python%E5%BA%93/">python库</a>
         
             <a href="/tags/python/">python</a>
         
@@ -385,7 +645,7 @@
         
 
         <div class="article-details">
-            <h2 class="article-title">python库介绍</h2>
+            <h2 class="article-title">python高级语法</h2>
         </div>
     </a>
 </article>

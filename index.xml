@@ -616,6 +616,135 @@ RAII（资源获取即初始化）是一种C++编程技术，它利用了对象�
 </description>
         </item>
         <item>
+        <title>go</title>
+        <link>https://jhrsya.github.io/p/go/</link>
+        <pubDate>Thu, 04 May 2023 00:00:00 +0000</pubDate>
+        
+        <guid>https://jhrsya.github.io/p/go/</guid>
+        <description>&lt;h1 id=&#34;go&#34;&gt;go&lt;/h1&gt;
+&lt;p&gt;go不同点：&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;go如果声明了变量，那一定要使用，不然会报错&lt;/li&gt;
+&lt;li&gt;go没有 &lt;code&gt;i++&lt;/code&gt; 和 &lt;code&gt;i--&lt;/code&gt;&lt;/li&gt;
+&lt;li&gt;go 没有返回值不用设置为void ，直接不设置返回值就可以&lt;/li&gt;
+&lt;li&gt;go 里面切片不能使用负值，比如-1&lt;/li&gt;
+&lt;li&gt;go中变量名和函数返回值都是写在变量名和函数返回值的后面&lt;/li&gt;
+&lt;li&gt;go是面向接口编程&lt;/li&gt;
+&lt;li&gt;go中的const可以定义枚举类型&lt;/li&gt;
+&lt;li&gt;c++, java抛异常都是用throw, go 用panic, python用raise&lt;/li&gt;
+&lt;/ul&gt;
+&lt;h2 id=&#34;go提供的数据结构&#34;&gt;go提供的数据结构&lt;/h2&gt;
+&lt;h4 id=&#34;1-数组&#34;&gt;1. 数组&lt;/h4&gt;
+&lt;p&gt;&lt;code&gt;var arr [3]int&lt;/code&gt;&lt;/p&gt;
+&lt;h4 id=&#34;2-切片slice&#34;&gt;2. 切片(slice)&lt;/h4&gt;
+&lt;p&gt;动态数组&lt;code&gt;var arr []int&lt;/code&gt;&lt;/p&gt;
+&lt;h4 id=&#34;3-映射&#34;&gt;3. 映射&lt;/h4&gt;
+&lt;p&gt;map: 底层用哈希表实现
+声明并初始化：&lt;code&gt;m := map[string]int {&amp;quot;one&amp;quot;: 1, &amp;quot;two: 2}&lt;/code&gt;
+map的打印顺序是无法确定的，是随机的，是一种无序的键值对集合。
+go中没有有序的键值对集合，可以使用slice和struct实现有序的键值对结合。&lt;/p&gt;
+&lt;h3 id=&#34;关键字&#34;&gt;关键字&lt;/h3&gt;
+&lt;h4 id=&#34;1-make&#34;&gt;1. make&lt;/h4&gt;
+&lt;p&gt;make 是一个用来创建某些类型的引用对象的内建函数。
+具体来说，make 用于创建 slice、map 和 channel 类型的对象，而不是创建值类型的对象（例如 int、float 等）。
+make后才会分配内存空间。&lt;/p&gt;
+&lt;h2 id=&#34;go并发&#34;&gt;go并发&lt;/h2&gt;
+&lt;h4 id=&#34;1-go关键字&#34;&gt;1. go关键字&lt;/h4&gt;
+&lt;p&gt;Go 允许使用 go 语句开启一个新的运行期线程， 即 goroutine(协程)，以一个不同的、新创建的 goroutine 来执行一个函数。 同一个程序中的所有 goroutine 共享同一个地址空间。&lt;/p&gt;
+&lt;h4 id=&#34;2-channel关键字&#34;&gt;2. channel关键字&lt;/h4&gt;
+&lt;p&gt;默认情况下，通道是不带缓冲区的。发送端发送数据，同时必须有接收端相应的接收数据。&lt;/p&gt;
+&lt;p&gt;如果通道不带缓冲，发送方会阻塞直到接收方从通道中接收了值。如果通道带缓冲，发送方则会阻塞直到发送的值被拷贝到缓冲区内；如果缓冲区已满，则意味着需要等待直到某个接收方获取到一个值。接收方在有值可以接收之前会一直阻塞。&lt;/p&gt;
+&lt;p&gt;带缓冲区的通道允许发送端的数据发送和接收端的数据获取处于异步状态，就是说发送端发送的数据可以放在缓冲区里面，可以等待接收端去获取数据，而不是立刻需要接收端去获取数据。&lt;/p&gt;
+&lt;p&gt;总结：goroutine之间的通信可以通过channel来实现。&lt;/p&gt;
+&lt;h2 id=&#34;go面向接口编程&#34;&gt;go面向接口编程&lt;/h2&gt;
+&lt;p&gt;在 Go 语言中，如果要继承一个接口，你只需要在结构体中实现该接口声明的所有方法。
+这种依靠实现方法匹配度的继承方式，就是鸭子类型：如果一个动物看起来像鸭子，叫起来也像鸭子，那它一定是鸭子。&lt;/p&gt;
+&lt;div class=&#34;highlight&#34;&gt;&lt;div class=&#34;chroma&#34;&gt;
+&lt;table class=&#34;lntable&#34;&gt;&lt;tr&gt;&lt;td class=&#34;lntd&#34;&gt;
+&lt;pre tabindex=&#34;0&#34; class=&#34;chroma&#34;&gt;&lt;code&gt;&lt;span class=&#34;lnt&#34;&gt; 1
+&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt; 2
+&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt; 3
+&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt; 4
+&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt; 5
+&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt; 6
+&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt; 7
+&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt; 8
+&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt; 9
+&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt;10
+&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt;11
+&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt;12
+&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt;13
+&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt;14
+&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt;15
+&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt;16
+&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt;17
+&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt;18
+&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt;19
+&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt;20
+&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt;21
+&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt;22
+&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt;23
+&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt;24
+&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt;25
+&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt;26
+&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt;27
+&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt;28
+&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt;29
+&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt;30
+&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt;31
+&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt;32
+&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt;33
+&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt;34
+&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt;35
+&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt;36
+&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt;37
+&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/td&gt;
+&lt;td class=&#34;lntd&#34;&gt;
+&lt;pre tabindex=&#34;0&#34; class=&#34;chroma&#34;&gt;&lt;code class=&#34;language-go&#34; data-lang=&#34;go&#34;&gt;&lt;span class=&#34;c1&#34;&gt;// 定义 Animal 接口
+&lt;/span&gt;&lt;span class=&#34;c1&#34;&gt;&lt;/span&gt;&lt;span class=&#34;kd&#34;&gt;interface&lt;/span&gt; &lt;span class=&#34;nx&#34;&gt;Animal&lt;/span&gt; &lt;span class=&#34;p&#34;&gt;{&lt;/span&gt;
+  &lt;span class=&#34;nf&#34;&gt;Eat&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;()&lt;/span&gt;  &lt;span class=&#34;c1&#34;&gt;// 声明 Eat 方法
+&lt;/span&gt;&lt;span class=&#34;c1&#34;&gt;&lt;/span&gt;  &lt;span class=&#34;nf&#34;&gt;Move&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;()&lt;/span&gt;  &lt;span class=&#34;c1&#34;&gt;// 声明 Move 方法
+&lt;/span&gt;&lt;span class=&#34;c1&#34;&gt;&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;}&lt;/span&gt;
+
+&lt;span class=&#34;c1&#34;&gt;// ==== 定义 Dog Start ====
+&lt;/span&gt;&lt;span class=&#34;c1&#34;&gt;// 定义 Dog 类
+&lt;/span&gt;&lt;span class=&#34;c1&#34;&gt;&lt;/span&gt;&lt;span class=&#34;kd&#34;&gt;type&lt;/span&gt; &lt;span class=&#34;nx&#34;&gt;Dog&lt;/span&gt; &lt;span class=&#34;kd&#34;&gt;struct&lt;/span&gt; &lt;span class=&#34;p&#34;&gt;{&lt;/span&gt;
+&lt;span class=&#34;p&#34;&gt;}&lt;/span&gt;
+
+&lt;span class=&#34;c1&#34;&gt;// 实现 Eat 方法
+&lt;/span&gt;&lt;span class=&#34;c1&#34;&gt;&lt;/span&gt;&lt;span class=&#34;kd&#34;&gt;func&lt;/span&gt; &lt;span class=&#34;p&#34;&gt;(&lt;/span&gt;&lt;span class=&#34;nx&#34;&gt;d&lt;/span&gt; &lt;span class=&#34;o&#34;&gt;*&lt;/span&gt;&lt;span class=&#34;nx&#34;&gt;Dog&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;)&lt;/span&gt; &lt;span class=&#34;nf&#34;&gt;Eat&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;()&lt;/span&gt; &lt;span class=&#34;p&#34;&gt;{&lt;/span&gt;
+  &lt;span class=&#34;nx&#34;&gt;fmt&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;.&lt;/span&gt;&lt;span class=&#34;nf&#34;&gt;Printf&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;(&lt;/span&gt;&lt;span class=&#34;s&#34;&gt;&amp;#34;Eating bones&amp;#34;&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;)&lt;/span&gt;
+&lt;span class=&#34;p&#34;&gt;}&lt;/span&gt;
+
+&lt;span class=&#34;c1&#34;&gt;// 实现 Move 方法
+&lt;/span&gt;&lt;span class=&#34;c1&#34;&gt;&lt;/span&gt;&lt;span class=&#34;kd&#34;&gt;func&lt;/span&gt; &lt;span class=&#34;p&#34;&gt;(&lt;/span&gt;&lt;span class=&#34;nx&#34;&gt;d&lt;/span&gt; &lt;span class=&#34;o&#34;&gt;*&lt;/span&gt;&lt;span class=&#34;nx&#34;&gt;Dog&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;)&lt;/span&gt; &lt;span class=&#34;nf&#34;&gt;Move&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;()&lt;/span&gt; &lt;span class=&#34;p&#34;&gt;{&lt;/span&gt;
+  &lt;span class=&#34;nx&#34;&gt;fmt&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;.&lt;/span&gt;&lt;span class=&#34;nf&#34;&gt;Printf&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;(&lt;/span&gt;&lt;span class=&#34;s&#34;&gt;&amp;#34;Moving with four legs&amp;#34;&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;)&lt;/span&gt;
+&lt;span class=&#34;p&#34;&gt;}&lt;/span&gt;
+&lt;span class=&#34;c1&#34;&gt;// ==== 定义 Dog End ====
+&lt;/span&gt;&lt;span class=&#34;c1&#34;&gt;&lt;/span&gt;
+&lt;span class=&#34;c1&#34;&gt;// ==== 定义 Human Start ====
+&lt;/span&gt;&lt;span class=&#34;c1&#34;&gt;// 定义 Human 类
+&lt;/span&gt;&lt;span class=&#34;c1&#34;&gt;&lt;/span&gt;&lt;span class=&#34;kd&#34;&gt;type&lt;/span&gt; &lt;span class=&#34;nx&#34;&gt;Human&lt;/span&gt; &lt;span class=&#34;kd&#34;&gt;struct&lt;/span&gt; &lt;span class=&#34;p&#34;&gt;{&lt;/span&gt;
+&lt;span class=&#34;p&#34;&gt;}&lt;/span&gt;
+
+&lt;span class=&#34;c1&#34;&gt;// 实现 Eat 方法
+&lt;/span&gt;&lt;span class=&#34;c1&#34;&gt;&lt;/span&gt;&lt;span class=&#34;kd&#34;&gt;func&lt;/span&gt; &lt;span class=&#34;p&#34;&gt;(&lt;/span&gt;&lt;span class=&#34;nx&#34;&gt;h&lt;/span&gt; &lt;span class=&#34;o&#34;&gt;*&lt;/span&gt;&lt;span class=&#34;nx&#34;&gt;Human&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;)&lt;/span&gt; &lt;span class=&#34;nf&#34;&gt;Eat&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;()&lt;/span&gt; &lt;span class=&#34;p&#34;&gt;{&lt;/span&gt;
+  &lt;span class=&#34;nx&#34;&gt;fmt&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;.&lt;/span&gt;&lt;span class=&#34;nf&#34;&gt;Printf&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;(&lt;/span&gt;&lt;span class=&#34;s&#34;&gt;&amp;#34;Eating rice&amp;#34;&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;)&lt;/span&gt;
+&lt;span class=&#34;p&#34;&gt;}&lt;/span&gt;
+
+&lt;span class=&#34;c1&#34;&gt;// 实现 Move 方法
+&lt;/span&gt;&lt;span class=&#34;c1&#34;&gt;&lt;/span&gt;&lt;span class=&#34;kd&#34;&gt;func&lt;/span&gt; &lt;span class=&#34;p&#34;&gt;(&lt;/span&gt;&lt;span class=&#34;nx&#34;&gt;h&lt;/span&gt; &lt;span class=&#34;o&#34;&gt;*&lt;/span&gt;&lt;span class=&#34;nx&#34;&gt;Human&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;)&lt;/span&gt; &lt;span class=&#34;nf&#34;&gt;Move&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;()&lt;/span&gt; &lt;span class=&#34;p&#34;&gt;{&lt;/span&gt;
+  &lt;span class=&#34;nx&#34;&gt;fmt&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;.&lt;/span&gt;&lt;span class=&#34;nf&#34;&gt;Printf&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;(&lt;/span&gt;&lt;span class=&#34;s&#34;&gt;&amp;#34;Moving with two legs&amp;#34;&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;)&lt;/span&gt;
+&lt;span class=&#34;p&#34;&gt;}&lt;/span&gt;
+&lt;span class=&#34;c1&#34;&gt;// ==== 定义 Human End ====
+&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;
+&lt;/div&gt;
+&lt;/div&gt;&lt;h2 id=&#34;go错误处理&#34;&gt;go错误处理&lt;/h2&gt;
+&lt;p&gt;Go 语言要求开发者自己管理错误，也就是在函数中的错误需要显式抛出来，否则 Go 程序不会做任何错误处理。因为 Go 没有传统编程语言的 try/catch 针对错误处理的语法，所以在错误管理上缺少灵活度，导致了 “err 满天飞” 的局面。&lt;/p&gt;
+&lt;p&gt;go错误处理的好处：第一，它强制要求 Go 语言开发者从代码层面来规范错误的管理方式，这驱使开发者写出更健壮的代码；第二，这种显式返回错误的方式避免了 “try/catch 一把梭”，因为这种 “一时爽” 的做法很可能导致 Bug 无法准确定位，从而产生很多不可预测的问题；第三，由于没有 try/catch 的括号或额外的代码块，Go 程序代码整体看起来更清爽，可读性较强。&lt;/p&gt;
+</description>
+        </item>
+        <item>
         <title>python库介绍</title>
         <link>https://jhrsya.github.io/p/python/</link>
         <pubDate>Thu, 04 May 2023 00:00:00 +0000</pubDate>
