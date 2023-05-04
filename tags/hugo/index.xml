@@ -1,0 +1,36 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+    <channel>
+        <title>hugo on steve lannister</title>
+        <link>https://jhrsya.github.io/tags/hugo/</link>
+        <description>Recent content in hugo on steve lannister</description>
+        <generator>Hugo -- gohugo.io</generator>
+        <language>en-us</language>
+        <lastBuildDate>Sun, 06 Mar 2022 00:00:00 +0000</lastBuildDate><atom:link href="https://jhrsya.github.io/tags/hugo/index.xml" rel="self" type="application/rss+xml" /><item>
+        <title>hugo-starter 生成静态页面</title>
+        <link>https://jhrsya.github.io/p/hello-world/</link>
+        <pubDate>Sun, 06 Mar 2022 00:00:00 +0000</pubDate>
+        
+        <guid>https://jhrsya.github.io/p/hello-world/</guid>
+        <description>&lt;img src="https://jhrsya.github.io/p/hello-world/cover.jpg" alt="Featured image of post hugo-starter 生成静态页面" /&gt;&lt;h1 id=&#34;在linux服务器上使用hugo生成静态网站&#34;&gt;在linux服务器上使用hugo生成静态网站&lt;/h1&gt;
+&lt;ol&gt;
+&lt;li&gt;安装hugo
+&lt;code&gt;apt-get install hugo&lt;/code&gt;&lt;/li&gt;
+&lt;li&gt;创建新站点
+&lt;code&gt;hugo new site &amp;lt;site-name&amp;gt;&lt;/code&gt;&lt;/li&gt;
+&lt;li&gt;下载站点主题
+&lt;a class=&#34;link&#34; href=&#34;https://themes.gohugo.io/&#34;  target=&#34;_blank&#34; rel=&#34;noopener&#34;
+    &gt;网站&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;以主题stack为例
+&lt;a class=&#34;link&#34; href=&#34;https://github.com/CaiJimmy/hugo-theme-stack&#34;  target=&#34;_blank&#34; rel=&#34;noopener&#34;
+    &gt;链接&lt;/a&gt;
+可以通过下载&lt;a class=&#34;link&#34; href=&#34;https://github.com/CaiJimmy/hugo-theme-stack-starter&#34;  target=&#34;_blank&#34; rel=&#34;noopener&#34;
+    &gt;quickstart&lt;/a&gt;来实现快速配置
+下载下来后，可以直接使用&lt;code&gt;hugo server -D&lt;/code&gt;来查看效果。
+要在本地浏览器中打开，必须要使用&lt;code&gt;ssh -L 1313:localhost:1313 &amp;lt;username&amp;gt;@&amp;lt;server-ip&amp;gt;&lt;/code&gt;来建立一个通道，此时可以打开&lt;code&gt;localhost:1313&lt;/code&gt;查看网站demo。&lt;/li&gt;
+&lt;/ol&gt;
+</description>
+        </item>
+        
+    </channel>
+</rss>

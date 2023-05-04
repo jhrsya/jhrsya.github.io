@@ -1,0 +1,1152 @@
+<!DOCTYPE html>
+<html lang="en-us" dir="ltr">
+    <head><meta charset='utf-8'>
+<meta name='viewport' content='width=device-width, initial-scale=1'><meta name='description' content='cpp笔记'>
+<title>cpp_notes</title>
+
+<link rel='canonical' href='https://jhrsya.github.io/p/cpp/'>
+
+<link rel="stylesheet" href="/scss/style.min.8191399262444ab68b72a18c97392f5349be20a1615d77445be51e974c144cff.css"><meta property='og:title' content='cpp_notes'>
+<meta property='og:description' content='cpp笔记'>
+<meta property='og:url' content='https://jhrsya.github.io/p/cpp/'>
+<meta property='og:site_name' content='steve lannister'>
+<meta property='og:type' content='article'><meta property='article:section' content='Post' /><meta property='article:tag' content='cpp' /><meta property='article:published_time' content='2023-05-04T00:00:00&#43;00:00'/><meta property='article:modified_time' content='2023-05-04T00:00:00&#43;00:00'/>
+<meta name="twitter:title" content="cpp_notes">
+<meta name="twitter:description" content="cpp笔记">
+    </head>
+    <body class="
+    article-page
+    ">
+    <script>
+        (function() {
+            const colorSchemeKey = 'StackColorScheme';
+            if(!localStorage.getItem(colorSchemeKey)){
+                localStorage.setItem(colorSchemeKey, "auto");
+            }
+        })();
+    </script><script>
+    (function() {
+        const colorSchemeKey = 'StackColorScheme';
+        const colorSchemeItem = localStorage.getItem(colorSchemeKey);
+        const supportDarkMode = window.matchMedia('(prefers-color-scheme: dark)').matches === true;
+
+        if (colorSchemeItem == 'dark' || colorSchemeItem === 'auto' && supportDarkMode) {
+            
+
+            document.documentElement.dataset.scheme = 'dark';
+        } else {
+            document.documentElement.dataset.scheme = 'light';
+        }
+    })();
+</script>
+<div class="container main-container flex on-phone--column extended"><aside class="sidebar left-sidebar sticky ">
+    <button class="hamburger hamburger--spin" type="button" id="toggle-menu" aria-label="切换菜单">
+        <span class="hamburger-box">
+            <span class="hamburger-inner"></span>
+        </span>
+    </button>
+
+    <header>
+        
+            
+            <figure class="site-avatar">
+                <a href="/">
+                
+                    
+                    
+                    
+                        
+                        <img src="/img/avatar_hu75249b9e118adc4b16bd3e4fa099a7b0_35085_300x0_resize_box_3.png" width="300"
+                            height="300" class="site-logo" loading="lazy" alt="Avatar">
+                    
+                
+                </a>
+                
+                    <span class="emoji">🍥</span>
+                
+            </figure>
+            
+        
+        
+        <div class="site-meta">
+            <h1 class="site-name"><a href="/">steve lannister</a></h1>
+            <h2 class="site-description">to be or not to be, it is a problem</h2>
+        </div>
+    </header><ol class="social-menu">
+            
+                <li>
+                    <a 
+                        href='https://github.com/jhrsya'
+                        target="_blank"
+                        title="GitHub"
+                        rel="me"
+                    >
+                        
+                        
+                            <svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-brand-github" width="24" height="24" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round">
+  <path stroke="none" d="M0 0h24v24H0z" fill="none"/>
+  <path d="M9 19c-4.3 1.4 -4.3 -2.5 -6 -3m12 5v-3.5c0 -1 .1 -1.4 -.5 -2c2.8 -.3 5.5 -1.4 5.5 -6a4.6 4.6 0 0 0 -1.3 -3.2a4.2 4.2 0 0 0 -.1 -3.2s-1.1 -.3 -3.5 1.3a12.3 12.3 0 0 0 -6.2 0c-2.4 -1.6 -3.5 -1.3 -3.5 -1.3a4.2 4.2 0 0 0 -.1 3.2a4.6 4.6 0 0 0 -1.3 3.2c0 4.6 2.7 5.7 5.5 6c-.6 .6 -.6 1.2 -.5 2v3.5" />
+</svg>
+
+
+
+                        
+                    </a>
+                </li>
+            
+                <li>
+                    <a 
+                        href='https://twitter.com'
+                        target="_blank"
+                        title="Twitter"
+                        rel="me"
+                    >
+                        
+                        
+                            <svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-brand-twitter" width="24" height="24" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round">
+  <path stroke="none" d="M0 0h24v24H0z" fill="none"/>
+  <path d="M22 4.01c-1 .49 -1.98 .689 -3 .99c-1.121 -1.265 -2.783 -1.335 -4.38 -.737s-2.643 2.06 -2.62 3.737v1c-3.245 .083 -6.135 -1.395 -8 -4c0 0 -4.182 7.433 4 11c-1.872 1.247 -3.739 2.088 -6 2c3.308 1.803 6.913 2.423 10.034 1.517c3.58 -1.04 6.522 -3.723 7.651 -7.742a13.84 13.84 0 0 0 .497 -3.753c-.002 -.249 1.51 -2.772 1.818 -4.013z" />
+</svg>
+
+
+
+                        
+                    </a>
+                </li>
+            
+        </ol><ol class="menu" id="main-menu">
+        
+        
+        
+
+        <li >
+            <a href='/' >
+                
+                
+                
+                    <svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-home" width="24" height="24" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round">
+  <path stroke="none" d="M0 0h24v24H0z"/>
+  <polyline points="5 12 3 12 12 3 21 12 19 12" />
+  <path d="M5 12v7a2 2 0 0 0 2 2h10a2 2 0 0 0 2 -2v-7" />
+  <path d="M9 21v-6a2 2 0 0 1 2 -2h2a2 2 0 0 1 2 2v6" />
+</svg>
+
+
+
+                
+                <span>Home</span>
+            </a>
+        </li>
+        
+        
+
+        <li >
+            <a href='/archives/' >
+                
+                
+                
+                    <svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-archive" width="24" height="24" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round">
+  <path stroke="none" d="M0 0h24v24H0z"/>
+  <rect x="3" y="4" width="18" height="4" rx="2" />
+  <path d="M5 8v10a2 2 0 0 0 2 2h10a2 2 0 0 0 2 -2v-10" />
+  <line x1="10" y1="12" x2="14" y2="12" />
+</svg>
+
+
+
+                
+                <span>Archives</span>
+            </a>
+        </li>
+        
+        
+
+        <li >
+            <a href='/search/' >
+                
+                
+                
+                    <svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-search" width="24" height="24" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round">
+  <path stroke="none" d="M0 0h24v24H0z"/>
+  <circle cx="10" cy="10" r="7" />
+  <line x1="21" y1="21" x2="15" y2="15" />
+</svg>
+
+
+
+                
+                <span>Search</span>
+            </a>
+        </li>
+        
+        
+
+        <li >
+            <a href='/links/' >
+                
+                
+                
+                    <svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-link" width="24" height="24" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round">
+  <path stroke="none" d="M0 0h24v24H0z"/>
+  <path d="M10 14a3.5 3.5 0 0 0 5 0l4 -4a3.5 3.5 0 0 0 -5 -5l-.5 .5" />
+  <path d="M14 10a3.5 3.5 0 0 0 -5 0l-4 4a3.5 3.5 0 0 0 5 5l.5 -.5" />
+</svg>
+
+
+
+                
+                <span>Links</span>
+            </a>
+        </li>
+        
+
+        <div class="menu-bottom-section">
+            
+            
+                <li id="dark-mode-toggle">
+                    <svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-toggle-left" width="24" height="24" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round">
+  <path stroke="none" d="M0 0h24v24H0z"/>
+  <circle cx="8" cy="12" r="2" />
+  <rect x="2" y="6" width="20" height="12" rx="6" />
+</svg>
+
+
+
+                    <svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-toggle-right" width="24" height="24" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round">
+  <path stroke="none" d="M0 0h24v24H0z"/>
+  <circle cx="16" cy="12" r="2" />
+  <rect x="2" y="6" width="20" height="12" rx="6" />
+</svg>
+
+
+
+                    <span>暗色模式</span>
+                </li>
+            
+        </div>
+    </ol>
+</aside>
+
+    <aside class="sidebar right-sidebar sticky">
+        
+            
+                
+    <section class="widget archives">
+        <div class="widget-icon">
+            <svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-hash" width="24" height="24" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round">
+  <path stroke="none" d="M0 0h24v24H0z"/>
+  <line x1="5" y1="9" x2="19" y2="9" />
+  <line x1="5" y1="15" x2="19" y2="15" />
+  <line x1="11" y1="4" x2="7" y2="20" />
+  <line x1="17" y1="4" x2="13" y2="20" />
+</svg>
+
+
+
+        </div>
+        <h2 class="widget-title section-title">目录</h2>
+        
+        <div class="widget--toc">
+            <nav id="TableOfContents">
+  <ol>
+    <li><a href="#关键字">关键字</a>
+      <ol>
+        <li><a href="#1-volatile">1. volatile</a></li>
+        <li><a href="#2-override">2. override</a></li>
+        <li><a href="#3-final">3. final</a></li>
+        <li><a href="#4-explicit">4. explicit</a></li>
+        <li><a href="#5-static">5. static</a></li>
+      </ol>
+    </li>
+    <li><a href="#拷贝构造函数和拷贝赋值函数">拷贝构造函数和拷贝赋值函数</a></li>
+    <li><a href="#野指针和悬空指针">野指针和悬空指针</a></li>
+    <li><a href="#内联函数和宏定义的区别">内联函数和宏定义的区别</a></li>
+    <li><a href="#volatilemutable和explicit关键字的用法">volatile、mutable和explicit关键字的用法</a></li>
+    <li><a href="#raii资源获取即初始化">RAII(资源获取即初始化)</a></li>
+    <li><a href="#零拷贝">零拷贝</a></li>
+    <li><a href="#右值">右值</a></li>
+    <li><a href="#组合">组合</a></li>
+    <li><a href="#函数指针">函数指针</a></li>
+    <li><a href="#内存对齐">内存对齐</a></li>
+    <li><a href="#共享内存的实现方式">共享内存的实现方式</a></li>
+  </ol>
+</nav>
+        </div>
+    </section>
+
+            
+        
+    </aside>
+
+
+            <main class="main full-width">
+    <article class="main-article">
+    <header class="article-header">
+
+    <div class="article-details">
+    
+    <header class="article-category">
+        
+            <a href="/categories/cpp/" >
+                cpp
+            </a>
+        
+    </header>
+    
+
+    <div class="article-title-wrapper">
+        <h2 class="article-title">
+            <a href="/p/cpp/">cpp_notes</a>
+        </h2>
+    
+        
+        <h3 class="article-subtitle">
+            cpp笔记
+        </h3>
+        
+    </div>
+
+    
+    
+    
+    
+    <footer class="article-time">
+        
+            <div>
+                <svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-calendar-time" width="56" height="56" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round">
+  <path stroke="none" d="M0 0h24v24H0z"/>
+  <path d="M11.795 21h-6.795a2 2 0 0 1 -2 -2v-12a2 2 0 0 1 2 -2h12a2 2 0 0 1 2 2v4" />
+  <circle cx="18" cy="18" r="4" />
+  <path d="M15 3v4" />
+  <path d="M7 3v4" />
+  <path d="M3 11h16" />
+  <path d="M18 16.496v1.504l1 1" />
+</svg>
+                <time class="article-time--published">May 04, 2023</time>
+            </div>
+        
+
+        
+            <div>
+                <svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-clock" width="24" height="24" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round">
+  <path stroke="none" d="M0 0h24v24H0z"/>
+  <circle cx="12" cy="12" r="9" />
+  <polyline points="12 7 12 12 15 15" />
+</svg>
+
+
+
+                <time class="article-time--reading">
+                    阅读时长: 5 分钟
+                </time>
+            </div>
+        
+    </footer>
+    
+
+    
+</div>
+
+</header>
+
+    <section class="article-content">
+    
+    
+    <h1 id="cpp">cpp</h1>
+<h2 id="关键字">关键字</h2>
+<h3 id="1-volatile">1. volatile</h3>
+<p>volatile 关键字是一种类型修饰符，用它声明的类型变量表示可以被某些编译器未知的因素更改。</p>
+<h3 id="2-override">2. override</h3>
+<p>告诉编译器一定是重写了父类的函数，不然就会报错。</p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre tabindex="0" class="chroma"><code><span class="lnt">1
+</span><span class="lnt">2
+</span><span class="lnt">3
+</span><span class="lnt">4
+</span><span class="lnt">5
+</span><span class="lnt">6
+</span><span class="lnt">7
+</span><span class="lnt">8
+</span><span class="lnt">9
+</span></code></pre></td>
+<td class="lntd">
+<pre tabindex="0" class="chroma"><code class="language-c++" data-lang="c++"><span class="k">class</span> <span class="nc">A</span>
+<span class="p">{</span>
+    <span class="k">virtual</span> <span class="kt">void</span> <span class="nf">foo</span><span class="p">();</span>
+<span class="p">};</span>
+<span class="k">class</span> <span class="nc">B</span> <span class="o">:</span> <span class="k">public</span> <span class="n">A</span>
+<span class="p">{</span>
+    <span class="k">virtual</span> <span class="kt">void</span> <span class="nf">f00</span><span class="p">();</span> <span class="c1">//OK，这个函数是B新增的，不是继承的
+</span><span class="c1"></span>    <span class="k">virtual</span> <span class="kt">void</span> <span class="nf">f0o</span><span class="p">()</span> <span class="k">override</span><span class="p">;</span> <span class="c1">//Error, 加了override之后，这个函数一定是继承自A的，A找不到就报错
+</span><span class="c1"></span><span class="p">};</span>
+</code></pre></td></tr></table>
+</div>
+</div><h3 id="3-final">3. final</h3>
+<p>当不希望某个类被继承，或不希望某个虚函数被重写，可以在类名和虚函数后添加final关键字，添加final关键字后被继承或重写，编译器会报错。</p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre tabindex="0" class="chroma"><code><span class="lnt"> 1
+</span><span class="lnt"> 2
+</span><span class="lnt"> 3
+</span><span class="lnt"> 4
+</span><span class="lnt"> 5
+</span><span class="lnt"> 6
+</span><span class="lnt"> 7
+</span><span class="lnt"> 8
+</span><span class="lnt"> 9
+</span><span class="lnt">10
+</span><span class="lnt">11
+</span><span class="lnt">12
+</span><span class="lnt">13
+</span><span class="lnt">14
+</span><span class="lnt">15
+</span><span class="lnt">16
+</span><span class="lnt">17
+</span><span class="lnt">18
+</span></code></pre></td>
+<td class="lntd">
+<pre tabindex="0" class="chroma"><code class="language-c++" data-lang="c++"><span class="k">class</span> <span class="nc">Base</span>
+<span class="p">{</span>
+    <span class="k">virtual</span> <span class="kt">void</span> <span class="nf">foo</span><span class="p">();</span>
+<span class="p">};</span>
+ 
+<span class="k">class</span> <span class="nc">A</span> <span class="o">:</span> <span class="k">public</span> <span class="n">Base</span>
+<span class="p">{</span>
+    <span class="kt">void</span> <span class="nf">foo</span><span class="p">()</span> <span class="k">final</span><span class="p">;</span> <span class="c1">// foo 被override并且是最后一个override，在其子类中不可以重写
+</span><span class="c1"></span><span class="p">};</span>
+
+<span class="k">class</span> <span class="nc">B</span> <span class="k">final</span> <span class="o">:</span> <span class="n">A</span> <span class="c1">// 指明B是不可以被继承的
+</span><span class="c1"></span><span class="p">{</span>
+    <span class="kt">void</span> <span class="nf">foo</span><span class="p">()</span> <span class="k">override</span><span class="p">;</span> <span class="c1">// Error: 在A中已经被final了
+</span><span class="c1"></span><span class="p">};</span>
+ 
+<span class="k">class</span> <span class="nc">C</span> <span class="o">:</span> <span class="n">B</span> <span class="c1">// Error: B is final
+</span><span class="c1"></span><span class="p">{</span>
+<span class="p">};</span>
+</code></pre></td></tr></table>
+</div>
+</div><h3 id="4-explicit">4. explicit</h3>
+<p>explicit修饰构造函数时，如果构造函数存在隐式转换，编译时会报错。只能显示的使用构造函数。</p>
+<h3 id="5-static">5. static</h3>
+<p>当static用于变量时，它可以用于控制变量的可见范围。具体来说，如果一个变量被声明为static，那么它只能在当前文件中使用，而无法被其他文件访问。这样可以防止变量被意外修改或者在不同的文件中出现命名冲突。</p>
+<p>当static用于函数时，它可以用于控制函数的可见范围。具体来说，如果一个函数被声明为static，那么它只能在当前文件中使用，而无法被其他文件调用。这样可以确保函数只被用于当前文件，避免了函数名冲突和重复定义的问题。</p>
+<p>需要注意的是，static还可以用于类的成员变量和成员函数，此时它的作用类似于在全局作用域下的变量和函数。对于static成员变量，所有类的实例都共享同一个变量，对它的修改会影响所有实例。对于static成员函数，它不会访问任何实例数据，也不需要this指针，因此可以直接通过类名来调用。</p>
+<h2 id="拷贝构造函数和拷贝赋值函数">拷贝构造函数和拷贝赋值函数</h2>
+<p>都是将一个对象的值复制给另一个对象；但是其结果却有些不同，拷贝构造函数使用传入对象的值生成一个<strong>新的对象的实例</strong>，而赋值运算符是将对象的值复制给一个<strong>已经存在的实例</strong>。</p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre tabindex="0" class="chroma"><code><span class="lnt"> 1
+</span><span class="lnt"> 2
+</span><span class="lnt"> 3
+</span><span class="lnt"> 4
+</span><span class="lnt"> 5
+</span><span class="lnt"> 6
+</span><span class="lnt"> 7
+</span><span class="lnt"> 8
+</span><span class="lnt"> 9
+</span><span class="lnt">10
+</span><span class="lnt">11
+</span><span class="lnt">12
+</span><span class="lnt">13
+</span><span class="lnt">14
+</span><span class="lnt">15
+</span><span class="lnt">16
+</span><span class="lnt">17
+</span><span class="lnt">18
+</span><span class="lnt">19
+</span><span class="lnt">20
+</span><span class="lnt">21
+</span><span class="lnt">22
+</span><span class="lnt">23
+</span><span class="lnt">24
+</span><span class="lnt">25
+</span><span class="lnt">26
+</span><span class="lnt">27
+</span><span class="lnt">28
+</span><span class="lnt">29
+</span><span class="lnt">30
+</span><span class="lnt">31
+</span><span class="lnt">32
+</span><span class="lnt">33
+</span><span class="lnt">34
+</span><span class="lnt">35
+</span><span class="lnt">36
+</span><span class="lnt">37
+</span><span class="lnt">38
+</span><span class="lnt">39
+</span><span class="lnt">40
+</span><span class="lnt">41
+</span><span class="lnt">42
+</span><span class="lnt">43
+</span><span class="lnt">44
+</span><span class="lnt">45
+</span><span class="lnt">46
+</span><span class="lnt">47
+</span></code></pre></td>
+<td class="lntd">
+<pre tabindex="0" class="chroma"><code class="language-c++" data-lang="c++"><span class="cp">#include</span> <span class="cpf">&lt;cstring&gt;</span><span class="cp">
+</span><span class="cp"></span>
+<span class="k">class</span> <span class="nc">MyString</span> <span class="p">{</span>
+<span class="k">public</span><span class="o">:</span>
+    <span class="c1">// 构造函数
+</span><span class="c1"></span>    <span class="n">MyString</span><span class="p">()</span> <span class="p">{</span>
+        <span class="n">m_data</span> <span class="o">=</span> <span class="k">new</span> <span class="kt">char</span><span class="p">[</span><span class="mi">1</span><span class="p">];</span>
+        <span class="o">*</span><span class="n">m_data</span> <span class="o">=</span> <span class="sc">&#39;\0&#39;</span><span class="p">;</span>
+    <span class="p">}</span>
+
+    <span class="n">MyString</span><span class="p">(</span><span class="k">const</span> <span class="kt">char</span><span class="o">*</span> <span class="n">str</span><span class="p">)</span> <span class="p">{</span>
+        <span class="k">if</span> <span class="p">(</span><span class="n">str</span> <span class="o">==</span> <span class="k">nullptr</span><span class="p">)</span> <span class="p">{</span>
+            <span class="n">m_data</span> <span class="o">=</span> <span class="k">new</span> <span class="kt">char</span><span class="p">[</span><span class="mi">1</span><span class="p">];</span>
+            <span class="o">*</span><span class="n">m_data</span> <span class="o">=</span> <span class="sc">&#39;\0&#39;</span><span class="p">;</span>
+        <span class="p">}</span> <span class="k">else</span> <span class="p">{</span>
+            <span class="kt">int</span> <span class="n">len</span> <span class="o">=</span> <span class="n">strlen</span><span class="p">(</span><span class="n">str</span><span class="p">);</span>
+            <span class="n">m_data</span> <span class="o">=</span> <span class="k">new</span> <span class="kt">char</span><span class="p">[</span><span class="n">len</span> <span class="o">+</span> <span class="mi">1</span><span class="p">];</span>
+            <span class="n">strcpy</span><span class="p">(</span><span class="n">m_data</span><span class="p">,</span> <span class="n">str</span><span class="p">);</span>
+        <span class="p">}</span>
+    <span class="p">}</span>
+
+    <span class="c1">// 拷贝构造函数
+</span><span class="c1"></span>    <span class="n">MyString</span><span class="p">(</span><span class="k">const</span> <span class="n">MyString</span><span class="o">&amp;</span> <span class="n">other</span><span class="p">)</span> <span class="p">{</span>
+        <span class="kt">int</span> <span class="n">len</span> <span class="o">=</span> <span class="n">strlen</span><span class="p">(</span><span class="n">other</span><span class="p">.</span><span class="n">m_data</span><span class="p">);</span>
+        <span class="n">m_data</span> <span class="o">=</span> <span class="k">new</span> <span class="kt">char</span><span class="p">[</span><span class="n">len</span> <span class="o">+</span> <span class="mi">1</span><span class="p">];</span>
+        <span class="n">strcpy</span><span class="p">(</span><span class="n">m_data</span><span class="p">,</span> <span class="n">other</span><span class="p">.</span><span class="n">m_data</span><span class="p">);</span>
+    <span class="p">}</span>
+
+    <span class="c1">// 拷贝赋值函数
+</span><span class="c1"></span>    <span class="n">MyString</span><span class="o">&amp;</span> <span class="k">operator</span><span class="o">=</span><span class="p">(</span><span class="k">const</span> <span class="n">MyString</span><span class="o">&amp;</span> <span class="n">other</span><span class="p">)</span> <span class="p">{</span>
+        <span class="k">if</span> <span class="p">(</span><span class="k">this</span> <span class="o">!=</span> <span class="o">&amp;</span><span class="n">other</span><span class="p">)</span> <span class="p">{</span>
+            <span class="kt">char</span><span class="o">*</span> <span class="n">tmp</span> <span class="o">=</span> <span class="k">new</span> <span class="kt">char</span><span class="p">[</span><span class="n">strlen</span><span class="p">(</span><span class="n">other</span><span class="p">.</span><span class="n">m_data</span><span class="p">)</span> <span class="o">+</span> <span class="mi">1</span><span class="p">];</span>
+            <span class="n">strcpy</span><span class="p">(</span><span class="n">tmp</span><span class="p">,</span> <span class="n">other</span><span class="p">.</span><span class="n">m_data</span><span class="p">);</span>
+            <span class="k">delete</span><span class="p">[]</span> <span class="n">m_data</span><span class="p">;</span>
+            <span class="n">m_data</span> <span class="o">=</span> <span class="n">tmp</span><span class="p">;</span>
+        <span class="p">}</span>
+        <span class="k">return</span> <span class="o">*</span><span class="k">this</span><span class="p">;</span>
+    <span class="p">}</span>
+
+    <span class="c1">// 析构函数
+</span><span class="c1"></span>    <span class="o">~</span><span class="n">MyString</span><span class="p">()</span> <span class="p">{</span>
+        <span class="k">delete</span><span class="p">[]</span> <span class="n">m_data</span><span class="p">;</span>
+    <span class="p">}</span>
+
+<span class="k">private</span><span class="o">:</span>
+    <span class="kt">char</span><span class="o">*</span> <span class="n">m_data</span><span class="p">;</span>
+<span class="p">};</span>
+</code></pre></td></tr></table>
+</div>
+</div><h2 id="野指针和悬空指针">野指针和悬空指针</h2>
+<p><strong>野指针</strong>：没有被初始化的指针。
+<strong>悬空指针</strong>：最初指向的内存已经被释放了的一种指针。</p>
+<p>产生原因及解决办法：
+野指针：指针变量未及时初始化 =&gt; 定义指针变量及时初始化，要么置空。
+悬空指针：指针free或delete之后没有及时置空 =&gt; 释放操作后立即置空。</p>
+<h2 id="内联函数和宏定义的区别">内联函数和宏定义的区别</h2>
+<ul>
+<li>在使用时，宏只做简单字符串替换（编译前）。而内联函数可以进行参数类型检查（编译时），且具有返回值。</li>
+<li>内联函数在编译时直接将函数代码嵌入到目标代码中，省去函数调用的开销来提高执行效率，并且进行参数类型检查，具有返回值，可以实现重载。</li>
+<li>宏定义时要注意书写（参数要括起来）否则容易出现歧义，内联函数不会产生歧义。</li>
+<li>内联函数有类型检测、语法判断等功能，而宏没有。</li>
+</ul>
+<p>内联函数适用场景:</p>
+<ul>
+<li>使用宏定义的地方都可以使用 inline 函数。</li>
+<li>作为类成员接口函数来读写类的私有成员或者保护成员，会提高效率。</li>
+</ul>
+<p>在 Java 中，可以使用关键字 final 来修饰方法，使其成为 final 方法，从而在编译期间实现类似于 inline 函数的效果。final 方法在编译期间会被直接替换到调用该方法的地方，而不是像普通方法一样需要在运行时才能动态绑定。</p>
+<p>在 Go 语言中，没有类似于 C++ 中的 inline 关键字，但是 Go 编译器会在适当的情况下自动将函数内联。Go 编译器会在编译时进行函数内联，这样可以减少函数调用的开销，提高程序的执行效率。</p>
+<h2 id="volatilemutable和explicit关键字的用法">volatile、mutable和explicit关键字的用法</h2>
+<p>volatile定义变量的值是易变的，每次用到这个变量的值的时候都要去重新读取这个变量的值，而不是读寄存器内的备份。多线程中被几个任务共享的变量需要定义为volatile类型。</p>
+<p>mutable表示可变的，在常函数里也可以被修改。</p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre tabindex="0" class="chroma"><code><span class="lnt"> 1
+</span><span class="lnt"> 2
+</span><span class="lnt"> 3
+</span><span class="lnt"> 4
+</span><span class="lnt"> 5
+</span><span class="lnt"> 6
+</span><span class="lnt"> 7
+</span><span class="lnt"> 8
+</span><span class="lnt"> 9
+</span><span class="lnt">10
+</span><span class="lnt">11
+</span><span class="lnt">12
+</span><span class="lnt">13
+</span><span class="lnt">14
+</span><span class="lnt">15
+</span><span class="lnt">16
+</span><span class="lnt">17
+</span><span class="lnt">18
+</span><span class="lnt">19
+</span><span class="lnt">20
+</span><span class="lnt">21
+</span><span class="lnt">22
+</span><span class="lnt">23
+</span></code></pre></td>
+<td class="lntd">
+<pre tabindex="0" class="chroma"><code class="language-c++" data-lang="c++"><span class="k">class</span> <span class="nc">person</span>
+<span class="p">{</span>
+<span class="kt">int</span> <span class="n">m_A</span><span class="p">;</span>
+<span class="k">mutable</span> <span class="kt">int</span> <span class="n">m_B</span><span class="p">;</span><span class="c1">//特殊变量 在常函数里值也可以被修改
+</span><span class="c1"></span><span class="k">public</span><span class="o">:</span>
+     <span class="kt">void</span> <span class="n">add</span><span class="p">()</span> <span class="k">const</span><span class="c1">//在函数里不可修改this指针指向的值 常量指针
+</span><span class="c1"></span>     <span class="p">{</span>
+        <span class="n">m_A</span><span class="o">=</span><span class="mi">10</span><span class="p">;</span><span class="c1">//错误  不可修改值，this已经被修饰为常量指针
+</span><span class="c1"></span>        <span class="n">m_B</span><span class="o">=</span><span class="mi">20</span><span class="p">;</span><span class="c1">//正确
+</span><span class="c1"></span>     <span class="p">}</span>
+<span class="p">}</span>
+
+<span class="k">class</span> <span class="nc">person</span>
+<span class="p">{</span>
+<span class="kt">int</span> <span class="n">m_A</span><span class="p">;</span>
+<span class="k">mutable</span> <span class="kt">int</span> <span class="n">m_B</span><span class="p">;</span><span class="c1">//特殊变量 在常函数里值也可以被修改
+</span><span class="c1"></span><span class="p">}</span>
+<span class="kt">int</span> <span class="nf">main</span><span class="p">()</span>
+<span class="p">{</span>
+<span class="k">const</span> <span class="n">person</span> <span class="n">p</span><span class="p">;</span><span class="c1">//修饰常对象 不可修改类成员的值
+</span><span class="c1"></span><span class="n">p</span><span class="p">.</span><span class="n">m_A</span><span class="o">=</span><span class="mi">10</span><span class="p">;</span><span class="c1">//错误，被修饰了指针常量
+</span><span class="c1"></span><span class="n">p</span><span class="p">.</span><span class="n">m_B</span><span class="o">=</span><span class="mi">200</span><span class="p">;</span><span class="c1">//正确，特殊变量，修饰了mutable
+</span><span class="c1"></span><span class="p">}</span>
+</code></pre></td></tr></table>
+</div>
+</div><p>explicit关键字用来修饰类的构造函数，被修饰的构造函数的类，不能发生相应的隐式类型转换，只能以显示的方式进行类型转换，注意以下几点：</p>
+<ul>
+<li>explicit 关键字只能用于类内部的构造函数声明上</li>
+<li>explicit 关键字作用于单个参数的构造函数</li>
+<li>被explicit修饰的构造函数的类，不能发生相应的隐式类型转换</li>
+</ul>
+<h2 id="raii资源获取即初始化">RAII(资源获取即初始化)</h2>
+<p>原因：在对象初始化时，如果调用构造函数时发生了异常，这之前已经调用了operator new函数分配了内存，那么就会导致内存泄漏，解决方法是使用try-catch块来捕获构造函数中的异常，并在发生异常时显式地调用 operator delete 函数以释放已分配的内存。</p>
+<p>但是上面的解决方案显然太麻烦，可以使用RAII来解决这个问题。
+RAII（资源获取即初始化）是一种C++编程技术，它利用了对象的生命周期来管理资源。通过在对象的构造函数中获取资源，在对象的析构函数中释放资源，可以确保在任何情况下都能正确地释放资源，从而避免内存泄漏等问题。</p>
+<p>当 RAII 对象被创建时，构造函数被调用，并分配了相应的资源；当 RAII 对象超出作用域时，析构函数被自动调用，以释放之前分配的资源。如果构造函数中发生异常，则该 RAII 对象的构造未能成功完成，因此该对象不应该继续存在。因此，C++ 编译器会自动调用析构函数来清理该对象占用的资源。</p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre tabindex="0" class="chroma"><code><span class="lnt"> 1
+</span><span class="lnt"> 2
+</span><span class="lnt"> 3
+</span><span class="lnt"> 4
+</span><span class="lnt"> 5
+</span><span class="lnt"> 6
+</span><span class="lnt"> 7
+</span><span class="lnt"> 8
+</span><span class="lnt"> 9
+</span><span class="lnt">10
+</span><span class="lnt">11
+</span><span class="lnt">12
+</span><span class="lnt">13
+</span><span class="lnt">14
+</span><span class="lnt">15
+</span><span class="lnt">16
+</span><span class="lnt">17
+</span><span class="lnt">18
+</span><span class="lnt">19
+</span><span class="lnt">20
+</span><span class="lnt">21
+</span><span class="lnt">22
+</span><span class="lnt">23
+</span><span class="lnt">24
+</span><span class="lnt">25
+</span><span class="lnt">26
+</span><span class="lnt">27
+</span><span class="lnt">28
+</span><span class="lnt">29
+</span><span class="lnt">30
+</span><span class="lnt">31
+</span><span class="lnt">32
+</span><span class="lnt">33
+</span><span class="lnt">34
+</span><span class="lnt">35
+</span><span class="lnt">36
+</span></code></pre></td>
+<td class="lntd">
+<pre tabindex="0" class="chroma"><code class="language-c++" data-lang="c++"><span class="k">class</span> <span class="nc">Resource</span> <span class="p">{</span>
+<span class="k">public</span><span class="o">:</span>
+    <span class="n">Resource</span><span class="p">()</span> <span class="p">{</span>
+        <span class="c1">// 分配内存
+</span><span class="c1"></span>        <span class="n">m_data</span> <span class="o">=</span> <span class="k">new</span> <span class="kt">int</span><span class="p">[</span><span class="mi">100</span><span class="p">];</span>
+    <span class="p">}</span>
+
+    <span class="o">~</span><span class="n">Resource</span><span class="p">()</span> <span class="p">{</span>
+        <span class="c1">// 释放内存
+</span><span class="c1"></span>        <span class="k">delete</span><span class="p">[]</span> <span class="n">m_data</span><span class="p">;</span>
+    <span class="p">}</span>
+
+<span class="k">private</span><span class="o">:</span>
+    <span class="kt">int</span><span class="o">*</span> <span class="n">m_data</span><span class="p">;</span>
+<span class="p">};</span>
+
+<span class="k">class</span> <span class="nc">MyClass</span> <span class="p">{</span>
+<span class="k">public</span><span class="o">:</span>
+    <span class="n">MyClass</span><span class="p">()</span> <span class="p">{</span>
+        <span class="c1">// 在构造函数中使用资源管理类分配内存
+</span><span class="c1"></span>        <span class="n">m_resource</span> <span class="o">=</span> <span class="k">new</span> <span class="p">(</span><span class="n">std</span><span class="o">::</span><span class="n">nothrow</span><span class="p">)</span> <span class="n">Resource</span><span class="p">;</span>
+        <span class="k">if</span> <span class="p">(</span><span class="o">!</span><span class="n">m_resource</span><span class="p">)</span> <span class="p">{</span>
+            <span class="c1">// 处理内存分配失败的情况
+</span><span class="c1"></span>            <span class="k">throw</span> <span class="n">std</span><span class="o">::</span><span class="n">bad_alloc</span><span class="p">();</span>
+        <span class="p">}</span>
+    <span class="p">}</span>
+
+    <span class="o">~</span><span class="n">MyClass</span><span class="p">()</span> <span class="p">{</span>
+        <span class="c1">// 在析构函数中释放内存
+</span><span class="c1"></span>        <span class="k">delete</span> <span class="n">m_resource</span><span class="p">;</span>
+    <span class="p">}</span>
+
+<span class="k">private</span><span class="o">:</span>
+    <span class="n">Resource</span><span class="o">*</span> <span class="n">m_resource</span><span class="p">;</span>
+<span class="p">};</span>
+
+</code></pre></td></tr></table>
+</div>
+</div><p>在上面的代码中，我们使用了 C++11 中的 std::nothrow，它表示如果内存分配失败不会抛出异常，而是返回一个空指针。如果内存分配失败，我们可以在构造函数中处理这种情况，例如抛出 std::bad_alloc 异常，然后外部的代码就可以根据需要进行处理。</p>
+<h2 id="零拷贝">零拷贝</h2>
+<p>零拷贝是一种技术，它可以在不复制数据的情况下，在不同的进程或线程之间传输数据。
+零拷贝就是一种避免 CPU 将数据从一块存储拷贝到另外一块存储的技术。
+零拷贝技术可以减少数据拷贝和共享总线操作的次数。
+在C++中，vector的一个成员函数**emplace_back()**很好地体现了零拷贝技术，它跟push_back()函数一样可以将一个元素插入容器尾部，区别在于：使用push_back()函数需要调用构造函数和转移构造函数，而使用emplace_back()插入的元素原地构造，不需要触发构造函数和转移构造函数，效率更高。举个例子：</p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre tabindex="0" class="chroma"><code><span class="lnt"> 1
+</span><span class="lnt"> 2
+</span><span class="lnt"> 3
+</span><span class="lnt"> 4
+</span><span class="lnt"> 5
+</span><span class="lnt"> 6
+</span><span class="lnt"> 7
+</span><span class="lnt"> 8
+</span><span class="lnt"> 9
+</span><span class="lnt">10
+</span><span class="lnt">11
+</span><span class="lnt">12
+</span><span class="lnt">13
+</span><span class="lnt">14
+</span><span class="lnt">15
+</span><span class="lnt">16
+</span><span class="lnt">17
+</span><span class="lnt">18
+</span><span class="lnt">19
+</span><span class="lnt">20
+</span><span class="lnt">21
+</span><span class="lnt">22
+</span><span class="lnt">23
+</span><span class="lnt">24
+</span><span class="lnt">25
+</span><span class="lnt">26
+</span><span class="lnt">27
+</span><span class="lnt">28
+</span><span class="lnt">29
+</span><span class="lnt">30
+</span><span class="lnt">31
+</span><span class="lnt">32
+</span><span class="lnt">33
+</span><span class="lnt">34
+</span><span class="lnt">35
+</span><span class="lnt">36
+</span><span class="lnt">37
+</span><span class="lnt">38
+</span><span class="lnt">39
+</span><span class="lnt">40
+</span><span class="lnt">41
+</span><span class="lnt">42
+</span><span class="lnt">43
+</span></code></pre></td>
+<td class="lntd">
+<pre tabindex="0" class="chroma"><code class="language-c++" data-lang="c++"><span class="cp">#include</span> <span class="cpf">&lt;vector&gt;</span><span class="cp">
+</span><span class="cp">#include</span> <span class="cpf">&lt;string&gt;</span><span class="cp">
+</span><span class="cp">#include</span> <span class="cpf">&lt;iostream&gt;</span><span class="cp">
+</span><span class="cp"></span><span class="k">using</span> <span class="k">namespace</span> <span class="n">std</span><span class="p">;</span>
+
+<span class="k">struct</span> <span class="nc">Person</span>
+<span class="p">{</span>
+    <span class="n">string</span> <span class="n">name</span><span class="p">;</span>
+    <span class="kt">int</span> <span class="n">age</span><span class="p">;</span>
+    <span class="c1">//初始构造函数
+</span><span class="c1"></span>    <span class="n">Person</span><span class="p">(</span><span class="n">string</span> <span class="n">p_name</span><span class="p">,</span> <span class="kt">int</span> <span class="n">p_age</span><span class="p">)</span><span class="o">:</span> <span class="n">name</span><span class="p">(</span><span class="n">std</span><span class="o">::</span><span class="n">move</span><span class="p">(</span><span class="n">p_name</span><span class="p">)),</span> <span class="n">age</span><span class="p">(</span><span class="n">p_age</span><span class="p">)</span>
+    <span class="p">{</span>
+         <span class="n">cout</span> <span class="o">&lt;&lt;</span> <span class="s">&#34;I have been constructed&#34;</span> <span class="o">&lt;&lt;</span><span class="n">endl</span><span class="p">;</span>
+    <span class="p">}</span>
+     <span class="c1">//拷贝构造函数
+</span><span class="c1"></span>     <span class="n">Person</span><span class="p">(</span><span class="k">const</span> <span class="n">Person</span><span class="o">&amp;</span> <span class="n">other</span><span class="p">)</span><span class="o">:</span> <span class="n">name</span><span class="p">(</span><span class="n">std</span><span class="o">::</span><span class="n">move</span><span class="p">(</span><span class="n">other</span><span class="p">.</span><span class="n">name</span><span class="p">)),</span> <span class="n">age</span><span class="p">(</span><span class="n">other</span><span class="p">.</span><span class="n">age</span><span class="p">)</span>
+    <span class="p">{</span>
+         <span class="n">cout</span> <span class="o">&lt;&lt;</span> <span class="s">&#34;I have been copy constructed&#34;</span> <span class="o">&lt;&lt;</span><span class="n">endl</span><span class="p">;</span>
+    <span class="p">}</span>
+     <span class="c1">//转移构造函数
+</span><span class="c1"></span>     <span class="n">Person</span><span class="p">(</span><span class="n">Person</span><span class="o">&amp;&amp;</span> <span class="n">other</span><span class="p">)</span><span class="o">:</span> <span class="n">name</span><span class="p">(</span><span class="n">std</span><span class="o">::</span><span class="n">move</span><span class="p">(</span><span class="n">other</span><span class="p">.</span><span class="n">name</span><span class="p">)),</span> <span class="n">age</span><span class="p">(</span><span class="n">other</span><span class="p">.</span><span class="n">age</span><span class="p">)</span>
+    <span class="p">{</span>
+         <span class="n">cout</span> <span class="o">&lt;&lt;</span> <span class="s">&#34;I have been moved&#34;</span><span class="o">&lt;&lt;</span><span class="n">endl</span><span class="p">;</span>
+    <span class="p">}</span>
+<span class="p">};</span>
+
+<span class="kt">int</span> <span class="nf">main</span><span class="p">()</span>
+<span class="p">{</span>
+    <span class="n">vector</span><span class="o">&lt;</span><span class="n">Person</span><span class="o">&gt;</span> <span class="n">e</span><span class="p">;</span>
+    <span class="n">cout</span> <span class="o">&lt;&lt;</span> <span class="s">&#34;emplace_back:&#34;</span> <span class="o">&lt;&lt;</span><span class="n">endl</span><span class="p">;</span>
+    <span class="n">e</span><span class="p">.</span><span class="n">emplace_back</span><span class="p">(</span><span class="s">&#34;Jane&#34;</span><span class="p">,</span> <span class="mi">23</span><span class="p">);</span> <span class="c1">//不用构造类对象
+</span><span class="c1"></span>
+    <span class="n">vector</span><span class="o">&lt;</span><span class="n">Person</span><span class="o">&gt;</span> <span class="n">p</span><span class="p">;</span>
+    <span class="n">cout</span> <span class="o">&lt;&lt;</span> <span class="s">&#34;push_back:&#34;</span><span class="o">&lt;&lt;</span><span class="n">endl</span><span class="p">;</span>
+    <span class="n">p</span><span class="p">.</span><span class="n">push_back</span><span class="p">(</span><span class="n">Person</span><span class="p">(</span><span class="s">&#34;Mike&#34;</span><span class="p">,</span><span class="mi">36</span><span class="p">));</span>
+    <span class="k">return</span> <span class="mi">0</span><span class="p">;</span>
+<span class="p">}</span>
+<span class="c1">//输出结果：
+</span><span class="c1">//emplace_back:
+</span><span class="c1">//I have been constructed
+</span><span class="c1">//push_back:
+</span><span class="c1">//I have been constructed
+</span><span class="c1">//I am being moved.
+</span></code></pre></td></tr></table>
+</div>
+</div><h2 id="右值">右值</h2>
+<p>右值引用使用 &amp;&amp; 符号表示。
+在 C++ 中，右值指的是那些在表达式求值期间创建的临时对象、字面常量、表达式、返回右值引用的函数调用等，它们都是临时的、短暂的，不能被持久化或修改，因此右值只能被拷贝或移动，不能被赋值或取地址。
+右值引用通常用于实现移动语义和完美转发。移动语义可以避免在资源管理类中进行不必要的复制操作，提高程序的性能。完美转发可以实现将参数按原样传递给下一层函数，同时避免不必要的复制操作。
+举个完美转发的例子：</p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre tabindex="0" class="chroma"><code><span class="lnt"> 1
+</span><span class="lnt"> 2
+</span><span class="lnt"> 3
+</span><span class="lnt"> 4
+</span><span class="lnt"> 5
+</span><span class="lnt"> 6
+</span><span class="lnt"> 7
+</span><span class="lnt"> 8
+</span><span class="lnt"> 9
+</span><span class="lnt">10
+</span><span class="lnt">11
+</span><span class="lnt">12
+</span><span class="lnt">13
+</span><span class="lnt">14
+</span><span class="lnt">15
+</span><span class="lnt">16
+</span><span class="lnt">17
+</span><span class="lnt">18
+</span><span class="lnt">19
+</span><span class="lnt">20
+</span><span class="lnt">21
+</span><span class="lnt">22
+</span><span class="lnt">23
+</span></code></pre></td>
+<td class="lntd">
+<pre tabindex="0" class="chroma"><code class="language-c++" data-lang="c++"><span class="cp">#include</span> <span class="cpf">&lt;iostream&gt;</span><span class="cp">
+</span><span class="cp">#include</span> <span class="cpf">&lt;utility&gt;</span><span class="cp">
+</span><span class="cp"></span>
+<span class="kt">void</span> <span class="nf">foo</span><span class="p">(</span><span class="kt">int</span> <span class="o">&amp;</span><span class="n">x</span><span class="p">)</span> <span class="p">{</span>
+    <span class="n">std</span><span class="o">::</span><span class="n">cout</span> <span class="o">&lt;&lt;</span> <span class="s">&#34;foo(int&amp;): &#34;</span> <span class="o">&lt;&lt;</span> <span class="n">x</span> <span class="o">&lt;&lt;</span> <span class="n">std</span><span class="o">::</span><span class="n">endl</span><span class="p">;</span>
+<span class="p">}</span>
+
+<span class="kt">void</span> <span class="nf">foo</span><span class="p">(</span><span class="kt">int</span> <span class="o">&amp;&amp;</span><span class="n">x</span><span class="p">)</span> <span class="p">{</span>
+    <span class="n">std</span><span class="o">::</span><span class="n">cout</span> <span class="o">&lt;&lt;</span> <span class="s">&#34;foo(int&amp;&amp;): &#34;</span> <span class="o">&lt;&lt;</span> <span class="n">x</span> <span class="o">&lt;&lt;</span> <span class="n">std</span><span class="o">::</span><span class="n">endl</span><span class="p">;</span>
+<span class="p">}</span>
+
+<span class="k">template</span><span class="o">&lt;</span><span class="k">typename</span> <span class="n">T</span><span class="o">&gt;</span>
+<span class="kt">void</span> <span class="n">bar</span><span class="p">(</span><span class="n">T</span> <span class="o">&amp;&amp;</span><span class="n">x</span><span class="p">)</span> <span class="p">{</span>
+    <span class="n">foo</span><span class="p">(</span><span class="n">std</span><span class="o">::</span><span class="n">forward</span><span class="o">&lt;</span><span class="n">T</span><span class="o">&gt;</span><span class="p">(</span><span class="n">x</span><span class="p">));</span>
+<span class="p">}</span>
+
+<span class="kt">int</span> <span class="nf">main</span><span class="p">()</span> <span class="p">{</span>
+    <span class="kt">int</span> <span class="n">x</span> <span class="o">=</span> <span class="mi">42</span><span class="p">;</span>
+    <span class="n">bar</span><span class="p">(</span><span class="n">x</span><span class="p">);</span>          <span class="c1">// 输出 foo(int&amp;): 42
+</span><span class="c1"></span>    <span class="n">bar</span><span class="p">(</span><span class="mi">3</span><span class="p">);</span>          <span class="c1">// 输出 foo(int&amp;&amp;): 3
+</span><span class="c1"></span>    <span class="n">bar</span><span class="p">(</span><span class="n">std</span><span class="o">::</span><span class="n">move</span><span class="p">(</span><span class="n">x</span><span class="p">));</span>  <span class="c1">// 输出 foo(int&amp;&amp;): 42  完美转发
+</span><span class="c1"></span>    <span class="k">return</span> <span class="mi">0</span><span class="p">;</span>
+<span class="p">}</span>
+</code></pre></td></tr></table>
+</div>
+</div><h2 id="组合">组合</h2>
+<p>是has-a的关系。
+在C++中，组合（Composition）是一种面向对象编程的概念，指的是一个类（称为容器类）包含另外一个类（称为成员类）的对象作为自己的成员。组合实现了代码的复用，使得一个类可以重用另一个类的实现而不必从头开始编写代码。</p>
+<p>通过组合，一个类可以将另一个类的功能集成到自己的功能中。例如，一个汽车类可以包含一个引擎类的对象，从而实现汽车的动力系统。另一个例子是，一个图形类可以包含一个点类的对象，从而实现图形的定位和形状。</p>
+<p>在C++中，组合的实现方式是将成员对象作为容器类的私有成员变量。容器类可以通过调用成员对象的公共接口来访问和操作成员对象的状态和行为。由于成员对象是容器类的一部分，因此成员对象的生命周期和容器类的生命周期是一样的。</p>
+<h2 id="函数指针">函数指针</h2>
+<p>函数指针是指向函数的指针变量，可以用来存储和调用函数。在C++中，函数名可以视为一个指向函数的指针，因此可以将函数名赋值给一个函数指针变量，然后通过该变量来调用函数。
+函数指针的语法如下：<code>return-type (*pointer-name)(argument-list);</code></p>
+<p>函数指针可以用来传递函数作为参数，或者用来返回函数作为返回值。这在一些高级的编程场景中非常有用，例如回调函数、函数对象等。
+函数对象是一种将函数封装为对象的技术。通过函数对象，可以将函数与数据结构相结合，形成一个新的数据类型，从而实现更加灵活的程序设计。函数对象广泛应用于标准模板库（STL）中，例如在算法中传递比较函数、排序函数等。</p>
+<p>举例如何使用函数指针来实现回调函数：</p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre tabindex="0" class="chroma"><code><span class="lnt"> 1
+</span><span class="lnt"> 2
+</span><span class="lnt"> 3
+</span><span class="lnt"> 4
+</span><span class="lnt"> 5
+</span><span class="lnt"> 6
+</span><span class="lnt"> 7
+</span><span class="lnt"> 8
+</span><span class="lnt"> 9
+</span><span class="lnt">10
+</span><span class="lnt">11
+</span><span class="lnt">12
+</span><span class="lnt">13
+</span><span class="lnt">14
+</span><span class="lnt">15
+</span><span class="lnt">16
+</span><span class="lnt">17
+</span><span class="lnt">18
+</span><span class="lnt">19
+</span><span class="lnt">20
+</span><span class="lnt">21
+</span><span class="lnt">22
+</span><span class="lnt">23
+</span><span class="lnt">24
+</span><span class="lnt">25
+</span><span class="lnt">26
+</span><span class="lnt">27
+</span><span class="lnt">28
+</span><span class="lnt">29
+</span><span class="lnt">30
+</span><span class="lnt">31
+</span><span class="lnt">32
+</span><span class="lnt">33
+</span></code></pre></td>
+<td class="lntd">
+<pre tabindex="0" class="chroma"><code class="language-c++" data-lang="c++"><span class="cp">#include</span> <span class="cpf">&lt;iostream&gt;</span><span class="cp">
+</span><span class="cp"></span><span class="k">using</span> <span class="k">namespace</span> <span class="n">std</span><span class="p">;</span>
+
+<span class="c1">// 加法函数
+</span><span class="c1"></span><span class="kt">int</span> <span class="nf">add</span><span class="p">(</span><span class="kt">int</span> <span class="n">a</span><span class="p">,</span> <span class="kt">int</span> <span class="n">b</span><span class="p">)</span> <span class="p">{</span>
+    <span class="k">return</span> <span class="n">a</span> <span class="o">+</span> <span class="n">b</span><span class="p">;</span>
+<span class="p">}</span>
+
+<span class="c1">// 减法函数
+</span><span class="c1"></span><span class="kt">int</span> <span class="nf">subtract</span><span class="p">(</span><span class="kt">int</span> <span class="n">a</span><span class="p">,</span> <span class="kt">int</span> <span class="n">b</span><span class="p">)</span> <span class="p">{</span>
+    <span class="k">return</span> <span class="n">a</span> <span class="o">-</span> <span class="n">b</span><span class="p">;</span>
+<span class="p">}</span>
+
+<span class="c1">// 计算函数
+</span><span class="c1"></span><span class="kt">int</span> <span class="nf">calculate</span><span class="p">(</span><span class="kt">int</span> <span class="n">a</span><span class="p">,</span> <span class="kt">int</span> <span class="n">b</span><span class="p">,</span> <span class="kt">int</span> <span class="p">(</span><span class="o">*</span><span class="n">p</span><span class="p">)(</span><span class="kt">int</span><span class="p">,</span> <span class="kt">int</span><span class="p">))</span> <span class="p">{</span>
+    <span class="k">return</span> <span class="n">p</span><span class="p">(</span><span class="n">a</span><span class="p">,</span> <span class="n">b</span><span class="p">);</span>
+<span class="p">}</span>
+
+<span class="kt">int</span> <span class="nf">main</span><span class="p">()</span> <span class="p">{</span>
+    <span class="kt">int</span> <span class="n">a</span> <span class="o">=</span> <span class="mi">3</span><span class="p">,</span> <span class="n">b</span> <span class="o">=</span> <span class="mi">4</span><span class="p">;</span>
+    <span class="kt">int</span> <span class="n">result</span><span class="p">;</span>
+
+    <span class="c1">// 使用加法函数进行计算
+</span><span class="c1"></span>    <span class="n">result</span> <span class="o">=</span> <span class="n">calculate</span><span class="p">(</span><span class="n">a</span><span class="p">,</span> <span class="n">b</span><span class="p">,</span> <span class="n">add</span><span class="p">);</span>
+    <span class="n">cout</span> <span class="o">&lt;&lt;</span> <span class="s">&#34;Addition result: &#34;</span> <span class="o">&lt;&lt;</span> <span class="n">result</span> <span class="o">&lt;&lt;</span> <span class="n">endl</span><span class="p">;</span>
+
+    <span class="c1">// 使用减法函数进行计算
+</span><span class="c1"></span>    <span class="n">result</span> <span class="o">=</span> <span class="n">calculate</span><span class="p">(</span><span class="n">a</span><span class="p">,</span> <span class="n">b</span><span class="p">,</span> <span class="n">subtract</span><span class="p">);</span>
+    <span class="n">cout</span> <span class="o">&lt;&lt;</span> <span class="s">&#34;Subtraction result: &#34;</span> <span class="o">&lt;&lt;</span> <span class="n">result</span> <span class="o">&lt;&lt;</span> <span class="n">endl</span><span class="p">;</span>
+
+    <span class="k">return</span> <span class="mi">0</span><span class="p">;</span>
+<span class="p">}</span>
+
+</code></pre></td></tr></table>
+</div>
+</div><h2 id="内存对齐">内存对齐</h2>
+<p>内存对齐（Memory Alignment）是指在计算机中为了提高数据读取效率而采取的一种数据对齐方式。在C++中，编译器会根据结构体中成员变量的数据类型和顺序来决定如何分配内存，以保证每个成员变量被正确地对齐。具体来说，对于每个成员变量，编译器会将其分配在地址可以被其大小整除的位置上，以确保读取时能够高效地访问。</p>
+<p>内存对齐可以提高数据读取效率的原因是，当数据被存储到内存中时，计算机通常会将数据一次性读取到缓存中，以便快速访问。如果数据没有按照特定的对齐方式存储在内存中，读取时就需要额外的处理，从而导致读取效率降低。</p>
+<h2 id="共享内存的实现方式">共享内存的实现方式</h2>
+<p>共享内存是指多个进程可以同时访问同一个物理内存区域，它是实现进程间通信的一种方式，可以提高进程间通信的效率。</p>
+<p>共享内存的实现方式主要有两种：基于文件和基于匿名映射。</p>
+<p>基于文件的共享内存实现方式：将共享内存映射到一个文件中，多个进程可以通过访问该文件来访问共享内存。具体实现过程如下：</p>
+<p>（1）使用shmget()函数创建或打开一个共享内存对象，并返回一个标识符。
+（2）使用shmat()函数将共享内存对象映射到进程的地址空间中。
+（3）多个进程可以通过访问共享内存对象所在的文件来访问共享内存。
+（4）使用shmdt()函数将共享内存对象从进程的地址空间中分离。
+（5）使用shmctl()函数控制共享内存对象。</p>
+<p>基于匿名映射的共享内存实现方式：不需要映射到文件中，直接将共享内存映射到进程的地址空间中。具体实现过程如下：</p>
+<p>（1）使用mmap()函数创建一个匿名映射区域，该区域被多个进程共享。
+（2）多个进程可以通过访问该匿名映射区域来访问共享内存。
+（3）使用munmap()函数释放匿名映射区域。</p>
+<p>需要注意的是，在使用共享内存时需要考虑进程间同步的问题，以避免数据的不一致性。可以使用信号量等进程间同步机制来保证多个进程对共享内存的访问顺序和正确性。此外，还需要考虑共享内存的大小和释放问题，避免内存泄漏和过度占用内存等问题。</p>
+
+</section>
+
+
+    <footer class="article-footer">
+    
+    <section class="article-tags">
+        
+            <a href="/tags/cpp/">cpp</a>
+        
+    </section>
+
+
+    
+    <section class="article-copyright">
+        <svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-copyright" width="24" height="24" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round">
+  <path stroke="none" d="M0 0h24v24H0z"/>
+  <circle cx="12" cy="12" r="9" />
+  <path d="M14.5 9a3.5 4 0 1 0 0 6" />
+</svg>
+
+
+
+        <span>Licensed under CC BY-NC-SA 4.0</span>
+    </section>
+    </footer>
+
+
+    
+</article>
+
+    
+
+    
+
+     
+    
+        
+    <div class="disqus-container">
+    <div id="disqus_thread"></div>
+<script type="application/javascript">
+    var disqus_config = function () {
+    
+    
+    
+    };
+    (function() {
+        if (["localhost", "127.0.0.1"].indexOf(window.location.hostname) != -1) {
+            document.getElementById('disqus_thread').innerHTML = 'Disqus comments not available by default when the website is previewed locally.';
+            return;
+        }
+        var d = document, s = d.createElement('script'); s.async = true;
+        s.src = '//' + "hugo-theme-stack" + '.disqus.com/embed.js';
+        s.setAttribute('data-timestamp', +new Date());
+        (d.head || d.body).appendChild(s);
+    })();
+</script>
+<noscript>Please enable JavaScript to view the <a href="https://disqus.com/?ref_noscript">comments powered by Disqus.</a></noscript>
+<a href="https://disqus.com" class="dsq-brlink">comments powered by <span class="logo-disqus">Disqus</span></a>
+</div>
+
+<style>
+    .disqus-container {
+        background-color: var(--card-background);
+        border-radius: var(--card-border-radius);
+        box-shadow: var(--shadow-l1);
+        padding: var(--card-padding);
+    }
+</style>
+
+<script>
+    window.addEventListener('onColorSchemeChange', (e) => {
+        if (typeof DISQUS == 'object') {
+            DISQUS.reset({
+                reload: true
+            });
+        }
+    })
+</script>
+
+    
+
+    <footer class="site-footer">
+    <section class="copyright">
+        &copy; 
+        
+            2020 - 
+        
+        2023 steve lannister
+    </section>
+    
+    <section class="powerby">
+        Built with <a href="https://gohugo.io/" target="_blank" rel="noopener">Hugo</a> <br />
+        主题 <b><a href="https://github.com/CaiJimmy/hugo-theme-stack" target="_blank" rel="noopener" data-version="3.16.0">Stack</a></b> 由 <a href="https://jimmycai.com" target="_blank" rel="noopener">Jimmy</a> 设计
+    </section>
+</footer>
+
+
+    
+<div class="pswp" tabindex="-1" role="dialog" aria-hidden="true">
+
+    
+    <div class="pswp__bg"></div>
+
+    
+    <div class="pswp__scroll-wrap">
+
+        
+        <div class="pswp__container">
+            <div class="pswp__item"></div>
+            <div class="pswp__item"></div>
+            <div class="pswp__item"></div>
+        </div>
+
+        
+        <div class="pswp__ui pswp__ui--hidden">
+
+            <div class="pswp__top-bar">
+
+                
+
+                <div class="pswp__counter"></div>
+
+                <button class="pswp__button pswp__button--close" title="Close (Esc)"></button>
+
+                <button class="pswp__button pswp__button--share" title="Share"></button>
+
+                <button class="pswp__button pswp__button--fs" title="Toggle fullscreen"></button>
+
+                <button class="pswp__button pswp__button--zoom" title="Zoom in/out"></button>
+
+                
+                
+                <div class="pswp__preloader">
+                    <div class="pswp__preloader__icn">
+                        <div class="pswp__preloader__cut">
+                            <div class="pswp__preloader__donut"></div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="pswp__share-modal pswp__share-modal--hidden pswp__single-tap">
+                <div class="pswp__share-tooltip"></div>
+            </div>
+
+            <button class="pswp__button pswp__button--arrow--left" title="Previous (arrow left)">
+            </button>
+
+            <button class="pswp__button pswp__button--arrow--right" title="Next (arrow right)">
+            </button>
+
+            <div class="pswp__caption">
+                <div class="pswp__caption__center"></div>
+            </div>
+
+        </div>
+
+    </div>
+
+</div><script 
+                src="https://cdn.jsdelivr.net/npm/photoswipe@4.1.3/dist/photoswipe.min.js"integrity="sha256-ePwmChbbvXbsO02lbM3HoHbSHTHFAeChekF1xKJdleo="crossorigin="anonymous"
+                defer
+                >
+            </script><script 
+                src="https://cdn.jsdelivr.net/npm/photoswipe@4.1.3/dist/photoswipe-ui-default.min.js"integrity="sha256-UKkzOn/w1mBxRmLLGrSeyB4e1xbrp4xylgAWb3M42pU="crossorigin="anonymous"
+                defer
+                >
+            </script><link 
+                rel="stylesheet" 
+                href="https://cdn.jsdelivr.net/npm/photoswipe@4.1.3/dist/default-skin/default-skin.min.css"crossorigin="anonymous"
+            ><link 
+                rel="stylesheet" 
+                href="https://cdn.jsdelivr.net/npm/photoswipe@4.1.3/dist/photoswipe.min.css"crossorigin="anonymous"
+            >
+
+            </main>
+        </div>
+        <script 
+                src="https://cdn.jsdelivr.net/npm/node-vibrant@3.1.6/dist/vibrant.min.js"integrity="sha256-awcR2jno4kI5X0zL8ex0vi2z&#43;KMkF24hUW8WePSA9HM="crossorigin="anonymous"
+                
+                >
+            </script><script type="text/javascript" src="/ts/main.js" defer></script>
+<script>
+    (function () {
+        const customFont = document.createElement('link');
+        customFont.href = "https://fonts.googleapis.com/css2?family=Lato:wght@300;400;700&display=swap";
+
+        customFont.type = "text/css";
+        customFont.rel = "stylesheet";
+
+        document.head.appendChild(customFont);
+    }());
+</script>
+
+    </body>
+</html>

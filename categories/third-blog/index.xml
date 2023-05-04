@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+    <channel>
+        <title>third blog on steve lannister</title>
+        <link>https://demo.stack.jimmycai.com/categories/third-blog/</link>
+        <description>Recent content in third blog on steve lannister</description>
+        <generator>Hugo -- gohugo.io</generator>
+        <language>en-us</language>
+        <lastBuildDate>Sun, 06 Mar 2022 00:00:00 +0000</lastBuildDate><atom:link href="https://demo.stack.jimmycai.com/categories/third-blog/index.xml" rel="self" type="application/rss+xml" /><item>
+        <title>third blog</title>
+        <link>https://demo.stack.jimmycai.com/p/third/</link>
+        <pubDate>Sun, 06 Mar 2022 00:00:00 +0000</pubDate>
+        
+        <guid>https://demo.stack.jimmycai.com/p/third/</guid>
+        <description>&lt;img src="https://demo.stack.jimmycai.com/p/third/avatar.png" alt="Featured image of post third blog" /&gt;&lt;p&gt;使用第三个blog&lt;/p&gt;
+</description>
+        </item>
+        
+    </channel>
+</rss>

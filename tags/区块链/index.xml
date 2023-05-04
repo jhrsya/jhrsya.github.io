@@ -1,0 +1,53 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+    <channel>
+        <title>区块链 on steve lannister</title>
+        <link>https://jhrsya.github.io/tags/%E5%8C%BA%E5%9D%97%E9%93%BE/</link>
+        <description>Recent content in 区块链 on steve lannister</description>
+        <generator>Hugo -- gohugo.io</generator>
+        <language>en-us</language>
+        <lastBuildDate>Sun, 23 Apr 2023 00:00:00 +0000</lastBuildDate><atom:link href="https://jhrsya.github.io/tags/%E5%8C%BA%E5%9D%97%E9%93%BE/index.xml" rel="self" type="application/rss+xml" /><item>
+        <title>区块链概念</title>
+        <link>https://jhrsya.github.io/p/%E5%8C%BA%E5%9D%97%E9%93%BE/</link>
+        <pubDate>Sun, 23 Apr 2023 00:00:00 +0000</pubDate>
+        
+        <guid>https://jhrsya.github.io/p/%E5%8C%BA%E5%9D%97%E9%93%BE/</guid>
+        <description>&lt;h1 id=&#34;区块链概念&#34;&gt;区块链概念&lt;/h1&gt;
+&lt;h4 id=&#34;1-交易哈希&#34;&gt;1. 交易哈希&lt;/h4&gt;
+&lt;p&gt;在区块链中，交易哈希（Transaction Hash）是对一笔交易进行哈希计算得到的结果。交易哈希是一个固定长度的字符串，通常是一个64个字符的十六进制字符串。64 * 4 = 256 bit。&lt;/p&gt;
+&lt;p&gt;交易哈希是区块链中的一个重要概念，因为它可以唯一地标识一笔交易。在区块链中，每个交易都会被广播到网络中，然后由矿工进行打包，并最终被加入到区块链上。在这个过程中，交易哈希起到了关键的作用。&lt;/p&gt;
+&lt;p&gt;每个区块链节点都可以通过交易哈希来验证一笔交易的合法性。当一个节点接收到一个新的交易时，它会首先对这个交易进行哈希计算，然后将计算出的哈希值与已有的交易哈希进行比对，来判断这笔交易是否已经存在于区块链上。&lt;/p&gt;
+&lt;p&gt;交易哈希还可以用来追踪一笔交易的状态。在区块链上，每一笔交易都有一个对应的交易哈希，并且交易哈希会被写入到区块链上。当一笔交易被确认并加入到区块链上时，它的交易哈希也会被写入到区块链中，并且成为区块链中的一部分。这样，任何人都可以通过交易哈希来查看一笔交易的状态，并且确认这笔交易是否已经被确认并写入到区块链上。&lt;/p&gt;
+&lt;h4 id=&#34;2-发送方地址和接收方地址&#34;&gt;2. 发送方地址和接收方地址&lt;/h4&gt;
+&lt;p&gt;在区块链中，发送方地址是由公钥经过哈希运算得到的。具体来说，发送方会使用自己的私钥对交易信息进行数字签名，并将签名和公钥一起发送给网络。接收方可以使用公钥来验证数字签名的有效性，并确认这笔交易确实是由发送方发起的。发送方地址就是通过对公钥进行哈希运算得到的，它可以用来标识发送方。&lt;/p&gt;
+&lt;p&gt;和交易哈希一样，也是一个64个字符的十六进制串，共256bit。&lt;/p&gt;
+&lt;h4 id=&#34;3-零知识证明&#34;&gt;3. 零知识证明&lt;/h4&gt;
+&lt;p&gt;零知识证明是在不披露声明本身的情况下，验证声明有效性的一种方法。
+证明者是试图证明声明的一方，而验证者负责验证声明。&lt;/p&gt;
+&lt;p&gt;零知识证明来保护数字版权：&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;音乐家创建一个数字签名，将其作为证明。&lt;/li&gt;
+&lt;li&gt;音乐家使用离散对数算法生成一个随机数，将其作为挑战。&lt;/li&gt;
+&lt;li&gt;音乐家使用随机数和签名计算出响应，响应是一个整数。&lt;/li&gt;
+&lt;li&gt;音乐家将签名、挑战和响应发送给验证者。&lt;/li&gt;
+&lt;li&gt;验证者使用公钥和挑战计算出响应的期望值，并比较期望值和实际响应是否一致。如果一致，就认为签名有效，否则认为签名无效。&lt;/li&gt;
+&lt;/ul&gt;
+&lt;h4 id=&#34;4-女巫攻击&#34;&gt;4. 女巫攻击&lt;/h4&gt;
+&lt;p&gt;女巫攻击是指一个用户或一个用户群体假装成许多用户。&lt;/p&gt;
+&lt;h4 id=&#34;5-共识机制&#34;&gt;5. 共识机制&lt;/h4&gt;
+&lt;p&gt;共识机制分为工作量证明和权益证明。&lt;/p&gt;
+&lt;h4 id=&#34;6-挖矿&#34;&gt;6. 挖矿&lt;/h4&gt;
+&lt;p&gt;向区块链中添加现有区块。&lt;/p&gt;
+&lt;h4 id=&#34;7-工作量证明pow&#34;&gt;7. 工作量证明(PoW)&lt;/h4&gt;
+&lt;p&gt;proof of work.
+工作量证明是一种基础性算法，它为矿工在工作量证明区块链上的工作设置难度和规则。&lt;/p&gt;
+&lt;h4 id=&#34;8-权益证明&#34;&gt;8. 权益证明&lt;/h4&gt;
+&lt;p&gt;在权益证明机制下，验证者明确的通过以太币将资本质押到以太币的智能合约中。这些质押的以太币充当抵押品，如果验证者有失信行为或消极怠工，那么可以销毁抵押品。&lt;/p&gt;
+&lt;h4 id=&#34;8-智能合约&#34;&gt;8. 智能合约&lt;/h4&gt;
+&lt;h4 id=&#34;9-gasper&#34;&gt;9. GASPER&lt;/h4&gt;
+&lt;p&gt;Gasper是一种定义验证者如何受到奖惩的机制，决定要接受和拒绝哪个区块，以及将区块建在哪个区块链分叉上。&lt;/p&gt;
+</description>
+        </item>
+        
+    </channel>
+</rss>
