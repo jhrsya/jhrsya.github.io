@@ -7,6 +7,14 @@
         <generator>Hugo -- gohugo.io</generator>
         <language>en-us</language>
         <lastBuildDate>Fri, 05 May 2023 00:00:00 +0000</lastBuildDate><atom:link href="https://jhrsya.github.io/tags/index.xml" rel="self" type="application/rss+xml" /><item>
+        <title>postgresql</title>
+        <link>https://jhrsya.github.io/tags/postgresql/</link>
+        <pubDate>Fri, 05 May 2023 00:00:00 +0000</pubDate>
+        
+        <guid>https://jhrsya.github.io/tags/postgresql/</guid>
+        <description></description>
+        </item>
+        <item>
         <title>一致性哈希</title>
         <link>https://jhrsya.github.io/tags/%E4%B8%80%E8%87%B4%E6%80%A7%E5%93%88%E5%B8%8C/</link>
         <pubDate>Fri, 05 May 2023 00:00:00 +0000</pubDate>
@@ -20,6 +28,14 @@
         <pubDate>Fri, 05 May 2023 00:00:00 +0000</pubDate>
         
         <guid>https://jhrsya.github.io/tags/%E5%88%86%E5%B8%83%E5%BC%8F/</guid>
+        <description></description>
+        </item>
+        <item>
+        <title>数据库</title>
+        <link>https://jhrsya.github.io/tags/%E6%95%B0%E6%8D%AE%E5%BA%93/</link>
+        <pubDate>Fri, 05 May 2023 00:00:00 +0000</pubDate>
+        
+        <guid>https://jhrsya.github.io/tags/%E6%95%B0%E6%8D%AE%E5%BA%93/</guid>
         <description></description>
         </item>
         <item>

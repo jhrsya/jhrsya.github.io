@@ -1,21 +1,22 @@
 <!DOCTYPE html>
 <html lang="en-us" dir="ltr">
-    <head>
-	<meta name="generator" content="Hugo 0.92.2" /><meta charset='utf-8'>
-<meta name='viewport' content='width=device-width, initial-scale=1'><meta name='description' content='to be or not to be, it is a problem'>
-<title>steve lannister</title>
+    <head><meta charset='utf-8'>
+<meta name='viewport' content='width=device-width, initial-scale=1'><meta name='description' content='postgresql安装及使用'>
+<title>postgresql介绍</title>
 
-<link rel='canonical' href='https://jhrsya.github.io/'>
+<link rel='canonical' href='https://jhrsya.github.io/p/postgresql/'>
 
-<link rel="stylesheet" href="/scss/style.min.8191399262444ab68b72a18c97392f5349be20a1615d77445be51e974c144cff.css"><meta property='og:title' content='steve lannister'>
-<meta property='og:description' content='to be or not to be, it is a problem'>
-<meta property='og:url' content='https://jhrsya.github.io/'>
+<link rel="stylesheet" href="/scss/style.min.8191399262444ab68b72a18c97392f5349be20a1615d77445be51e974c144cff.css"><meta property='og:title' content='postgresql介绍'>
+<meta property='og:description' content='postgresql安装及使用'>
+<meta property='og:url' content='https://jhrsya.github.io/p/postgresql/'>
 <meta property='og:site_name' content='steve lannister'>
-<meta property='og:type' content='website'><meta property='og:updated_time' content=' 2023-05-05T00:00:00&#43;00:00 '/>
-<meta name="twitter:title" content="steve lannister">
-<meta name="twitter:description" content="to be or not to be, it is a problem"><link rel="alternate" type="application/rss&#43;xml" href="https://jhrsya.github.io/index.xml">
+<meta property='og:type' content='article'><meta property='article:section' content='Post' /><meta property='article:tag' content='数据库' /><meta property='article:tag' content='postgresql' /><meta property='article:published_time' content='2023-05-05T00:00:00&#43;00:00'/><meta property='article:modified_time' content='2023-05-05T00:00:00&#43;00:00'/>
+<meta name="twitter:title" content="postgresql介绍">
+<meta name="twitter:description" content="postgresql安装及使用">
     </head>
-    <body class="">
+    <body class="
+    article-page
+    ">
     <script>
         (function() {
             const colorSchemeKey = 'StackColorScheme';
@@ -118,7 +119,7 @@
         
         
 
-        <li  class='current' >
+        <li >
             <a href='/' >
                 
                 
@@ -229,69 +230,10 @@
     <aside class="sidebar right-sidebar sticky">
         
             
-                <form action="/search/" class="search-form widget" >
-        <p>
-            <label>搜索</label>
-            <input name="keyword" required placeholder="输入关键词..." />
-        
-            <button title="搜索">
-                <svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-search" width="24" height="24" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round">
-  <path stroke="none" d="M0 0h24v24H0z"/>
-  <circle cx="10" cy="10" r="7" />
-  <line x1="21" y1="21" x2="15" y2="15" />
-</svg>
-
-
-
-            </button>
-        </p>
-    </form>
-            
-        
-            
-                <section class="widget archives">
+                
+    <section class="widget archives">
         <div class="widget-icon">
-            <svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-infinity" width="24" height="24" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round">
-  <path stroke="none" d="M0 0h24v24H0z"/>
-  <path d="M9.828 9.172a4 4 0 1 0 0 5.656 a10 10 0 0 0 2.172 -2.828a10 10 0 0 1 2.172 -2.828 a4 4 0 1 1 0 5.656a10 10 0 0 1 -2.172 -2.828a10 10 0 0 0 -2.172 -2.828" />
-</svg>
-
-
-
-        </div>
-        <h2 class="widget-title section-title">归档</h2>
-
-        
-        
-        
-        
-        
-        <div class="widget-archive--list">
-            <div class="archives-year">
-                    <a href="/archives/#2023">
-                        
-                            <span class="year">2023</span>
-                            <span class="count">6</span>
-                        
-                    </a> 
-                </div>
-            <div class="archives-year">
-                    <a href="/archives/#2022">
-                        
-                            <span class="year">2022</span>
-                            <span class="count">1</span>
-                        
-                    </a> 
-                </div>
-            
-        </div>
-    </section>
-            
-        
-            
-                <section class="widget tagCloud">
-    <div class="widget-icon">
-        <svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-hash" width="24" height="24" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round">
+            <svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-hash" width="24" height="24" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round">
   <path stroke="none" d="M0 0h24v24H0z"/>
   <line x1="5" y1="9" x2="19" y2="9" />
   <line x1="5" y1="15" x2="19" y2="15" />
@@ -301,125 +243,33 @@
 
 
 
-    </div>
-    <h2 class="widget-title section-title">分类</h2>
+        </div>
+        <h2 class="widget-title section-title">目录</h2>
+        
+        <div class="widget--toc">
+            <nav id="TableOfContents">
+  <ol>
+    <li><a href="#postgresql下载与配置">postgresql下载与配置</a></li>
+  </ol>
+</nav>
+        </div>
+    </section>
 
-    <div class="tagCloud-tags">
-        
-            <a href="/categories/cpp/" class="font_size_1">
-                cpp
-            </a>
-        
-            <a href="/categories/first-blog/" class="font_size_1">
-                first blog
-            </a>
-        
-            <a href="/categories/go/" class="font_size_1">
-                go
-            </a>
-        
-            <a href="/categories/python/" class="font_size_1">
-                python
-            </a>
-        
-            <a href="/categories/%E4%B8%80%E8%87%B4%E6%80%A7%E5%93%88%E5%B8%8C%E7%AE%97%E6%B3%95/" class="font_size_1">
-                一致性哈希算法
-            </a>
-        
-            <a href="/categories/%E5%8C%BA%E5%9D%97%E9%93%BE/" class="font_size_1">
-                区块链
-            </a>
-        
-            <a href="/categories/%E6%95%B0%E6%8D%AE%E5%BA%93/" class="font_size_1">
-                数据库
-            </a>
-        
-    </div>
-</section>
-
-            
-        
-            
-                <section class="widget tagCloud">
-    <div class="widget-icon">
-        <svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-tag" width="24" height="24" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round">
-  <path stroke="none" d="M0 0h24v24H0z"/>
-  <path d="M11 3L20 12a1.5 1.5 0 0 1 0 2L14 20a1.5 1.5 0 0 1 -2 0L3 11v-4a4 4 0 0 1 4 -4h4" />
-  <circle cx="9" cy="9" r="2" />
-</svg>
-
-
-
-    </div>
-    <h2 class="widget-title section-title">标签云</h2>
-
-    <div class="tagCloud-tags">
-        
-            <a href="/tags/cpp/" class="font_size_1">
-                cpp
-            </a>
-        
-            <a href="/tags/go/" class="font_size_1">
-                go
-            </a>
-        
-            <a href="/tags/hugo/" class="font_size_1">
-                hugo
-            </a>
-        
-            <a href="/tags/postgresql/" class="font_size_1">
-                postgresql
-            </a>
-        
-            <a href="/tags/python/" class="font_size_1">
-                python
-            </a>
-        
-            <a href="/tags/python%E5%BA%93/" class="font_size_1">
-                python库
-            </a>
-        
-            <a href="/tags/%E4%B8%80%E8%87%B4%E6%80%A7%E5%93%88%E5%B8%8C/" class="font_size_1">
-                一致性哈希
-            </a>
-        
-            <a href="/tags/%E5%88%86%E5%B8%83%E5%BC%8F/" class="font_size_1">
-                分布式
-            </a>
-        
-            <a href="/tags/%E5%8C%BA%E5%9D%97%E9%93%BE/" class="font_size_1">
-                区块链
-            </a>
-        
-            <a href="/tags/%E6%95%B0%E6%8D%AE%E5%BA%93/" class="font_size_1">
-                数据库
-            </a>
-        
-    </div>
-</section>
             
         
     </aside>
 
 
             <main class="main full-width">
-    
-    
-    
-    
-
-    <section class="article-list">
-        
-            
-<article class="">
+    <article class="main-article">
     <header class="article-header">
 
     <div class="article-details">
     
     <header class="article-category">
         
-            <a href="/categories/%E5%8C%BA%E5%9D%97%E9%93%BE/" >
-                区块链
+            <a href="/categories/%E6%95%B0%E6%8D%AE%E5%BA%93/" >
+                数据库
             </a>
         
     </header>
@@ -427,12 +277,12 @@
 
     <div class="article-title-wrapper">
         <h2 class="article-title">
-            <a href="/p/%E5%8C%BA%E5%9D%97%E9%93%BE/">区块链概念</a>
+            <a href="/p/postgresql/">postgresql介绍</a>
         </h2>
     
         
         <h3 class="article-subtitle">
-            区块链相关概念
+            postgresql安装及使用
         </h3>
         
     </div>
@@ -453,7 +303,7 @@
   <path d="M3 11h16" />
   <path d="M18 16.496v1.504l1 1" />
 </svg>
-                <time class="article-time--published">Apr 23, 2023</time>
+                <time class="article-time--published">May 05, 2023</time>
             </div>
         
 
@@ -479,108 +329,122 @@
 </div>
 
 </header>
-</article>
-        
-            
-<article class="has-image">
-    <header class="article-header">
-        <div class="article-image">
-            <a href="/p/hello-world/">
-                <img src="/p/hello-world/cover_hud7e36f7e20e71be184458283bdae4646_55974_800x0_resize_q75_box.jpg"
-                        srcset="/p/hello-world/cover_hud7e36f7e20e71be184458283bdae4646_55974_800x0_resize_q75_box.jpg 800w, /p/hello-world/cover_hud7e36f7e20e71be184458283bdae4646_55974_1600x0_resize_q75_box.jpg 1600w"
-                        width="800" 
-                        height="534" 
-                        loading="lazy"
-                        alt="Featured image of post hugo-starter 生成静态页面" />
-                
-            </a>
-        </div>
-    
 
-    <div class="article-details">
-    
-    <header class="article-category">
-        
-            <a href="/categories/first-blog/" >
-                first blog
-            </a>
-        
-    </header>
-    
-
-    <div class="article-title-wrapper">
-        <h2 class="article-title">
-            <a href="/p/hello-world/">hugo-starter 生成静态页面</a>
-        </h2>
-    
-        
-        <h3 class="article-subtitle">
-            linux服务器使用hugo生成页面
-        </h3>
-        
-    </div>
-
+    <section class="article-content">
     
     
-    
-    
-    <footer class="article-time">
-        
-            <div>
-                <svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-calendar-time" width="56" height="56" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round">
-  <path stroke="none" d="M0 0h24v24H0z"/>
-  <path d="M11.795 21h-6.795a2 2 0 0 1 -2 -2v-12a2 2 0 0 1 2 -2h12a2 2 0 0 1 2 2v4" />
-  <circle cx="18" cy="18" r="4" />
-  <path d="M15 3v4" />
-  <path d="M7 3v4" />
-  <path d="M3 11h16" />
-  <path d="M18 16.496v1.504l1 1" />
-</svg>
-                <time class="article-time--published">Mar 06, 2022</time>
-            </div>
-        
-
-        
-            <div>
-                <svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-clock" width="24" height="24" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round">
-  <path stroke="none" d="M0 0h24v24H0z"/>
-  <circle cx="12" cy="12" r="9" />
-  <polyline points="12 7 12 12 15 15" />
-</svg>
-
-
-
-                <time class="article-time--reading">
-                    阅读时长: 1 分钟
-                </time>
-            </div>
-        
-    </footer>
-    
-
-    
+    <h1 id="postgresql">postgresql</h1>
+<h2 id="postgresql下载与配置">postgresql下载与配置</h2>
+<p>ubantu下载postgresql:</p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre tabindex="0" class="chroma"><code><span class="lnt">1
+</span><span class="lnt">2
+</span></code></pre></td>
+<td class="lntd">
+<pre tabindex="0" class="chroma"><code class="language-fallback" data-lang="fallback">sudo apt update
+sudo apt install postgresql
+</code></pre></td></tr></table>
 </div>
+</div><p>如何需要让远程的主机连接上服务器上的postgresql，需要设置<code>/etc/postgresql/14/main/postgresql.conf</code>和<code>/etc/postgresql/14/main/pg_hba.conf</code>中的两个文件</p>
+<p>把<code>/etc/postgresql/14/main/postgresql.conf</code>中的listen_address设置为<code>listen_addresses = '*'</code>,
+把<code>/etc/postgresql/14/main/pg_hba.conf</code>修改为</p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre tabindex="0" class="chroma"><code><span class="lnt">1
+</span><span class="lnt">2
+</span></code></pre></td>
+<td class="lntd">
+<pre tabindex="0" class="chroma"><code class="language-fallback" data-lang="fallback"># IPv4 local connections:
+host    all             all             0.0.0.0/0            trust
+</code></pre></td></tr></table>
+</div>
+</div><p>接着重启服务<code>sudo systemctl restart postgresql </code>或者不重启重新载入配置文件<code>sudo systemctl reload postgresql </code></p>
 
-</header>
-</article>
+</section>
+
+
+    <footer class="article-footer">
+    
+    <section class="article-tags">
+        
+            <a href="/tags/%E6%95%B0%E6%8D%AE%E5%BA%93/">数据库</a>
+        
+            <a href="/tags/postgresql/">postgresql</a>
         
     </section>
-    <nav class='pagination'>
-        
-        
 
-        
-            
-                    <a class='page-link' href='/'>1</a>
-                
-            
-            
-                <span class='page-link current'>2</span>
-                
-            
-    </nav>
 
-<footer class="site-footer">
+    
+    <section class="article-copyright">
+        <svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-copyright" width="24" height="24" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round">
+  <path stroke="none" d="M0 0h24v24H0z"/>
+  <circle cx="12" cy="12" r="9" />
+  <path d="M14.5 9a3.5 4 0 1 0 0 6" />
+</svg>
+
+
+
+        <span>Licensed under CC BY-NC-SA 4.0</span>
+    </section>
+    </footer>
+
+
+    
+</article>
+
+    
+
+    
+
+     
+    
+        
+    <div class="disqus-container">
+    <div id="disqus_thread"></div>
+<script type="application/javascript">
+    var disqus_config = function () {
+    
+    
+    
+    };
+    (function() {
+        if (["localhost", "127.0.0.1"].indexOf(window.location.hostname) != -1) {
+            document.getElementById('disqus_thread').innerHTML = 'Disqus comments not available by default when the website is previewed locally.';
+            return;
+        }
+        var d = document, s = d.createElement('script'); s.async = true;
+        s.src = '//' + "hugo-theme-stack" + '.disqus.com/embed.js';
+        s.setAttribute('data-timestamp', +new Date());
+        (d.head || d.body).appendChild(s);
+    })();
+</script>
+<noscript>Please enable JavaScript to view the <a href="https://disqus.com/?ref_noscript">comments powered by Disqus.</a></noscript>
+<a href="https://disqus.com" class="dsq-brlink">comments powered by <span class="logo-disqus">Disqus</span></a>
+</div>
+
+<style>
+    .disqus-container {
+        background-color: var(--card-background);
+        border-radius: var(--card-border-radius);
+        box-shadow: var(--shadow-l1);
+        padding: var(--card-padding);
+    }
+</style>
+
+<script>
+    window.addEventListener('onColorSchemeChange', (e) => {
+        if (typeof DISQUS == 'object') {
+            DISQUS.reset({
+                reload: true
+            });
+        }
+    })
+</script>
+
+    
+
+    <footer class="site-footer">
     <section class="copyright">
         &copy; 
         
@@ -594,6 +458,85 @@
         主题 <b><a href="https://github.com/CaiJimmy/hugo-theme-stack" target="_blank" rel="noopener" data-version="3.16.0">Stack</a></b> 由 <a href="https://jimmycai.com" target="_blank" rel="noopener">Jimmy</a> 设计
     </section>
 </footer>
+
+
+    
+<div class="pswp" tabindex="-1" role="dialog" aria-hidden="true">
+
+    
+    <div class="pswp__bg"></div>
+
+    
+    <div class="pswp__scroll-wrap">
+
+        
+        <div class="pswp__container">
+            <div class="pswp__item"></div>
+            <div class="pswp__item"></div>
+            <div class="pswp__item"></div>
+        </div>
+
+        
+        <div class="pswp__ui pswp__ui--hidden">
+
+            <div class="pswp__top-bar">
+
+                
+
+                <div class="pswp__counter"></div>
+
+                <button class="pswp__button pswp__button--close" title="Close (Esc)"></button>
+
+                <button class="pswp__button pswp__button--share" title="Share"></button>
+
+                <button class="pswp__button pswp__button--fs" title="Toggle fullscreen"></button>
+
+                <button class="pswp__button pswp__button--zoom" title="Zoom in/out"></button>
+
+                
+                
+                <div class="pswp__preloader">
+                    <div class="pswp__preloader__icn">
+                        <div class="pswp__preloader__cut">
+                            <div class="pswp__preloader__donut"></div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="pswp__share-modal pswp__share-modal--hidden pswp__single-tap">
+                <div class="pswp__share-tooltip"></div>
+            </div>
+
+            <button class="pswp__button pswp__button--arrow--left" title="Previous (arrow left)">
+            </button>
+
+            <button class="pswp__button pswp__button--arrow--right" title="Next (arrow right)">
+            </button>
+
+            <div class="pswp__caption">
+                <div class="pswp__caption__center"></div>
+            </div>
+
+        </div>
+
+    </div>
+
+</div><script 
+                src="https://cdn.jsdelivr.net/npm/photoswipe@4.1.3/dist/photoswipe.min.js"integrity="sha256-ePwmChbbvXbsO02lbM3HoHbSHTHFAeChekF1xKJdleo="crossorigin="anonymous"
+                defer
+                >
+            </script><script 
+                src="https://cdn.jsdelivr.net/npm/photoswipe@4.1.3/dist/photoswipe-ui-default.min.js"integrity="sha256-UKkzOn/w1mBxRmLLGrSeyB4e1xbrp4xylgAWb3M42pU="crossorigin="anonymous"
+                defer
+                >
+            </script><link 
+                rel="stylesheet" 
+                href="https://cdn.jsdelivr.net/npm/photoswipe@4.1.3/dist/default-skin/default-skin.min.css"crossorigin="anonymous"
+            ><link 
+                rel="stylesheet" 
+                href="https://cdn.jsdelivr.net/npm/photoswipe@4.1.3/dist/photoswipe.min.css"crossorigin="anonymous"
+            >
 
             </main>
         </div>
