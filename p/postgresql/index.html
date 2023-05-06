@@ -250,6 +250,12 @@
             <nav id="TableOfContents">
   <ol>
     <li><a href="#postgresql下载与配置">postgresql下载与配置</a></li>
+    <li><a href="#postgresql操作">postgresql操作</a>
+      <ol>
+        <li><a href="#使用psql进入后的操作">使用psql进入后的操作</a></li>
+        <li><a href="#使用peewee操作postgresql的方法">使用peewee操作postgresql的方法</a></li>
+      </ol>
+    </li>
   </ol>
 </nav>
         </div>
@@ -360,7 +366,99 @@ host    all             all             0.0.0.0/0            trust
 </code></pre></td></tr></table>
 </div>
 </div><p>接着重启服务<code>sudo systemctl restart postgresql </code>或者不重启重新载入配置文件<code>sudo systemctl reload postgresql </code></p>
+<h2 id="postgresql操作">postgresql操作</h2>
+<h3 id="使用psql进入后的操作">使用psql进入后的操作</h3>
+<ol>
+<li>执行sql文件</li>
+</ol>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre tabindex="0" class="chroma"><code><span class="lnt">1
+</span></code></pre></td>
+<td class="lntd">
+<pre tabindex="0" class="chroma"><code class="language-fallback" data-lang="fallback">\i path # path必须是/或者\\连接，不能使用\
+</code></pre></td></tr></table>
+</div>
+</div><ol start="2">
+<li>查看数据库中有多少张表
+<code>\d</code></li>
+<li>查看表的结构
+<code>\d table_name</code></li>
+</ol>
+<h3 id="使用peewee操作postgresql的方法">使用peewee操作postgresql的方法</h3>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre tabindex="0" class="chroma"><code><span class="lnt"> 1
+</span><span class="lnt"> 2
+</span><span class="lnt"> 3
+</span><span class="lnt"> 4
+</span><span class="lnt"> 5
+</span><span class="lnt"> 6
+</span><span class="lnt"> 7
+</span><span class="lnt"> 8
+</span><span class="lnt"> 9
+</span><span class="lnt">10
+</span><span class="lnt">11
+</span><span class="lnt">12
+</span><span class="lnt">13
+</span><span class="lnt">14
+</span><span class="lnt">15
+</span><span class="lnt">16
+</span><span class="lnt">17
+</span><span class="lnt">18
+</span><span class="lnt">19
+</span><span class="lnt">20
+</span><span class="lnt">21
+</span><span class="lnt">22
+</span><span class="lnt">23
+</span><span class="lnt">24
+</span><span class="lnt">25
+</span><span class="lnt">26
+</span><span class="lnt">27
+</span><span class="lnt">28
+</span><span class="lnt">29
+</span><span class="lnt">30
+</span><span class="lnt">31
+</span><span class="lnt">32
+</span><span class="lnt">33
+</span></code></pre></td>
+<td class="lntd">
+<pre tabindex="0" class="chroma"><code class="language-python" data-lang="python"><span class="c1"># 查询所有的用户</span>
+<span class="n">users</span> <span class="o">=</span> <span class="n">User</span><span class="o">.</span><span class="n">select</span><span class="p">()</span>
 
+<span class="c1"># 查询指定条件的用户,可以使用filter也可以使用where</span>
+<span class="n">users</span> <span class="o">=</span> <span class="n">User</span><span class="o">.</span><span class="n">select</span><span class="p">()</span><span class="o">.</span><span class="n">where</span><span class="p">(</span><span class="n">User</span><span class="o">.</span><span class="n">username</span> <span class="o">==</span> <span class="s1">&#39;john&#39;</span><span class="p">)</span>
+
+<span class="s2">&#34;&#34;&#34;
+</span><span class="s2">filter()方法是一个查询构建器的方法，它用于向现有查询中添加筛选条件，并返回一个新的查询对象。
+</span><span class="s2">where()方法是查询对象的方法，用于指定查询条件。与filter()方法不同，它会直接修改当前查询对象，并返回自身。
+</span><span class="s2">&#34;&#34;&#34;</span>
+<span class="n">new_query</span> <span class="o">=</span> <span class="n">query</span><span class="o">.</span><span class="n">filter</span><span class="p">(</span><span class="n">User</span><span class="o">.</span><span class="n">age</span> <span class="o">&gt;</span> <span class="mi">18</span><span class="p">)</span>
+<span class="n">query</span><span class="o">.</span><span class="n">where</span><span class="p">(</span><span class="n">User</span><span class="o">.</span><span class="n">age</span> <span class="o">&gt;</span> <span class="mi">18</span><span class="p">)</span>
+
+<span class="c1"># 对查询结果进行排序</span>
+<span class="n">users</span> <span class="o">=</span> <span class="n">User</span><span class="o">.</span><span class="n">select</span><span class="p">()</span><span class="o">.</span><span class="n">order_by</span><span class="p">(</span><span class="n">User</span><span class="o">.</span><span class="n">username</span><span class="o">.</span><span class="n">desc</span><span class="p">())</span>
+
+<span class="c1"># 对查询结果进行分页</span>
+<span class="n">users</span> <span class="o">=</span> <span class="n">User</span><span class="o">.</span><span class="n">select</span><span class="p">()</span><span class="o">.</span><span class="n">paginate</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span> <span class="mi">10</span><span class="p">)</span>
+
+<span class="c1"># 对查询结果进行聚合操作</span>
+<span class="kn">from</span> <span class="nn">peewee</span> <span class="kn">import</span> <span class="n">fn</span>
+<span class="n">total_users</span> <span class="o">=</span> <span class="n">User</span><span class="o">.</span><span class="n">select</span><span class="p">(</span><span class="n">fn</span><span class="o">.</span><span class="n">COUNT</span><span class="p">(</span><span class="n">User</span><span class="o">.</span><span class="n">id</span><span class="p">))</span>
+
+<span class="c1"># 使用Peewee的ORM方法进行数据库操作</span>
+<span class="n">user</span> <span class="o">=</span> <span class="n">User</span><span class="o">.</span><span class="n">create</span><span class="p">(</span><span class="n">username</span><span class="o">=</span><span class="s1">&#39;john&#39;</span><span class="p">,</span> <span class="n">email</span><span class="o">=</span><span class="s1">&#39;john@example.com&#39;</span><span class="p">,</span> <span class="n">password</span><span class="o">=</span><span class="s1">&#39;password&#39;</span><span class="p">)</span>
+
+<span class="c1"># 使用Peewee的ORM方法更新数据库中的记录</span>
+<span class="n">user</span><span class="o">.</span><span class="n">email</span> <span class="o">=</span> <span class="s1">&#39;john@newemail.com&#39;</span>
+<span class="n">user</span><span class="o">.</span><span class="n">save</span><span class="p">()</span>
+
+<span class="c1"># 使用Peewee的ORM方法删除数据库中的记录</span>
+<span class="n">user</span><span class="o">.</span><span class="n">delete_instance</span><span class="p">()</span>
+
+</code></pre></td></tr></table>
+</div>
+</div>
 </section>
 
 
