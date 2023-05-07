@@ -277,6 +277,7 @@
     </li>
     <li><a href="#go面向接口编程">go面向接口编程</a></li>
     <li><a href="#go错误处理">go错误处理</a></li>
+    <li><a href="#go匿名函数">go匿名函数</a></li>
   </ol>
 </nav>
         </div>
@@ -481,7 +482,45 @@ make后才会分配内存空间。</p>
 </div><h2 id="go错误处理">go错误处理</h2>
 <p>Go 语言要求开发者自己管理错误，也就是在函数中的错误需要显式抛出来，否则 Go 程序不会做任何错误处理。因为 Go 没有传统编程语言的 try/catch 针对错误处理的语法，所以在错误管理上缺少灵活度，导致了 “err 满天飞” 的局面。</p>
 <p>go错误处理的好处：第一，它强制要求 Go 语言开发者从代码层面来规范错误的管理方式，这驱使开发者写出更健壮的代码；第二，这种显式返回错误的方式避免了 “try/catch 一把梭”，因为这种 “一时爽” 的做法很可能导致 Bug 无法准确定位，从而产生很多不可预测的问题；第三，由于没有 try/catch 的括号或额外的代码块，Go 程序代码整体看起来更清爽，可读性较强。</p>
+<h2 id="go匿名函数">go匿名函数</h2>
+<p>在Go语言中，func(){}表示一个匿名函数（没有函数名），它可以作为值进行传递，也可以被直接调用。</p>
+<p>当在func(){}后面添加一个括号对()时，它表示直接调用这个匿名函数。也就是说，func(){}()中第二个括号的内容为空，表示直接调用前面定义的匿名函数，并将其返回值（如果有）作为整个表达式的值。</p>
+<p>示例：</p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre tabindex="0" class="chroma"><code><span class="lnt"> 1
+</span><span class="lnt"> 2
+</span><span class="lnt"> 3
+</span><span class="lnt"> 4
+</span><span class="lnt"> 5
+</span><span class="lnt"> 6
+</span><span class="lnt"> 7
+</span><span class="lnt"> 8
+</span><span class="lnt"> 9
+</span><span class="lnt">10
+</span><span class="lnt">11
+</span><span class="lnt">12
+</span><span class="lnt">13
+</span><span class="lnt">14
+</span></code></pre></td>
+<td class="lntd">
+<pre tabindex="0" class="chroma"><code class="language-go" data-lang="go"><span class="kn">package</span> <span class="nx">main</span>
 
+<span class="kn">import</span> <span class="s">&#34;fmt&#34;</span>
+
+<span class="kd">func</span> <span class="nf">main</span><span class="p">()</span> <span class="p">{</span>
+    <span class="c1">// 定义一个匿名函数
+</span><span class="c1"></span>    <span class="nx">greet</span> <span class="o">:=</span> <span class="kd">func</span><span class="p">()</span> <span class="p">{</span>
+        <span class="nx">fmt</span><span class="p">.</span><span class="nf">Println</span><span class="p">(</span><span class="s">&#34;Hello, world!&#34;</span><span class="p">)</span>
+    <span class="p">}</span>
+
+    <span class="c1">// 直接调用匿名函数
+</span><span class="c1"></span>    <span class="nf">greet</span><span class="p">()</span>
+<span class="p">}</span>
+
+</code></pre></td></tr></table>
+</div>
+</div>
 </section>
 
 
