@@ -253,7 +253,14 @@
     <li><a href="#postgresql操作">postgresql操作</a>
       <ol>
         <li><a href="#使用psql进入后的操作">使用psql进入后的操作</a></li>
-        <li><a href="#使用peewee操作postgresql的方法">使用peewee操作postgresql的方法</a></li>
+        <li><a href="#使用peewee操作postgresql的方法">使用peewee操作postgresql的方法</a>
+          <ol>
+            <li><a href="#create">create</a></li>
+            <li><a href="#read">read</a></li>
+            <li><a href="#update">update</a></li>
+            <li><a href="#delete">delete</a></li>
+          </ol>
+        </li>
       </ol>
     </li>
   </ol>
@@ -324,7 +331,7 @@
 
 
                 <time class="article-time--reading">
-                    阅读时长: 1 分钟
+                    阅读时长: 2 分钟
                 </time>
             </div>
         
@@ -456,6 +463,79 @@ host    all             all             0.0.0.0/0            trust
 <span class="c1"># 使用Peewee的ORM方法删除数据库中的记录</span>
 <span class="n">user</span><span class="o">.</span><span class="n">delete_instance</span><span class="p">()</span>
 
+</code></pre></td></tr></table>
+</div>
+</div><h4 id="create">create</h4>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre tabindex="0" class="chroma"><code><span class="lnt">1
+</span><span class="lnt">2
+</span><span class="lnt">3
+</span></code></pre></td>
+<td class="lntd">
+<pre tabindex="0" class="chroma"><code class="language-python" data-lang="python"><span class="c1"># 使用Peewee的ORM方法进行数据库操作</span>
+<span class="n">user</span> <span class="o">=</span> <span class="n">User</span><span class="o">.</span><span class="n">create</span><span class="p">(</span><span class="n">username</span><span class="o">=</span><span class="s1">&#39;john&#39;</span><span class="p">,</span> <span class="n">email</span><span class="o">=</span><span class="s1">&#39;john@example.com&#39;</span><span class="p">,</span> <span class="n">password</span><span class="o">=</span><span class="s1">&#39;password&#39;</span><span class="p">)</span>
+<span class="n">user</span><span class="o">.</span><span class="n">save</span><span class="p">()</span>
+</code></pre></td></tr></table>
+</div>
+</div><h4 id="read">read</h4>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre tabindex="0" class="chroma"><code><span class="lnt">1
+</span><span class="lnt">2
+</span><span class="lnt">3
+</span><span class="lnt">4
+</span><span class="lnt">5
+</span><span class="lnt">6
+</span><span class="lnt">7
+</span><span class="lnt">8
+</span></code></pre></td>
+<td class="lntd">
+<pre tabindex="0" class="chroma"><code class="language-python" data-lang="python"><span class="c1"># 查询所有的用户</span>
+<span class="n">users</span> <span class="o">=</span> <span class="n">User</span><span class="o">.</span><span class="n">select</span><span class="p">()</span>   <span class="c1"># peewee.Model</span>
+
+<span class="c1"># 查询指定条件的用户</span>
+<span class="n">users</span> <span class="o">=</span> <span class="n">User</span><span class="o">.</span><span class="n">select</span><span class="p">()</span><span class="o">.</span><span class="n">where</span><span class="p">(</span><span class="n">User</span><span class="o">.</span><span class="n">username</span> <span class="o">==</span> <span class="s1">&#39;john&#39;</span><span class="p">)</span>    <span class="c1"># peewee.Model</span>
+
+<span class="c1"># 使用filter进行查询，User.filter() 等价于 User.select().where()</span>
+<span class="n">users</span> <span class="o">=</span> <span class="n">User</span><span class="o">.</span><span class="n">filter</span><span class="p">(</span><span class="n">User</span><span class="o">.</span><span class="n">username</span> <span class="o">==</span> <span class="s1">&#39;john&#39;</span><span class="p">)</span>    <span class="c1"># peewee.Model</span>
+</code></pre></td></tr></table>
+</div>
+</div><p>只获取一个实例</p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre tabindex="0" class="chroma"><code><span class="lnt">1
+</span></code></pre></td>
+<td class="lntd">
+<pre tabindex="0" class="chroma"><code class="language-python" data-lang="python"><span class="n">user</span> <span class="o">=</span> <span class="n">User</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="n">User</span><span class="o">.</span><span class="n">username</span> <span class="o">==</span> <span class="s1">&#39;john&#39;</span><span class="p">)</span>    <span class="c1"># User</span>
+</code></pre></td></tr></table>
+</div>
+</div><h4 id="update">update</h4>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre tabindex="0" class="chroma"><code><span class="lnt">1
+</span><span class="lnt">2
+</span><span class="lnt">3
+</span></code></pre></td>
+<td class="lntd">
+<pre tabindex="0" class="chroma"><code class="language-python" data-lang="python"><span class="n">query</span> <span class="o">=</span> <span class="n">User</span><span class="o">.</span><span class="n">update</span><span class="p">({</span><span class="n">User</span><span class="o">.</span><span class="n">name</span><span class="p">:</span> <span class="s1">&#39;steve&#39;</span><span class="p">})</span><span class="o">.</span><span class="n">where</span><span class="p">(</span><span class="n">User</span><span class="o">.</span><span class="n">name</span> <span class="o">==</span> <span class="s1">&#39;john&#39;</span><span class="p">)</span>
+<span class="n">affected_rows</span> <span class="o">=</span> <span class="n">query</span><span class="o">.</span><span class="n">execute</span><span class="p">()</span>     
+<span class="c1"># affected_rows返回已经更新的行数，0则没有更新</span>
+</code></pre></td></tr></table>
+</div>
+</div><h4 id="delete">delete</h4>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre tabindex="0" class="chroma"><code><span class="lnt">1
+</span><span class="lnt">2
+</span><span class="lnt">3
+</span><span class="lnt">4
+</span></code></pre></td>
+<td class="lntd">
+<pre tabindex="0" class="chroma"><code class="language-python" data-lang="python"><span class="c1"># 删除记录</span>
+<span class="n">query</span> <span class="o">=</span> <span class="n">Wallet</span><span class="o">.</span><span class="n">delete</span><span class="p">()</span><span class="o">.</span><span class="n">where</span><span class="p">(</span><span class="n">Wallet</span><span class="o">.</span><span class="n">user_id</span> <span class="o">==</span> <span class="mi">9</span><span class="p">)</span>
+<span class="n">affected_rows</span> <span class="o">=</span> <span class="n">query</span><span class="o">.</span><span class="n">execute</span><span class="p">()</span>
+<span class="c1"># affected_rows返回已经删除的行数，0则为没有删除</span>
 </code></pre></td></tr></table>
 </div>
 </div>
