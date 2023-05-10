@@ -1,0 +1,1093 @@
+<!DOCTYPE html>
+<html lang="en-us" dir="ltr">
+    <head><meta charset='utf-8'>
+<meta name='viewport' content='width=device-width, initial-scale=1'><meta name='description' content='langchain快速入门'>
+<title>langchain</title>
+
+<link rel='canonical' href='https://jhrsya.github.io/p/langchain/'>
+
+<link rel="stylesheet" href="/scss/style.min.8191399262444ab68b72a18c97392f5349be20a1615d77445be51e974c144cff.css"><meta property='og:title' content='langchain'>
+<meta property='og:description' content='langchain快速入门'>
+<meta property='og:url' content='https://jhrsya.github.io/p/langchain/'>
+<meta property='og:site_name' content='steve lannister'>
+<meta property='og:type' content='article'><meta property='article:section' content='Post' /><meta property='article:tag' content='AI' /><meta property='article:tag' content='langchain' /><meta property='article:published_time' content='2023-05-10T00:00:00&#43;00:00'/><meta property='article:modified_time' content='2023-05-10T00:00:00&#43;00:00'/>
+<meta name="twitter:title" content="langchain">
+<meta name="twitter:description" content="langchain快速入门">
+    </head>
+    <body class="
+    article-page
+    ">
+    <script>
+        (function() {
+            const colorSchemeKey = 'StackColorScheme';
+            if(!localStorage.getItem(colorSchemeKey)){
+                localStorage.setItem(colorSchemeKey, "auto");
+            }
+        })();
+    </script><script>
+    (function() {
+        const colorSchemeKey = 'StackColorScheme';
+        const colorSchemeItem = localStorage.getItem(colorSchemeKey);
+        const supportDarkMode = window.matchMedia('(prefers-color-scheme: dark)').matches === true;
+
+        if (colorSchemeItem == 'dark' || colorSchemeItem === 'auto' && supportDarkMode) {
+            
+
+            document.documentElement.dataset.scheme = 'dark';
+        } else {
+            document.documentElement.dataset.scheme = 'light';
+        }
+    })();
+</script>
+<div class="container main-container flex on-phone--column extended"><aside class="sidebar left-sidebar sticky ">
+    <button class="hamburger hamburger--spin" type="button" id="toggle-menu" aria-label="切换菜单">
+        <span class="hamburger-box">
+            <span class="hamburger-inner"></span>
+        </span>
+    </button>
+
+    <header>
+        
+            
+            <figure class="site-avatar">
+                <a href="/">
+                
+                    
+                    
+                    
+                        
+                        <img src="/img/avatar_hu75249b9e118adc4b16bd3e4fa099a7b0_35085_300x0_resize_box_3.png" width="300"
+                            height="300" class="site-logo" loading="lazy" alt="Avatar">
+                    
+                
+                </a>
+                
+                    <span class="emoji">🍥</span>
+                
+            </figure>
+            
+        
+        
+        <div class="site-meta">
+            <h1 class="site-name"><a href="/">steve lannister</a></h1>
+            <h2 class="site-description">to be or not to be, it is a problem</h2>
+        </div>
+    </header><ol class="social-menu">
+            
+                <li>
+                    <a 
+                        href='https://github.com/jhrsya'
+                        target="_blank"
+                        title="GitHub"
+                        rel="me"
+                    >
+                        
+                        
+                            <svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-brand-github" width="24" height="24" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round">
+  <path stroke="none" d="M0 0h24v24H0z" fill="none"/>
+  <path d="M9 19c-4.3 1.4 -4.3 -2.5 -6 -3m12 5v-3.5c0 -1 .1 -1.4 -.5 -2c2.8 -.3 5.5 -1.4 5.5 -6a4.6 4.6 0 0 0 -1.3 -3.2a4.2 4.2 0 0 0 -.1 -3.2s-1.1 -.3 -3.5 1.3a12.3 12.3 0 0 0 -6.2 0c-2.4 -1.6 -3.5 -1.3 -3.5 -1.3a4.2 4.2 0 0 0 -.1 3.2a4.6 4.6 0 0 0 -1.3 3.2c0 4.6 2.7 5.7 5.5 6c-.6 .6 -.6 1.2 -.5 2v3.5" />
+</svg>
+
+
+
+                        
+                    </a>
+                </li>
+            
+                <li>
+                    <a 
+                        href='https://twitter.com'
+                        target="_blank"
+                        title="Twitter"
+                        rel="me"
+                    >
+                        
+                        
+                            <svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-brand-twitter" width="24" height="24" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round">
+  <path stroke="none" d="M0 0h24v24H0z" fill="none"/>
+  <path d="M22 4.01c-1 .49 -1.98 .689 -3 .99c-1.121 -1.265 -2.783 -1.335 -4.38 -.737s-2.643 2.06 -2.62 3.737v1c-3.245 .083 -6.135 -1.395 -8 -4c0 0 -4.182 7.433 4 11c-1.872 1.247 -3.739 2.088 -6 2c3.308 1.803 6.913 2.423 10.034 1.517c3.58 -1.04 6.522 -3.723 7.651 -7.742a13.84 13.84 0 0 0 .497 -3.753c-.002 -.249 1.51 -2.772 1.818 -4.013z" />
+</svg>
+
+
+
+                        
+                    </a>
+                </li>
+            
+        </ol><ol class="menu" id="main-menu">
+        
+        
+        
+
+        <li >
+            <a href='/' >
+                
+                
+                
+                    <svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-home" width="24" height="24" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round">
+  <path stroke="none" d="M0 0h24v24H0z"/>
+  <polyline points="5 12 3 12 12 3 21 12 19 12" />
+  <path d="M5 12v7a2 2 0 0 0 2 2h10a2 2 0 0 0 2 -2v-7" />
+  <path d="M9 21v-6a2 2 0 0 1 2 -2h2a2 2 0 0 1 2 2v6" />
+</svg>
+
+
+
+                
+                <span>Home</span>
+            </a>
+        </li>
+        
+        
+
+        <li >
+            <a href='/archives/' >
+                
+                
+                
+                    <svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-archive" width="24" height="24" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round">
+  <path stroke="none" d="M0 0h24v24H0z"/>
+  <rect x="3" y="4" width="18" height="4" rx="2" />
+  <path d="M5 8v10a2 2 0 0 0 2 2h10a2 2 0 0 0 2 -2v-10" />
+  <line x1="10" y1="12" x2="14" y2="12" />
+</svg>
+
+
+
+                
+                <span>Archives</span>
+            </a>
+        </li>
+        
+        
+
+        <li >
+            <a href='/search/' >
+                
+                
+                
+                    <svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-search" width="24" height="24" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round">
+  <path stroke="none" d="M0 0h24v24H0z"/>
+  <circle cx="10" cy="10" r="7" />
+  <line x1="21" y1="21" x2="15" y2="15" />
+</svg>
+
+
+
+                
+                <span>Search</span>
+            </a>
+        </li>
+        
+        
+
+        <li >
+            <a href='/links/' >
+                
+                
+                
+                    <svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-link" width="24" height="24" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round">
+  <path stroke="none" d="M0 0h24v24H0z"/>
+  <path d="M10 14a3.5 3.5 0 0 0 5 0l4 -4a3.5 3.5 0 0 0 -5 -5l-.5 .5" />
+  <path d="M14 10a3.5 3.5 0 0 0 -5 0l-4 4a3.5 3.5 0 0 0 5 5l.5 -.5" />
+</svg>
+
+
+
+                
+                <span>Links</span>
+            </a>
+        </li>
+        
+
+        <div class="menu-bottom-section">
+            
+            
+                <li id="dark-mode-toggle">
+                    <svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-toggle-left" width="24" height="24" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round">
+  <path stroke="none" d="M0 0h24v24H0z"/>
+  <circle cx="8" cy="12" r="2" />
+  <rect x="2" y="6" width="20" height="12" rx="6" />
+</svg>
+
+
+
+                    <svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-toggle-right" width="24" height="24" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round">
+  <path stroke="none" d="M0 0h24v24H0z"/>
+  <circle cx="16" cy="12" r="2" />
+  <rect x="2" y="6" width="20" height="12" rx="6" />
+</svg>
+
+
+
+                    <span>暗色模式</span>
+                </li>
+            
+        </div>
+    </ol>
+</aside>
+
+    <aside class="sidebar right-sidebar sticky">
+        
+            
+                
+    <section class="widget archives">
+        <div class="widget-icon">
+            <svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-hash" width="24" height="24" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round">
+  <path stroke="none" d="M0 0h24v24H0z"/>
+  <line x1="5" y1="9" x2="19" y2="9" />
+  <line x1="5" y1="15" x2="19" y2="15" />
+  <line x1="11" y1="4" x2="7" y2="20" />
+  <line x1="17" y1="4" x2="13" y2="20" />
+</svg>
+
+
+
+        </div>
+        <h2 class="widget-title section-title">目录</h2>
+        
+        <div class="widget--toc">
+            <nav id="TableOfContents">
+  <ol>
+    <li>
+      <ol>
+        <li><a href="#从语言模型中预测">从语言模型中预测</a></li>
+        <li><a href="#prompt模板给llm提供模板">prompt模板：给LLM提供模板</a></li>
+        <li><a href="#把llms和prompts结合进多个工作流中">把LLMs和prompts结合进多个工作流中</a></li>
+        <li><a href="#agents基于用户的输入动态的调用chain">Agents：基于用户的输入动态的调用chain</a></li>
+        <li><a href="#memory-给chains-和-agents添加状态">Memory: 给Chains 和 Agents添加状态</a></li>
+      </ol>
+    </li>
+    <li><a href="#建立一个语言模型应用-对话模型">建立一个语言模型应用: 对话模型</a>
+      <ol>
+        <li><a href="#从对话模型中获取消息补全">从对话模型中获取消息补全</a></li>
+        <li><a href="#对话prompt模板">对话prompt模板</a></li>
+        <li><a href="#chains和对话模型">chains和对话模型</a></li>
+        <li><a href="#agents和对话模型">agents和对话模型</a></li>
+        <li><a href="#message-给chains和agents添加状态">Message: 给chains和agents添加状态</a></li>
+      </ol>
+    </li>
+  </ol>
+</nav>
+        </div>
+    </section>
+
+            
+        
+    </aside>
+
+
+            <main class="main full-width">
+    <article class="main-article">
+    <header class="article-header">
+
+    <div class="article-details">
+    
+    <header class="article-category">
+        
+            <a href="/categories/ai%E6%A1%86%E6%9E%B6/" >
+                AI框架
+            </a>
+        
+    </header>
+    
+
+    <div class="article-title-wrapper">
+        <h2 class="article-title">
+            <a href="/p/langchain/">langchain</a>
+        </h2>
+    
+        
+        <h3 class="article-subtitle">
+            langchain快速入门
+        </h3>
+        
+    </div>
+
+    
+    
+    
+    
+    <footer class="article-time">
+        
+            <div>
+                <svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-calendar-time" width="56" height="56" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round">
+  <path stroke="none" d="M0 0h24v24H0z"/>
+  <path d="M11.795 21h-6.795a2 2 0 0 1 -2 -2v-12a2 2 0 0 1 2 -2h12a2 2 0 0 1 2 2v4" />
+  <circle cx="18" cy="18" r="4" />
+  <path d="M15 3v4" />
+  <path d="M7 3v4" />
+  <path d="M3 11h16" />
+  <path d="M18 16.496v1.504l1 1" />
+</svg>
+                <time class="article-time--published">May 10, 2023</time>
+            </div>
+        
+
+        
+            <div>
+                <svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-clock" width="24" height="24" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round">
+  <path stroke="none" d="M0 0h24v24H0z"/>
+  <circle cx="12" cy="12" r="9" />
+  <polyline points="12 7 12 12 15 15" />
+</svg>
+
+
+
+                <time class="article-time--reading">
+                    阅读时长: 6 分钟
+                </time>
+            </div>
+        
+    </footer>
+    
+
+    
+</div>
+
+</header>
+
+    <section class="article-content">
+    
+    
+    <h3 id="从语言模型中预测">从语言模型中预测</h3>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre tabindex="0" class="chroma"><code><span class="lnt">1
+</span><span class="lnt">2
+</span><span class="lnt">3
+</span><span class="lnt">4
+</span><span class="lnt">5
+</span><span class="lnt">6
+</span><span class="lnt">7
+</span><span class="lnt">8
+</span><span class="lnt">9
+</span></code></pre></td>
+<td class="lntd">
+<pre tabindex="0" class="chroma"><code class="language-python" data-lang="python"><span class="kn">from</span> <span class="nn">langchain.llms</span> <span class="kn">import</span> <span class="n">OpenAI</span>
+<span class="kn">import</span> <span class="nn">json</span>
+<span class="k">with</span> <span class="nb">open</span><span class="p">(</span><span class="s2">&#34;api_key.json&#34;</span><span class="p">,</span> <span class="s2">&#34;r&#34;</span><span class="p">)</span> <span class="k">as</span> <span class="n">f</span><span class="p">:</span>
+    <span class="n">api_key</span> <span class="o">=</span> <span class="n">json</span><span class="o">.</span><span class="n">load</span><span class="p">(</span><span class="n">f</span><span class="p">)</span>
+<span class="kn">import</span> <span class="nn">os</span>
+<span class="n">os</span><span class="o">.</span><span class="n">environ</span><span class="p">[</span><span class="s2">&#34;OPENAI_API_KEY&#34;</span><span class="p">]</span> <span class="o">=</span> <span class="n">api_key</span><span class="p">[</span><span class="s2">&#34;OPANAI_API_KEY&#34;</span><span class="p">]</span>
+<span class="n">llm</span> <span class="o">=</span> <span class="n">OpenAI</span><span class="p">(</span><span class="n">temperature</span><span class="o">=</span><span class="mf">0.9</span><span class="p">)</span>
+<span class="n">text</span> <span class="o">=</span> <span class="s2">&#34;What would be a good company name for a company that makes colorful socks?&#34;</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">llm</span><span class="p">(</span><span class="n">text</span><span class="p">))</span>
+</code></pre></td></tr></table>
+</div>
+</div><pre><code>Rainbow Socks Co.
+</code></pre>
+<h3 id="prompt模板给llm提供模板">prompt模板：给LLM提供模板</h3>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre tabindex="0" class="chroma"><code><span class="lnt">1
+</span><span class="lnt">2
+</span><span class="lnt">3
+</span><span class="lnt">4
+</span><span class="lnt">5
+</span><span class="lnt">6
+</span><span class="lnt">7
+</span><span class="lnt">8
+</span></code></pre></td>
+<td class="lntd">
+<pre tabindex="0" class="chroma"><code class="language-python" data-lang="python"><span class="kn">from</span> <span class="nn">langchain.prompts</span> <span class="kn">import</span> <span class="n">PromptTemplate</span>
+
+<span class="n">prompt</span> <span class="o">=</span> <span class="n">PromptTemplate</span><span class="p">(</span>
+    <span class="n">input_variables</span><span class="o">=</span><span class="p">[</span><span class="s2">&#34;product&#34;</span><span class="p">],</span>
+    <span class="n">template</span><span class="o">=</span><span class="s2">&#34;What is a good name for a company that makes </span><span class="si">{product}</span><span class="s2">?&#34;</span><span class="p">,</span>
+<span class="p">)</span>
+<span class="c1"># 查看模板长什么样子</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">prompt</span><span class="o">.</span><span class="n">format</span><span class="p">(</span><span class="n">product</span><span class="o">=</span><span class="s2">&#34;colorful socks&#34;</span><span class="p">))</span>
+</code></pre></td></tr></table>
+</div>
+</div><pre><code>What is a good name for a company that makes colorful socks?
+</code></pre>
+<h3 id="把llms和prompts结合进多个工作流中">把LLMs和prompts结合进多个工作流中</h3>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre tabindex="0" class="chroma"><code><span class="lnt"> 1
+</span><span class="lnt"> 2
+</span><span class="lnt"> 3
+</span><span class="lnt"> 4
+</span><span class="lnt"> 5
+</span><span class="lnt"> 6
+</span><span class="lnt"> 7
+</span><span class="lnt"> 8
+</span><span class="lnt"> 9
+</span><span class="lnt">10
+</span><span class="lnt">11
+</span><span class="lnt">12
+</span><span class="lnt">13
+</span><span class="lnt">14
+</span><span class="lnt">15
+</span></code></pre></td>
+<td class="lntd">
+<pre tabindex="0" class="chroma"><code class="language-python" data-lang="python"><span class="kn">from</span> <span class="nn">langchain.prompts</span> <span class="kn">import</span> <span class="n">PromptTemplate</span>
+<span class="kn">from</span> <span class="nn">langchain.llms</span> <span class="kn">import</span> <span class="n">OpenAI</span>
+
+<span class="n">llm</span> <span class="o">=</span> <span class="n">OpenAI</span><span class="p">(</span><span class="n">temperature</span><span class="o">=</span><span class="mf">0.9</span><span class="p">)</span>
+<span class="n">prompt</span> <span class="o">=</span> <span class="n">PromptTemplate</span><span class="p">(</span>
+    <span class="n">input_variables</span><span class="o">=</span><span class="p">[</span><span class="s2">&#34;product&#34;</span><span class="p">],</span>
+    <span class="n">template</span><span class="o">=</span><span class="s2">&#34;What is a good name for a company that makes </span><span class="si">{product}</span><span class="s2">?&#34;</span><span class="p">,</span>
+<span class="p">)</span>
+
+<span class="c1"># 导入链，设置prompt和LLM</span>
+<span class="kn">from</span> <span class="nn">langchain.chains</span> <span class="kn">import</span> <span class="n">LLMChain</span>
+<span class="n">chain</span> <span class="o">=</span> <span class="n">LLMChain</span><span class="p">(</span><span class="n">llm</span><span class="o">=</span><span class="n">llm</span><span class="p">,</span> <span class="n">prompt</span><span class="o">=</span><span class="n">prompt</span><span class="p">)</span>
+
+<span class="c1"># 使用这个链</span>
+<span class="n">chain</span><span class="o">.</span><span class="n">run</span><span class="p">(</span><span class="s2">&#34;colorful socks&#34;</span><span class="p">)</span>
+</code></pre></td></tr></table>
+</div>
+</div><pre><code>'\n\nColorful Toes.'
+</code></pre>
+<h3 id="agents基于用户的输入动态的调用chain">Agents：基于用户的输入动态的调用chain</h3>
+<p>迄今为止，我们所看到的链是按照预定顺序进行。
+Agents 不这么做：他们使用LLM来确定要采取的行动及其顺序。一个行动可以是使用工具并观察其输出，或者返回给用户。</p>
+<p>使用Agent需要知道的三个概念：</p>
+<ul>
+<li>Tool: 类似一个函数，给一个输入，有一个输出，比如谷歌搜索。已有的Tool<a class="link" href="https://python.langchain.com/en/latest/modules/agents/getting_started.html"  target="_blank" rel="noopener"
+    >链接</a></li>
+<li>LLM</li>
+<li>Agent: agent使用的类</li>
+</ul>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre tabindex="0" class="chroma"><code><span class="lnt"> 1
+</span><span class="lnt"> 2
+</span><span class="lnt"> 3
+</span><span class="lnt"> 4
+</span><span class="lnt"> 5
+</span><span class="lnt"> 6
+</span><span class="lnt"> 7
+</span><span class="lnt"> 8
+</span><span class="lnt"> 9
+</span><span class="lnt">10
+</span><span class="lnt">11
+</span><span class="lnt">12
+</span><span class="lnt">13
+</span><span class="lnt">14
+</span><span class="lnt">15
+</span><span class="lnt">16
+</span><span class="lnt">17
+</span><span class="lnt">18
+</span><span class="lnt">19
+</span><span class="lnt">20
+</span><span class="lnt">21
+</span><span class="lnt">22
+</span><span class="lnt">23
+</span><span class="lnt">24
+</span></code></pre></td>
+<td class="lntd">
+<pre tabindex="0" class="chroma"><code class="language-python" data-lang="python"><span class="c1"># 下面以谷歌搜索为Tool举例</span>
+<span class="c1"># ! pip install google-search-results</span>
+<span class="kn">from</span> <span class="nn">langchain.agents</span> <span class="kn">import</span> <span class="n">load_tools</span>
+<span class="kn">from</span> <span class="nn">langchain.agents</span> <span class="kn">import</span> <span class="n">initialize_agent</span>
+<span class="kn">from</span> <span class="nn">langchain.agents</span> <span class="kn">import</span> <span class="n">AgentType</span>
+<span class="kn">from</span> <span class="nn">langchain.llms</span> <span class="kn">import</span> <span class="n">OpenAI</span>
+<span class="kn">import</span> <span class="nn">json</span>
+<span class="kn">import</span> <span class="nn">os</span>
+<span class="k">with</span> <span class="nb">open</span><span class="p">(</span><span class="s2">&#34;api_key.json&#34;</span><span class="p">,</span> <span class="s2">&#34;r&#34;</span><span class="p">)</span> <span class="k">as</span> <span class="n">f</span><span class="p">:</span>
+    <span class="n">api_key</span> <span class="o">=</span> <span class="n">json</span><span class="o">.</span><span class="n">load</span><span class="p">(</span><span class="n">f</span><span class="p">)</span>
+<span class="n">os</span><span class="o">.</span><span class="n">environ</span><span class="p">[</span><span class="s2">&#34;SERPAPI_API_KEY&#34;</span><span class="p">]</span> <span class="o">=</span> <span class="n">api_key</span><span class="p">[</span><span class="s2">&#34;SERPAPI_API_KEY&#34;</span><span class="p">]</span>
+
+<span class="c1"># First, let&#39;s load the language model we&#39;re going to use to control the agent.</span>
+<span class="n">llm</span> <span class="o">=</span> <span class="n">OpenAI</span><span class="p">(</span><span class="n">temperature</span><span class="o">=</span><span class="mi">0</span><span class="p">)</span>
+
+<span class="c1"># Next, let&#39;s load some tools to use. Note that the `llm-math` tool uses an LLM, so we need to pass that in.</span>
+<span class="n">tools</span> <span class="o">=</span> <span class="n">load_tools</span><span class="p">([</span><span class="s2">&#34;serpapi&#34;</span><span class="p">,</span> <span class="s2">&#34;llm-math&#34;</span><span class="p">],</span> <span class="n">llm</span><span class="o">=</span><span class="n">llm</span><span class="p">)</span>
+
+
+<span class="c1"># Finally, let&#39;s initialize an agent with the tools, the language model, and the type of agent we want to use.</span>
+<span class="n">agent</span> <span class="o">=</span> <span class="n">initialize_agent</span><span class="p">(</span><span class="n">tools</span><span class="p">,</span> <span class="n">llm</span><span class="p">,</span> <span class="n">agent</span><span class="o">=</span><span class="n">AgentType</span><span class="o">.</span><span class="n">ZERO_SHOT_REACT_DESCRIPTION</span><span class="p">,</span> <span class="n">verbose</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span>
+
+<span class="c1"># Now let&#39;s test it out!</span>
+<span class="n">agent</span><span class="o">.</span><span class="n">run</span><span class="p">(</span><span class="s2">&#34;How old is Jay Chou now? What is the square of his age?&#34;</span><span class="p">)</span>
+</code></pre></td></tr></table>
+</div>
+</div><pre><code>[1m&gt; Entering new AgentExecutor chain...[0m
+[32;1m[1;3m I need to find out Jay Chou's age and then use a calculator to find the square of his age.
+Action: Search
+Action Input: &quot;Jay Chou age&quot;[0m
+Observation: [36;1m[1;3m44 years[0m
+Thought:[32;1m[1;3m I now need to use a calculator to find the square of 44
+Action: Calculator
+Action Input: 44^2[0m
+Observation: [33;1m[1;3mAnswer: 1936[0m
+Thought:[32;1m[1;3m I now know the final answer
+Final Answer: Jay Chou is 44 years old and the square of his age is 1936.[0m
+
+[1m&gt; Finished chain.[0m
+
+
+
+
+
+'Jay Chou is 44 years old and the square of his age is 1936.'
+</code></pre>
+<h3 id="memory-给chains-和-agents添加状态">Memory: 给Chains 和 Agents添加状态</h3>
+<p>至今为止，所有的链都是没有添加状态的。我们可以给chains和agents添加一些状态，让它能记住之前的信息。<br>
+idea来源<a class="link" href="https://memprompt.com/"  target="_blank" rel="noopener"
+    >链接</a><br>
+这里使用ConversationChain来实现</p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre tabindex="0" class="chroma"><code><span class="lnt"> 1
+</span><span class="lnt"> 2
+</span><span class="lnt"> 3
+</span><span class="lnt"> 4
+</span><span class="lnt"> 5
+</span><span class="lnt"> 6
+</span><span class="lnt"> 7
+</span><span class="lnt"> 8
+</span><span class="lnt"> 9
+</span><span class="lnt">10
+</span><span class="lnt">11
+</span><span class="lnt">12
+</span></code></pre></td>
+<td class="lntd">
+<pre tabindex="0" class="chroma"><code class="language-python" data-lang="python"><span class="kn">from</span> <span class="nn">langchain</span> <span class="kn">import</span> <span class="n">OpenAI</span><span class="p">,</span> <span class="n">ConversationChain</span>
+
+<span class="n">llm</span> <span class="o">=</span> <span class="n">OpenAI</span><span class="p">(</span><span class="n">temperature</span><span class="o">=</span><span class="mi">0</span><span class="p">)</span>
+<span class="n">conversation</span> <span class="o">=</span> <span class="n">ConversationChain</span><span class="p">(</span><span class="n">llm</span><span class="o">=</span><span class="n">llm</span><span class="p">,</span> <span class="n">verbose</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span>
+<span class="n">message</span> <span class="o">=</span> <span class="s2">&#34;林黛玉发疯文学是指林黛玉言辞敏感、自我、直爽，言词犀利​。举例：</span><span class="se">\
+</span><span class="se"></span><span class="s2">    1.不自知的东西，照了镜子也没用 </span><span class="se">\
+</span><span class="se"></span><span class="s2">    2.我就知道，别人不挑剩下来的也不会给我 </span><span class="se">\
+</span><span class="se"></span><span class="s2">    3.你白认得我吗？我哪里能够像人家有什么配得上你的</span><span class="se">\
+</span><span class="se"></span><span class="s2">    4.早知你今天来，我就不来了 </span><span class="se">\
+</span><span class="se"></span><span class="s2">    5.难为你费心，哪里就冷死我了呢？&#34;</span>
+<span class="n">output</span> <span class="o">=</span> <span class="n">conversation</span><span class="o">.</span><span class="n">predict</span><span class="p">(</span><span class="nb">input</span><span class="o">=</span><span class="n">message</span> <span class="o">+</span> <span class="s2">&#34;你现在理解了林黛玉发疯文学的写作形式了吗？&#34;</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">output</span><span class="p">)</span>
+</code></pre></td></tr></table>
+</div>
+</div><pre><code>[1m&gt; Entering new ConversationChain chain...[0m
+Prompt after formatting:
+[32;1m[1;3mThe following is a friendly conversation between a human and an AI. The AI is talkative and provides lots of specific details from its context. If the AI does not know the answer to a question, it truthfully says it does not know.
+
+Current conversation:
+
+Human: 林黛玉发疯文学是指林黛玉言辞敏感、自我、直爽，言词犀利​。举例：    1.不自知的东西，照了镜子也没用     2.我就知道，别人不挑剩下来的也不会给我     3.你白认得我吗？我哪里能够像人家有什么配得上你的    4.早知你今天来，我就不来了     5.难为你费心，哪里就冷死我了呢？你现在理解了林黛玉发疯文学的写作形式了吗？
+AI:[0m
+
+[1m&gt; Finished chain.[0m
+ 是的，我理解了林黛玉发疯文学的写作形式。它的特点是言辞敏感、自我、直爽，言词犀利，举例有：1.不自知的东西，照了镜子也没用；2.我就知道，别人不挑剩下来的也不会给我；3.你白认得我吗？我哪里能够像人家有什么配得上你的；4.早知你今天来，我就不来
+</code></pre>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre tabindex="0" class="chroma"><code><span class="lnt">1
+</span><span class="lnt">2
+</span></code></pre></td>
+<td class="lntd">
+<pre tabindex="0" class="chroma"><code class="language-python" data-lang="python"><span class="n">output</span> <span class="o">=</span> <span class="n">conversation</span><span class="o">.</span><span class="n">predict</span><span class="p">(</span><span class="nb">input</span><span class="o">=</span><span class="s2">&#34;如何用林黛玉发疯文学表达我不想见你？&#34;</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">output</span><span class="p">)</span>
+</code></pre></td></tr></table>
+</div>
+</div><pre><code>[1m&gt; Entering new ConversationChain chain...[0m
+Prompt after formatting:
+[32;1m[1;3mThe following is a friendly conversation between a human and an AI. The AI is talkative and provides lots of specific details from its context. If the AI does not know the answer to a question, it truthfully says it does not know.
+
+Current conversation:
+Human: 林黛玉发疯文学是指林黛玉言辞敏感、自我、直爽，言词犀利​。举例：    1.不自知的东西，照了镜子也没用     2.我就知道，别人不挑剩下来的也不会给我     3.你白认得我吗？我哪里能够像人家有什么配得上你的    4.早知你今天来，我就不来了     5.难为你费心，哪里就冷死我了呢？你现在理解了林黛玉发疯文学的写作形式了吗？
+AI:  是的，我理解了林黛玉发疯文学的写作形式。它的特点是言辞敏感、自我、直爽，言词犀利，举例有：1.不自知的东西，照了镜子也没用；2.我就知道，别人不挑剩下来的也不会给我；3.你白认得我吗？我哪里能够像人家有什么配得上你的；4.早知你今天来，我就不来
+Human: 如何用林黛玉发疯文学表达我不想见你？
+AI:[0m
+
+[1m&gt; Finished chain.[0m
+ 我不想见你，你白认得我吗？我哪里能够像人家有什么配得上你的？早知你今天来，我就不来了，难为你费心，哪里就冷死我了呢？
+</code></pre>
+<h2 id="建立一个语言模型应用-对话模型">建立一个语言模型应用: 对话模型</h2>
+<h3 id="从对话模型中获取消息补全">从对话模型中获取消息补全</h3>
+<p>Langchain中支持的message类型有AIMessage, HumanMessage, SystemMessage</p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre tabindex="0" class="chroma"><code><span class="lnt"> 1
+</span><span class="lnt"> 2
+</span><span class="lnt"> 3
+</span><span class="lnt"> 4
+</span><span class="lnt"> 5
+</span><span class="lnt"> 6
+</span><span class="lnt"> 7
+</span><span class="lnt"> 8
+</span><span class="lnt"> 9
+</span><span class="lnt">10
+</span><span class="lnt">11
+</span></code></pre></td>
+<td class="lntd">
+<pre tabindex="0" class="chroma"><code class="language-python" data-lang="python"><span class="kn">from</span> <span class="nn">langchain.chat_models</span> <span class="kn">import</span> <span class="n">ChatOpenAI</span>
+<span class="kn">from</span> <span class="nn">langchain.schema</span> <span class="kn">import</span> <span class="p">(</span>
+    <span class="n">AIMessage</span><span class="p">,</span>
+    <span class="n">HumanMessage</span><span class="p">,</span>
+    <span class="n">SystemMessage</span>
+<span class="p">)</span>
+
+<span class="n">chat</span> <span class="o">=</span> <span class="n">ChatOpenAI</span><span class="p">(</span><span class="n">temperature</span><span class="o">=</span><span class="mi">0</span><span class="p">)</span>
+
+<span class="c1"># 对话补全</span>
+<span class="n">chat</span><span class="p">([</span><span class="n">HumanMessage</span><span class="p">(</span><span class="n">content</span><span class="o">=</span><span class="s2">&#34;区块链的作用有哪些？&#34;</span><span class="p">)])</span>
+</code></pre></td></tr></table>
+</div>
+</div><pre><code>AIMessage(content='区块链的作用包括：\n\n1. 去中心化：区块链技术可以实现去中心化的数据存储和交易，不需要中心化的机构或第三方信任机构来验证和处理交易。\n\n2. 安全性：区块链技术采用密码学和分布式存储等技术，保证了数据的安全性和不可篡改性。\n\n3. 透明性：区块链技术可以实现公开透明的交易记录，任何人都可以查看和验证交易记录。\n\n4. 高效性：区块链技术可以实现快速的交易处理和结算，提高了交易的效率。\n\n5. 信任机制：区块链技术可以实现基于共识机制的信任机制，保证了交易的可信度和可靠性。\n\n6. 去中介化：区块链技术可以实现去除中介机构，降低交易成本和提高效率。\n\n7. 应用广泛：区块链技术可以应用于金融、物流、医疗、政府等各个领域，具有广泛的应用前景。', additional_kwargs={}, example=False)
+</code></pre>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre tabindex="0" class="chroma"><code><span class="lnt">1
+</span><span class="lnt">2
+</span><span class="lnt">3
+</span><span class="lnt">4
+</span><span class="lnt">5
+</span><span class="lnt">6
+</span></code></pre></td>
+<td class="lntd">
+<pre tabindex="0" class="chroma"><code class="language-python" data-lang="python"><span class="c1"># 使用多种类型信息，SystemMessage，HumanMessage</span>
+<span class="n">messages</span> <span class="o">=</span> <span class="p">[</span>
+    <span class="n">SystemMessage</span><span class="p">(</span><span class="n">content</span><span class="o">=</span><span class="s2">&#34;你是一个区块链专家，你现在帮助我了解区块链&#34;</span><span class="p">),</span>
+    <span class="n">HumanMessage</span><span class="p">(</span><span class="n">content</span><span class="o">=</span><span class="s2">&#34;区块链中的去中心化是如何实现的？&#34;</span><span class="p">)</span>
+<span class="p">]</span>
+<span class="n">chat</span><span class="p">(</span><span class="n">messages</span><span class="p">)</span>
+</code></pre></td></tr></table>
+</div>
+</div><pre><code>AIMessage(content='区块链中的去中心化是通过分布式网络和共识机制来实现的。在区块链网络中，每个节点都可以参与到网络中，每个节点都有一个完整的副本，这些节点通过互相通信来达成共识，保证了数据的一致性和安全性。这种分布式的结构使得区块链网络没有中心化的控制机构，每个节点都是平等的，没有任何一个节点可以单独控制整个网络。\n\n共识机制是区块链中实现去中心化的关键。共识机制是指在区块链网络中，节点之间通过一定的算法来达成共识，保证数据的一致性和安全性。常见的共识机制包括工作量证明（PoW）、权益证明（PoS）、股份授权证明（DPoS）等。这些共识机制都是通过节点之间的竞争和协作来保证网络的安全性和去中心化。', additional_kwargs={}, example=False)
+</code></pre>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre tabindex="0" class="chroma"><code><span class="lnt"> 1
+</span><span class="lnt"> 2
+</span><span class="lnt"> 3
+</span><span class="lnt"> 4
+</span><span class="lnt"> 5
+</span><span class="lnt"> 6
+</span><span class="lnt"> 7
+</span><span class="lnt"> 8
+</span><span class="lnt"> 9
+</span><span class="lnt">10
+</span><span class="lnt">11
+</span><span class="lnt">12
+</span><span class="lnt">13
+</span></code></pre></td>
+<td class="lntd">
+<pre tabindex="0" class="chroma"><code class="language-python" data-lang="python"><span class="c1"># 一次性加入多条信息</span>
+<span class="n">batch_messages</span> <span class="o">=</span> <span class="p">[</span>
+    <span class="p">[</span>
+        <span class="n">SystemMessage</span><span class="p">(</span><span class="n">content</span><span class="o">=</span><span class="s2">&#34;你是一个区块链专家，你现在帮助我了解区块链&#34;</span><span class="p">),</span>
+        <span class="n">HumanMessage</span><span class="p">(</span><span class="n">content</span><span class="o">=</span><span class="s2">&#34;区块链如何保证安全性&#34;</span><span class="p">)</span>
+    <span class="p">],</span>
+    <span class="p">[</span>
+        <span class="n">SystemMessage</span><span class="p">(</span><span class="n">content</span><span class="o">=</span><span class="s2">&#34;你是一个区块链专家，你现在帮助我了解区块链&#34;</span><span class="p">),</span>
+        <span class="n">HumanMessage</span><span class="p">(</span><span class="n">content</span><span class="o">=</span><span class="s2">&#34;区块链如何实现透明性&#34;</span><span class="p">)</span>
+    <span class="p">],</span>
+<span class="p">]</span>
+<span class="n">result</span> <span class="o">=</span> <span class="n">chat</span><span class="o">.</span><span class="n">generate</span><span class="p">(</span><span class="n">batch_messages</span><span class="p">)</span>
+<span class="n">result</span>
+</code></pre></td></tr></table>
+</div>
+</div><pre><code>LLMResult(generations=[[ChatGeneration(text='区块链通过多种方式保证安全性，其中最重要的是使用密码学技术和共识机制。\n\n密码学技术包括公钥加密、哈希函数、数字签名等，这些技术可以保证数据的机密性、完整性和不可抵赖性。例如，每个区块都包含一个哈希值，这个哈希值是由区块中的所有交易数据计算得出的，如果有人篡改了其中的任何一笔交易，那么这个哈希值就会发生变化，从而被其他节点拒绝。\n\n共识机制是指在区块链网络中，所有节点必须达成一致的规则来验证和添加新的区块。常见的共识机制包括工作量证明（PoW）、权益证明（PoS）、权益证明加密（DPoS）等。这些机制可以防止恶意节点的攻击和篡改，从而保证整个网络的安全性。\n\n此外，区块链还采用了去中心化的架构，使得数据分布在整个网络中，没有单点故障，也没有中心化的控制机构，从而提高了安全性。', generation_info=None, message=AIMessage(content='区块链通过多种方式保证安全性，其中最重要的是使用密码学技术和共识机制。\n\n密码学技术包括公钥加密、哈希函数、数字签名等，这些技术可以保证数据的机密性、完整性和不可抵赖性。例如，每个区块都包含一个哈希值，这个哈希值是由区块中的所有交易数据计算得出的，如果有人篡改了其中的任何一笔交易，那么这个哈希值就会发生变化，从而被其他节点拒绝。\n\n共识机制是指在区块链网络中，所有节点必须达成一致的规则来验证和添加新的区块。常见的共识机制包括工作量证明（PoW）、权益证明（PoS）、权益证明加密（DPoS）等。这些机制可以防止恶意节点的攻击和篡改，从而保证整个网络的安全性。\n\n此外，区块链还采用了去中心化的架构，使得数据分布在整个网络中，没有单点故障，也没有中心化的控制机构，从而提高了安全性。', additional_kwargs={}, example=False))], [ChatGeneration(text='区块链实现透明性的方式是通过公开的、不可篡改的分布式账本来记录所有交易和操作。每个参与者都可以查看和验证这些记录，因此任何人都可以了解整个网络的状态和历史。此外，区块链上的智能合约也可以公开透明地执行，确保所有参与者都能够看到合约的执行结果。这种透明性可以帮助防止欺诈和不当行为，增加信任和可靠性。', generation_info=None, message=AIMessage(content='区块链实现透明性的方式是通过公开的、不可篡改的分布式账本来记录所有交易和操作。每个参与者都可以查看和验证这些记录，因此任何人都可以了解整个网络的状态和历史。此外，区块链上的智能合约也可以公开透明地执行，确保所有参与者都能够看到合约的执行结果。这种透明性可以帮助防止欺诈和不当行为，增加信任和可靠性。', additional_kwargs={}, example=False))]], llm_output={'token_usage': {'prompt_tokens': 97, 'completion_tokens': 487, 'total_tokens': 584}, 'model_name': 'gpt-3.5-turbo'})
+</code></pre>
+<h3 id="对话prompt模板">对话prompt模板</h3>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre tabindex="0" class="chroma"><code><span class="lnt"> 1
+</span><span class="lnt"> 2
+</span><span class="lnt"> 3
+</span><span class="lnt"> 4
+</span><span class="lnt"> 5
+</span><span class="lnt"> 6
+</span><span class="lnt"> 7
+</span><span class="lnt"> 8
+</span><span class="lnt"> 9
+</span><span class="lnt">10
+</span><span class="lnt">11
+</span><span class="lnt">12
+</span><span class="lnt">13
+</span><span class="lnt">14
+</span><span class="lnt">15
+</span><span class="lnt">16
+</span><span class="lnt">17
+</span><span class="lnt">18
+</span></code></pre></td>
+<td class="lntd">
+<pre tabindex="0" class="chroma"><code class="language-python" data-lang="python"><span class="kn">from</span> <span class="nn">langchain.chat_models</span> <span class="kn">import</span> <span class="n">ChatOpenAI</span>
+<span class="kn">from</span> <span class="nn">langchain.prompts.chat</span> <span class="kn">import</span> <span class="p">(</span>
+    <span class="n">ChatPromptTemplate</span><span class="p">,</span>
+    <span class="n">SystemMessagePromptTemplate</span><span class="p">,</span>
+    <span class="n">HumanMessagePromptTemplate</span><span class="p">,</span>
+<span class="p">)</span>
+
+<span class="n">chat</span> <span class="o">=</span> <span class="n">ChatOpenAI</span><span class="p">(</span><span class="n">temperature</span><span class="o">=</span><span class="mi">0</span><span class="p">)</span>
+
+<span class="n">template</span> <span class="o">=</span> <span class="s2">&#34;You are a helpful assistant that translates </span><span class="si">{input_language}</span><span class="s2"> to </span><span class="si">{output_language}</span><span class="s2">.&#34;</span>
+<span class="n">system_message_prompt</span> <span class="o">=</span> <span class="n">SystemMessagePromptTemplate</span><span class="o">.</span><span class="n">from_template</span><span class="p">(</span><span class="n">template</span><span class="p">)</span>
+<span class="n">human_template</span> <span class="o">=</span> <span class="s2">&#34;</span><span class="si">{text}</span><span class="s2">&#34;</span>
+<span class="n">human_message_prompt</span> <span class="o">=</span> <span class="n">HumanMessagePromptTemplate</span><span class="o">.</span><span class="n">from_template</span><span class="p">(</span><span class="n">human_template</span><span class="p">)</span>
+
+<span class="n">chat_prompt</span> <span class="o">=</span> <span class="n">ChatPromptTemplate</span><span class="o">.</span><span class="n">from_messages</span><span class="p">([</span><span class="n">system_message_prompt</span><span class="p">,</span> <span class="n">human_message_prompt</span><span class="p">])</span>
+
+<span class="c1"># get a chat completion from the formatted messages</span>
+<span class="n">chat</span><span class="p">(</span><span class="n">chat_prompt</span><span class="o">.</span><span class="n">format_prompt</span><span class="p">(</span><span class="n">input_language</span><span class="o">=</span><span class="s2">&#34;English&#34;</span><span class="p">,</span> <span class="n">output_language</span><span class="o">=</span><span class="s2">&#34;French&#34;</span><span class="p">,</span> <span class="n">text</span><span class="o">=</span><span class="s2">&#34;I love programming.&#34;</span><span class="p">)</span><span class="o">.</span><span class="n">to_messages</span><span class="p">())</span>
+</code></pre></td></tr></table>
+</div>
+</div><pre><code>AIMessage(content=&quot;J'adore la programmation.&quot;, additional_kwargs={}, example=False)
+</code></pre>
+<h3 id="chains和对话模型">chains和对话模型</h3>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre tabindex="0" class="chroma"><code><span class="lnt"> 1
+</span><span class="lnt"> 2
+</span><span class="lnt"> 3
+</span><span class="lnt"> 4
+</span><span class="lnt"> 5
+</span><span class="lnt"> 6
+</span><span class="lnt"> 7
+</span><span class="lnt"> 8
+</span><span class="lnt"> 9
+</span><span class="lnt">10
+</span><span class="lnt">11
+</span><span class="lnt">12
+</span><span class="lnt">13
+</span><span class="lnt">14
+</span><span class="lnt">15
+</span><span class="lnt">16
+</span><span class="lnt">17
+</span><span class="lnt">18
+</span><span class="lnt">19
+</span><span class="lnt">20
+</span></code></pre></td>
+<td class="lntd">
+<pre tabindex="0" class="chroma"><code class="language-python" data-lang="python"><span class="kn">from</span> <span class="nn">langchain.chat_models</span> <span class="kn">import</span> <span class="n">ChatOpenAI</span>
+<span class="kn">from</span> <span class="nn">langchain</span> <span class="kn">import</span> <span class="n">LLMChain</span>
+<span class="kn">from</span> <span class="nn">langchain.prompts.chat</span> <span class="kn">import</span> <span class="p">(</span>
+    <span class="n">ChatPromptTemplate</span><span class="p">,</span>
+    <span class="n">SystemMessagePromptTemplate</span><span class="p">,</span>
+    <span class="n">HumanMessagePromptTemplate</span><span class="p">,</span>
+<span class="p">)</span>
+
+<span class="n">chat</span> <span class="o">=</span> <span class="n">ChatOpenAI</span><span class="p">(</span><span class="n">temperature</span><span class="o">=</span><span class="mi">0</span><span class="p">)</span>
+
+<span class="n">template</span> <span class="o">=</span> <span class="s2">&#34;You are a helpful assistant that translates </span><span class="si">{input_language}</span><span class="s2"> to </span><span class="si">{output_language}</span><span class="s2">.&#34;</span>
+<span class="n">system_message_prompt</span> <span class="o">=</span> <span class="n">SystemMessagePromptTemplate</span><span class="o">.</span><span class="n">from_template</span><span class="p">(</span><span class="n">template</span><span class="p">)</span>
+<span class="n">human_template</span> <span class="o">=</span> <span class="s2">&#34;</span><span class="si">{text}</span><span class="s2">&#34;</span>
+<span class="n">human_message_prompt</span> <span class="o">=</span> <span class="n">HumanMessagePromptTemplate</span><span class="o">.</span><span class="n">from_template</span><span class="p">(</span><span class="n">human_template</span><span class="p">)</span>
+<span class="n">chat_prompt</span> <span class="o">=</span> <span class="n">ChatPromptTemplate</span><span class="o">.</span><span class="n">from_messages</span><span class="p">([</span><span class="n">system_message_prompt</span><span class="p">,</span> <span class="n">human_message_prompt</span><span class="p">])</span>
+
+<span class="c1"># 使用chain</span>
+<span class="n">chain</span> <span class="o">=</span> <span class="n">LLMChain</span><span class="p">(</span><span class="n">llm</span><span class="o">=</span><span class="n">chat</span><span class="p">,</span> <span class="n">prompt</span><span class="o">=</span><span class="n">chat_prompt</span><span class="p">)</span>
+<span class="n">chain</span><span class="o">.</span><span class="n">run</span><span class="p">(</span><span class="n">input_language</span><span class="o">=</span><span class="s2">&#34;English&#34;</span><span class="p">,</span> <span class="n">output_language</span><span class="o">=</span><span class="s2">&#34;French&#34;</span><span class="p">,</span> <span class="n">text</span><span class="o">=</span><span class="s2">&#34;I love programming.&#34;</span><span class="p">)</span>
+<span class="c1"># -&gt; &#34;J&#39;aime programmer.&#34;</span>
+</code></pre></td></tr></table>
+</div>
+</div><pre><code>&quot;J'adore la programmation.&quot;
+</code></pre>
+<h3 id="agents和对话模型">agents和对话模型</h3>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre tabindex="0" class="chroma"><code><span class="lnt"> 1
+</span><span class="lnt"> 2
+</span><span class="lnt"> 3
+</span><span class="lnt"> 4
+</span><span class="lnt"> 5
+</span><span class="lnt"> 6
+</span><span class="lnt"> 7
+</span><span class="lnt"> 8
+</span><span class="lnt"> 9
+</span><span class="lnt">10
+</span><span class="lnt">11
+</span><span class="lnt">12
+</span><span class="lnt">13
+</span><span class="lnt">14
+</span><span class="lnt">15
+</span><span class="lnt">16
+</span><span class="lnt">17
+</span><span class="lnt">18
+</span><span class="lnt">19
+</span></code></pre></td>
+<td class="lntd">
+<pre tabindex="0" class="chroma"><code class="language-python" data-lang="python"><span class="kn">from</span> <span class="nn">langchain.agents</span> <span class="kn">import</span> <span class="n">load_tools</span>
+<span class="kn">from</span> <span class="nn">langchain.agents</span> <span class="kn">import</span> <span class="n">initialize_agent</span>
+<span class="kn">from</span> <span class="nn">langchain.agents</span> <span class="kn">import</span> <span class="n">AgentType</span>
+<span class="kn">from</span> <span class="nn">langchain.chat_models</span> <span class="kn">import</span> <span class="n">ChatOpenAI</span>
+<span class="kn">from</span> <span class="nn">langchain.llms</span> <span class="kn">import</span> <span class="n">OpenAI</span>
+
+<span class="c1"># First, let&#39;s load the language model we&#39;re going to use to control the agent.</span>
+<span class="n">chat</span> <span class="o">=</span> <span class="n">ChatOpenAI</span><span class="p">(</span><span class="n">temperature</span><span class="o">=</span><span class="mi">0</span><span class="p">)</span>
+
+<span class="c1"># Next, let&#39;s load some tools to use. Note that the `llm-math` tool uses an LLM, so we need to pass that in.</span>
+<span class="n">llm</span> <span class="o">=</span> <span class="n">OpenAI</span><span class="p">(</span><span class="n">temperature</span><span class="o">=</span><span class="mi">0</span><span class="p">)</span>
+<span class="n">tools</span> <span class="o">=</span> <span class="n">load_tools</span><span class="p">([</span><span class="s2">&#34;serpapi&#34;</span><span class="p">,</span> <span class="s2">&#34;llm-math&#34;</span><span class="p">],</span> <span class="n">llm</span><span class="o">=</span><span class="n">llm</span><span class="p">)</span>
+
+
+<span class="c1"># Finally, let&#39;s initialize an agent with the tools, the language model, and the type of agent we want to use.</span>
+<span class="n">agent</span> <span class="o">=</span> <span class="n">initialize_agent</span><span class="p">(</span><span class="n">tools</span><span class="p">,</span> <span class="n">chat</span><span class="p">,</span> <span class="n">agent</span><span class="o">=</span><span class="n">AgentType</span><span class="o">.</span><span class="n">CHAT_ZERO_SHOT_REACT_DESCRIPTION</span><span class="p">,</span> <span class="n">verbose</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span>
+
+<span class="c1"># Now let&#39;s test it out!</span>
+<span class="n">agent</span><span class="o">.</span><span class="n">run</span><span class="p">(</span><span class="s2">&#34;How old is Jay Chou now? What is the square of his age?&#34;</span><span class="p">)</span>
+</code></pre></td></tr></table>
+</div>
+</div><h3 id="message-给chains和agents添加状态">Message: 给chains和agents添加状态</h3>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre tabindex="0" class="chroma"><code><span class="lnt"> 1
+</span><span class="lnt"> 2
+</span><span class="lnt"> 3
+</span><span class="lnt"> 4
+</span><span class="lnt"> 5
+</span><span class="lnt"> 6
+</span><span class="lnt"> 7
+</span><span class="lnt"> 8
+</span><span class="lnt"> 9
+</span><span class="lnt">10
+</span><span class="lnt">11
+</span><span class="lnt">12
+</span><span class="lnt">13
+</span><span class="lnt">14
+</span><span class="lnt">15
+</span><span class="lnt">16
+</span><span class="lnt">17
+</span><span class="lnt">18
+</span><span class="lnt">19
+</span><span class="lnt">20
+</span><span class="lnt">21
+</span></code></pre></td>
+<td class="lntd">
+<pre tabindex="0" class="chroma"><code class="language-python" data-lang="python"><span class="kn">from</span> <span class="nn">langchain.prompts</span> <span class="kn">import</span> <span class="p">(</span>
+    <span class="n">ChatPromptTemplate</span><span class="p">,</span> 
+    <span class="n">MessagesPlaceholder</span><span class="p">,</span> 
+    <span class="n">SystemMessagePromptTemplate</span><span class="p">,</span> 
+    <span class="n">HumanMessagePromptTemplate</span>
+<span class="p">)</span>
+<span class="kn">from</span> <span class="nn">langchain.chains</span> <span class="kn">import</span> <span class="n">ConversationChain</span>
+<span class="kn">from</span> <span class="nn">langchain.chat_models</span> <span class="kn">import</span> <span class="n">ChatOpenAI</span>
+<span class="kn">from</span> <span class="nn">langchain.memory</span> <span class="kn">import</span> <span class="n">ConversationBufferMemory</span>
+
+<span class="n">prompt</span> <span class="o">=</span> <span class="n">ChatPromptTemplate</span><span class="o">.</span><span class="n">from_messages</span><span class="p">([</span>
+    <span class="n">SystemMessagePromptTemplate</span><span class="o">.</span><span class="n">from_template</span><span class="p">(</span><span class="s2">&#34;The following is a friendly conversation between a human and an AI. The AI is talkative and provides lots of specific details from its context. If the AI does not know the answer to a question, it truthfully says it does not know.&#34;</span><span class="p">),</span>
+    <span class="n">MessagesPlaceholder</span><span class="p">(</span><span class="n">variable_name</span><span class="o">=</span><span class="s2">&#34;history&#34;</span><span class="p">),</span>
+    <span class="n">HumanMessagePromptTemplate</span><span class="o">.</span><span class="n">from_template</span><span class="p">(</span><span class="s2">&#34;</span><span class="si">{input}</span><span class="s2">&#34;</span><span class="p">)</span>
+<span class="p">])</span>
+
+<span class="n">llm</span> <span class="o">=</span> <span class="n">ChatOpenAI</span><span class="p">(</span><span class="n">temperature</span><span class="o">=</span><span class="mi">0</span><span class="p">)</span>
+<span class="n">memory</span> <span class="o">=</span> <span class="n">ConversationBufferMemory</span><span class="p">(</span><span class="n">return_messages</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span>
+<span class="n">conversation</span> <span class="o">=</span> <span class="n">ConversationChain</span><span class="p">(</span><span class="n">memory</span><span class="o">=</span><span class="n">memory</span><span class="p">,</span> <span class="n">prompt</span><span class="o">=</span><span class="n">prompt</span><span class="p">,</span> <span class="n">llm</span><span class="o">=</span><span class="n">llm</span><span class="p">)</span>
+
+<span class="n">conversation</span><span class="o">.</span><span class="n">predict</span><span class="p">(</span><span class="nb">input</span><span class="o">=</span><span class="s2">&#34;Hi there!&#34;</span><span class="p">)</span>
+</code></pre></td></tr></table>
+</div>
+</div><pre><code>'Hello! How can I assist you today?'
+</code></pre>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre tabindex="0" class="chroma"><code><span class="lnt">1
+</span></code></pre></td>
+<td class="lntd">
+<pre tabindex="0" class="chroma"><code class="language-python" data-lang="python"><span class="n">conversation</span><span class="o">.</span><span class="n">predict</span><span class="p">(</span><span class="nb">input</span><span class="o">=</span><span class="s2">&#34;I&#39;m doing well! Just having a conversation with an AI.&#34;</span><span class="p">)</span>
+</code></pre></td></tr></table>
+</div>
+</div><pre><code>&quot;That sounds like fun! I'm happy to chat with you. Is there anything specific you'd like to talk about?&quot;
+</code></pre>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre tabindex="0" class="chroma"><code><span class="lnt">1
+</span></code></pre></td>
+<td class="lntd">
+<pre tabindex="0" class="chroma"><code class="language-python" data-lang="python"><span class="n">conversation</span><span class="o">.</span><span class="n">predict</span><span class="p">(</span><span class="nb">input</span><span class="o">=</span><span class="s2">&#34;Tell me about yourself.&#34;</span><span class="p">)</span>
+</code></pre></td></tr></table>
+</div>
+</div><pre><code>&quot;Sure! I am an AI language model designed to assist with various tasks such as answering questions, generating text, and providing recommendations. I was created using natural language processing techniques and machine learning algorithms, which allow me to understand and respond to human language. I am constantly learning and improving based on the interactions I have with users like you. Is there anything else you'd like to know?&quot;
+</code></pre>
+
+</section>
+
+
+    <footer class="article-footer">
+    
+    <section class="article-tags">
+        
+            <a href="/tags/ai/">AI</a>
+        
+            <a href="/tags/langchain/">langchain</a>
+        
+    </section>
+
+
+    
+    <section class="article-copyright">
+        <svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-copyright" width="24" height="24" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round">
+  <path stroke="none" d="M0 0h24v24H0z"/>
+  <circle cx="12" cy="12" r="9" />
+  <path d="M14.5 9a3.5 4 0 1 0 0 6" />
+</svg>
+
+
+
+        <span>Licensed under CC BY-NC-SA 4.0</span>
+    </section>
+    </footer>
+
+
+    
+</article>
+
+    
+
+    
+
+     
+    
+        
+    <div class="disqus-container">
+    <div id="disqus_thread"></div>
+<script type="application/javascript">
+    var disqus_config = function () {
+    
+    
+    
+    };
+    (function() {
+        if (["localhost", "127.0.0.1"].indexOf(window.location.hostname) != -1) {
+            document.getElementById('disqus_thread').innerHTML = 'Disqus comments not available by default when the website is previewed locally.';
+            return;
+        }
+        var d = document, s = d.createElement('script'); s.async = true;
+        s.src = '//' + "hugo-theme-stack" + '.disqus.com/embed.js';
+        s.setAttribute('data-timestamp', +new Date());
+        (d.head || d.body).appendChild(s);
+    })();
+</script>
+<noscript>Please enable JavaScript to view the <a href="https://disqus.com/?ref_noscript">comments powered by Disqus.</a></noscript>
+<a href="https://disqus.com" class="dsq-brlink">comments powered by <span class="logo-disqus">Disqus</span></a>
+</div>
+
+<style>
+    .disqus-container {
+        background-color: var(--card-background);
+        border-radius: var(--card-border-radius);
+        box-shadow: var(--shadow-l1);
+        padding: var(--card-padding);
+    }
+</style>
+
+<script>
+    window.addEventListener('onColorSchemeChange', (e) => {
+        if (typeof DISQUS == 'object') {
+            DISQUS.reset({
+                reload: true
+            });
+        }
+    })
+</script>
+
+    
+
+    <footer class="site-footer">
+    <section class="copyright">
+        &copy; 
+        
+            2020 - 
+        
+        2023 steve lannister
+    </section>
+    
+    <section class="powerby">
+        Built with <a href="https://gohugo.io/" target="_blank" rel="noopener">Hugo</a> <br />
+        主题 <b><a href="https://github.com/CaiJimmy/hugo-theme-stack" target="_blank" rel="noopener" data-version="3.16.0">Stack</a></b> 由 <a href="https://jimmycai.com" target="_blank" rel="noopener">Jimmy</a> 设计
+    </section>
+</footer>
+
+
+    
+<div class="pswp" tabindex="-1" role="dialog" aria-hidden="true">
+
+    
+    <div class="pswp__bg"></div>
+
+    
+    <div class="pswp__scroll-wrap">
+
+        
+        <div class="pswp__container">
+            <div class="pswp__item"></div>
+            <div class="pswp__item"></div>
+            <div class="pswp__item"></div>
+        </div>
+
+        
+        <div class="pswp__ui pswp__ui--hidden">
+
+            <div class="pswp__top-bar">
+
+                
+
+                <div class="pswp__counter"></div>
+
+                <button class="pswp__button pswp__button--close" title="Close (Esc)"></button>
+
+                <button class="pswp__button pswp__button--share" title="Share"></button>
+
+                <button class="pswp__button pswp__button--fs" title="Toggle fullscreen"></button>
+
+                <button class="pswp__button pswp__button--zoom" title="Zoom in/out"></button>
+
+                
+                
+                <div class="pswp__preloader">
+                    <div class="pswp__preloader__icn">
+                        <div class="pswp__preloader__cut">
+                            <div class="pswp__preloader__donut"></div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="pswp__share-modal pswp__share-modal--hidden pswp__single-tap">
+                <div class="pswp__share-tooltip"></div>
+            </div>
+
+            <button class="pswp__button pswp__button--arrow--left" title="Previous (arrow left)">
+            </button>
+
+            <button class="pswp__button pswp__button--arrow--right" title="Next (arrow right)">
+            </button>
+
+            <div class="pswp__caption">
+                <div class="pswp__caption__center"></div>
+            </div>
+
+        </div>
+
+    </div>
+
+</div><script 
+                src="https://cdn.jsdelivr.net/npm/photoswipe@4.1.3/dist/photoswipe.min.js"integrity="sha256-ePwmChbbvXbsO02lbM3HoHbSHTHFAeChekF1xKJdleo="crossorigin="anonymous"
+                defer
+                >
+            </script><script 
+                src="https://cdn.jsdelivr.net/npm/photoswipe@4.1.3/dist/photoswipe-ui-default.min.js"integrity="sha256-UKkzOn/w1mBxRmLLGrSeyB4e1xbrp4xylgAWb3M42pU="crossorigin="anonymous"
+                defer
+                >
+            </script><link 
+                rel="stylesheet" 
+                href="https://cdn.jsdelivr.net/npm/photoswipe@4.1.3/dist/default-skin/default-skin.min.css"crossorigin="anonymous"
+            ><link 
+                rel="stylesheet" 
+                href="https://cdn.jsdelivr.net/npm/photoswipe@4.1.3/dist/photoswipe.min.css"crossorigin="anonymous"
+            >
+
+            </main>
+        </div>
+        <script 
+                src="https://cdn.jsdelivr.net/npm/node-vibrant@3.1.6/dist/vibrant.min.js"integrity="sha256-awcR2jno4kI5X0zL8ex0vi2z&#43;KMkF24hUW8WePSA9HM="crossorigin="anonymous"
+                
+                >
+            </script><script type="text/javascript" src="/ts/main.js" defer></script>
+<script>
+    (function () {
+        const customFont = document.createElement('link');
+        customFont.href = "https://fonts.googleapis.com/css2?family=Lato:wght@300;400;700&display=swap";
+
+        customFont.type = "text/css";
+        customFont.rel = "stylesheet";
+
+        document.head.appendChild(customFont);
+    }());
+</script>
+
+    </body>
+</html>

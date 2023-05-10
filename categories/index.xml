@@ -6,7 +6,15 @@
         <description>Recent content in Categories on steve lannister</description>
         <generator>Hugo -- gohugo.io</generator>
         <language>en-us</language>
-        <lastBuildDate>Sun, 07 May 2023 00:00:00 +0000</lastBuildDate><atom:link href="https://jhrsya.github.io/categories/index.xml" rel="self" type="application/rss+xml" /><item>
+        <lastBuildDate>Wed, 10 May 2023 00:00:00 +0000</lastBuildDate><atom:link href="https://jhrsya.github.io/categories/index.xml" rel="self" type="application/rss+xml" /><item>
+        <title>AI框架</title>
+        <link>https://jhrsya.github.io/categories/ai%E6%A1%86%E6%9E%B6/</link>
+        <pubDate>Wed, 10 May 2023 00:00:00 +0000</pubDate>
+        
+        <guid>https://jhrsya.github.io/categories/ai%E6%A1%86%E6%9E%B6/</guid>
+        <description></description>
+        </item>
+        <item>
         <title>垃圾回收</title>
         <link>https://jhrsya.github.io/categories/%E5%9E%83%E5%9C%BE%E5%9B%9E%E6%94%B6/</link>
         <pubDate>Sun, 07 May 2023 00:00:00 +0000</pubDate>
