@@ -340,7 +340,7 @@
 
 
                 <time class="article-time--reading">
-                    阅读时长: 2 分钟
+                    阅读时长: 3 分钟
                 </time>
             </div>
         
@@ -502,7 +502,46 @@
 </code></pre></td></tr></table>
 </div>
 </div><p>在这个示例中，@root_validator 装饰器用于为整个数据模型添加一个验证函数。check_person 函数接受一个参数 values，它是一个字典，包含了所有成员变量的键值对。在这个示例中，check_person 函数对 name 和 age 进行了验证，如果发现不合法的值，则抛出一个 ValueError 异常。否则，返回原始的字典。</p>
-<h2 id="fastapi">fastapi</h2>
+<p>validator装饰器还有非常重要的作用是可以把参数做一个转换，比如钱包地址，可以把钱包地址自动转为小写的。如下所示：</p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre tabindex="0" class="chroma"><code><span class="lnt"> 1
+</span><span class="lnt"> 2
+</span><span class="lnt"> 3
+</span><span class="lnt"> 4
+</span><span class="lnt"> 5
+</span><span class="lnt"> 6
+</span><span class="lnt"> 7
+</span><span class="lnt"> 8
+</span><span class="lnt"> 9
+</span><span class="lnt">10
+</span><span class="lnt">11
+</span><span class="lnt">12
+</span><span class="lnt">13
+</span><span class="lnt">14
+</span><span class="lnt">15
+</span><span class="lnt">16
+</span></code></pre></td>
+<td class="lntd">
+<pre tabindex="0" class="chroma"><code class="language-python" data-lang="python"><span class="kn">from</span> <span class="nn">fastapi</span> <span class="kn">import</span> <span class="n">FastAPI</span>
+<span class="kn">from</span> <span class="nn">pydantic</span> <span class="kn">import</span> <span class="n">BaseModel</span><span class="p">,</span> <span class="n">validator</span>
+
+<span class="n">app</span> <span class="o">=</span> <span class="n">FastAPI</span><span class="p">()</span>
+
+<span class="k">class</span> <span class="nc">Wallet</span><span class="p">(</span><span class="n">BaseModel</span><span class="p">):</span>
+    <span class="n">wallet_address</span><span class="p">:</span> <span class="nb">str</span>
+
+    <span class="nd">@validator</span><span class="p">(</span><span class="s1">&#39;wallet_address&#39;</span><span class="p">,</span> <span class="n">pre</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span>
+    <span class="k">def</span> <span class="nf">convert_to_lowercase</span><span class="p">(</span><span class="bp">cls</span><span class="p">,</span> <span class="n">wallet_address</span><span class="p">:</span> <span class="nb">str</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="nb">str</span><span class="p">:</span>
+        <span class="c1"># 这里会自动把钱包地址转换为小写</span>
+        <span class="k">return</span> <span class="n">wallet_address</span><span class="o">.</span><span class="n">lower</span><span class="p">()</span>
+
+<span class="nd">@app</span><span class="o">.</span><span class="n">post</span><span class="p">(</span><span class="s2">&#34;/wallet&#34;</span><span class="p">)</span>
+<span class="k">async</span> <span class="k">def</span> <span class="nf">create_wallet</span><span class="p">(</span><span class="n">wallet</span><span class="p">:</span> <span class="n">Wallet</span><span class="p">):</span>
+    <span class="k">return</span> <span class="p">{</span><span class="s2">&#34;wallet_address&#34;</span><span class="p">:</span> <span class="n">wallet</span><span class="o">.</span><span class="n">wallet_address</span><span class="p">}</span>
+</code></pre></td></tr></table>
+</div>
+</div><h2 id="fastapi">fastapi</h2>
 <p>设置请求头中的key-value时，要保证key的合法性，不合法会出现422 Unprocessable Entity。</p>
 <p>学习知识点：依赖注入, Path, Query, Header, Body</p>
 <h2 id="peewee库">peewee库</h2>

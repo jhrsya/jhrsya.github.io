@@ -557,6 +557,26 @@ AI:[0m
 </description>
         </item>
         <item>
+        <title>货币的界碑</title>
+        <link>https://jhrsya.github.io/p/%E5%8C%BA%E5%9D%97%E9%93%BE/</link>
+        <pubDate>Wed, 10 May 2023 00:00:00 +0000</pubDate>
+        
+        <guid>https://jhrsya.github.io/p/%E5%8C%BA%E5%9D%97%E9%93%BE/</guid>
+        <description>&lt;h1 id=&#34;货币的界碑&#34;&gt;货币的界碑&lt;/h1&gt;
+&lt;p&gt;比特币是一串加密字符，本身毫无价值，更没有所谓“内在价值”。但各国的货币本身也没有内在价值，都依赖本国政府的信用而流通。比特币是依靠技术信用在而流通。。所谓技术信用，是比特币借用一套叫作“区块链”的技术体系，塑造了全公开、分布式、防篡改、可追溯的数据库，这个数据库任何人都可以查看，公开透明，极难篡改，实际上是一种脱离任何人控制的存在，因此获得很多人的信任。既然政府信用可以支撑价值几百万亿美元的主权货币，技术信用支撑价值区区几千亿美元的比特币，就毫不奇怪了。&lt;/p&gt;
+&lt;p&gt;任何资产价值的背后，终究是信用。&lt;/p&gt;
+&lt;p&gt;货币超发的危害：&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;通货膨胀，即货币贬值&lt;/li&gt;
+&lt;li&gt;劫富济贫：超发的货币，并不是在人群中均匀分布的，总是有人先拿到，有人后拿到。先拿到的，往往是主流的金融机构和大型商业机构，成本很低。后拿到的人，则不得不用自己的劳动和资产去交换，成本很高。&lt;/li&gt;
+&lt;li&gt;惩罚诚实，奖励贪婪&lt;/li&gt;
+&lt;/ul&gt;
+&lt;p&gt;货币增发是一次巨大的财富再分配，靠近印钞机的人获益、分享铸币税，远离印钞机的人受损、缴纳铸币税。&lt;/p&gt;
+&lt;p&gt;市场一旦建立，价格就开始上涨。市场是发现价格、汇聚资源、创造奇迹的地方。市场这个开放的体系，是人类很多奇迹的根源，离开这个开放的体系，人类无法成长。一切封闭的体系，尽管设计精良，终究都没有生命力。&lt;/p&gt;
+&lt;p&gt;一个新生事物被纳入法律监管，如果监管不是特别严厉，在一定意义上可以看作变相的承认，甚至是支持。纳入监管之前，没有界限，任何行为都可能受到约束，风险很大。纳入监管之后，就有了界限，可以逐步形成稳定预期，企业的发展其实是更便利了。&lt;/p&gt;
+</description>
+        </item>
+        <item>
         <title>垃圾回收</title>
         <link>https://jhrsya.github.io/p/%E5%9E%83%E5%9C%BE%E5%9B%9E%E6%94%B6/</link>
         <pubDate>Sun, 07 May 2023 00:00:00 +0000</pubDate>
@@ -1900,7 +1920,46 @@ make后才会分配内存空间。&lt;/p&gt;
 &lt;/code&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;
 &lt;/div&gt;
 &lt;/div&gt;&lt;p&gt;在这个示例中，@root_validator 装饰器用于为整个数据模型添加一个验证函数。check_person 函数接受一个参数 values，它是一个字典，包含了所有成员变量的键值对。在这个示例中，check_person 函数对 name 和 age 进行了验证，如果发现不合法的值，则抛出一个 ValueError 异常。否则，返回原始的字典。&lt;/p&gt;
-&lt;h2 id=&#34;fastapi&#34;&gt;fastapi&lt;/h2&gt;
+&lt;p&gt;validator装饰器还有非常重要的作用是可以把参数做一个转换，比如钱包地址，可以把钱包地址自动转为小写的。如下所示：&lt;/p&gt;
+&lt;div class=&#34;highlight&#34;&gt;&lt;div class=&#34;chroma&#34;&gt;
+&lt;table class=&#34;lntable&#34;&gt;&lt;tr&gt;&lt;td class=&#34;lntd&#34;&gt;
+&lt;pre tabindex=&#34;0&#34; class=&#34;chroma&#34;&gt;&lt;code&gt;&lt;span class=&#34;lnt&#34;&gt; 1
+&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt; 2
+&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt; 3
+&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt; 4
+&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt; 5
+&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt; 6
+&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt; 7
+&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt; 8
+&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt; 9
+&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt;10
+&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt;11
+&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt;12
+&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt;13
+&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt;14
+&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt;15
+&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt;16
+&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/td&gt;
+&lt;td class=&#34;lntd&#34;&gt;
+&lt;pre tabindex=&#34;0&#34; class=&#34;chroma&#34;&gt;&lt;code class=&#34;language-python&#34; data-lang=&#34;python&#34;&gt;&lt;span class=&#34;kn&#34;&gt;from&lt;/span&gt; &lt;span class=&#34;nn&#34;&gt;fastapi&lt;/span&gt; &lt;span class=&#34;kn&#34;&gt;import&lt;/span&gt; &lt;span class=&#34;n&#34;&gt;FastAPI&lt;/span&gt;
+&lt;span class=&#34;kn&#34;&gt;from&lt;/span&gt; &lt;span class=&#34;nn&#34;&gt;pydantic&lt;/span&gt; &lt;span class=&#34;kn&#34;&gt;import&lt;/span&gt; &lt;span class=&#34;n&#34;&gt;BaseModel&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;,&lt;/span&gt; &lt;span class=&#34;n&#34;&gt;validator&lt;/span&gt;
+
+&lt;span class=&#34;n&#34;&gt;app&lt;/span&gt; &lt;span class=&#34;o&#34;&gt;=&lt;/span&gt; &lt;span class=&#34;n&#34;&gt;FastAPI&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;()&lt;/span&gt;
+
+&lt;span class=&#34;k&#34;&gt;class&lt;/span&gt; &lt;span class=&#34;nc&#34;&gt;Wallet&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;(&lt;/span&gt;&lt;span class=&#34;n&#34;&gt;BaseModel&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;):&lt;/span&gt;
+    &lt;span class=&#34;n&#34;&gt;wallet_address&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;:&lt;/span&gt; &lt;span class=&#34;nb&#34;&gt;str&lt;/span&gt;
+
+    &lt;span class=&#34;nd&#34;&gt;@validator&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;(&lt;/span&gt;&lt;span class=&#34;s1&#34;&gt;&amp;#39;wallet_address&amp;#39;&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;,&lt;/span&gt; &lt;span class=&#34;n&#34;&gt;pre&lt;/span&gt;&lt;span class=&#34;o&#34;&gt;=&lt;/span&gt;&lt;span class=&#34;kc&#34;&gt;True&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;)&lt;/span&gt;
+    &lt;span class=&#34;k&#34;&gt;def&lt;/span&gt; &lt;span class=&#34;nf&#34;&gt;convert_to_lowercase&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;(&lt;/span&gt;&lt;span class=&#34;bp&#34;&gt;cls&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;,&lt;/span&gt; &lt;span class=&#34;n&#34;&gt;wallet_address&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;:&lt;/span&gt; &lt;span class=&#34;nb&#34;&gt;str&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;)&lt;/span&gt; &lt;span class=&#34;o&#34;&gt;-&amp;gt;&lt;/span&gt; &lt;span class=&#34;nb&#34;&gt;str&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;:&lt;/span&gt;
+        &lt;span class=&#34;c1&#34;&gt;# 这里会自动把钱包地址转换为小写&lt;/span&gt;
+        &lt;span class=&#34;k&#34;&gt;return&lt;/span&gt; &lt;span class=&#34;n&#34;&gt;wallet_address&lt;/span&gt;&lt;span class=&#34;o&#34;&gt;.&lt;/span&gt;&lt;span class=&#34;n&#34;&gt;lower&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;()&lt;/span&gt;
+
+&lt;span class=&#34;nd&#34;&gt;@app&lt;/span&gt;&lt;span class=&#34;o&#34;&gt;.&lt;/span&gt;&lt;span class=&#34;n&#34;&gt;post&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;(&lt;/span&gt;&lt;span class=&#34;s2&#34;&gt;&amp;#34;/wallet&amp;#34;&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;)&lt;/span&gt;
+&lt;span class=&#34;k&#34;&gt;async&lt;/span&gt; &lt;span class=&#34;k&#34;&gt;def&lt;/span&gt; &lt;span class=&#34;nf&#34;&gt;create_wallet&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;(&lt;/span&gt;&lt;span class=&#34;n&#34;&gt;wallet&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;:&lt;/span&gt; &lt;span class=&#34;n&#34;&gt;Wallet&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;):&lt;/span&gt;
+    &lt;span class=&#34;k&#34;&gt;return&lt;/span&gt; &lt;span class=&#34;p&#34;&gt;{&lt;/span&gt;&lt;span class=&#34;s2&#34;&gt;&amp;#34;wallet_address&amp;#34;&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;:&lt;/span&gt; &lt;span class=&#34;n&#34;&gt;wallet&lt;/span&gt;&lt;span class=&#34;o&#34;&gt;.&lt;/span&gt;&lt;span class=&#34;n&#34;&gt;wallet_address&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;}&lt;/span&gt;
+&lt;/code&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;
+&lt;/div&gt;
+&lt;/div&gt;&lt;h2 id=&#34;fastapi&#34;&gt;fastapi&lt;/h2&gt;
 &lt;p&gt;设置请求头中的key-value时，要保证key的合法性，不合法会出现422 Unprocessable Entity。&lt;/p&gt;
 &lt;p&gt;学习知识点：依赖注入, Path, Query, Header, Body&lt;/p&gt;
 &lt;h2 id=&#34;peewee库&#34;&gt;peewee库&lt;/h2&gt;
@@ -2040,11 +2099,11 @@ make后才会分配内存空间。&lt;/p&gt;
         </item>
         <item>
         <title>hugo-starter 生成静态页面</title>
-        <link>https://jhrsya.github.io/p/hello-world/</link>
+        <link>https://jhrsya.github.io/p/hugo/</link>
         <pubDate>Sun, 06 Mar 2022 00:00:00 +0000</pubDate>
         
-        <guid>https://jhrsya.github.io/p/hello-world/</guid>
-        <description>&lt;img src="https://jhrsya.github.io/p/hello-world/cover.jpg" alt="Featured image of post hugo-starter 生成静态页面" /&gt;&lt;h1 id=&#34;在linux服务器上使用hugo生成静态网站&#34;&gt;在linux服务器上使用hugo生成静态网站&lt;/h1&gt;
+        <guid>https://jhrsya.github.io/p/hugo/</guid>
+        <description>&lt;img src="https://jhrsya.github.io/p/hugo/cover.jpg" alt="Featured image of post hugo-starter 生成静态页面" /&gt;&lt;h1 id=&#34;在linux服务器上使用hugo生成静态网站&#34;&gt;在linux服务器上使用hugo生成静态网站&lt;/h1&gt;
 &lt;ol&gt;
 &lt;li&gt;安装hugo
 &lt;code&gt;apt-get install hugo&lt;/code&gt;&lt;/li&gt;
