@@ -6,7 +6,17 @@
         <description>Recent content in Posts on steve lannister</description>
         <generator>Hugo -- gohugo.io</generator>
         <language>en-us</language>
-        <lastBuildDate>Wed, 10 May 2023 00:00:00 +0000</lastBuildDate><atom:link href="https://jhrsya.github.io/post/index.xml" rel="self" type="application/rss+xml" /><item>
+        <lastBuildDate>Thu, 11 May 2023 00:00:00 +0000</lastBuildDate><atom:link href="https://jhrsya.github.io/post/index.xml" rel="self" type="application/rss+xml" /><item>
+        <title>langchain</title>
+        <link>https://jhrsya.github.io/p/langchain-agent/</link>
+        <pubDate>Thu, 11 May 2023 00:00:00 +0000</pubDate>
+        
+        <guid>https://jhrsya.github.io/p/langchain-agent/</guid>
+        <description>&lt;h1 id=&#34;langchain-agent篇&#34;&gt;langchain agent篇&lt;/h1&gt;
+&lt;h2 id=&#34;定义自己的tools&#34;&gt;定义自己的tools&lt;/h2&gt;
+</description>
+        </item>
+        <item>
         <title>langchain</title>
         <link>https://jhrsya.github.io/p/langchain/</link>
         <pubDate>Wed, 10 May 2023 00:00:00 +0000</pubDate>
@@ -562,7 +572,7 @@ AI:[0m
         <pubDate>Wed, 10 May 2023 00:00:00 +0000</pubDate>
         
         <guid>https://jhrsya.github.io/p/%E8%B4%A7%E5%B8%81%E7%9A%84%E7%95%8C%E7%A2%91/</guid>
-        <description>&lt;h1 id=&#34;货币的界碑&#34;&gt;货币的界碑&lt;/h1&gt;
+        <description>&lt;img src="https://jhrsya.github.io/p/%E8%B4%A7%E5%B8%81%E7%9A%84%E7%95%8C%E7%A2%91/cover.jpg" alt="Featured image of post 货币的界碑" /&gt;&lt;h1 id=&#34;货币的界碑&#34;&gt;货币的界碑&lt;/h1&gt;
 &lt;p&gt;比特币是一串加密字符，本身毫无价值，更没有所谓“内在价值”。但各国的货币本身也没有内在价值，都依赖本国政府的信用而流通。比特币是依靠技术信用在而流通。所谓技术信用，是比特币借用一套叫作“区块链”的技术体系，塑造了全公开、分布式、防篡改、可追溯的数据库，这个数据库任何人都可以查看，公开透明，极难篡改，实际上是一种脱离任何人控制的存在，因此获得很多人的信任。既然政府信用可以支撑价值几百万亿美元的主权货币，技术信用支撑价值区区几千亿美元的比特币，就毫不奇怪了。&lt;/p&gt;
 &lt;p&gt;任何资产价值的背后，终究是信用。&lt;/p&gt;
 &lt;p&gt;货币超发的危害：&lt;/p&gt;
