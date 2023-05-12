@@ -1,0 +1,1417 @@
+<!DOCTYPE html>
+<html lang="en-us" dir="ltr">
+    <head><meta charset='utf-8'>
+<meta name='viewport' content='width=device-width, initial-scale=1'><meta name='description' content='langchain agent篇tools'>
+<title>langchain</title>
+
+<link rel='canonical' href='https://jhrsya.github.io/p/langchain-agent-tools/'>
+
+<link rel="stylesheet" href="/scss/style.min.8191399262444ab68b72a18c97392f5349be20a1615d77445be51e974c144cff.css"><meta property='og:title' content='langchain'>
+<meta property='og:description' content='langchain agent篇tools'>
+<meta property='og:url' content='https://jhrsya.github.io/p/langchain-agent-tools/'>
+<meta property='og:site_name' content='steve lannister'>
+<meta property='og:type' content='article'><meta property='article:section' content='Post' /><meta property='article:tag' content='AI' /><meta property='article:tag' content='langchain' /><meta property='article:published_time' content='2023-05-11T00:00:00&#43;00:00'/><meta property='article:modified_time' content='2023-05-11T00:00:00&#43;00:00'/>
+<meta name="twitter:title" content="langchain">
+<meta name="twitter:description" content="langchain agent篇tools">
+    </head>
+    <body class="
+    article-page
+    ">
+    <script>
+        (function() {
+            const colorSchemeKey = 'StackColorScheme';
+            if(!localStorage.getItem(colorSchemeKey)){
+                localStorage.setItem(colorSchemeKey, "auto");
+            }
+        })();
+    </script><script>
+    (function() {
+        const colorSchemeKey = 'StackColorScheme';
+        const colorSchemeItem = localStorage.getItem(colorSchemeKey);
+        const supportDarkMode = window.matchMedia('(prefers-color-scheme: dark)').matches === true;
+
+        if (colorSchemeItem == 'dark' || colorSchemeItem === 'auto' && supportDarkMode) {
+            
+
+            document.documentElement.dataset.scheme = 'dark';
+        } else {
+            document.documentElement.dataset.scheme = 'light';
+        }
+    })();
+</script>
+<div class="container main-container flex on-phone--column extended"><aside class="sidebar left-sidebar sticky ">
+    <button class="hamburger hamburger--spin" type="button" id="toggle-menu" aria-label="切换菜单">
+        <span class="hamburger-box">
+            <span class="hamburger-inner"></span>
+        </span>
+    </button>
+
+    <header>
+        
+            
+            <figure class="site-avatar">
+                <a href="/">
+                
+                    
+                    
+                    
+                        
+                        <img src="/img/avatar_hu75249b9e118adc4b16bd3e4fa099a7b0_35085_300x0_resize_box_3.png" width="300"
+                            height="300" class="site-logo" loading="lazy" alt="Avatar">
+                    
+                
+                </a>
+                
+                    <span class="emoji">🍥</span>
+                
+            </figure>
+            
+        
+        
+        <div class="site-meta">
+            <h1 class="site-name"><a href="/">steve lannister</a></h1>
+            <h2 class="site-description">to be or not to be, it is a problem</h2>
+        </div>
+    </header><ol class="social-menu">
+            
+                <li>
+                    <a 
+                        href='https://github.com/jhrsya'
+                        target="_blank"
+                        title="GitHub"
+                        rel="me"
+                    >
+                        
+                        
+                            <svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-brand-github" width="24" height="24" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round">
+  <path stroke="none" d="M0 0h24v24H0z" fill="none"/>
+  <path d="M9 19c-4.3 1.4 -4.3 -2.5 -6 -3m12 5v-3.5c0 -1 .1 -1.4 -.5 -2c2.8 -.3 5.5 -1.4 5.5 -6a4.6 4.6 0 0 0 -1.3 -3.2a4.2 4.2 0 0 0 -.1 -3.2s-1.1 -.3 -3.5 1.3a12.3 12.3 0 0 0 -6.2 0c-2.4 -1.6 -3.5 -1.3 -3.5 -1.3a4.2 4.2 0 0 0 -.1 3.2a4.6 4.6 0 0 0 -1.3 3.2c0 4.6 2.7 5.7 5.5 6c-.6 .6 -.6 1.2 -.5 2v3.5" />
+</svg>
+
+
+
+                        
+                    </a>
+                </li>
+            
+                <li>
+                    <a 
+                        href='https://twitter.com'
+                        target="_blank"
+                        title="Twitter"
+                        rel="me"
+                    >
+                        
+                        
+                            <svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-brand-twitter" width="24" height="24" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round">
+  <path stroke="none" d="M0 0h24v24H0z" fill="none"/>
+  <path d="M22 4.01c-1 .49 -1.98 .689 -3 .99c-1.121 -1.265 -2.783 -1.335 -4.38 -.737s-2.643 2.06 -2.62 3.737v1c-3.245 .083 -6.135 -1.395 -8 -4c0 0 -4.182 7.433 4 11c-1.872 1.247 -3.739 2.088 -6 2c3.308 1.803 6.913 2.423 10.034 1.517c3.58 -1.04 6.522 -3.723 7.651 -7.742a13.84 13.84 0 0 0 .497 -3.753c-.002 -.249 1.51 -2.772 1.818 -4.013z" />
+</svg>
+
+
+
+                        
+                    </a>
+                </li>
+            
+        </ol><ol class="menu" id="main-menu">
+        
+        
+        
+
+        <li >
+            <a href='/' >
+                
+                
+                
+                    <svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-home" width="24" height="24" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round">
+  <path stroke="none" d="M0 0h24v24H0z"/>
+  <polyline points="5 12 3 12 12 3 21 12 19 12" />
+  <path d="M5 12v7a2 2 0 0 0 2 2h10a2 2 0 0 0 2 -2v-7" />
+  <path d="M9 21v-6a2 2 0 0 1 2 -2h2a2 2 0 0 1 2 2v6" />
+</svg>
+
+
+
+                
+                <span>Home</span>
+            </a>
+        </li>
+        
+        
+
+        <li >
+            <a href='/archives/' >
+                
+                
+                
+                    <svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-archive" width="24" height="24" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round">
+  <path stroke="none" d="M0 0h24v24H0z"/>
+  <rect x="3" y="4" width="18" height="4" rx="2" />
+  <path d="M5 8v10a2 2 0 0 0 2 2h10a2 2 0 0 0 2 -2v-10" />
+  <line x1="10" y1="12" x2="14" y2="12" />
+</svg>
+
+
+
+                
+                <span>Archives</span>
+            </a>
+        </li>
+        
+        
+
+        <li >
+            <a href='/search/' >
+                
+                
+                
+                    <svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-search" width="24" height="24" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round">
+  <path stroke="none" d="M0 0h24v24H0z"/>
+  <circle cx="10" cy="10" r="7" />
+  <line x1="21" y1="21" x2="15" y2="15" />
+</svg>
+
+
+
+                
+                <span>Search</span>
+            </a>
+        </li>
+        
+        
+
+        <li >
+            <a href='/links/' >
+                
+                
+                
+                    <svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-link" width="24" height="24" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round">
+  <path stroke="none" d="M0 0h24v24H0z"/>
+  <path d="M10 14a3.5 3.5 0 0 0 5 0l4 -4a3.5 3.5 0 0 0 -5 -5l-.5 .5" />
+  <path d="M14 10a3.5 3.5 0 0 0 -5 0l-4 4a3.5 3.5 0 0 0 5 5l.5 -.5" />
+</svg>
+
+
+
+                
+                <span>Links</span>
+            </a>
+        </li>
+        
+
+        <div class="menu-bottom-section">
+            
+            
+                <li id="dark-mode-toggle">
+                    <svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-toggle-left" width="24" height="24" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round">
+  <path stroke="none" d="M0 0h24v24H0z"/>
+  <circle cx="8" cy="12" r="2" />
+  <rect x="2" y="6" width="20" height="12" rx="6" />
+</svg>
+
+
+
+                    <svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-toggle-right" width="24" height="24" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round">
+  <path stroke="none" d="M0 0h24v24H0z"/>
+  <circle cx="16" cy="12" r="2" />
+  <rect x="2" y="6" width="20" height="12" rx="6" />
+</svg>
+
+
+
+                    <span>暗色模式</span>
+                </li>
+            
+        </div>
+    </ol>
+</aside>
+
+    <aside class="sidebar right-sidebar sticky">
+        
+            
+                
+    <section class="widget archives">
+        <div class="widget-icon">
+            <svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-hash" width="24" height="24" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round">
+  <path stroke="none" d="M0 0h24v24H0z"/>
+  <line x1="5" y1="9" x2="19" y2="9" />
+  <line x1="5" y1="15" x2="19" y2="15" />
+  <line x1="11" y1="4" x2="7" y2="20" />
+  <line x1="17" y1="4" x2="13" y2="20" />
+</svg>
+
+
+
+        </div>
+        <h2 class="widget-title section-title">目录</h2>
+        
+        <div class="widget--toc">
+            <nav id="TableOfContents">
+  <ol>
+    <li><a href="#定义自己的tools">定义自己的tools</a>
+      <ol>
+        <li><a href="#completely-new-tools-string-input-and-output">Completely New Tools-String input and output</a>
+          <ol>
+            <li><a href="#tool-dataclass">Tool dataclass</a></li>
+            <li><a href="#subclassing-the-basetool-class">Subclassing the BaseTool class</a></li>
+          </ol>
+        </li>
+        <li><a href="#using-the-tool-decorator">Using the tool decorator</a></li>
+        <li><a href="#custom-structured-tools">Custom Structured Tools</a>
+          <ol>
+            <li><a href="#structuredtool-dataclass">StructuredTool dataclass</a></li>
+            <li><a href="#subclassing-the-basetool">Subclassing the BaseTool</a></li>
+          </ol>
+        </li>
+        <li><a href="#modify-existing-tools">Modify existing tools</a></li>
+        <li><a href="#defining-the-priorities-among-tools">Defining the priorities among Tools</a></li>
+      </ol>
+    </li>
+    <li><a href="#multi-input-tools">Multi-Input Tools</a>
+      <ol>
+        <li>
+          <ol>
+            <li><a href="#multi-input-tools-with-a-string-format">Multi-Input Tools with a string format</a></li>
+          </ol>
+        </li>
+      </ol>
+    </li>
+    <li><a href="#tool-input-schema">Tool Input Schema</a></li>
+  </ol>
+</nav>
+        </div>
+    </section>
+
+            
+        
+    </aside>
+
+
+            <main class="main full-width">
+    <article class="main-article">
+    <header class="article-header">
+
+    <div class="article-details">
+    
+    <header class="article-category">
+        
+            <a href="/categories/ai%E6%A1%86%E6%9E%B6/" >
+                AI框架
+            </a>
+        
+    </header>
+    
+
+    <div class="article-title-wrapper">
+        <h2 class="article-title">
+            <a href="/p/langchain-agent-tools/">langchain</a>
+        </h2>
+    
+        
+        <h3 class="article-subtitle">
+            langchain agent篇tools
+        </h3>
+        
+    </div>
+
+    
+    
+    
+    
+    <footer class="article-time">
+        
+            <div>
+                <svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-calendar-time" width="56" height="56" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round">
+  <path stroke="none" d="M0 0h24v24H0z"/>
+  <path d="M11.795 21h-6.795a2 2 0 0 1 -2 -2v-12a2 2 0 0 1 2 -2h12a2 2 0 0 1 2 2v4" />
+  <circle cx="18" cy="18" r="4" />
+  <path d="M15 3v4" />
+  <path d="M7 3v4" />
+  <path d="M3 11h16" />
+  <path d="M18 16.496v1.504l1 1" />
+</svg>
+                <time class="article-time--published">May 11, 2023</time>
+            </div>
+        
+
+        
+            <div>
+                <svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-clock" width="24" height="24" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round">
+  <path stroke="none" d="M0 0h24v24H0z"/>
+  <circle cx="12" cy="12" r="9" />
+  <polyline points="12 7 12 12 15 15" />
+</svg>
+
+
+
+                <time class="article-time--reading">
+                    阅读时长: 11 分钟
+                </time>
+            </div>
+        
+    </footer>
+    
+
+    
+</div>
+
+</header>
+
+    <section class="article-content">
+    
+    
+    <h1 id="langchain-agent篇">langchain agent篇</h1>
+<h2 id="定义自己的tools">定义自己的tools</h2>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre tabindex="0" class="chroma"><code><span class="lnt"> 1
+</span><span class="lnt"> 2
+</span><span class="lnt"> 3
+</span><span class="lnt"> 4
+</span><span class="lnt"> 5
+</span><span class="lnt"> 6
+</span><span class="lnt"> 7
+</span><span class="lnt"> 8
+</span><span class="lnt"> 9
+</span><span class="lnt">10
+</span><span class="lnt">11
+</span><span class="lnt">12
+</span><span class="lnt">13
+</span><span class="lnt">14
+</span></code></pre></td>
+<td class="lntd">
+<pre tabindex="0" class="chroma"><code class="language-python" data-lang="python"><span class="c1"># 导入通用的包</span>
+<span class="c1"># Import things that are needed generically</span>
+<span class="kn">from</span> <span class="nn">langchain</span> <span class="kn">import</span> <span class="n">LLMMathChain</span><span class="p">,</span> <span class="n">SerpAPIWrapper</span>
+<span class="kn">from</span> <span class="nn">langchain.agents</span> <span class="kn">import</span> <span class="n">AgentType</span><span class="p">,</span> <span class="n">initialize_agent</span>
+<span class="kn">from</span> <span class="nn">langchain.chat_models</span> <span class="kn">import</span> <span class="n">ChatOpenAI</span>
+<span class="kn">from</span> <span class="nn">langchain.tools</span> <span class="kn">import</span> <span class="n">BaseTool</span><span class="p">,</span> <span class="n">StructuredTool</span><span class="p">,</span> <span class="n">Tool</span><span class="p">,</span> <span class="n">tool</span>
+<span class="kn">import</span> <span class="nn">os</span>
+<span class="kn">import</span> <span class="nn">json</span>
+<span class="k">with</span> <span class="nb">open</span><span class="p">(</span><span class="s2">&#34;api_key.json&#34;</span><span class="p">,</span> <span class="s2">&#34;r&#34;</span><span class="p">)</span> <span class="k">as</span> <span class="n">f</span><span class="p">:</span>
+    <span class="n">api_key</span> <span class="o">=</span> <span class="n">json</span><span class="o">.</span><span class="n">load</span><span class="p">(</span><span class="n">f</span><span class="p">)</span>
+<span class="n">os</span><span class="o">.</span><span class="n">environ</span><span class="p">[</span><span class="s2">&#34;OPENAI_API_KEY&#34;</span><span class="p">]</span> <span class="o">=</span> <span class="n">api_key</span><span class="p">[</span><span class="s2">&#34;OPANAI_API_KEY&#34;</span><span class="p">]</span>
+<span class="n">os</span><span class="o">.</span><span class="n">environ</span><span class="p">[</span><span class="s2">&#34;SERPAPI_API_KEY&#34;</span><span class="p">]</span> <span class="o">=</span> <span class="n">api_key</span><span class="p">[</span><span class="s2">&#34;SERPAPI_API_KEY&#34;</span><span class="p">]</span>
+
+<span class="n">llm</span> <span class="o">=</span> <span class="n">ChatOpenAI</span><span class="p">(</span><span class="n">temperature</span><span class="o">=</span><span class="mi">0</span><span class="p">)</span>
+</code></pre></td></tr></table>
+</div>
+</div><h3 id="completely-new-tools-string-input-and-output">Completely New Tools-String input and output</h3>
+<p>最简单的tools, 输入时字符串，输出也是字符串</p>
+<h4 id="tool-dataclass">Tool dataclass</h4>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre tabindex="0" class="chroma"><code><span class="lnt"> 1
+</span><span class="lnt"> 2
+</span><span class="lnt"> 3
+</span><span class="lnt"> 4
+</span><span class="lnt"> 5
+</span><span class="lnt"> 6
+</span><span class="lnt"> 7
+</span><span class="lnt"> 8
+</span><span class="lnt"> 9
+</span><span class="lnt">10
+</span><span class="lnt">11
+</span></code></pre></td>
+<td class="lntd">
+<pre tabindex="0" class="chroma"><code class="language-python" data-lang="python"><span class="c1"># Load the tool configs that are needed.</span>
+<span class="n">search</span> <span class="o">=</span> <span class="n">SerpAPIWrapper</span><span class="p">()</span>
+<span class="n">llm_math_chain</span> <span class="o">=</span> <span class="n">LLMMathChain</span><span class="p">(</span><span class="n">llm</span><span class="o">=</span><span class="n">llm</span><span class="p">,</span> <span class="n">verbose</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span>
+<span class="n">tools</span> <span class="o">=</span> <span class="p">[</span>
+    <span class="n">Tool</span><span class="o">.</span><span class="n">from_function</span><span class="p">(</span>
+        <span class="n">func</span><span class="o">=</span><span class="n">search</span><span class="o">.</span><span class="n">run</span><span class="p">,</span>
+        <span class="n">name</span> <span class="o">=</span> <span class="s2">&#34;Search&#34;</span><span class="p">,</span>
+        <span class="n">description</span><span class="o">=</span><span class="s2">&#34;useful for when you need to answer questions about current events&#34;</span>
+        <span class="c1"># coroutine= ... &lt;- you can specify an async method if desired as well</span>
+    <span class="p">),</span>
+<span class="p">]</span>
+</code></pre></td></tr></table>
+</div>
+</div><p>也可以通过定义<code>args_schema</code>参数来为输入提供更多的信息</p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre tabindex="0" class="chroma"><code><span class="lnt"> 1
+</span><span class="lnt"> 2
+</span><span class="lnt"> 3
+</span><span class="lnt"> 4
+</span><span class="lnt"> 5
+</span><span class="lnt"> 6
+</span><span class="lnt"> 7
+</span><span class="lnt"> 8
+</span><span class="lnt"> 9
+</span><span class="lnt">10
+</span><span class="lnt">11
+</span><span class="lnt">12
+</span><span class="lnt">13
+</span><span class="lnt">14
+</span><span class="lnt">15
+</span><span class="lnt">16
+</span><span class="lnt">17
+</span><span class="lnt">18
+</span><span class="lnt">19
+</span><span class="lnt">20
+</span></code></pre></td>
+<td class="lntd">
+<pre tabindex="0" class="chroma"><code class="language-python" data-lang="python"><span class="kn">from</span> <span class="nn">pydantic</span> <span class="kn">import</span> <span class="n">BaseModel</span><span class="p">,</span> <span class="n">Field</span>
+
+<span class="k">class</span> <span class="nc">CalculatorInput</span><span class="p">(</span><span class="n">BaseModel</span><span class="p">):</span>
+    <span class="n">question</span><span class="p">:</span> <span class="nb">str</span> <span class="o">=</span> <span class="n">Field</span><span class="p">()</span>
+        
+
+<span class="n">tools</span><span class="o">.</span><span class="n">append</span><span class="p">(</span>
+    <span class="n">Tool</span><span class="o">.</span><span class="n">from_function</span><span class="p">(</span>
+        <span class="n">func</span><span class="o">=</span><span class="n">llm_math_chain</span><span class="o">.</span><span class="n">run</span><span class="p">,</span>
+        <span class="n">name</span><span class="o">=</span><span class="s2">&#34;Calculator&#34;</span><span class="p">,</span>
+        <span class="n">description</span><span class="o">=</span><span class="s2">&#34;useful for when you need to answer questions about math&#34;</span><span class="p">,</span>
+        <span class="n">args_schema</span><span class="o">=</span><span class="n">CalculatorInput</span>
+        <span class="c1"># coroutine= ... &lt;- you can specify an async method if desired as well</span>
+    <span class="p">)</span>
+<span class="p">)</span>
+
+<span class="c1"># Construct the agent. We will use the default agent type here.</span>
+<span class="c1"># See documentation for a full list of options.</span>
+<span class="n">agent</span> <span class="o">=</span> <span class="n">initialize_agent</span><span class="p">(</span><span class="n">tools</span><span class="p">,</span> <span class="n">llm</span><span class="p">,</span> <span class="n">agent</span><span class="o">=</span><span class="n">AgentType</span><span class="o">.</span><span class="n">ZERO_SHOT_REACT_DESCRIPTION</span><span class="p">,</span> <span class="n">verbose</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span>
+<span class="n">agent</span><span class="o">.</span><span class="n">run</span><span class="p">(</span><span class="s2">&#34;What is the height of the tallest mountain in the world? What is the result when its height is raised to the power of 0.23?&#34;</span><span class="p">)</span>
+</code></pre></td></tr></table>
+</div>
+</div><pre><code>[1m&gt; Entering new AgentExecutor chain...[0m
+[32;1m[1;3mI need to find the height of the tallest mountain in the world and then raise it to the power of 0.23.
+Action: Search
+Action Input: &quot;height of tallest mountain in the world&quot;[0m
+Observation: [36;1m[1;3mMount Everest[0m
+Thought:[32;1m[1;3mNow I need to find the height of Mount Everest.
+Action: Search
+Action Input: &quot;height of Mount Everest&quot;[0m
+Observation: [36;1m[1;3m29,032′[0m
+Thought:[32;1m[1;3mNow I need to raise the height of Mount Everest to the power of 0.23.
+Action: Calculator
+Action Input: 29032^0.23[0m
+
+[1m&gt; Entering new LLMMathChain chain...[0m
+29032^0.23[32;1m[1;3m```text
+29032 ** 0.23
+```
+...numexpr.evaluate(&quot;29032 ** 0.23&quot;)...
+[0m
+Answer: [33;1m[1;3m10.628248489241304[0m
+[1m&gt; Finished chain.[0m
+
+Observation: [31;1m[1;3mAnswer: 10.628248489241304[0m
+Thought:[32;1m[1;3mI now know the final answer.
+Final Answer: The result when the height of the tallest mountain in the world (Mount Everest) is raised to the power of 0.23 is approximately 10.63.[0m
+
+[1m&gt; Finished chain.[0m
+
+
+
+
+
+'The result when the height of the tallest mountain in the world (Mount Everest) is raised to the power of 0.23 is approximately 10.63.'
+</code></pre>
+<h4 id="subclassing-the-basetool-class">Subclassing the BaseTool class</h4>
+<p>继承BaseTool类，可以实现更多的控制</p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre tabindex="0" class="chroma"><code><span class="lnt"> 1
+</span><span class="lnt"> 2
+</span><span class="lnt"> 3
+</span><span class="lnt"> 4
+</span><span class="lnt"> 5
+</span><span class="lnt"> 6
+</span><span class="lnt"> 7
+</span><span class="lnt"> 8
+</span><span class="lnt"> 9
+</span><span class="lnt">10
+</span><span class="lnt">11
+</span><span class="lnt">12
+</span><span class="lnt">13
+</span><span class="lnt">14
+</span><span class="lnt">15
+</span><span class="lnt">16
+</span><span class="lnt">17
+</span><span class="lnt">18
+</span><span class="lnt">19
+</span><span class="lnt">20
+</span><span class="lnt">21
+</span><span class="lnt">22
+</span><span class="lnt">23
+</span><span class="lnt">24
+</span><span class="lnt">25
+</span><span class="lnt">26
+</span><span class="lnt">27
+</span><span class="lnt">28
+</span><span class="lnt">29
+</span><span class="lnt">30
+</span><span class="lnt">31
+</span><span class="lnt">32
+</span></code></pre></td>
+<td class="lntd">
+<pre tabindex="0" class="chroma"><code class="language-python" data-lang="python"><span class="kn">from</span> <span class="nn">typing</span> <span class="kn">import</span> <span class="n">Optional</span><span class="p">,</span> <span class="n">Type</span>
+
+<span class="kn">from</span> <span class="nn">langchain.callbacks.manager</span> <span class="kn">import</span> <span class="n">AsyncCallbackManagerForToolRun</span><span class="p">,</span> <span class="n">CallbackManagerForToolRun</span>
+
+<span class="k">class</span> <span class="nc">CustomSearchTool</span><span class="p">(</span><span class="n">BaseTool</span><span class="p">):</span>
+    <span class="n">name</span> <span class="o">=</span> <span class="s2">&#34;custom_search&#34;</span>
+    <span class="n">description</span> <span class="o">=</span> <span class="s2">&#34;useful for when you need to answer questions about current events&#34;</span>
+
+    <span class="k">def</span> <span class="nf">_run</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">query</span><span class="p">:</span> <span class="nb">str</span><span class="p">,</span> <span class="n">run_manager</span><span class="p">:</span> <span class="n">Optional</span><span class="p">[</span><span class="n">CallbackManagerForToolRun</span><span class="p">]</span> <span class="o">=</span> <span class="kc">None</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="nb">str</span><span class="p">:</span>
+        <span class="s2">&#34;&#34;&#34;Use the tool.&#34;&#34;&#34;</span>
+        <span class="k">return</span> <span class="n">search</span><span class="o">.</span><span class="n">run</span><span class="p">(</span><span class="n">query</span><span class="p">)</span>
+    
+    <span class="k">async</span> <span class="k">def</span> <span class="nf">_arun</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">query</span><span class="p">:</span> <span class="nb">str</span><span class="p">,</span> <span class="n">run_manager</span><span class="p">:</span> <span class="n">Optional</span><span class="p">[</span><span class="n">AsyncCallbackManagerForToolRun</span><span class="p">]</span> <span class="o">=</span> <span class="kc">None</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="nb">str</span><span class="p">:</span>
+        <span class="s2">&#34;&#34;&#34;Use the tool asynchronously.&#34;&#34;&#34;</span>
+        <span class="k">raise</span> <span class="ne">NotImplementedError</span><span class="p">(</span><span class="s2">&#34;custom_search does not support async&#34;</span><span class="p">)</span>
+    
+<span class="k">class</span> <span class="nc">CustomCalculatorTool</span><span class="p">(</span><span class="n">BaseTool</span><span class="p">):</span>
+    <span class="n">name</span> <span class="o">=</span> <span class="s2">&#34;Calculator&#34;</span>
+    <span class="n">description</span> <span class="o">=</span> <span class="s2">&#34;useful for when you need to answer questions about math&#34;</span>
+    <span class="n">args_schema</span><span class="p">:</span> <span class="n">Type</span><span class="p">[</span><span class="n">BaseModel</span><span class="p">]</span> <span class="o">=</span> <span class="n">CalculatorInput</span>
+
+    <span class="k">def</span> <span class="nf">_run</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">query</span><span class="p">:</span> <span class="nb">str</span><span class="p">,</span> <span class="n">run_manager</span><span class="p">:</span> <span class="n">Optional</span><span class="p">[</span><span class="n">CallbackManagerForToolRun</span><span class="p">]</span> <span class="o">=</span> <span class="kc">None</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="nb">str</span><span class="p">:</span>
+        <span class="s2">&#34;&#34;&#34;Use the tool.&#34;&#34;&#34;</span>
+        <span class="k">return</span> <span class="n">llm_math_chain</span><span class="o">.</span><span class="n">run</span><span class="p">(</span><span class="n">query</span><span class="p">)</span>
+    
+    <span class="k">async</span> <span class="k">def</span> <span class="nf">_arun</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">query</span><span class="p">:</span> <span class="nb">str</span><span class="p">,</span>  <span class="n">run_manager</span><span class="p">:</span> <span class="n">Optional</span><span class="p">[</span><span class="n">AsyncCallbackManagerForToolRun</span><span class="p">]</span> <span class="o">=</span> <span class="kc">None</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="nb">str</span><span class="p">:</span>
+        <span class="s2">&#34;&#34;&#34;Use the tool asynchronously.&#34;&#34;&#34;</span>
+        <span class="k">raise</span> <span class="ne">NotImplementedError</span><span class="p">(</span><span class="s2">&#34;Calculator does not support async&#34;</span><span class="p">)</span>
+
+<span class="n">tools</span> <span class="o">=</span> <span class="p">[</span><span class="n">CustomSearchTool</span><span class="p">(),</span> <span class="n">CustomCalculatorTool</span><span class="p">()]</span>
+<span class="n">agent</span> <span class="o">=</span> <span class="n">initialize_agent</span><span class="p">(</span><span class="n">tools</span><span class="p">,</span> <span class="n">llm</span><span class="p">,</span> <span class="n">agent</span><span class="o">=</span><span class="n">AgentType</span><span class="o">.</span><span class="n">ZERO_SHOT_REACT_DESCRIPTION</span><span class="p">,</span> <span class="n">verbose</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span>
+<span class="n">agent</span><span class="o">.</span><span class="n">run</span><span class="p">(</span><span class="s2">&#34;How tall is the tallest person in the world? Please provide the height in meters. What is the result when their height is raised to the power of 0.34?&#34;</span><span class="p">)</span>
+</code></pre></td></tr></table>
+</div>
+</div><pre><code>[1m&gt; Entering new AgentExecutor chain...[0m
+[32;1m[1;3mI need to find the height of the tallest person in the world and then raise it to the power of 0.34. 
+Action: custom_search 
+Action Input: &quot;Height of tallest person in the world&quot; [0m
+Observation: [36;1m[1;3mRobert Wadlow[0m
+Thought:[32;1m[1;3mI need to search for Robert Wadlow's height 
+Action: custom_search 
+Action Input: &quot;Robert Wadlow height&quot; [0m
+Observation: [36;1m[1;3m8′ 11″[0m
+Thought:[32;1m[1;3mI need to convert 8′ 11″ to meters 
+Action: Calculator 
+Action Input: 8*0.3048 + 11*0.0254 [0m
+
+[1m&gt; Entering new LLMMathChain chain...[0m
+8*0.3048 + 11*0.0254[32;1m[1;3m```text
+8*0.3048 + 11*0.0254
+```
+...numexpr.evaluate(&quot;8*0.3048 + 11*0.0254&quot;)...
+[0m
+Answer: [33;1m[1;3m2.7178[0m
+[1m&gt; Finished chain.[0m
+
+Observation: [33;1m[1;3mAnswer: 2.7178[0m
+Thought:[32;1m[1;3mNow I need to raise 2.7178 to the power of 0.34 
+Action: Calculator 
+Action Input: 2.7178^0.34 [0m
+
+[1m&gt; Entering new LLMMathChain chain...[0m
+2.7178^0.34[32;1m[1;3m```text
+2.7178**0.34
+```
+...numexpr.evaluate(&quot;2.7178**0.34&quot;)...
+[0m
+Answer: [33;1m[1;3m1.4048629141584312[0m
+[1m&gt; Finished chain.[0m
+
+Observation: [33;1m[1;3mAnswer: 1.4048629141584312[0m
+Thought:[32;1m[1;3mI now know the final answer 
+Final Answer: The tallest person in the world was Robert Wadlow, who was 2.7178 meters tall. When his height is raised to the power of 0.34, the result is approximately 1.4049.[0m
+
+[1m&gt; Finished chain.[0m
+
+
+
+
+
+'The tallest person in the world was Robert Wadlow, who was 2.7178 meters tall. When his height is raised to the power of 0.34, the result is approximately 1.4049.'
+</code></pre>
+<h3 id="using-the-tool-decorator">Using the tool decorator</h3>
+<p>使用<code>@tool</code>装饰器可以通过函数定义<code>Tool</code></p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre tabindex="0" class="chroma"><code><span class="lnt">1
+</span><span class="lnt">2
+</span><span class="lnt">3
+</span><span class="lnt">4
+</span><span class="lnt">5
+</span><span class="lnt">6
+</span><span class="lnt">7
+</span><span class="lnt">8
+</span></code></pre></td>
+<td class="lntd">
+<pre tabindex="0" class="chroma"><code class="language-python" data-lang="python"><span class="kn">from</span> <span class="nn">langchain.tools</span> <span class="kn">import</span> <span class="n">tool</span>
+
+<span class="nd">@tool</span>
+<span class="k">def</span> <span class="nf">search_api</span><span class="p">(</span><span class="n">query</span><span class="p">:</span> <span class="nb">str</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="nb">str</span><span class="p">:</span>
+    <span class="s2">&#34;&#34;&#34;Searches the API for the query.&#34;&#34;&#34;</span>
+    <span class="k">return</span> <span class="sa">f</span><span class="s2">&#34;Results for query </span><span class="si">{</span><span class="n">query</span><span class="si">}</span><span class="s2">&#34;</span>
+
+<span class="n">search_api</span>
+</code></pre></td></tr></table>
+</div>
+</div><pre><code>StructuredTool(name='search_api', description='search_api(query: str) -&gt; str - Searches the API for the query.', args_schema=&lt;class 'pydantic.main.search_apiSchemaSchema'&gt;, return_direct=False, verbose=False, callbacks=None, callback_manager=None, func=&lt;function search_api at 0x0000012A821A5C10&gt;, coroutine=None)
+</code></pre>
+<p>也可以设置tool name 和是否直接返回</p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre tabindex="0" class="chroma"><code><span class="lnt">1
+</span><span class="lnt">2
+</span><span class="lnt">3
+</span><span class="lnt">4
+</span><span class="lnt">5
+</span></code></pre></td>
+<td class="lntd">
+<pre tabindex="0" class="chroma"><code class="language-python" data-lang="python"><span class="nd">@tool</span><span class="p">(</span><span class="s2">&#34;search&#34;</span><span class="p">,</span> <span class="n">return_direct</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span>
+<span class="k">def</span> <span class="nf">search_api</span><span class="p">(</span><span class="n">query</span><span class="p">:</span> <span class="nb">str</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="nb">str</span><span class="p">:</span>
+    <span class="s2">&#34;&#34;&#34;Searches the API for the query.&#34;&#34;&#34;</span>
+    <span class="k">return</span> <span class="s2">&#34;Results&#34;</span>
+<span class="n">search_api</span>
+</code></pre></td></tr></table>
+</div>
+</div><pre><code>StructuredTool(name='search', description='search(query: str) -&gt; str - Searches the API for the query.', args_schema=&lt;class 'pydantic.main.searchSchemaSchema'&gt;, return_direct=True, verbose=False, callbacks=None, callback_manager=None, func=&lt;function search_api at 0x0000012AFC399820&gt;, coroutine=None)
+</code></pre>
+<p>也可以设置<code>args_schema</code>参数给输入提供更多的信息</p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre tabindex="0" class="chroma"><code><span class="lnt">1
+</span><span class="lnt">2
+</span><span class="lnt">3
+</span><span class="lnt">4
+</span><span class="lnt">5
+</span><span class="lnt">6
+</span><span class="lnt">7
+</span><span class="lnt">8
+</span></code></pre></td>
+<td class="lntd">
+<pre tabindex="0" class="chroma"><code class="language-python" data-lang="python"><span class="k">class</span> <span class="nc">SearchInput</span><span class="p">(</span><span class="n">BaseModel</span><span class="p">):</span>
+    <span class="n">query</span><span class="p">:</span> <span class="nb">str</span> <span class="o">=</span> <span class="n">Field</span><span class="p">(</span><span class="n">description</span><span class="o">=</span><span class="s2">&#34;should be a search query&#34;</span><span class="p">)</span>
+        
+<span class="nd">@tool</span><span class="p">(</span><span class="s2">&#34;search&#34;</span><span class="p">,</span> <span class="n">return_direct</span><span class="o">=</span><span class="kc">True</span><span class="p">,</span> <span class="n">args_schema</span><span class="o">=</span><span class="n">SearchInput</span><span class="p">)</span>
+<span class="k">def</span> <span class="nf">search_api</span><span class="p">(</span><span class="n">query</span><span class="p">:</span> <span class="nb">str</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="nb">str</span><span class="p">:</span>
+    <span class="s2">&#34;&#34;&#34;Searches the API for the query.&#34;&#34;&#34;</span>
+    <span class="k">return</span> <span class="s2">&#34;Results&#34;</span>
+<span class="n">search_api</span>
+</code></pre></td></tr></table>
+</div>
+</div><pre><code>StructuredTool(name='search', description='search(query: str) -&gt; str - Searches the API for the query.', args_schema=&lt;class '__main__.SearchInput'&gt;, return_direct=True, verbose=False, callbacks=None, callback_manager=None, func=&lt;function search_api at 0x0000012A81C93E50&gt;, coroutine=None)
+</code></pre>
+<h3 id="custom-structured-tools">Custom Structured Tools</h3>
+<p>如果函数需要结构化的参数，可以使用直接<code>StructuredTool</code>类，或者继承<code>BaseTool</code>类</p>
+<h4 id="structuredtool-dataclass">StructuredTool dataclass</h4>
+<p>可以使用<code>StructuredTool.from_function()</code>函数把一个函数快速的转换为一个<code>StructruedTool</code>类</p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre tabindex="0" class="chroma"><code><span class="lnt"> 1
+</span><span class="lnt"> 2
+</span><span class="lnt"> 3
+</span><span class="lnt"> 4
+</span><span class="lnt"> 5
+</span><span class="lnt"> 6
+</span><span class="lnt"> 7
+</span><span class="lnt"> 8
+</span><span class="lnt"> 9
+</span><span class="lnt">10
+</span></code></pre></td>
+<td class="lntd">
+<pre tabindex="0" class="chroma"><code class="language-python" data-lang="python"><span class="kn">import</span> <span class="nn">requests</span>
+<span class="kn">from</span> <span class="nn">langchain.tools</span> <span class="kn">import</span> <span class="n">StructuredTool</span>
+
+<span class="k">def</span> <span class="nf">post_message</span><span class="p">(</span><span class="n">url</span><span class="p">:</span> <span class="nb">str</span><span class="p">,</span> <span class="n">body</span><span class="p">:</span> <span class="nb">dict</span><span class="p">,</span> <span class="n">parameters</span><span class="p">:</span> <span class="n">Optional</span><span class="p">[</span><span class="nb">dict</span><span class="p">]</span> <span class="o">=</span> <span class="kc">None</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="nb">str</span><span class="p">:</span>
+    <span class="s2">&#34;&#34;&#34;Sends a POST request to the given url with the given body and parameters.&#34;&#34;&#34;</span>
+    <span class="n">result</span> <span class="o">=</span> <span class="n">requests</span><span class="o">.</span><span class="n">post</span><span class="p">(</span><span class="n">url</span><span class="p">,</span> <span class="n">json</span><span class="o">=</span><span class="n">body</span><span class="p">,</span> <span class="n">params</span><span class="o">=</span><span class="n">parameters</span><span class="p">)</span>
+    <span class="k">return</span> <span class="sa">f</span><span class="s2">&#34;Status: </span><span class="si">{</span><span class="n">result</span><span class="o">.</span><span class="n">status_code</span><span class="si">}</span><span class="s2"> - </span><span class="si">{</span><span class="n">result</span><span class="o">.</span><span class="n">text</span><span class="si">}</span><span class="s2">&#34;</span>
+
+<span class="n">tool</span> <span class="o">=</span> <span class="n">StructuredTool</span><span class="o">.</span><span class="n">from_function</span><span class="p">(</span><span class="n">post_message</span><span class="p">)</span>
+<span class="n">tool</span>
+</code></pre></td></tr></table>
+</div>
+</div><pre><code>StructuredTool(name='post_message', description='post_message(url: str, body: dict, parameters: Optional[dict] = None) -&gt; str - Sends a POST request to the given url with the given body and parameters.', args_schema=&lt;class 'pydantic.main.post_messageSchemaSchema'&gt;, return_direct=False, verbose=False, callbacks=None, callback_manager=None, func=&lt;function post_message at 0x0000012A821A5040&gt;, coroutine=None)
+</code></pre>
+<h4 id="subclassing-the-basetool">Subclassing the BaseTool</h4>
+<p>实现<code>_run</code>方法</p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre tabindex="0" class="chroma"><code><span class="lnt"> 1
+</span><span class="lnt"> 2
+</span><span class="lnt"> 3
+</span><span class="lnt"> 4
+</span><span class="lnt"> 5
+</span><span class="lnt"> 6
+</span><span class="lnt"> 7
+</span><span class="lnt"> 8
+</span><span class="lnt"> 9
+</span><span class="lnt">10
+</span><span class="lnt">11
+</span><span class="lnt">12
+</span><span class="lnt">13
+</span><span class="lnt">14
+</span><span class="lnt">15
+</span><span class="lnt">16
+</span><span class="lnt">17
+</span><span class="lnt">18
+</span><span class="lnt">19
+</span><span class="lnt">20
+</span><span class="lnt">21
+</span><span class="lnt">22
+</span><span class="lnt">23
+</span><span class="lnt">24
+</span><span class="lnt">25
+</span><span class="lnt">26
+</span><span class="lnt">27
+</span><span class="lnt">28
+</span><span class="lnt">29
+</span><span class="lnt">30
+</span><span class="lnt">31
+</span><span class="lnt">32
+</span><span class="lnt">33
+</span><span class="lnt">34
+</span><span class="lnt">35
+</span><span class="lnt">36
+</span><span class="lnt">37
+</span><span class="lnt">38
+</span><span class="lnt">39
+</span><span class="lnt">40
+</span><span class="lnt">41
+</span><span class="lnt">42
+</span></code></pre></td>
+<td class="lntd">
+<pre tabindex="0" class="chroma"><code class="language-python" data-lang="python"><span class="kn">from</span> <span class="nn">typing</span> <span class="kn">import</span> <span class="n">Optional</span><span class="p">,</span> <span class="n">Type</span>
+
+<span class="kn">from</span> <span class="nn">langchain.callbacks.manager</span> <span class="kn">import</span> <span class="n">AsyncCallbackManagerForToolRun</span><span class="p">,</span> <span class="n">CallbackManagerForToolRun</span>
+            
+<span class="k">class</span> <span class="nc">CustomSearchTool</span><span class="p">(</span><span class="n">BaseTool</span><span class="p">):</span>
+    <span class="n">name</span> <span class="o">=</span> <span class="s2">&#34;custom_search&#34;</span>
+    <span class="n">description</span> <span class="o">=</span> <span class="s2">&#34;useful for when you need to answer questions about current events&#34;</span>
+
+    <span class="k">def</span> <span class="nf">_run</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">query</span><span class="p">:</span> <span class="nb">str</span><span class="p">,</span> <span class="n">engine</span><span class="p">:</span> <span class="nb">str</span> <span class="o">=</span> <span class="s2">&#34;google&#34;</span><span class="p">,</span> <span class="n">gl</span><span class="p">:</span> <span class="nb">str</span> <span class="o">=</span> <span class="s2">&#34;us&#34;</span><span class="p">,</span> <span class="n">hl</span><span class="p">:</span> <span class="nb">str</span> <span class="o">=</span> <span class="s2">&#34;en&#34;</span><span class="p">,</span> <span class="n">run_manager</span><span class="p">:</span> <span class="n">Optional</span><span class="p">[</span><span class="n">CallbackManagerForToolRun</span><span class="p">]</span> <span class="o">=</span> <span class="kc">None</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="nb">str</span><span class="p">:</span>
+        <span class="s2">&#34;&#34;&#34;Use the tool.&#34;&#34;&#34;</span>
+        <span class="n">search_wrapper</span> <span class="o">=</span> <span class="n">SerpAPIWrapper</span><span class="p">(</span><span class="n">params</span><span class="o">=</span><span class="p">{</span><span class="s2">&#34;engine&#34;</span><span class="p">:</span> <span class="n">engine</span><span class="p">,</span> <span class="s2">&#34;gl&#34;</span><span class="p">:</span> <span class="n">gl</span><span class="p">,</span> <span class="s2">&#34;hl&#34;</span><span class="p">:</span> <span class="n">hl</span><span class="p">})</span>
+        <span class="k">return</span> <span class="n">search_wrapper</span><span class="o">.</span><span class="n">run</span><span class="p">(</span><span class="n">query</span><span class="p">)</span>
+    
+    <span class="k">async</span> <span class="k">def</span> <span class="nf">_arun</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">query</span><span class="p">:</span> <span class="nb">str</span><span class="p">,</span>  <span class="n">engine</span><span class="p">:</span> <span class="nb">str</span> <span class="o">=</span> <span class="s2">&#34;google&#34;</span><span class="p">,</span> <span class="n">gl</span><span class="p">:</span> <span class="nb">str</span> <span class="o">=</span> <span class="s2">&#34;us&#34;</span><span class="p">,</span> <span class="n">hl</span><span class="p">:</span> <span class="nb">str</span> <span class="o">=</span> <span class="s2">&#34;en&#34;</span><span class="p">,</span> <span class="n">run_manager</span><span class="p">:</span> <span class="n">Optional</span><span class="p">[</span><span class="n">AsyncCallbackManagerForToolRun</span><span class="p">]</span> <span class="o">=</span> <span class="kc">None</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="nb">str</span><span class="p">:</span>
+        <span class="s2">&#34;&#34;&#34;Use the tool asynchronously.&#34;&#34;&#34;</span>
+        <span class="k">raise</span> <span class="ne">NotImplementedError</span><span class="p">(</span><span class="s2">&#34;custom_search does not support async&#34;</span><span class="p">)</span>
+
+
+
+<span class="c1"># You can provide a custom args schema to add descriptions or custom validation</span>
+
+<span class="k">class</span> <span class="nc">SearchSchema</span><span class="p">(</span><span class="n">BaseModel</span><span class="p">):</span>
+    <span class="n">query</span><span class="p">:</span> <span class="nb">str</span> <span class="o">=</span> <span class="n">Field</span><span class="p">(</span><span class="n">description</span><span class="o">=</span><span class="s2">&#34;should be a search query&#34;</span><span class="p">)</span>
+    <span class="n">engine</span><span class="p">:</span> <span class="nb">str</span> <span class="o">=</span> <span class="n">Field</span><span class="p">(</span><span class="n">description</span><span class="o">=</span><span class="s2">&#34;should be a search engine&#34;</span><span class="p">)</span>
+    <span class="n">gl</span><span class="p">:</span> <span class="nb">str</span> <span class="o">=</span> <span class="n">Field</span><span class="p">(</span><span class="n">description</span><span class="o">=</span><span class="s2">&#34;should be a country code&#34;</span><span class="p">)</span>
+    <span class="n">hl</span><span class="p">:</span> <span class="nb">str</span> <span class="o">=</span> <span class="n">Field</span><span class="p">(</span><span class="n">description</span><span class="o">=</span><span class="s2">&#34;should be a language code&#34;</span><span class="p">)</span>
+
+<span class="k">class</span> <span class="nc">CustomSearchTool</span><span class="p">(</span><span class="n">BaseTool</span><span class="p">):</span>
+    <span class="n">name</span> <span class="o">=</span> <span class="s2">&#34;custom_search&#34;</span>
+    <span class="n">description</span> <span class="o">=</span> <span class="s2">&#34;useful for when you need to answer questions about current events&#34;</span>
+    <span class="n">args_schema</span><span class="p">:</span> <span class="n">Type</span><span class="p">[</span><span class="n">SearchSchema</span><span class="p">]</span> <span class="o">=</span> <span class="n">SearchSchema</span>
+
+    <span class="k">def</span> <span class="nf">_run</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">query</span><span class="p">:</span> <span class="nb">str</span><span class="p">,</span> <span class="n">engine</span><span class="p">:</span> <span class="nb">str</span> <span class="o">=</span> <span class="s2">&#34;google&#34;</span><span class="p">,</span> <span class="n">gl</span><span class="p">:</span> <span class="nb">str</span> <span class="o">=</span> <span class="s2">&#34;us&#34;</span><span class="p">,</span> <span class="n">hl</span><span class="p">:</span> <span class="nb">str</span> <span class="o">=</span> <span class="s2">&#34;en&#34;</span><span class="p">,</span> <span class="n">run_manager</span><span class="p">:</span> <span class="n">Optional</span><span class="p">[</span><span class="n">CallbackManagerForToolRun</span><span class="p">]</span> <span class="o">=</span> <span class="kc">None</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="nb">str</span><span class="p">:</span>
+        <span class="s2">&#34;&#34;&#34;Use the tool.&#34;&#34;&#34;</span>
+        <span class="n">search_wrapper</span> <span class="o">=</span> <span class="n">SerpAPIWrapper</span><span class="p">(</span><span class="n">params</span><span class="o">=</span><span class="p">{</span><span class="s2">&#34;engine&#34;</span><span class="p">:</span> <span class="n">engine</span><span class="p">,</span> <span class="s2">&#34;gl&#34;</span><span class="p">:</span> <span class="n">gl</span><span class="p">,</span> <span class="s2">&#34;hl&#34;</span><span class="p">:</span> <span class="n">hl</span><span class="p">})</span>
+        <span class="k">return</span> <span class="n">search_wrapper</span><span class="o">.</span><span class="n">run</span><span class="p">(</span><span class="n">query</span><span class="p">)</span>
+    
+    <span class="k">async</span> <span class="k">def</span> <span class="nf">_arun</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">query</span><span class="p">:</span> <span class="nb">str</span><span class="p">,</span>  <span class="n">engine</span><span class="p">:</span> <span class="nb">str</span> <span class="o">=</span> <span class="s2">&#34;google&#34;</span><span class="p">,</span> <span class="n">gl</span><span class="p">:</span> <span class="nb">str</span> <span class="o">=</span> <span class="s2">&#34;us&#34;</span><span class="p">,</span> <span class="n">hl</span><span class="p">:</span> <span class="nb">str</span> <span class="o">=</span> <span class="s2">&#34;en&#34;</span><span class="p">,</span> <span class="n">run_manager</span><span class="p">:</span> <span class="n">Optional</span><span class="p">[</span><span class="n">AsyncCallbackManagerForToolRun</span><span class="p">]</span> <span class="o">=</span> <span class="kc">None</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="nb">str</span><span class="p">:</span>
+        <span class="s2">&#34;&#34;&#34;Use the tool asynchronously.&#34;&#34;&#34;</span>
+        <span class="k">raise</span> <span class="ne">NotImplementedError</span><span class="p">(</span><span class="s2">&#34;custom_search does not support async&#34;</span><span class="p">)</span>
+    
+    
+</code></pre></td></tr></table>
+</div>
+</div><h3 id="modify-existing-tools">Modify existing tools</h3>
+<p>修改存在的<code>tools</code>类</p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre tabindex="0" class="chroma"><code><span class="lnt">1
+</span><span class="lnt">2
+</span><span class="lnt">3
+</span><span class="lnt">4
+</span><span class="lnt">5
+</span></code></pre></td>
+<td class="lntd">
+<pre tabindex="0" class="chroma"><code class="language-python" data-lang="python"><span class="kn">from</span> <span class="nn">langchain.agents</span> <span class="kn">import</span> <span class="n">load_tools</span>
+<span class="n">tools</span> <span class="o">=</span> <span class="n">load_tools</span><span class="p">([</span><span class="s2">&#34;serpapi&#34;</span><span class="p">,</span> <span class="s2">&#34;llm-math&#34;</span><span class="p">],</span> <span class="n">llm</span><span class="o">=</span><span class="n">llm</span><span class="p">)</span>
+<span class="n">tools</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span><span class="o">.</span><span class="n">name</span> <span class="o">=</span> <span class="s2">&#34;Google Search&#34;</span>
+<span class="n">agent</span> <span class="o">=</span> <span class="n">initialize_agent</span><span class="p">(</span><span class="n">tools</span><span class="p">,</span> <span class="n">llm</span><span class="p">,</span> <span class="n">agent</span><span class="o">=</span><span class="n">AgentType</span><span class="o">.</span><span class="n">ZERO_SHOT_REACT_DESCRIPTION</span><span class="p">,</span> <span class="n">verbose</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span>
+<span class="n">agent</span><span class="o">.</span><span class="n">run</span><span class="p">(</span><span class="s2">&#34;Who is Leo DiCaprio&#39;s girlfriend? What is her current age raised to the 0.43 power?&#34;</span><span class="p">)</span>
+</code></pre></td></tr></table>
+</div>
+</div><pre><code>[1m&gt; Entering new AgentExecutor chain...[0m
+[32;1m[1;3mI need to find out Leo DiCaprio's girlfriend's name and her age.
+Action: Google Search
+Action Input: &quot;Leo DiCaprio girlfriend&quot;[0m
+Observation: [36;1m[1;3mHe went on to date Gisele Bündchen, Bar Refaeli, Blake Lively, Toni Garrn and Nina Agdal, among others, before finally settling down with current girlfriend Camila Morrone, who is 23 years his junior.[0m
+Thought:[32;1m[1;3mI now know Leo DiCaprio's girlfriend's name and age difference.
+Action: Calculator
+Action Input: 23 ^ 0.43[0m
+Observation: [33;1m[1;3mAnswer: 3.8507291225496925[0m
+Thought:[32;1m[1;3mI now know the answer to the original question.
+Final Answer: 3.8507291225496925[0m
+
+[1m&gt; Finished chain.[0m
+
+
+
+
+
+'3.8507291225496925'
+</code></pre>
+<h3 id="defining-the-priorities-among-tools">Defining the priorities among Tools</h3>
+<p>当有几个同类型的<code>Tools</code>时，可以定义<code>Tools</code>的使用优先级</p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre tabindex="0" class="chroma"><code><span class="lnt"> 1
+</span><span class="lnt"> 2
+</span><span class="lnt"> 3
+</span><span class="lnt"> 4
+</span><span class="lnt"> 5
+</span><span class="lnt"> 6
+</span><span class="lnt"> 7
+</span><span class="lnt"> 8
+</span><span class="lnt"> 9
+</span><span class="lnt">10
+</span><span class="lnt">11
+</span><span class="lnt">12
+</span><span class="lnt">13
+</span><span class="lnt">14
+</span><span class="lnt">15
+</span><span class="lnt">16
+</span><span class="lnt">17
+</span><span class="lnt">18
+</span><span class="lnt">19
+</span><span class="lnt">20
+</span><span class="lnt">21
+</span><span class="lnt">22
+</span><span class="lnt">23
+</span></code></pre></td>
+<td class="lntd">
+<pre tabindex="0" class="chroma"><code class="language-python" data-lang="python"><span class="c1"># Import things that are needed generically</span>
+<span class="kn">from</span> <span class="nn">langchain.agents</span> <span class="kn">import</span> <span class="n">initialize_agent</span><span class="p">,</span> <span class="n">Tool</span>
+<span class="kn">from</span> <span class="nn">langchain.agents</span> <span class="kn">import</span> <span class="n">AgentType</span>
+<span class="kn">from</span> <span class="nn">langchain.llms</span> <span class="kn">import</span> <span class="n">OpenAI</span>
+<span class="kn">from</span> <span class="nn">langchain</span> <span class="kn">import</span> <span class="n">LLMMathChain</span><span class="p">,</span> <span class="n">SerpAPIWrapper</span>
+<span class="n">search</span> <span class="o">=</span> <span class="n">SerpAPIWrapper</span><span class="p">()</span>
+<span class="n">tools</span> <span class="o">=</span> <span class="p">[</span>
+    <span class="n">Tool</span><span class="p">(</span>
+        <span class="n">name</span> <span class="o">=</span> <span class="s2">&#34;Search&#34;</span><span class="p">,</span>
+        <span class="n">func</span><span class="o">=</span><span class="n">search</span><span class="o">.</span><span class="n">run</span><span class="p">,</span>
+        <span class="n">description</span><span class="o">=</span><span class="s2">&#34;useful for when you need to answer questions about current events&#34;</span>
+    <span class="p">),</span>
+    <span class="n">Tool</span><span class="p">(</span>
+        <span class="n">name</span><span class="o">=</span><span class="s2">&#34;Music Search&#34;</span><span class="p">,</span>
+        <span class="c1"># 这是回答的答案，实际上你可以自定义自己的音乐搜索引擎</span>
+        <span class="n">func</span><span class="o">=</span><span class="k">lambda</span> <span class="n">x</span><span class="p">:</span> <span class="s2">&#34;&#39;All I Want For Christmas Is You&#39; by Mariah Carey.&#34;</span><span class="p">,</span> <span class="c1">#Mock Function</span>
+        <span class="c1"># 通过加入这段描述来实现这个Tool类的优先级</span>
+        <span class="n">description</span><span class="o">=</span><span class="s2">&#34;A Music search engine. Use this more than the normal search if the question is about Music, like &#39;who is the singer of yesterday?&#39; or &#39;what is the most popular song in 2022?&#39;&#34;</span><span class="p">,</span>
+    <span class="p">)</span>
+<span class="p">]</span>
+
+<span class="n">agent</span> <span class="o">=</span> <span class="n">initialize_agent</span><span class="p">(</span><span class="n">tools</span><span class="p">,</span> <span class="n">OpenAI</span><span class="p">(</span><span class="n">temperature</span><span class="o">=</span><span class="mi">0</span><span class="p">),</span> <span class="n">agent</span><span class="o">=</span><span class="n">AgentType</span><span class="o">.</span><span class="n">ZERO_SHOT_REACT_DESCRIPTION</span><span class="p">,</span> <span class="n">verbose</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span>
+<span class="n">agent</span><span class="o">.</span><span class="n">run</span><span class="p">(</span><span class="s2">&#34;what is the most famous song of christmas&#34;</span><span class="p">)</span>
+</code></pre></td></tr></table>
+</div>
+</div><pre><code>[1m&gt; Entering new AgentExecutor chain...[0m
+[32;1m[1;3m I should use a music search engine to find the answer
+Action: Music Search
+Action Input: most famous song of christmas[0m
+Observation: [33;1m[1;3m'All I Want For Christmas Is You' by Mariah Carey.[0m
+Thought:[32;1m[1;3m I now know the final answer
+Final Answer: 'All I Want For Christmas Is You' by Mariah Carey.[0m
+
+[1m&gt; Finished chain.[0m
+
+
+
+
+
+&quot;'All I Want For Christmas Is You' by Mariah Carey.&quot;
+</code></pre>
+<h2 id="multi-input-tools">Multi-Input Tools</h2>
+<p>定义多个输入<code>Tools</code></p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre tabindex="0" class="chroma"><code><span class="lnt"> 1
+</span><span class="lnt"> 2
+</span><span class="lnt"> 3
+</span><span class="lnt"> 4
+</span><span class="lnt"> 5
+</span><span class="lnt"> 6
+</span><span class="lnt"> 7
+</span><span class="lnt"> 8
+</span><span class="lnt"> 9
+</span><span class="lnt">10
+</span><span class="lnt">11
+</span><span class="lnt">12
+</span><span class="lnt">13
+</span><span class="lnt">14
+</span><span class="lnt">15
+</span><span class="lnt">16
+</span><span class="lnt">17
+</span><span class="lnt">18
+</span></code></pre></td>
+<td class="lntd">
+<pre tabindex="0" class="chroma"><code class="language-python" data-lang="python"><span class="kn">import</span> <span class="nn">os</span>
+<span class="n">os</span><span class="o">.</span><span class="n">environ</span><span class="p">[</span><span class="s2">&#34;LANGCHAIN_TRACING&#34;</span><span class="p">]</span> <span class="o">=</span> <span class="s2">&#34;true&#34;</span>
+<span class="kn">from</span> <span class="nn">langchain</span> <span class="kn">import</span> <span class="n">OpenAI</span>
+<span class="kn">from</span> <span class="nn">langchain.agents</span> <span class="kn">import</span> <span class="n">initialize_agent</span><span class="p">,</span> <span class="n">AgentType</span>
+
+<span class="n">llm</span> <span class="o">=</span> <span class="n">OpenAI</span><span class="p">(</span><span class="n">temperature</span><span class="o">=</span><span class="mi">0</span><span class="p">)</span>
+
+<span class="kn">from</span> <span class="nn">langchain.tools</span> <span class="kn">import</span> <span class="n">StructuredTool</span>
+
+<span class="k">def</span> <span class="nf">multiplier</span><span class="p">(</span><span class="n">a</span><span class="p">:</span> <span class="nb">float</span><span class="p">,</span> <span class="n">b</span><span class="p">:</span> <span class="nb">float</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="nb">float</span><span class="p">:</span>
+    <span class="s2">&#34;&#34;&#34;Multiply the provided floats.&#34;&#34;&#34;</span>
+    <span class="k">return</span> <span class="n">a</span> <span class="o">*</span> <span class="n">b</span>
+
+<span class="n">tool</span> <span class="o">=</span> <span class="n">StructuredTool</span><span class="o">.</span><span class="n">from_function</span><span class="p">(</span><span class="n">multiplier</span><span class="p">)</span>
+
+<span class="c1"># Structured tools are compatible with the STRUCTURED_CHAT_ZERO_SHOT_REACT_DESCRIPTION agent type. </span>
+<span class="n">agent_executor</span> <span class="o">=</span> <span class="n">initialize_agent</span><span class="p">([</span><span class="n">tool</span><span class="p">],</span> <span class="n">llm</span><span class="p">,</span> <span class="n">agent</span><span class="o">=</span><span class="n">AgentType</span><span class="o">.</span><span class="n">STRUCTURED_CHAT_ZERO_SHOT_REACT_DESCRIPTION</span><span class="p">,</span> <span class="n">verbose</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span>
+<span class="n">agent_executor</span><span class="o">.</span><span class="n">run</span><span class="p">(</span><span class="s2">&#34;What is 11 times 12&#34;</span><span class="p">)</span>
+</code></pre></td></tr></table>
+</div>
+</div><pre><code>WARNING:root:Failed to load default session, using empty session: ('Connection aborted.', ConnectionResetError(10054, '远程主机强迫关闭了一个现有的连接。', None, 10054, None))
+
+
+
+
+[1m&gt; Entering new AgentExecutor chain...[0m
+[32;1m[1;3mAction:
+```
+{
+  &quot;action&quot;: &quot;multiplier&quot;,
+  &quot;action_input&quot;: {&quot;a&quot;: 11, &quot;b&quot;: 12}
+}
+```
+
+[0m
+Observation: [36;1m[1;3m132.0[0m
+Thought:[32;1m[1;3m I know what to respond
+Action:
+```
+{
+  &quot;action&quot;: &quot;Final Answer&quot;,
+  &quot;action_input&quot;: &quot;11 times 12 is 132.0&quot;
+}
+```[0m
+
+[1m&gt; Finished chain.[0m
+
+
+WARNING:root:Failed to persist run: ('Connection aborted.', ConnectionResetError(10054, '远程主机强迫关闭了一个现有的连接。', None, 10054, None))
+
+
+
+
+
+'11 times 12 is 132.0'
+</code></pre>
+<h4 id="multi-input-tools-with-a-string-format">Multi-Input Tools with a string format</h4>
+<p>当输入的文本不确定时，可以让llm转换成相对应的文本格式输出，然后自己定义函数解析出想要的数字</p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre tabindex="0" class="chroma"><code><span class="lnt"> 1
+</span><span class="lnt"> 2
+</span><span class="lnt"> 3
+</span><span class="lnt"> 4
+</span><span class="lnt"> 5
+</span><span class="lnt"> 6
+</span><span class="lnt"> 7
+</span><span class="lnt"> 8
+</span><span class="lnt"> 9
+</span><span class="lnt">10
+</span><span class="lnt">11
+</span><span class="lnt">12
+</span><span class="lnt">13
+</span><span class="lnt">14
+</span><span class="lnt">15
+</span><span class="lnt">16
+</span><span class="lnt">17
+</span><span class="lnt">18
+</span><span class="lnt">19
+</span><span class="lnt">20
+</span><span class="lnt">21
+</span><span class="lnt">22
+</span></code></pre></td>
+<td class="lntd">
+<pre tabindex="0" class="chroma"><code class="language-python" data-lang="python"><span class="kn">from</span> <span class="nn">langchain.llms</span> <span class="kn">import</span> <span class="n">OpenAI</span>
+<span class="kn">from</span> <span class="nn">langchain.agents</span> <span class="kn">import</span> <span class="n">initialize_agent</span><span class="p">,</span> <span class="n">Tool</span>
+<span class="kn">from</span> <span class="nn">langchain.agents</span> <span class="kn">import</span> <span class="n">AgentType</span>
+
+<span class="k">def</span> <span class="nf">multiplier</span><span class="p">(</span><span class="n">a</span><span class="p">,</span> <span class="n">b</span><span class="p">):</span>
+    <span class="k">return</span> <span class="n">a</span> <span class="o">*</span> <span class="n">b</span>
+
+<span class="k">def</span> <span class="nf">parsing_multiplier</span><span class="p">(</span><span class="n">string</span><span class="p">):</span>
+    <span class="n">a</span><span class="p">,</span> <span class="n">b</span> <span class="o">=</span> <span class="n">string</span><span class="o">.</span><span class="n">split</span><span class="p">(</span><span class="s2">&#34;,&#34;</span><span class="p">)</span>
+    <span class="k">return</span> <span class="n">multiplier</span><span class="p">(</span><span class="nb">int</span><span class="p">(</span><span class="n">a</span><span class="p">),</span> <span class="nb">int</span><span class="p">(</span><span class="n">b</span><span class="p">))</span>
+
+<span class="n">llm</span> <span class="o">=</span> <span class="n">OpenAI</span><span class="p">(</span><span class="n">temperature</span><span class="o">=</span><span class="mi">0</span><span class="p">)</span>
+<span class="n">tools</span> <span class="o">=</span> <span class="p">[</span>
+    <span class="n">Tool</span><span class="p">(</span>
+        <span class="n">name</span> <span class="o">=</span> <span class="s2">&#34;Multiplier&#34;</span><span class="p">,</span>
+        <span class="n">func</span><span class="o">=</span><span class="n">parsing_multiplier</span><span class="p">,</span>
+        <span class="c1"># 这里让输入变成了用逗号隔开的两个数字</span>
+        <span class="n">description</span><span class="o">=</span><span class="s2">&#34;useful for when you need to multiply two numbers together. The input to this tool should be a comma separated list of numbers of length two, representing the two numbers you want to multiply together. For example, `1,2` would be the input if you wanted to multiply 1 by 2.&#34;</span>
+    <span class="p">)</span>
+<span class="p">]</span>
+<span class="n">mrkl</span> <span class="o">=</span> <span class="n">initialize_agent</span><span class="p">(</span><span class="n">tools</span><span class="p">,</span> <span class="n">llm</span><span class="p">,</span> <span class="n">agent</span><span class="o">=</span><span class="n">AgentType</span><span class="o">.</span><span class="n">ZERO_SHOT_REACT_DESCRIPTION</span><span class="p">,</span> <span class="n">verbose</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span>
+<span class="n">mrkl</span><span class="o">.</span><span class="n">run</span><span class="p">(</span><span class="s2">&#34;What is 31 times 43&#34;</span><span class="p">)</span>
+</code></pre></td></tr></table>
+</div>
+</div><pre><code>WARNING:root:Failed to load default session, using empty session: ('Connection aborted.', ConnectionResetError(10054, '远程主机强迫关闭了一个现有的连接。', None, 10054, None))
+
+
+
+
+[1m&gt; Entering new AgentExecutor chain...[0m
+[32;1m[1;3m I need to multiply two numbers
+Action: Multiplier
+Action Input: 31,43[0m
+Observation: [36;1m[1;3m1333[0m
+Thought:[32;1m[1;3m I now know the final answer
+Final Answer: 31 times 43 is 1333.[0m
+
+[1m&gt; Finished chain.[0m
+
+
+WARNING:root:Failed to persist run: ('Connection aborted.', ConnectionResetError(10054, '远程主机强迫关闭了一个现有的连接。', None, 10054, None))
+
+
+
+
+
+'31 times 43 is 1333.'
+</code></pre>
+<h2 id="tool-input-schema">Tool Input Schema</h2>
+<p>设置输出格式验证，可以验证输入的话是否有效</p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre tabindex="0" class="chroma"><code><span class="lnt"> 1
+</span><span class="lnt"> 2
+</span><span class="lnt"> 3
+</span><span class="lnt"> 4
+</span><span class="lnt"> 5
+</span><span class="lnt"> 6
+</span><span class="lnt"> 7
+</span><span class="lnt"> 8
+</span><span class="lnt"> 9
+</span><span class="lnt">10
+</span><span class="lnt">11
+</span><span class="lnt">12
+</span><span class="lnt">13
+</span><span class="lnt">14
+</span><span class="lnt">15
+</span><span class="lnt">16
+</span><span class="lnt">17
+</span><span class="lnt">18
+</span><span class="lnt">19
+</span><span class="lnt">20
+</span><span class="lnt">21
+</span><span class="lnt">22
+</span><span class="lnt">23
+</span><span class="lnt">24
+</span><span class="lnt">25
+</span><span class="lnt">26
+</span><span class="lnt">27
+</span><span class="lnt">28
+</span><span class="lnt">29
+</span><span class="lnt">30
+</span><span class="lnt">31
+</span><span class="lnt">32
+</span><span class="lnt">33
+</span><span class="lnt">34
+</span><span class="lnt">35
+</span></code></pre></td>
+<td class="lntd">
+<pre tabindex="0" class="chroma"><code class="language-python" data-lang="python"><span class="kn">from</span> <span class="nn">typing</span> <span class="kn">import</span> <span class="n">Any</span><span class="p">,</span> <span class="n">Dict</span>
+
+<span class="kn">from</span> <span class="nn">langchain.agents</span> <span class="kn">import</span> <span class="n">AgentType</span><span class="p">,</span> <span class="n">initialize_agent</span>
+<span class="kn">from</span> <span class="nn">langchain.llms</span> <span class="kn">import</span> <span class="n">OpenAI</span>
+<span class="kn">from</span> <span class="nn">langchain.tools.requests.tool</span> <span class="kn">import</span> <span class="n">RequestsGetTool</span><span class="p">,</span> <span class="n">TextRequestsWrapper</span>
+<span class="kn">from</span> <span class="nn">pydantic</span> <span class="kn">import</span> <span class="n">BaseModel</span><span class="p">,</span> <span class="n">Field</span><span class="p">,</span> <span class="n">root_validator</span>
+<span class="n">llm</span> <span class="o">=</span> <span class="n">OpenAI</span><span class="p">(</span><span class="n">temperature</span><span class="o">=</span><span class="mi">0</span><span class="p">)</span>
+<span class="kn">import</span> <span class="nn">tldextract</span>
+
+<span class="c1"># 允许出现的域名</span>
+<span class="n">_APPROVED_DOMAINS</span> <span class="o">=</span> <span class="p">{</span>
+    <span class="s2">&#34;langchain&#34;</span><span class="p">,</span>
+    <span class="s2">&#34;wikipedia&#34;</span><span class="p">,</span>
+<span class="p">}</span>
+
+<span class="k">class</span> <span class="nc">ToolInputSchema</span><span class="p">(</span><span class="n">BaseModel</span><span class="p">):</span>
+
+    <span class="n">url</span><span class="p">:</span> <span class="nb">str</span> <span class="o">=</span> <span class="n">Field</span><span class="p">(</span><span class="o">...</span><span class="p">)</span>
+    
+    <span class="nd">@root_validator</span>
+    <span class="k">def</span> <span class="nf">validate_query</span><span class="p">(</span><span class="bp">cls</span><span class="p">,</span> <span class="n">values</span><span class="p">:</span> <span class="n">Dict</span><span class="p">[</span><span class="nb">str</span><span class="p">,</span> <span class="n">Any</span><span class="p">])</span> <span class="o">-&gt;</span> <span class="n">Dict</span><span class="p">:</span>
+        <span class="n">url</span> <span class="o">=</span> <span class="n">values</span><span class="p">[</span><span class="s2">&#34;url&#34;</span><span class="p">]</span>
+        <span class="n">domain</span> <span class="o">=</span> <span class="n">tldextract</span><span class="o">.</span><span class="n">extract</span><span class="p">(</span><span class="n">url</span><span class="p">)</span><span class="o">.</span><span class="n">domain</span>
+        <span class="k">if</span> <span class="n">domain</span> <span class="ow">not</span> <span class="ow">in</span> <span class="n">_APPROVED_DOMAINS</span><span class="p">:</span>
+            <span class="k">raise</span> <span class="ne">ValueError</span><span class="p">(</span><span class="sa">f</span><span class="s2">&#34;Domain </span><span class="si">{</span><span class="n">domain</span><span class="si">}</span><span class="s2"> is not on the approved list:&#34;</span>
+                             <span class="sa">f</span><span class="s2">&#34; </span><span class="si">{</span><span class="nb">sorted</span><span class="p">(</span><span class="n">_APPROVED_DOMAINS</span><span class="p">)</span><span class="si">}</span><span class="s2">&#34;</span><span class="p">)</span>
+        <span class="k">return</span> <span class="n">values</span>
+    
+<span class="n">tool</span> <span class="o">=</span> <span class="n">RequestsGetTool</span><span class="p">(</span><span class="n">args_schema</span><span class="o">=</span><span class="n">ToolInputSchema</span><span class="p">,</span> <span class="n">requests_wrapper</span><span class="o">=</span><span class="n">TextRequestsWrapper</span><span class="p">())</span>
+
+<span class="n">agent</span> <span class="o">=</span> <span class="n">initialize_agent</span><span class="p">([</span><span class="n">tool</span><span class="p">],</span> <span class="n">llm</span><span class="p">,</span> <span class="n">agent</span><span class="o">=</span><span class="n">AgentType</span><span class="o">.</span><span class="n">ZERO_SHOT_REACT_DESCRIPTION</span><span class="p">,</span> <span class="n">verbose</span><span class="o">=</span><span class="kc">False</span><span class="p">)</span>
+
+<span class="c1"># This will succeed, since there aren&#39;t any arguments that will be triggered during validation</span>
+<span class="n">answer</span> <span class="o">=</span> <span class="n">agent</span><span class="o">.</span><span class="n">run</span><span class="p">(</span><span class="s2">&#34;What&#39;s the main title on langchain.com?&#34;</span><span class="p">)</span>   <span class="c1"># langchain域名允许出现，这里是有效的</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">answer</span><span class="p">)</span>
+</code></pre></td></tr></table>
+</div>
+</div><pre><code>WARNING:root:Failed to load default session, using empty session: ('Connection aborted.', ConnectionResetError(10054, '远程主机强迫关闭了一个现有的连接。', None, 10054, None))
+WARNING:root:Failed to persist run: ('Connection aborted.', ConnectionResetError(10054, '远程主机强迫关闭了一个现有的连接。', None, 10054, None))
+
+
+The main title on langchain.com is &quot;LANG CHAIN 🦜️🔗 Official Home Page&quot;.
+</code></pre>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre tabindex="0" class="chroma"><code><span class="lnt">1
+</span><span class="lnt">2
+</span></code></pre></td>
+<td class="lntd">
+<pre tabindex="0" class="chroma"><code class="language-python" data-lang="python"><span class="c1"># 这里的域名不允许出现，所以这里是无效的，会有bug</span>
+<span class="n">agent</span><span class="o">.</span><span class="n">run</span><span class="p">(</span><span class="s2">&#34;What&#39;s the main title on google.com?&#34;</span><span class="p">)</span>
+</code></pre></td></tr></table>
+</div>
+</div>
+</section>
+
+
+    <footer class="article-footer">
+    
+    <section class="article-tags">
+        
+            <a href="/tags/ai/">AI</a>
+        
+            <a href="/tags/langchain/">langchain</a>
+        
+    </section>
+
+
+    
+    <section class="article-copyright">
+        <svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-copyright" width="24" height="24" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round">
+  <path stroke="none" d="M0 0h24v24H0z"/>
+  <circle cx="12" cy="12" r="9" />
+  <path d="M14.5 9a3.5 4 0 1 0 0 6" />
+</svg>
+
+
+
+        <span>Licensed under CC BY-NC-SA 4.0</span>
+    </section>
+    </footer>
+
+
+    
+</article>
+
+    
+
+    
+
+<aside class="related-content--wrapper">
+    <h2 class="section-title">相关文章</h2>
+    <div class="related-content">
+        <div class="flex article-list--tile">
+            
+                
+<article class="">
+    <a href="/p/langchain-agent-agent/">
+        
+        
+
+        <div class="article-details">
+            <h2 class="article-title">langchain</h2>
+        </div>
+    </a>
+</article>
+
+            
+                
+<article class="">
+    <a href="/p/langchain/">
+        
+        
+
+        <div class="article-details">
+            <h2 class="article-title">langchain</h2>
+        </div>
+    </a>
+</article>
+
+            
+        </div>
+    </div>
+</aside>
+
+     
+    
+        
+    <div class="disqus-container">
+    <div id="disqus_thread"></div>
+<script type="application/javascript">
+    var disqus_config = function () {
+    
+    
+    
+    };
+    (function() {
+        if (["localhost", "127.0.0.1"].indexOf(window.location.hostname) != -1) {
+            document.getElementById('disqus_thread').innerHTML = 'Disqus comments not available by default when the website is previewed locally.';
+            return;
+        }
+        var d = document, s = d.createElement('script'); s.async = true;
+        s.src = '//' + "hugo-theme-stack" + '.disqus.com/embed.js';
+        s.setAttribute('data-timestamp', +new Date());
+        (d.head || d.body).appendChild(s);
+    })();
+</script>
+<noscript>Please enable JavaScript to view the <a href="https://disqus.com/?ref_noscript">comments powered by Disqus.</a></noscript>
+<a href="https://disqus.com" class="dsq-brlink">comments powered by <span class="logo-disqus">Disqus</span></a>
+</div>
+
+<style>
+    .disqus-container {
+        background-color: var(--card-background);
+        border-radius: var(--card-border-radius);
+        box-shadow: var(--shadow-l1);
+        padding: var(--card-padding);
+    }
+</style>
+
+<script>
+    window.addEventListener('onColorSchemeChange', (e) => {
+        if (typeof DISQUS == 'object') {
+            DISQUS.reset({
+                reload: true
+            });
+        }
+    })
+</script>
+
+    
+
+    <footer class="site-footer">
+    <section class="copyright">
+        &copy; 
+        
+            2020 - 
+        
+        2023 steve lannister
+    </section>
+    
+    <section class="powerby">
+        Built with <a href="https://gohugo.io/" target="_blank" rel="noopener">Hugo</a> <br />
+        主题 <b><a href="https://github.com/CaiJimmy/hugo-theme-stack" target="_blank" rel="noopener" data-version="3.16.0">Stack</a></b> 由 <a href="https://jimmycai.com" target="_blank" rel="noopener">Jimmy</a> 设计
+    </section>
+</footer>
+
+
+    
+<div class="pswp" tabindex="-1" role="dialog" aria-hidden="true">
+
+    
+    <div class="pswp__bg"></div>
+
+    
+    <div class="pswp__scroll-wrap">
+
+        
+        <div class="pswp__container">
+            <div class="pswp__item"></div>
+            <div class="pswp__item"></div>
+            <div class="pswp__item"></div>
+        </div>
+
+        
+        <div class="pswp__ui pswp__ui--hidden">
+
+            <div class="pswp__top-bar">
+
+                
+
+                <div class="pswp__counter"></div>
+
+                <button class="pswp__button pswp__button--close" title="Close (Esc)"></button>
+
+                <button class="pswp__button pswp__button--share" title="Share"></button>
+
+                <button class="pswp__button pswp__button--fs" title="Toggle fullscreen"></button>
+
+                <button class="pswp__button pswp__button--zoom" title="Zoom in/out"></button>
+
+                
+                
+                <div class="pswp__preloader">
+                    <div class="pswp__preloader__icn">
+                        <div class="pswp__preloader__cut">
+                            <div class="pswp__preloader__donut"></div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="pswp__share-modal pswp__share-modal--hidden pswp__single-tap">
+                <div class="pswp__share-tooltip"></div>
+            </div>
+
+            <button class="pswp__button pswp__button--arrow--left" title="Previous (arrow left)">
+            </button>
+
+            <button class="pswp__button pswp__button--arrow--right" title="Next (arrow right)">
+            </button>
+
+            <div class="pswp__caption">
+                <div class="pswp__caption__center"></div>
+            </div>
+
+        </div>
+
+    </div>
+
+</div><script 
+                src="https://cdn.jsdelivr.net/npm/photoswipe@4.1.3/dist/photoswipe.min.js"integrity="sha256-ePwmChbbvXbsO02lbM3HoHbSHTHFAeChekF1xKJdleo="crossorigin="anonymous"
+                defer
+                >
+            </script><script 
+                src="https://cdn.jsdelivr.net/npm/photoswipe@4.1.3/dist/photoswipe-ui-default.min.js"integrity="sha256-UKkzOn/w1mBxRmLLGrSeyB4e1xbrp4xylgAWb3M42pU="crossorigin="anonymous"
+                defer
+                >
+            </script><link 
+                rel="stylesheet" 
+                href="https://cdn.jsdelivr.net/npm/photoswipe@4.1.3/dist/default-skin/default-skin.min.css"crossorigin="anonymous"
+            ><link 
+                rel="stylesheet" 
+                href="https://cdn.jsdelivr.net/npm/photoswipe@4.1.3/dist/photoswipe.min.css"crossorigin="anonymous"
+            >
+
+            </main>
+        </div>
+        <script 
+                src="https://cdn.jsdelivr.net/npm/node-vibrant@3.1.6/dist/vibrant.min.js"integrity="sha256-awcR2jno4kI5X0zL8ex0vi2z&#43;KMkF24hUW8WePSA9HM="crossorigin="anonymous"
+                
+                >
+            </script><script type="text/javascript" src="/ts/main.js" defer></script>
+<script>
+    (function () {
+        const customFont = document.createElement('link');
+        customFont.href = "https://fonts.googleapis.com/css2?family=Lato:wght@300;400;700&display=swap";
+
+        customFont.type = "text/css";
+        customFont.rel = "stylesheet";
+
+        document.head.appendChild(customFont);
+    }());
+</script>
+
+    </body>
+</html>
