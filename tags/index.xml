@@ -6,7 +6,23 @@
         <description>Recent content in Tags on steve lannister</description>
         <generator>Hugo -- gohugo.io</generator>
         <language>en-us</language>
-        <lastBuildDate>Fri, 12 May 2023 00:00:00 +0000</lastBuildDate><atom:link href="https://jhrsya.github.io/tags/index.xml" rel="self" type="application/rss+xml" /><item>
+        <lastBuildDate>Tue, 16 May 2023 00:00:00 +0000</lastBuildDate><atom:link href="https://jhrsya.github.io/tags/index.xml" rel="self" type="application/rss+xml" /><item>
+        <title>AI框架</title>
+        <link>https://jhrsya.github.io/tags/ai%E6%A1%86%E6%9E%B6/</link>
+        <pubDate>Tue, 16 May 2023 00:00:00 +0000</pubDate>
+        
+        <guid>https://jhrsya.github.io/tags/ai%E6%A1%86%E6%9E%B6/</guid>
+        <description></description>
+        </item>
+        <item>
+        <title>langchain</title>
+        <link>https://jhrsya.github.io/tags/langchain/</link>
+        <pubDate>Tue, 16 May 2023 00:00:00 +0000</pubDate>
+        
+        <guid>https://jhrsya.github.io/tags/langchain/</guid>
+        <description></description>
+        </item>
+        <item>
         <title>AI</title>
         <link>https://jhrsya.github.io/tags/ai/</link>
         <pubDate>Fri, 12 May 2023 00:00:00 +0000</pubDate>
@@ -20,14 +36,6 @@
         <pubDate>Fri, 12 May 2023 00:00:00 +0000</pubDate>
         
         <guid>https://jhrsya.github.io/tags/docker/</guid>
-        <description></description>
-        </item>
-        <item>
-        <title>langchain</title>
-        <link>https://jhrsya.github.io/tags/langchain/</link>
-        <pubDate>Fri, 12 May 2023 00:00:00 +0000</pubDate>
-        
-        <guid>https://jhrsya.github.io/tags/langchain/</guid>
         <description></description>
         </item>
         <item>
