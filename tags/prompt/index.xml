@@ -1,0 +1,33 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+    <channel>
+        <title>prompt on steve lannister</title>
+        <link>https://jhrsya.github.io/tags/prompt/</link>
+        <description>Recent content in prompt on steve lannister</description>
+        <generator>Hugo -- gohugo.io</generator>
+        <language>en-us</language>
+        <lastBuildDate>Thu, 25 May 2023 00:00:00 +0000</lastBuildDate><atom:link href="https://jhrsya.github.io/tags/prompt/index.xml" rel="self" type="application/rss+xml" /><item>
+        <title>吴恩达prompt教程</title>
+        <link>https://jhrsya.github.io/p/prompt/</link>
+        <pubDate>Thu, 25 May 2023 00:00:00 +0000</pubDate>
+        
+        <guid>https://jhrsya.github.io/p/prompt/</guid>
+        <description>&lt;h1 id=&#34;prompt-engineering&#34;&gt;prompt engineering&lt;/h1&gt;
+&lt;h2 id=&#34;prompt构建原则&#34;&gt;prompt构建原则&lt;/h2&gt;
+&lt;h3 id=&#34;写清晰又准确的指令&#34;&gt;写清晰又准确的指令&lt;/h3&gt;
+&lt;h4 id=&#34;使用分隔符&#34;&gt;使用分隔符&lt;/h4&gt;
+&lt;ul&gt;
+&lt;li&gt;Triple quotes: &amp;quot;&amp;quot;&amp;quot;&lt;/li&gt;
+&lt;li&gt;Triple backticks: ```&lt;/li&gt;
+&lt;li&gt;Triple dashes: &amp;mdash;&lt;/li&gt;
+&lt;li&gt;Angle brackets: &amp;lt;&amp;gt;&lt;/li&gt;
+&lt;li&gt;XML tags: &lt;code&gt;&amp;lt;tag&amp;gt; &amp;lt;/tag&amp;gt;&lt;/code&gt;&lt;/li&gt;
+&lt;/ul&gt;
+&lt;h4 id=&#34;要求用结构化输出&#34;&gt;要求用结构化输出&lt;/h4&gt;
+&lt;h4 id=&#34;要求模型检查是否满足条件&#34;&gt;要求模型检查是否满足条件&lt;/h4&gt;
+&lt;h4 id=&#34;提供少量成功执行任务的示例&#34;&gt;提供少量成功执行任务的示例&lt;/h4&gt;
+</description>
+        </item>
+        
+    </channel>
+</rss>

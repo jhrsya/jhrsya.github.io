@@ -6,7 +6,171 @@
         <description>Recent content in Posts on steve lannister</description>
         <generator>Hugo -- gohugo.io</generator>
         <language>en-us</language>
-        <lastBuildDate>Tue, 16 May 2023 00:00:00 +0000</lastBuildDate><atom:link href="https://jhrsya.github.io/post/index.xml" rel="self" type="application/rss+xml" /><item>
+        <lastBuildDate>Sat, 27 May 2023 00:00:00 +0000</lastBuildDate><atom:link href="https://jhrsya.github.io/post/index.xml" rel="self" type="application/rss+xml" /><item>
+        <title>vue</title>
+        <link>https://jhrsya.github.io/p/vue%E7%88%AC%E8%99%AB%E6%A1%86%E6%9E%B6/</link>
+        <pubDate>Sat, 27 May 2023 00:00:00 +0000</pubDate>
+        
+        <guid>https://jhrsya.github.io/p/vue%E7%88%AC%E8%99%AB%E6%A1%86%E6%9E%B6/</guid>
+        <description>&lt;h1 id=&#34;vue&#34;&gt;vue&lt;/h1&gt;
+&lt;h2 id=&#34;框架&#34;&gt;框架&lt;/h2&gt;
+&lt;h3 id=&#34;srcviews&#34;&gt;src/views&lt;/h3&gt;
+&lt;p&gt;视图组件，在浏览器中渲染出的页面&lt;/p&gt;
+&lt;h3 id=&#34;srccomponents&#34;&gt;src/components&lt;/h3&gt;
+&lt;p&gt;views中的组件代码，在这里写&lt;/p&gt;
+&lt;h3 id=&#34;srcrouter&#34;&gt;src/router&lt;/h3&gt;
+&lt;p&gt;url路由的路径&lt;/p&gt;
+</description>
+        </item>
+        <item>
+        <title>langchain踩坑</title>
+        <link>https://jhrsya.github.io/p/langchain_dump/</link>
+        <pubDate>Thu, 25 May 2023 00:00:00 +0000</pubDate>
+        
+        <guid>https://jhrsya.github.io/p/langchain_dump/</guid>
+        <description>&lt;h1 id=&#34;langchain踩坑&#34;&gt;langchain踩坑&lt;/h1&gt;
+&lt;h2 id=&#34;prompt-template中的是有特殊含义要使用需用&#34;&gt;prompt template中的{}是有特殊含义，要使用需用{{}}&lt;/h2&gt;
+&lt;h2 id=&#34;控制llm的输出为json_string格式&#34;&gt;控制LLM的输出为json_string格式&lt;/h2&gt;
+&lt;div class=&#34;highlight&#34;&gt;&lt;div class=&#34;chroma&#34;&gt;
+&lt;table class=&#34;lntable&#34;&gt;&lt;tr&gt;&lt;td class=&#34;lntd&#34;&gt;
+&lt;pre tabindex=&#34;0&#34; class=&#34;chroma&#34;&gt;&lt;code&gt;&lt;span class=&#34;lnt&#34;&gt; 1
+&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt; 2
+&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt; 3
+&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt; 4
+&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt; 5
+&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt; 6
+&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt; 7
+&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt; 8
+&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt; 9
+&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt;10
+&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt;11
+&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt;12
+&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt;13
+&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt;14
+&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt;15
+&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt;16
+&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt;17
+&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/td&gt;
+&lt;td class=&#34;lntd&#34;&gt;
+&lt;pre tabindex=&#34;0&#34; class=&#34;chroma&#34;&gt;&lt;code class=&#34;language-python&#34; data-lang=&#34;python&#34;&gt;&lt;span class=&#34;kn&#34;&gt;from&lt;/span&gt; &lt;span class=&#34;nn&#34;&gt;langchain.schema&lt;/span&gt; &lt;span class=&#34;kn&#34;&gt;import&lt;/span&gt; &lt;span class=&#34;n&#34;&gt;BaseOutputParser&lt;/span&gt;
+
+&lt;span class=&#34;k&#34;&gt;class&lt;/span&gt; &lt;span class=&#34;nc&#34;&gt;JsonOutputParser&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;(&lt;/span&gt;&lt;span class=&#34;n&#34;&gt;BaseOutputParser&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;):&lt;/span&gt;
+    &lt;span class=&#34;k&#34;&gt;def&lt;/span&gt; &lt;span class=&#34;nf&#34;&gt;parse&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;(&lt;/span&gt;&lt;span class=&#34;bp&#34;&gt;self&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;,&lt;/span&gt; &lt;span class=&#34;n&#34;&gt;output&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;:&lt;/span&gt; &lt;span class=&#34;nb&#34;&gt;str&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;)&lt;/span&gt; &lt;span class=&#34;o&#34;&gt;-&amp;gt;&lt;/span&gt; &lt;span class=&#34;n&#34;&gt;Any&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;:&lt;/span&gt;
+        &lt;span class=&#34;k&#34;&gt;return&lt;/span&gt; &lt;span class=&#34;n&#34;&gt;json&lt;/span&gt;&lt;span class=&#34;o&#34;&gt;.&lt;/span&gt;&lt;span class=&#34;n&#34;&gt;loads&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;(&lt;/span&gt;&lt;span class=&#34;n&#34;&gt;output&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;)&lt;/span&gt;
+
+&lt;span class=&#34;n&#34;&gt;llm&lt;/span&gt; &lt;span class=&#34;o&#34;&gt;=&lt;/span&gt; &lt;span class=&#34;n&#34;&gt;OpenAI&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;(&lt;/span&gt;&lt;span class=&#34;n&#34;&gt;temperature&lt;/span&gt;&lt;span class=&#34;o&#34;&gt;=&lt;/span&gt;&lt;span class=&#34;mf&#34;&gt;0.1&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;)&lt;/span&gt;
+&lt;span class=&#34;n&#34;&gt;prompt&lt;/span&gt; &lt;span class=&#34;o&#34;&gt;=&lt;/span&gt; &lt;span class=&#34;n&#34;&gt;PromptTemplate&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;(&lt;/span&gt;
+    &lt;span class=&#34;n&#34;&gt;input_variables&lt;/span&gt;&lt;span class=&#34;o&#34;&gt;=&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;[&lt;/span&gt;&lt;span class=&#34;s2&#34;&gt;&amp;#34;text&amp;#34;&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;],&lt;/span&gt;
+    &lt;span class=&#34;n&#34;&gt;template&lt;/span&gt;&lt;span class=&#34;o&#34;&gt;=&lt;/span&gt;&lt;span class=&#34;n&#34;&gt;template&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;,&lt;/span&gt;
+    &lt;span class=&#34;n&#34;&gt;output_parser&lt;/span&gt;&lt;span class=&#34;o&#34;&gt;=&lt;/span&gt;&lt;span class=&#34;n&#34;&gt;JsonOutputParser&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;(),&lt;/span&gt;
+&lt;span class=&#34;p&#34;&gt;)&lt;/span&gt;
+&lt;span class=&#34;kn&#34;&gt;from&lt;/span&gt; &lt;span class=&#34;nn&#34;&gt;langchain.chains&lt;/span&gt; &lt;span class=&#34;kn&#34;&gt;import&lt;/span&gt; &lt;span class=&#34;n&#34;&gt;LLMChain&lt;/span&gt;
+&lt;span class=&#34;n&#34;&gt;chain&lt;/span&gt; &lt;span class=&#34;o&#34;&gt;=&lt;/span&gt; &lt;span class=&#34;n&#34;&gt;LLMChain&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;(&lt;/span&gt;&lt;span class=&#34;n&#34;&gt;llm&lt;/span&gt;&lt;span class=&#34;o&#34;&gt;=&lt;/span&gt;&lt;span class=&#34;n&#34;&gt;llm&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;,&lt;/span&gt; &lt;span class=&#34;n&#34;&gt;prompt&lt;/span&gt;&lt;span class=&#34;o&#34;&gt;=&lt;/span&gt;&lt;span class=&#34;n&#34;&gt;prompt&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;)&lt;/span&gt;
+&lt;span class=&#34;n&#34;&gt;answer&lt;/span&gt; &lt;span class=&#34;o&#34;&gt;=&lt;/span&gt; &lt;span class=&#34;n&#34;&gt;chain&lt;/span&gt;&lt;span class=&#34;o&#34;&gt;.&lt;/span&gt;&lt;span class=&#34;n&#34;&gt;run&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;(&lt;/span&gt;&lt;span class=&#34;n&#34;&gt;text&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;)&lt;/span&gt;    &lt;span class=&#34;c1&#34;&gt;# 此时LLM输出是json string格式&lt;/span&gt;
+&lt;span class=&#34;n&#34;&gt;json_answer&lt;/span&gt; &lt;span class=&#34;o&#34;&gt;=&lt;/span&gt; &lt;span class=&#34;n&#34;&gt;json&lt;/span&gt;&lt;span class=&#34;o&#34;&gt;.&lt;/span&gt;&lt;span class=&#34;n&#34;&gt;loads&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;(&lt;/span&gt;&lt;span class=&#34;n&#34;&gt;answer&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;)&lt;/span&gt;    &lt;span class=&#34;c1&#34;&gt;# 把json string 转换为json&lt;/span&gt;
+
+&lt;/code&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;
+&lt;/div&gt;
+&lt;/div&gt;&lt;p&gt;用于转化的prompt编写最好写成如下格式：&lt;code&gt;{{\&amp;quot;type\&amp;quot;: \&amp;quot;alert|survey\&amp;quot;, \&amp;quot;content\&amp;quot;: {{\&amp;quot;abstract\&amp;quot;: \&amp;quot;\&amp;quot;, \&amp;quot;reason\&amp;quot;: \&amp;quot;\&amp;quot;, \&amp;quot;solution\&amp;quot;: \&amp;quot;\&amp;quot;(always empty)}}}}&lt;/code&gt;&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;{}号需要用{}括起来，即{{}}&lt;/li&gt;
+&lt;li&gt;双引号要加转义字符&lt;/li&gt;
+&lt;/ul&gt;
+</description>
+        </item>
+        <item>
+        <title>吴恩达prompt教程</title>
+        <link>https://jhrsya.github.io/p/prompt/</link>
+        <pubDate>Thu, 25 May 2023 00:00:00 +0000</pubDate>
+        
+        <guid>https://jhrsya.github.io/p/prompt/</guid>
+        <description>&lt;h1 id=&#34;prompt-engineering&#34;&gt;prompt engineering&lt;/h1&gt;
+&lt;h2 id=&#34;prompt构建原则&#34;&gt;prompt构建原则&lt;/h2&gt;
+&lt;h3 id=&#34;写清晰又准确的指令&#34;&gt;写清晰又准确的指令&lt;/h3&gt;
+&lt;h4 id=&#34;使用分隔符&#34;&gt;使用分隔符&lt;/h4&gt;
+&lt;ul&gt;
+&lt;li&gt;Triple quotes: &amp;quot;&amp;quot;&amp;quot;&lt;/li&gt;
+&lt;li&gt;Triple backticks: ```&lt;/li&gt;
+&lt;li&gt;Triple dashes: &amp;mdash;&lt;/li&gt;
+&lt;li&gt;Angle brackets: &amp;lt;&amp;gt;&lt;/li&gt;
+&lt;li&gt;XML tags: &lt;code&gt;&amp;lt;tag&amp;gt; &amp;lt;/tag&amp;gt;&lt;/code&gt;&lt;/li&gt;
+&lt;/ul&gt;
+&lt;h4 id=&#34;要求用结构化输出&#34;&gt;要求用结构化输出&lt;/h4&gt;
+&lt;h4 id=&#34;要求模型检查是否满足条件&#34;&gt;要求模型检查是否满足条件&lt;/h4&gt;
+&lt;h4 id=&#34;提供少量成功执行任务的示例&#34;&gt;提供少量成功执行任务的示例&lt;/h4&gt;
+</description>
+        </item>
+        <item>
+        <title>scrapy爬虫框架</title>
+        <link>https://jhrsya.github.io/p/scrapy%E7%88%AC%E8%99%AB%E6%A1%86%E6%9E%B6/</link>
+        <pubDate>Fri, 19 May 2023 00:00:00 +0000</pubDate>
+        
+        <guid>https://jhrsya.github.io/p/scrapy%E7%88%AC%E8%99%AB%E6%A1%86%E6%9E%B6/</guid>
+        <description>&lt;h1 id=&#34;scrapy爬虫&#34;&gt;scrapy爬虫&lt;/h1&gt;
+&lt;h2 id=&#34;scrapy-操作&#34;&gt;scrapy 操作&lt;/h2&gt;
+&lt;div class=&#34;highlight&#34;&gt;&lt;div class=&#34;chroma&#34;&gt;
+&lt;table class=&#34;lntable&#34;&gt;&lt;tr&gt;&lt;td class=&#34;lntd&#34;&gt;
+&lt;pre tabindex=&#34;0&#34; class=&#34;chroma&#34;&gt;&lt;code&gt;&lt;span class=&#34;lnt&#34;&gt; 1
+&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt; 2
+&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt; 3
+&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt; 4
+&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt; 5
+&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt; 6
+&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt; 7
+&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt; 8
+&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt; 9
+&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt;10
+&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt;11
+&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt;12
+&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt;13
+&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt;14
+&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt;15
+&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt;16
+&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt;17
+&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt;18
+&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt;19
+&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt;20
+&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/td&gt;
+&lt;td class=&#34;lntd&#34;&gt;
+&lt;pre tabindex=&#34;0&#34; class=&#34;chroma&#34;&gt;&lt;code class=&#34;language-fallback&#34; data-lang=&#34;fallback&#34;&gt;安装Scrapy：
+使用pip命令安装Scrapy：pip install Scrapy
+
+创建Scrapy项目：
+在命令行中使用以下命令创建一个新的Scrapy项目：scrapy startproject project_name
+这将在当前目录下创建一个名为project_name的文件夹，其中包含Scrapy项目的基本结构和文件。
+
+定义爬虫：
+在Scrapy项目中，您需要定义一个或多个爬虫。进入项目文件夹，然后使用以下命令创建一个新的爬虫：scrapy genspider spider_name domain
+这将在spiders文件夹中创建一个名为spider_name的爬虫文件，并指定要爬取的域名。
+
+编写爬虫代码：
+打开生成的爬虫文件（位于spiders文件夹中），使用Python编写爬虫逻辑。您需要定义要提取的数据、要爬取的URL、如何处理响应等。
+
+运行爬虫：
+使用以下命令在命令行中运行爬虫：scrapy crawl spider_name
+这将启动爬虫并开始抓取数据。您可以根据需要在命令行中使用不同的参数来配置爬虫行为。
+
+处理提取的数据：
+Scrapy提供了数据处理管道（pipeline）的机制，您可以在其中定义对提取的数据进行处理和存储的操作。在项目文件夹中的pipelines.py文件中可以找到和配置数据管道。
+&lt;/code&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;
+&lt;/div&gt;
+&lt;/div&gt;&lt;p&gt;做完&lt;code&gt;scrapy genspider spider_name domain&lt;/code&gt;操作后需要把settings.py文件中的&lt;/p&gt;
+&lt;div class=&#34;highlight&#34;&gt;&lt;div class=&#34;chroma&#34;&gt;
+&lt;table class=&#34;lntable&#34;&gt;&lt;tr&gt;&lt;td class=&#34;lntd&#34;&gt;
+&lt;pre tabindex=&#34;0&#34; class=&#34;chroma&#34;&gt;&lt;code&gt;&lt;span class=&#34;lnt&#34;&gt;1
+&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt;2
+&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt;3
+&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/td&gt;
+&lt;td class=&#34;lntd&#34;&gt;
+&lt;pre tabindex=&#34;0&#34; class=&#34;chroma&#34;&gt;&lt;code class=&#34;language-python&#34; data-lang=&#34;python&#34;&gt;&lt;span class=&#34;n&#34;&gt;ITEM_PIPELINES&lt;/span&gt; &lt;span class=&#34;o&#34;&gt;=&lt;/span&gt; &lt;span class=&#34;p&#34;&gt;{&lt;/span&gt;
+   &lt;span class=&#34;s2&#34;&gt;&amp;#34;paper_crawl.pipelines.PaperCrawlPipeline&amp;#34;&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;:&lt;/span&gt; &lt;span class=&#34;mi&#34;&gt;300&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;,&lt;/span&gt;
+&lt;span class=&#34;p&#34;&gt;}&lt;/span&gt;
+&lt;/code&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;
+&lt;/div&gt;
+&lt;/div&gt;&lt;p&gt;的注释去掉&lt;/p&gt;
+</description>
+        </item>
+        <item>
         <title>langchain实战</title>
         <link>https://jhrsya.github.io/p/langchain%E5%AE%9E%E6%88%98/</link>
         <pubDate>Tue, 16 May 2023 00:00:00 +0000</pubDate>
@@ -14,6 +178,7 @@
         <guid>https://jhrsya.github.io/p/langchain%E5%AE%9E%E6%88%98/</guid>
         <description>&lt;h1 id=&#34;langchain实战&#34;&gt;langchain实战&lt;/h1&gt;
 &lt;h2 id=&#34;打印目录中每个文件夹和文件的大小&#34;&gt;打印目录中每个文件夹和文件的大小&lt;/h2&gt;
+&lt;p&gt;tools工具类的输入是通过控制SearchInput来实现的&lt;/p&gt;
 &lt;div class=&#34;highlight&#34;&gt;&lt;div class=&#34;chroma&#34;&gt;
 &lt;table class=&#34;lntable&#34;&gt;&lt;tr&gt;&lt;td class=&#34;lntd&#34;&gt;
 &lt;pre tabindex=&#34;0&#34; class=&#34;chroma&#34;&gt;&lt;code&gt;&lt;span class=&#34;lnt&#34;&gt;1
@@ -272,7 +437,7 @@ CMD [ &amp;#34;python&amp;#34;, &amp;#34;test_fastapi.py&amp;#34; ]
 &lt;/code&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;
 &lt;/div&gt;
 &lt;/div&gt;&lt;p&gt;目前来说目录中有文件为； test_fastapi.py, requirements.txt, Dockfile&lt;/p&gt;
-&lt;p&gt;最简单的一个应用搭建好了，现在开始构建images:&lt;/p&gt;
+&lt;p&gt;最简单的一个应用搭建好了，现在开始构建images(注意：必须进入应用的目录):&lt;/p&gt;
 &lt;div class=&#34;highlight&#34;&gt;&lt;div class=&#34;chroma&#34;&gt;
 &lt;table class=&#34;lntable&#34;&gt;&lt;tr&gt;&lt;td class=&#34;lntd&#34;&gt;
 &lt;pre tabindex=&#34;0&#34; class=&#34;chroma&#34;&gt;&lt;code&gt;&lt;span class=&#34;lnt&#34;&gt;1
@@ -292,6 +457,11 @@ CMD [ &amp;#34;python&amp;#34;, &amp;#34;test_fastapi.py&amp;#34; ]
 &lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;
 &lt;/div&gt;
 &lt;/div&gt;&lt;p&gt;-d 表示detached，容器在后台运行，-p 表示端口号，前一个是宿主端口号，后一个是容器端口号，&amp;ndash;name表示需要构建container的名字，最后一个test表示image的名字。&lt;/p&gt;
+&lt;h2 id=&#34;vscode基于docker开发&#34;&gt;vscode基于docker开发&lt;/h2&gt;
+&lt;p&gt;以python开发为例，首先建立包含python的开发环境的docker。&lt;/p&gt;
+&lt;p&gt;PubkeyAuthentication yes #启用公钥私钥配对认证方式
+PermitRootLogin yes #允许root用户使用ssh登录
+PasswordAuthentication yes&lt;/p&gt;
 </description>
         </item>
         <item>
@@ -3812,15 +3982,15 @@ make后才会分配内存空间。&lt;/p&gt;
         
         <guid>https://jhrsya.github.io/p/%E5%8C%BA%E5%9D%97%E9%93%BE/</guid>
         <description>&lt;h1 id=&#34;区块链概念&#34;&gt;区块链概念&lt;/h1&gt;
-&lt;h4 id=&#34;1-交易哈希&#34;&gt;1. 交易哈希&lt;/h4&gt;
+&lt;h4 id=&#34;交易哈希&#34;&gt;交易哈希&lt;/h4&gt;
 &lt;p&gt;在区块链中，交易哈希（Transaction Hash）是对一笔交易进行哈希计算得到的结果。交易哈希是一个固定长度的字符串，通常是一个64个字符的十六进制字符串。64 * 4 = 256 bit。&lt;/p&gt;
 &lt;p&gt;交易哈希是区块链中的一个重要概念，因为它可以唯一地标识一笔交易。在区块链中，每个交易都会被广播到网络中，然后由矿工进行打包，并最终被加入到区块链上。在这个过程中，交易哈希起到了关键的作用。&lt;/p&gt;
 &lt;p&gt;每个区块链节点都可以通过交易哈希来验证一笔交易的合法性。当一个节点接收到一个新的交易时，它会首先对这个交易进行哈希计算，然后将计算出的哈希值与已有的交易哈希进行比对，来判断这笔交易是否已经存在于区块链上。&lt;/p&gt;
 &lt;p&gt;交易哈希还可以用来追踪一笔交易的状态。在区块链上，每一笔交易都有一个对应的交易哈希，并且交易哈希会被写入到区块链上。当一笔交易被确认并加入到区块链上时，它的交易哈希也会被写入到区块链中，并且成为区块链中的一部分。这样，任何人都可以通过交易哈希来查看一笔交易的状态，并且确认这笔交易是否已经被确认并写入到区块链上。&lt;/p&gt;
-&lt;h4 id=&#34;2-发送方地址和接收方地址&#34;&gt;2. 发送方地址和接收方地址&lt;/h4&gt;
+&lt;h4 id=&#34;发送方地址和接收方地址&#34;&gt;发送方地址和接收方地址&lt;/h4&gt;
 &lt;p&gt;在区块链中，发送方地址是由公钥经过哈希运算得到的。具体来说，发送方会使用自己的私钥对交易信息进行数字签名，并将签名和公钥一起发送给网络。接收方可以使用公钥来验证数字签名的有效性，并确认这笔交易确实是由发送方发起的。发送方地址就是通过对公钥进行哈希运算得到的，它可以用来标识发送方。&lt;/p&gt;
 &lt;p&gt;和交易哈希一样，也是一个64个字符的十六进制串，共256bit。&lt;/p&gt;
-&lt;h4 id=&#34;3-零知识证明&#34;&gt;3. 零知识证明&lt;/h4&gt;
+&lt;h4 id=&#34;零知识证明&#34;&gt;零知识证明&lt;/h4&gt;
 &lt;p&gt;零知识证明是在不披露声明本身的情况下，验证声明有效性的一种方法。
 证明者是试图证明声明的一方，而验证者负责验证声明。&lt;/p&gt;
 &lt;p&gt;零知识证明来保护数字版权：&lt;/p&gt;
@@ -3831,20 +4001,23 @@ make后才会分配内存空间。&lt;/p&gt;
 &lt;li&gt;音乐家将签名、挑战和响应发送给验证者。&lt;/li&gt;
 &lt;li&gt;验证者使用公钥和挑战计算出响应的期望值，并比较期望值和实际响应是否一致。如果一致，就认为签名有效，否则认为签名无效。&lt;/li&gt;
 &lt;/ul&gt;
-&lt;h4 id=&#34;4-女巫攻击&#34;&gt;4. 女巫攻击&lt;/h4&gt;
+&lt;h4 id=&#34;女巫攻击&#34;&gt;女巫攻击&lt;/h4&gt;
 &lt;p&gt;女巫攻击是指一个用户或一个用户群体假装成许多用户。&lt;/p&gt;
-&lt;h4 id=&#34;5-共识机制&#34;&gt;5. 共识机制&lt;/h4&gt;
+&lt;h4 id=&#34;共识机制&#34;&gt;共识机制&lt;/h4&gt;
 &lt;p&gt;共识机制分为工作量证明和权益证明。&lt;/p&gt;
-&lt;h4 id=&#34;6-挖矿&#34;&gt;6. 挖矿&lt;/h4&gt;
+&lt;h4 id=&#34;挖矿&#34;&gt;挖矿&lt;/h4&gt;
 &lt;p&gt;向区块链中添加现有区块。&lt;/p&gt;
-&lt;h4 id=&#34;7-工作量证明pow&#34;&gt;7. 工作量证明(PoW)&lt;/h4&gt;
+&lt;h4 id=&#34;工作量证明pow&#34;&gt;工作量证明(PoW)&lt;/h4&gt;
 &lt;p&gt;proof of work.
 工作量证明是一种基础性算法，它为矿工在工作量证明区块链上的工作设置难度和规则。&lt;/p&gt;
-&lt;h4 id=&#34;8-权益证明&#34;&gt;8. 权益证明&lt;/h4&gt;
+&lt;h4 id=&#34;权益证明&#34;&gt;权益证明&lt;/h4&gt;
 &lt;p&gt;在权益证明机制下，验证者明确的通过以太币将资本质押到以太币的智能合约中。这些质押的以太币充当抵押品，如果验证者有失信行为或消极怠工，那么可以销毁抵押品。&lt;/p&gt;
-&lt;h4 id=&#34;8-智能合约&#34;&gt;8. 智能合约&lt;/h4&gt;
-&lt;h4 id=&#34;9-gasper&#34;&gt;9. GASPER&lt;/h4&gt;
+&lt;h4 id=&#34;智能合约&#34;&gt;智能合约&lt;/h4&gt;
+&lt;h4 id=&#34;gasper&#34;&gt;GASPER&lt;/h4&gt;
 &lt;p&gt;Gasper是一种定义验证者如何受到奖惩的机制，决定要接受和拒绝哪个区块，以及将区块建在哪个区块链分叉上。&lt;/p&gt;
+&lt;h4 id=&#34;erc20&#34;&gt;ERC20&lt;/h4&gt;
+&lt;p&gt;ERC20是以太坊（Ethereum）上的一种智能合约标准，它规定了代币合约必须实现的一组函数接口。这些接口包括代币总量、转账功能、余额查询等。使用这些标准化接口可以确保代币合约之间的互操作性，使得不同的代币合约可以在以太坊上无缝地交互。&lt;/p&gt;
+&lt;p&gt;ERC20标准的实现非常简单，因此成为大量代币合约实现的首选标准。目前市场上绝大多数的代币合约都是基于ERC20标准实现的。使用ERC20标准可以方便钱包、交易所等服务对代币进行支持，也可以降低开发者的开发难度和成本。&lt;/p&gt;
 </description>
         </item>
         <item>

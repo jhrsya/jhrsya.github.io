@@ -1,0 +1,27 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+    <channel>
+        <title>vue框架 on steve lannister</title>
+        <link>https://jhrsya.github.io/tags/vue%E6%A1%86%E6%9E%B6/</link>
+        <description>Recent content in vue框架 on steve lannister</description>
+        <generator>Hugo -- gohugo.io</generator>
+        <language>en-us</language>
+        <lastBuildDate>Sat, 27 May 2023 00:00:00 +0000</lastBuildDate><atom:link href="https://jhrsya.github.io/tags/vue%E6%A1%86%E6%9E%B6/index.xml" rel="self" type="application/rss+xml" /><item>
+        <title>vue</title>
+        <link>https://jhrsya.github.io/p/vue%E7%88%AC%E8%99%AB%E6%A1%86%E6%9E%B6/</link>
+        <pubDate>Sat, 27 May 2023 00:00:00 +0000</pubDate>
+        
+        <guid>https://jhrsya.github.io/p/vue%E7%88%AC%E8%99%AB%E6%A1%86%E6%9E%B6/</guid>
+        <description>&lt;h1 id=&#34;vue&#34;&gt;vue&lt;/h1&gt;
+&lt;h2 id=&#34;框架&#34;&gt;框架&lt;/h2&gt;
+&lt;h3 id=&#34;srcviews&#34;&gt;src/views&lt;/h3&gt;
+&lt;p&gt;视图组件，在浏览器中渲染出的页面&lt;/p&gt;
+&lt;h3 id=&#34;srccomponents&#34;&gt;src/components&lt;/h3&gt;
+&lt;p&gt;views中的组件代码，在这里写&lt;/p&gt;
+&lt;h3 id=&#34;srcrouter&#34;&gt;src/router&lt;/h3&gt;
+&lt;p&gt;url路由的路径&lt;/p&gt;
+</description>
+        </item>
+        
+    </channel>
+</rss>

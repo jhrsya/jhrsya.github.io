@@ -255,6 +255,7 @@
         <li><a href="#dockerfile文件">Dockerfile文件</a></li>
       </ol>
     </li>
+    <li><a href="#vscode基于docker开发">vscode基于docker开发</a></li>
   </ol>
 </nav>
         </div>
@@ -429,7 +430,7 @@ CMD [ &#34;python&#34;, &#34;test_fastapi.py&#34; ]
 </code></pre></td></tr></table>
 </div>
 </div><p>目前来说目录中有文件为； test_fastapi.py, requirements.txt, Dockfile</p>
-<p>最简单的一个应用搭建好了，现在开始构建images:</p>
+<p>最简单的一个应用搭建好了，现在开始构建images(注意：必须进入应用的目录):</p>
 <div class="highlight"><div class="chroma">
 <table class="lntable"><tr><td class="lntd">
 <pre tabindex="0" class="chroma"><code><span class="lnt">1
@@ -449,6 +450,11 @@ CMD [ &#34;python&#34;, &#34;test_fastapi.py&#34; ]
 </span></code></pre></td></tr></table>
 </div>
 </div><p>-d 表示detached，容器在后台运行，-p 表示端口号，前一个是宿主端口号，后一个是容器端口号，&ndash;name表示需要构建container的名字，最后一个test表示image的名字。</p>
+<h2 id="vscode基于docker开发">vscode基于docker开发</h2>
+<p>以python开发为例，首先建立包含python的开发环境的docker。</p>
+<p>PubkeyAuthentication yes #启用公钥私钥配对认证方式
+PermitRootLogin yes #允许root用户使用ssh登录
+PasswordAuthentication yes</p>
 
 </section>
 

@@ -1,0 +1,81 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+    <channel>
+        <title>scrapy爬虫框架 on steve lannister</title>
+        <link>https://jhrsya.github.io/tags/scrapy%E7%88%AC%E8%99%AB%E6%A1%86%E6%9E%B6/</link>
+        <description>Recent content in scrapy爬虫框架 on steve lannister</description>
+        <generator>Hugo -- gohugo.io</generator>
+        <language>en-us</language>
+        <lastBuildDate>Fri, 19 May 2023 00:00:00 +0000</lastBuildDate><atom:link href="https://jhrsya.github.io/tags/scrapy%E7%88%AC%E8%99%AB%E6%A1%86%E6%9E%B6/index.xml" rel="self" type="application/rss+xml" /><item>
+        <title>scrapy爬虫框架</title>
+        <link>https://jhrsya.github.io/p/scrapy%E7%88%AC%E8%99%AB%E6%A1%86%E6%9E%B6/</link>
+        <pubDate>Fri, 19 May 2023 00:00:00 +0000</pubDate>
+        
+        <guid>https://jhrsya.github.io/p/scrapy%E7%88%AC%E8%99%AB%E6%A1%86%E6%9E%B6/</guid>
+        <description>&lt;h1 id=&#34;scrapy爬虫&#34;&gt;scrapy爬虫&lt;/h1&gt;
+&lt;h2 id=&#34;scrapy-操作&#34;&gt;scrapy 操作&lt;/h2&gt;
+&lt;div class=&#34;highlight&#34;&gt;&lt;div class=&#34;chroma&#34;&gt;
+&lt;table class=&#34;lntable&#34;&gt;&lt;tr&gt;&lt;td class=&#34;lntd&#34;&gt;
+&lt;pre tabindex=&#34;0&#34; class=&#34;chroma&#34;&gt;&lt;code&gt;&lt;span class=&#34;lnt&#34;&gt; 1
+&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt; 2
+&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt; 3
+&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt; 4
+&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt; 5
+&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt; 6
+&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt; 7
+&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt; 8
+&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt; 9
+&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt;10
+&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt;11
+&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt;12
+&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt;13
+&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt;14
+&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt;15
+&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt;16
+&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt;17
+&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt;18
+&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt;19
+&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt;20
+&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/td&gt;
+&lt;td class=&#34;lntd&#34;&gt;
+&lt;pre tabindex=&#34;0&#34; class=&#34;chroma&#34;&gt;&lt;code class=&#34;language-fallback&#34; data-lang=&#34;fallback&#34;&gt;安装Scrapy：
+使用pip命令安装Scrapy：pip install Scrapy
+
+创建Scrapy项目：
+在命令行中使用以下命令创建一个新的Scrapy项目：scrapy startproject project_name
+这将在当前目录下创建一个名为project_name的文件夹，其中包含Scrapy项目的基本结构和文件。
+
+定义爬虫：
+在Scrapy项目中，您需要定义一个或多个爬虫。进入项目文件夹，然后使用以下命令创建一个新的爬虫：scrapy genspider spider_name domain
+这将在spiders文件夹中创建一个名为spider_name的爬虫文件，并指定要爬取的域名。
+
+编写爬虫代码：
+打开生成的爬虫文件（位于spiders文件夹中），使用Python编写爬虫逻辑。您需要定义要提取的数据、要爬取的URL、如何处理响应等。
+
+运行爬虫：
+使用以下命令在命令行中运行爬虫：scrapy crawl spider_name
+这将启动爬虫并开始抓取数据。您可以根据需要在命令行中使用不同的参数来配置爬虫行为。
+
+处理提取的数据：
+Scrapy提供了数据处理管道（pipeline）的机制，您可以在其中定义对提取的数据进行处理和存储的操作。在项目文件夹中的pipelines.py文件中可以找到和配置数据管道。
+&lt;/code&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;
+&lt;/div&gt;
+&lt;/div&gt;&lt;p&gt;做完&lt;code&gt;scrapy genspider spider_name domain&lt;/code&gt;操作后需要把settings.py文件中的&lt;/p&gt;
+&lt;div class=&#34;highlight&#34;&gt;&lt;div class=&#34;chroma&#34;&gt;
+&lt;table class=&#34;lntable&#34;&gt;&lt;tr&gt;&lt;td class=&#34;lntd&#34;&gt;
+&lt;pre tabindex=&#34;0&#34; class=&#34;chroma&#34;&gt;&lt;code&gt;&lt;span class=&#34;lnt&#34;&gt;1
+&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt;2
+&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt;3
+&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/td&gt;
+&lt;td class=&#34;lntd&#34;&gt;
+&lt;pre tabindex=&#34;0&#34; class=&#34;chroma&#34;&gt;&lt;code class=&#34;language-python&#34; data-lang=&#34;python&#34;&gt;&lt;span class=&#34;n&#34;&gt;ITEM_PIPELINES&lt;/span&gt; &lt;span class=&#34;o&#34;&gt;=&lt;/span&gt; &lt;span class=&#34;p&#34;&gt;{&lt;/span&gt;
+   &lt;span class=&#34;s2&#34;&gt;&amp;#34;paper_crawl.pipelines.PaperCrawlPipeline&amp;#34;&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;:&lt;/span&gt; &lt;span class=&#34;mi&#34;&gt;300&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;,&lt;/span&gt;
+&lt;span class=&#34;p&#34;&gt;}&lt;/span&gt;
+&lt;/code&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;
+&lt;/div&gt;
+&lt;/div&gt;&lt;p&gt;的注释去掉&lt;/p&gt;
+</description>
+        </item>
+        
+    </channel>
+</rss>
