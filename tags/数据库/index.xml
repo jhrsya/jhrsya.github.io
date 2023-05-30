@@ -6,7 +6,21 @@
         <description>Recent content in 数据库 on steve lannister</description>
         <generator>Hugo -- gohugo.io</generator>
         <language>en-us</language>
-        <lastBuildDate>Fri, 05 May 2023 00:00:00 +0000</lastBuildDate><atom:link href="https://jhrsya.github.io/tags/%E6%95%B0%E6%8D%AE%E5%BA%93/index.xml" rel="self" type="application/rss+xml" /><item>
+        <lastBuildDate>Tue, 30 May 2023 00:00:00 +0000</lastBuildDate><atom:link href="https://jhrsya.github.io/tags/%E6%95%B0%E6%8D%AE%E5%BA%93/index.xml" rel="self" type="application/rss+xml" /><item>
+        <title>数据库</title>
+        <link>https://jhrsya.github.io/p/database/</link>
+        <pubDate>Tue, 30 May 2023 00:00:00 +0000</pubDate>
+        
+        <guid>https://jhrsya.github.io/p/database/</guid>
+        <description>&lt;h1 id=&#34;数据库&#34;&gt;数据库&lt;/h1&gt;
+&lt;h3 id=&#34;查询主键索引的-b-树的成本会比查询二级索引的-b-的成本低&#34;&gt;查询主键索引的 B+ 树的成本会比查询二级索引的 B+ 的成本低&lt;/h3&gt;
+&lt;p&gt;查询主键索引：B+树中对应着主键索引和对应的数据行，直接可以通过主键索引来获取对应的数据行
+查询二级索引：B+树中对应着二级索引和对应的主键索引，要先通过二级索引找到主键索引，然后再通过主键索引找到对应
+的数据行，做了两次查找。&lt;/p&gt;
+&lt;p&gt;当查询语句的查询条件中没有用到索引时，那么将会进行全表扫描。&lt;/p&gt;
+</description>
+        </item>
+        <item>
         <title>postgresql介绍</title>
         <link>https://jhrsya.github.io/p/postgresql/</link>
         <pubDate>Fri, 05 May 2023 00:00:00 +0000</pubDate>

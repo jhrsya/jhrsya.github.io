@@ -372,6 +372,54 @@
     <span class="n">email</span><span class="p">:</span> <span class="nb">str</span>
 </code></pre></td></tr></table>
 </div>
+</div><p>定义一个字段是字典的数据结构模型，如下：</p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre tabindex="0" class="chroma"><code><span class="lnt">1
+</span><span class="lnt">2
+</span><span class="lnt">3
+</span><span class="lnt">4
+</span><span class="lnt">5
+</span></code></pre></td>
+<td class="lntd">
+<pre tabindex="0" class="chroma"><code class="language-fallback" data-lang="fallback">{&#39;type&#39;: &#39;survey&#39;,
+ &#39;content&#39;: {&#39;abstract&#39;: &#39;&#39;,
+  &#39;reason&#39;: &#39;&#39;,
+  &#39;solution&#39;: &#39;&#39;}}
+# 字典里面嵌套了字典
+</code></pre></td></tr></table>
+</div>
+</div><p>可以把那个是字典的字段定义为一个BaseModel类就可以了。</p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre tabindex="0" class="chroma"><code><span class="lnt"> 1
+</span><span class="lnt"> 2
+</span><span class="lnt"> 3
+</span><span class="lnt"> 4
+</span><span class="lnt"> 5
+</span><span class="lnt"> 6
+</span><span class="lnt"> 7
+</span><span class="lnt"> 8
+</span><span class="lnt"> 9
+</span><span class="lnt">10
+</span><span class="lnt">11
+</span><span class="lnt">12
+</span></code></pre></td>
+<td class="lntd">
+<pre tabindex="0" class="chroma"><code class="language-python" data-lang="python"><span class="c1"># 定义一个content pydantic数据结构</span>
+<span class="k">class</span> <span class="nc">Content</span><span class="p">(</span><span class="n">BaseModel</span><span class="p">):</span>
+    <span class="n">abstract</span><span class="p">:</span> <span class="nb">str</span> <span class="o">=</span> <span class="n">Field</span><span class="p">(</span><span class="o">...</span><span class="p">,</span> <span class="n">description</span><span class="o">=</span><span class="s2">&#34;abstract&#34;</span><span class="p">)</span>
+    <span class="n">reason</span><span class="p">:</span> <span class="nb">str</span> <span class="o">=</span> <span class="n">Field</span><span class="p">(</span><span class="o">...</span><span class="p">,</span> <span class="n">description</span><span class="o">=</span><span class="s2">&#34;reason&#34;</span><span class="p">)</span>
+    <span class="n">solution</span><span class="p">:</span> <span class="nb">str</span> <span class="o">=</span> <span class="n">Field</span><span class="p">(</span><span class="o">...</span><span class="p">,</span> <span class="n">description</span><span class="o">=</span><span class="s2">&#34;solution&#34;</span><span class="p">)</span>
+
+<span class="c1"># summary数据结构</span>
+<span class="k">class</span> <span class="nc">Summary</span><span class="p">(</span><span class="n">BaseModel</span><span class="p">):</span>
+    <span class="nb">type</span><span class="p">:</span> <span class="nb">str</span> <span class="o">=</span> <span class="n">Field</span><span class="p">(</span><span class="o">...</span><span class="p">,</span> <span class="n">description</span><span class="o">=</span><span class="s2">&#34;summary type&#34;</span><span class="p">)</span>
+    <span class="n">content</span><span class="p">:</span> <span class="n">Content</span> <span class="o">=</span> <span class="n">Field</span><span class="p">(</span><span class="o">...</span><span class="p">,</span> <span class="n">description</span><span class="o">=</span><span class="s2">&#34;summary content&#34;</span><span class="p">)</span>
+
+<span class="c1"># 此时的Summary类就是最终想要的答案</span>
+</code></pre></td></tr></table>
+</div>
 </div><h4 id="2-验证数据模型">2. 验证数据模型</h4>
 <p>使用 pydantic 验证数据模型时，可以通过创建一个类的实例并传入要验证的数据来验证数据模型的正确性。例如：</p>
 <div class="highlight"><div class="chroma">
