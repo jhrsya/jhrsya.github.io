@@ -123,6 +123,7 @@ CMD [ &amp;#34;python&amp;#34;, &amp;#34;test_fastapi.py&amp;#34; ]
 &lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;
 &lt;/div&gt;
 &lt;/div&gt;&lt;p&gt;-d 表示detached，容器在后台运行，-p 表示端口号，前一个是宿主端口号，后一个是容器端口号，&amp;ndash;name表示需要构建container的名字，最后一个test表示image的名字。&lt;/p&gt;
+&lt;h3 id=&#34;docker-composeyml文件&#34;&gt;docker-compose.yml文件&lt;/h3&gt;
 &lt;h2 id=&#34;vscode基于docker开发&#34;&gt;vscode基于docker开发&lt;/h2&gt;
 &lt;p&gt;以python开发为例，首先建立包含python的开发环境的docker。&lt;/p&gt;
 &lt;p&gt;PubkeyAuthentication yes #启用公钥私钥配对认证方式

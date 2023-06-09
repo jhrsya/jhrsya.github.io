@@ -60,6 +60,7 @@
 &lt;li&gt;{}号需要用{}括起来，即{{}}&lt;/li&gt;
 &lt;li&gt;双引号要加转义字符&lt;/li&gt;
 &lt;/ul&gt;
+&lt;h2 id=&#34;langchain查看使用的token个数&#34;&gt;langchain查看使用的token个数&lt;/h2&gt;
 </description>
         </item>
         <item>
