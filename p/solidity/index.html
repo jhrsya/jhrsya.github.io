@@ -258,6 +258,25 @@
         <li><a href="#关键字view">关键字view</a></li>
         <li><a href="#关键字pure">关键字pure</a></li>
         <li><a href="#关键字event">关键字event</a></li>
+        <li><a href="#msgsender">msg.sender</a></li>
+        <li><a href="#关键字require">关键字require</a></li>
+        <li><a href="#继承">继承</a></li>
+        <li><a href="#关键字internal-和-external">关键字internal 和 external</a></li>
+        <li><a href="#interface">interface</a></li>
+        <li><a href="#immutability-of-contract">immutability of contract</a>
+          <ol>
+            <li><a href="#openzeppelin库">OpenZeppelin库</a></li>
+            <li><a href="#onlyowner">onlyOwner</a></li>
+          </ol>
+        </li>
+        <li><a href="#构造函数">构造函数</a></li>
+        <li><a href="#modifier-function">modifier function</a></li>
+        <li><a href="#gas">gas</a>
+          <ol>
+            <li><a href="#为什么gas费是必要的">为什么gas费是必要的？</a></li>
+            <li><a href="#节省gas费的方法">节省gas费的方法</a></li>
+          </ol>
+        </li>
       </ol>
     </li>
   </ol>
@@ -328,7 +347,7 @@
 
 
                 <time class="article-time--reading">
-                    阅读时长: 3 分钟
+                    阅读时长: 6 分钟
                 </time>
             </div>
         
@@ -614,7 +633,7 @@
 </span></code></pre></td>
 <td class="lntd">
 <pre tabindex="0" class="chroma"><code class="language-solidity" data-lang="solidity"><span class="kd">contract</span> <span class="nc">MyContract</span> <span class="p">{</span>
-    <span class="kt">uint</span> <span class="k">public</span> <span class="n">myVariable</span><span class="p">;</span> <span class="c1">// 存储在存储器中
+    <span class="kt">uint</span> <span class="k">public</span> <span class="n">myVariable</span><span class="p">;</span> <span class="c1">// 存储在存储器中，函数外
 </span><span class="c1"></span><span class="p">}</span>
 </code></pre></td></tr></table>
 </div>
@@ -733,6 +752,372 @@
 </div>
 </div><p>在上述示例中，MyEvent是一个事件，它有两个参数：sender和value。emit关键字用于触发事件，并将相关参数的值传递给事件日志。在该合约中，每当myFunction函数被调用时，都会触发MyEvent事件，并记录调用者的地址和传入的值。</p>
 <p>请注意，事件的定义并不会被调用方执行，它只是一个定义，用于指定事件的结构和参数。事件的触发必须在合约的函数中通过emit关键字显式调用。</p>
+<h3 id="msgsender">msg.sender</h3>
+<p>是地址的引用，哪个账户调用这个函数，msg.sender就是这个账户的地址。</p>
+<h3 id="关键字require">关键字require</h3>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre tabindex="0" class="chroma"><code><span class="lnt">1
+</span><span class="lnt">2
+</span><span class="lnt">3
+</span><span class="lnt">4
+</span><span class="lnt">5
+</span><span class="lnt">6
+</span><span class="lnt">7
+</span><span class="lnt">8
+</span></code></pre></td>
+<td class="lntd">
+<pre tabindex="0" class="chroma"><code class="language-solidity" data-lang="solidity"><span class="kd">function</span> <span class="nf">sayHiToVitalik</span><span class="p">(</span><span class="kt">string</span> <span class="k">memory</span> <span class="n">_name</span><span class="p">)</span> <span class="k">public</span> <span class="k">returns</span> <span class="p">(</span><span class="kt">string</span> <span class="k">memory</span><span class="p">)</span> <span class="p">{</span>
+  <span class="c1">// Compares if _name equals &#34;Vitalik&#34;. Throws an error and exits if not true.
+</span><span class="c1"></span>  <span class="c1">// (Side note: Solidity doesn&#39;t have native string comparison, so we
+</span><span class="c1"></span>  <span class="c1">// compare their keccak256 hashes to see if the strings are equal)
+</span><span class="c1"></span>  <span class="nb">require</span><span class="p">(</span><span class="nb">keccak256</span><span class="p">(</span><span class="nb">abi</span><span class="p">.</span><span class="nb">encodePacked</span><span class="p">(</span><span class="n">_name</span><span class="p">))</span> <span class="o">==</span> <span class="nb">keccak256</span><span class="p">(</span><span class="nb">abi</span><span class="p">.</span><span class="nb">encodePacked</span><span class="p">(</span><span class="s">&#34;Vitalik&#34;</span><span class="p">)));</span>
+  <span class="c1">// If it&#39;s true, proceed with the function:
+</span><span class="c1"></span>  <span class="k">return</span> <span class="s">&#34;Hi!&#34;</span><span class="p">;</span>
+<span class="p">}</span>
+</code></pre></td></tr></table>
+</div>
+</div><p>require可以用于验证require(condition)中condition条件是否成立，成立即可以调用该函数，否则会报错。</p>
+<h3 id="继承">继承</h3>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre tabindex="0" class="chroma"><code><span class="lnt"> 1
+</span><span class="lnt"> 2
+</span><span class="lnt"> 3
+</span><span class="lnt"> 4
+</span><span class="lnt"> 5
+</span><span class="lnt"> 6
+</span><span class="lnt"> 7
+</span><span class="lnt"> 8
+</span><span class="lnt"> 9
+</span><span class="lnt">10
+</span><span class="lnt">11
+</span></code></pre></td>
+<td class="lntd">
+<pre tabindex="0" class="chroma"><code class="language-solidity" data-lang="solidity"><span class="kd">contract</span> <span class="nc">Doge</span> <span class="p">{</span>
+  <span class="kd">function</span> <span class="nf">catchphrase</span><span class="p">()</span> <span class="k">public</span> <span class="k">returns</span> <span class="p">(</span><span class="kt">string</span> <span class="k">memory</span><span class="p">)</span> <span class="p">{</span>
+    <span class="k">return</span> <span class="s">&#34;So Wow CryptoDoge&#34;</span><span class="p">;</span>
+  <span class="p">}</span>
+<span class="p">}</span>
+
+<span class="kd">contract</span> <span class="nc">BabyDoge</span> <span class="k">is</span> <span class="n">Doge</span> <span class="p">{</span>
+  <span class="kd">function</span> <span class="nf">anotherCatchphrase</span><span class="p">()</span> <span class="k">public</span> <span class="k">returns</span> <span class="p">(</span><span class="kt">string</span> <span class="k">memory</span><span class="p">)</span> <span class="p">{</span>
+    <span class="k">return</span> <span class="s">&#34;Such Moon BabyDoge&#34;</span><span class="p">;</span>
+  <span class="p">}</span>
+<span class="p">}</span>
+</code></pre></td></tr></table>
+</div>
+</div><h3 id="关键字internal-和-external">关键字internal 和 external</h3>
+<p>internal关键字：子合约可以调用父合约中的internal方法。类似与private，但如果是private函数，那么子合约不能调用父合约中的private方法。
+external关键字：只有在合约外部才可以调用的方法，合约内部不可以调用。类似于public。</p>
+<h3 id="interface">interface</h3>
+<ol>
+<li>只调用被人的合约，只声明需要交互的函数，不需要涉及其他函数和状态变量。</li>
+<li>只定义函数名，不定义函数体。
+名称中函数有interface。</li>
+</ol>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre tabindex="0" class="chroma"><code><span class="lnt">1
+</span><span class="lnt">2
+</span><span class="lnt">3
+</span></code></pre></td>
+<td class="lntd">
+<pre tabindex="0" class="chroma"><code class="language-solidity" data-lang="solidity"><span class="kd">contract</span> <span class="nc">NumberInterface</span> <span class="p">{</span>
+  <span class="kd">function</span> <span class="nf">getNum</span><span class="p">(</span><span class="kt">address</span> <span class="n">_myAddress</span><span class="p">)</span> <span class="k">public</span> <span class="k">view</span> <span class="k">returns</span> <span class="p">(</span><span class="kt">uint</span><span class="p">);</span>
+<span class="p">}</span>
+</code></pre></td></tr></table>
+</div>
+</div><h3 id="immutability-of-contract">immutability of contract</h3>
+<p>合约的不可变性，一旦合约部署在以太坊，合约就不能修改或者更新。</p>
+<h4 id="openzeppelin库">OpenZeppelin库</h4>
+<p>它是一个安全的智能合约库，由社区审核，可以在自己的DApps中使用。</p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre tabindex="0" class="chroma"><code><span class="lnt"> 1
+</span><span class="lnt"> 2
+</span><span class="lnt"> 3
+</span><span class="lnt"> 4
+</span><span class="lnt"> 5
+</span><span class="lnt"> 6
+</span><span class="lnt"> 7
+</span><span class="lnt"> 8
+</span><span class="lnt"> 9
+</span><span class="lnt">10
+</span><span class="lnt">11
+</span><span class="lnt">12
+</span><span class="lnt">13
+</span><span class="lnt">14
+</span><span class="lnt">15
+</span><span class="lnt">16
+</span><span class="lnt">17
+</span><span class="lnt">18
+</span><span class="lnt">19
+</span><span class="lnt">20
+</span><span class="lnt">21
+</span><span class="lnt">22
+</span><span class="lnt">23
+</span><span class="lnt">24
+</span><span class="lnt">25
+</span><span class="lnt">26
+</span><span class="lnt">27
+</span><span class="lnt">28
+</span><span class="lnt">29
+</span><span class="lnt">30
+</span><span class="lnt">31
+</span><span class="lnt">32
+</span><span class="lnt">33
+</span><span class="lnt">34
+</span><span class="lnt">35
+</span><span class="lnt">36
+</span><span class="lnt">37
+</span><span class="lnt">38
+</span><span class="lnt">39
+</span><span class="lnt">40
+</span><span class="lnt">41
+</span><span class="lnt">42
+</span><span class="lnt">43
+</span><span class="lnt">44
+</span><span class="lnt">45
+</span><span class="lnt">46
+</span><span class="lnt">47
+</span><span class="lnt">48
+</span><span class="lnt">49
+</span><span class="lnt">50
+</span><span class="lnt">51
+</span><span class="lnt">52
+</span><span class="lnt">53
+</span><span class="lnt">54
+</span><span class="lnt">55
+</span><span class="lnt">56
+</span><span class="lnt">57
+</span><span class="lnt">58
+</span><span class="lnt">59
+</span><span class="lnt">60
+</span><span class="lnt">61
+</span><span class="lnt">62
+</span><span class="lnt">63
+</span><span class="lnt">64
+</span><span class="lnt">65
+</span><span class="lnt">66
+</span><span class="lnt">67
+</span><span class="lnt">68
+</span><span class="lnt">69
+</span><span class="lnt">70
+</span><span class="lnt">71
+</span><span class="lnt">72
+</span><span class="lnt">73
+</span></code></pre></td>
+<td class="lntd">
+<pre tabindex="0" class="chroma"><code class="language-solidity" data-lang="solidity"><span class="cm">/**
+</span><span class="cm"> * @title Ownable
+</span><span class="cm"> * @dev The Ownable contract has an owner address, and provides basic authorization control
+</span><span class="cm"> * functions, this simplifies the implementation of &#34;user permissions&#34;.
+</span><span class="cm"> */</span>
+<span class="kd">contract</span> <span class="nc">Ownable</span> <span class="p">{</span>
+  <span class="kt">address</span> <span class="k">private</span> <span class="n">_owner</span><span class="p">;</span>
+
+  <span class="kd">event</span> <span class="nc">OwnershipTransferred</span><span class="p">(</span>
+    <span class="kt">address</span> <span class="k">indexed</span> <span class="n">previousOwner</span><span class="p">,</span>
+    <span class="kt">address</span> <span class="k">indexed</span> <span class="n">newOwner</span>
+  <span class="p">);</span>
+
+  <span class="cm">/**
+</span><span class="cm">   * @dev The Ownable constructor sets the original `owner` of the contract to the sender
+</span><span class="cm">   * account.
+</span><span class="cm">   */</span>
+  <span class="kd">constructor</span><span class="p">()</span> <span class="k">internal</span> <span class="p">{</span>
+    <span class="n">_owner</span> <span class="o">=</span> <span class="nb">msg</span><span class="p">.</span><span class="nb">sender</span><span class="p">;</span>
+    <span class="n">emit</span> <span class="n">OwnershipTransferred</span><span class="p">(</span><span class="kt">address</span><span class="p">(</span><span class="mi">0</span><span class="p">),</span> <span class="n">_owner</span><span class="p">);</span>
+  <span class="p">}</span>
+
+  <span class="cm">/**
+</span><span class="cm">   * @return the address of the owner.
+</span><span class="cm">   */</span>
+  <span class="kd">function</span> <span class="nf">owner</span><span class="p">()</span> <span class="k">public</span> <span class="k">view</span> <span class="k">returns</span><span class="p">(</span><span class="kt">address</span><span class="p">)</span> <span class="p">{</span>
+    <span class="k">return</span> <span class="n">_owner</span><span class="p">;</span>
+  <span class="p">}</span>
+
+  <span class="cm">/**
+</span><span class="cm">   * @dev Throws if called by any account other than the owner.
+</span><span class="cm">   */</span>
+  <span class="kd">modifier</span> <span class="nf">onlyOwner</span><span class="p">()</span> <span class="p">{</span>
+    <span class="nb">require</span><span class="p">(</span><span class="n">isOwner</span><span class="p">());</span>
+    <span class="k">_</span><span class="p">;</span>
+  <span class="p">}</span>
+
+  <span class="cm">/**
+</span><span class="cm">   * @return true if `msg.sender` is the owner of the contract.
+</span><span class="cm">   */</span>
+  <span class="kd">function</span> <span class="nf">isOwner</span><span class="p">()</span> <span class="k">public</span> <span class="k">view</span> <span class="k">returns</span><span class="p">(</span><span class="kt">bool</span><span class="p">)</span> <span class="p">{</span>
+    <span class="k">return</span> <span class="nb">msg</span><span class="p">.</span><span class="nb">sender</span> <span class="o">==</span> <span class="n">_owner</span><span class="p">;</span>
+  <span class="p">}</span>
+
+  <span class="cm">/**
+</span><span class="cm">   * @dev Allows the current owner to relinquish control of the contract.
+</span><span class="cm">   * @notice Renouncing to ownership will leave the contract without an owner.
+</span><span class="cm">   * It will not be possible to call the functions with the `onlyOwner`
+</span><span class="cm">   * modifier anymore.
+</span><span class="cm">   */</span>
+  <span class="kd">function</span> <span class="nf">renounceOwnership</span><span class="p">()</span> <span class="k">public</span> <span class="n">onlyOwner</span> <span class="p">{</span>
+    <span class="n">emit</span> <span class="n">OwnershipTransferred</span><span class="p">(</span><span class="n">_owner</span><span class="p">,</span> <span class="kt">address</span><span class="p">(</span><span class="mi">0</span><span class="p">));</span>
+    <span class="n">_owner</span> <span class="o">=</span> <span class="kt">address</span><span class="p">(</span><span class="mi">0</span><span class="p">);</span>
+  <span class="p">}</span>
+
+  <span class="cm">/**
+</span><span class="cm">   * @dev Allows the current owner to transfer control of the contract to a newOwner.
+</span><span class="cm">   * @param newOwner The address to transfer ownership to.
+</span><span class="cm">   */</span>
+  <span class="kd">function</span> <span class="nf">transferOwnership</span><span class="p">(</span><span class="kt">address</span> <span class="n">newOwner</span><span class="p">)</span> <span class="k">public</span> <span class="n">onlyOwner</span> <span class="p">{</span>
+    <span class="n">_transferOwnership</span><span class="p">(</span><span class="n">newOwner</span><span class="p">);</span>
+  <span class="p">}</span>
+
+  <span class="cm">/**
+</span><span class="cm">   * @dev Transfers control of the contract to a newOwner.
+</span><span class="cm">   * @param newOwner The address to transfer ownership to.
+</span><span class="cm">   */</span>
+  <span class="kd">function</span> <span class="nf">_transferOwnership</span><span class="p">(</span><span class="kt">address</span> <span class="n">newOwner</span><span class="p">)</span> <span class="k">internal</span> <span class="p">{</span>
+    <span class="nb">require</span><span class="p">(</span><span class="n">newOwner</span> <span class="o">!=</span> <span class="kt">address</span><span class="p">(</span><span class="mi">0</span><span class="p">));</span>
+    <span class="n">emit</span> <span class="n">OwnershipTransferred</span><span class="p">(</span><span class="n">_owner</span><span class="p">,</span> <span class="n">newOwner</span><span class="p">);</span>
+    <span class="n">_owner</span> <span class="o">=</span> <span class="n">newOwner</span><span class="p">;</span>
+  <span class="p">}</span>
+<span class="p">}</span>
+</code></pre></td></tr></table>
+</div>
+</div><h4 id="onlyowner">onlyOwner</h4>
+<p>可以设置只有owner才有能调用的函数。</p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre tabindex="0" class="chroma"><code><span class="lnt"> 1
+</span><span class="lnt"> 2
+</span><span class="lnt"> 3
+</span><span class="lnt"> 4
+</span><span class="lnt"> 5
+</span><span class="lnt"> 6
+</span><span class="lnt"> 7
+</span><span class="lnt"> 8
+</span><span class="lnt"> 9
+</span><span class="lnt">10
+</span><span class="lnt">11
+</span><span class="lnt">12
+</span><span class="lnt">13
+</span><span class="lnt">14
+</span><span class="lnt">15
+</span><span class="lnt">16
+</span><span class="lnt">17
+</span><span class="lnt">18
+</span><span class="lnt">19
+</span><span class="lnt">20
+</span><span class="lnt">21
+</span><span class="lnt">22
+</span><span class="lnt">23
+</span></code></pre></td>
+<td class="lntd">
+<pre tabindex="0" class="chroma"><code class="language-solidity" data-lang="solidity"><span class="kd">modifier</span> <span class="nf">onlyOwner</span><span class="p">()</span> <span class="p">{</span>
+    <span class="nb">require</span><span class="p">(</span><span class="n">isOwner</span><span class="p">());</span>
+    <span class="k">_</span><span class="p">;</span>
+  <span class="p">}</span>
+
+<span class="cm">/**
+</span><span class="cm">   * @dev Allows the current owner to relinquish control of the contract.
+</span><span class="cm">   * @notice Renouncing to ownership will leave the contract without an owner.
+</span><span class="cm">   * It will not be possible to call the functions with the `onlyOwner`
+</span><span class="cm">   * modifier anymore.
+</span><span class="cm">   */</span>
+  <span class="kd">function</span> <span class="nf">renounceOwnership</span><span class="p">()</span> <span class="k">public</span> <span class="n">onlyOwner</span> <span class="p">{</span>
+    <span class="n">emit</span> <span class="n">OwnershipTransferred</span><span class="p">(</span><span class="n">_owner</span><span class="p">,</span> <span class="kt">address</span><span class="p">(</span><span class="mi">0</span><span class="p">));</span>
+    <span class="n">_owner</span> <span class="o">=</span> <span class="kt">address</span><span class="p">(</span><span class="mi">0</span><span class="p">);</span>
+  <span class="p">}</span>
+
+  <span class="cm">/**
+</span><span class="cm">   * @dev Allows the current owner to transfer control of the contract to a newOwner.
+</span><span class="cm">   * @param newOwner The address to transfer ownership to.
+</span><span class="cm">   */</span>
+  <span class="kd">function</span> <span class="nf">transferOwnership</span><span class="p">(</span><span class="kt">address</span> <span class="n">newOwner</span><span class="p">)</span> <span class="k">public</span> <span class="n">onlyOwner</span> <span class="p">{</span>
+    <span class="n">_transferOwnership</span><span class="p">(</span><span class="n">newOwner</span><span class="p">);</span>
+  <span class="p">}</span>
+</code></pre></td></tr></table>
+</div>
+</div><p>调用函数<code>renounceOwnership</code>时，会先执行<code>onlyOwner</code>函数中的代码，然后再回到<code>renounceOwnership</code>函数中执行其余代码。<code>onlyOwner</code>函数是一个修饰器函数，用于限制只有合约拥有者才能调用某些函数。在这里，它被用于确保只有合约拥有者才能调用<code>renounceOwnership</code>函数。</p>
+<h3 id="构造函数">构造函数</h3>
+<p>solidity构造函数定义方式:</p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre tabindex="0" class="chroma"><code><span class="lnt">1
+</span><span class="lnt">2
+</span><span class="lnt">3
+</span><span class="lnt">4
+</span></code></pre></td>
+<td class="lntd">
+<pre tabindex="0" class="chroma"><code class="language-solidity" data-lang="solidity"><span class="kd">constructor</span><span class="p">()</span> <span class="k">internal</span> <span class="p">{</span>
+    <span class="n">_owner</span> <span class="o">=</span> <span class="nb">msg</span><span class="p">.</span><span class="nb">sender</span><span class="p">;</span>
+    <span class="n">emit</span> <span class="n">OwnershipTransferred</span><span class="p">(</span><span class="kt">address</span><span class="p">(</span><span class="mi">0</span><span class="p">),</span> <span class="n">_owner</span><span class="p">);</span>
+  <span class="p">}</span>
+</code></pre></td></tr></table>
+</div>
+</div><p>它只会在合约被创建的时候执行，并只执行一次。</p>
+<h3 id="modifier-function">modifier function</h3>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre tabindex="0" class="chroma"><code><span class="lnt">1
+</span><span class="lnt">2
+</span><span class="lnt">3
+</span><span class="lnt">4
+</span></code></pre></td>
+<td class="lntd">
+<pre tabindex="0" class="chroma"><code class="language-solidity" data-lang="solidity"><span class="kd">modifier</span> <span class="nf">onlyOwner</span><span class="p">()</span> <span class="p">{</span>
+    <span class="nb">require</span><span class="p">(</span><span class="n">isOwner</span><span class="p">());</span>
+    <span class="k">_</span><span class="p">;</span>
+  <span class="p">}</span>
+</code></pre></td></tr></table>
+</div>
+</div><p>modifier函数用于修改其他函数，通常需要一些先验的检查。</p>
+<h3 id="gas">gas</h3>
+<p>gas费的高低取决于函数的复杂程度和和计算资源的大小。总的gas费是每个操作gas费的总和。</p>
+<p>因为用户需要为每次函数调用支付gas费，所以优化代码在dapp上显得非常重要。</p>
+<h4 id="为什么gas费是必要的">为什么gas费是必要的？</h4>
+<p>以太坊是一个巨大的，很慢的但是极度安全的计算机。当你执行一个函数时，在网络上的每一个单一节点都需要验证这个函数的输出。正是因为成千上万个节点验证函数的输出保证了以太坊的去中心化和数据不可篡改以及抗审查。</p>
+<p>以太坊的创建者们想要确保网络不会被无限循环的代码或者过于密集的计算所占用，所以他们让交易不是免费的，而且用户必须为计算时间和存储付费。</p>
+<h4 id="节省gas费的方法">节省gas费的方法</h4>
+<p>一般情况下solidity中使用uint8和uint256消耗的gas费是等价的，但是有一种例外，就是在使用struct结构体中使用uint8相对于使用uint256是更节省gas费的。
+例如：</p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre tabindex="0" class="chroma"><code><span class="lnt"> 1
+</span><span class="lnt"> 2
+</span><span class="lnt"> 3
+</span><span class="lnt"> 4
+</span><span class="lnt"> 5
+</span><span class="lnt"> 6
+</span><span class="lnt"> 7
+</span><span class="lnt"> 8
+</span><span class="lnt"> 9
+</span><span class="lnt">10
+</span><span class="lnt">11
+</span><span class="lnt">12
+</span><span class="lnt">13
+</span><span class="lnt">14
+</span><span class="lnt">15
+</span></code></pre></td>
+<td class="lntd">
+<pre tabindex="0" class="chroma"><code class="language-solidity" data-lang="solidity"><span class="kd">struct</span> <span class="nc">NormalStruct</span> <span class="p">{</span>
+  <span class="kt">uint</span> <span class="n">a</span><span class="p">;</span>
+  <span class="kt">uint</span> <span class="n">b</span><span class="p">;</span>
+  <span class="kt">uint</span> <span class="n">c</span><span class="p">;</span>
+<span class="p">}</span>
+
+<span class="kd">struct</span> <span class="nc">MiniMe</span> <span class="p">{</span>
+  <span class="kt">uint32</span> <span class="n">a</span><span class="p">;</span>
+  <span class="kt">uint32</span> <span class="n">b</span><span class="p">;</span>
+  <span class="kt">uint</span> <span class="n">c</span><span class="p">;</span>
+<span class="p">}</span>
+
+<span class="c1">// `mini` will cost less gas than `normal` because of struct packing
+</span><span class="c1"></span><span class="n">NormalStruct</span> <span class="n">normal</span> <span class="o">=</span> <span class="n">NormalStruct</span><span class="p">(</span><span class="mi">10</span><span class="p">,</span> <span class="mi">20</span><span class="p">,</span> <span class="mi">30</span><span class="p">);</span>
+<span class="n">MiniMe</span> <span class="n">mini</span> <span class="o">=</span> <span class="n">MiniMe</span><span class="p">(</span><span class="mi">10</span><span class="p">,</span> <span class="mi">20</span><span class="p">,</span> <span class="mi">30</span><span class="p">);</span> 
+</code></pre></td></tr></table>
+</div>
+</div><p>在Solidity中定义结构体时，将相同的数据类型聚集在一起可以最小化所需的存储空间。即一个包含字段<code>uint c; uint32 a; uint32 b</code>;的结构体将比一个包含字段<code>uint32 a; uint c; uint32 b</code>;的结构体更省gas，因为<code>uint32</code>字段被聚集在一起。</p>
 
 </section>
 
