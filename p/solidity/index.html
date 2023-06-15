@@ -10,7 +10,7 @@
 <meta property='og:description' content='solidity'>
 <meta property='og:url' content='https://jhrsya.github.io/p/solidity/'>
 <meta property='og:site_name' content='steve lannister'>
-<meta property='og:type' content='article'><meta property='article:section' content='Post' /><meta property='article:tag' content='solidity' /><meta property='article:published_time' content='2023-06-07T00:00:00&#43;00:00'/><meta property='article:modified_time' content='2023-06-07T00:00:00&#43;00:00'/>
+<meta property='og:type' content='article'><meta property='article:section' content='Post' /><meta property='article:tag' content='solidity' /><meta property='article:tag' content='区块链' /><meta property='article:published_time' content='2023-06-07T00:00:00&#43;00:00'/><meta property='article:modified_time' content='2023-06-07T00:00:00&#43;00:00'/>
 <meta name="twitter:title" content="solidity">
 <meta name="twitter:description" content="solidity">
     </head>
@@ -277,6 +277,14 @@
             <li><a href="#节省gas费的方法">节省gas费的方法</a></li>
           </ol>
         </li>
+        <li><a href="#view-function">view function</a></li>
+        <li><a href="#storage">storage</a></li>
+        <li><a href="#关键字private-public-internal-external">关键字private, public, internal, external</a></li>
+        <li><a href="#关键字view-pure">关键字view, pure</a></li>
+        <li><a href="#payable-modifier">payable modifier</a></li>
+        <li><a href="#msg">msg</a></li>
+        <li><a href="#withdraw函数">withdraw函数</a></li>
+        <li><a href="#solidity可以多继承">solidity可以多继承</a></li>
       </ol>
     </li>
   </ol>
@@ -297,8 +305,8 @@
     
     <header class="article-category">
         
-            <a href="/categories/solidity/" >
-                solidity
+            <a href="/categories/%E5%8C%BA%E5%9D%97%E9%93%BE/" >
+                区块链
             </a>
         
     </header>
@@ -347,7 +355,7 @@
 
 
                 <time class="article-time--reading">
-                    阅读时长: 6 分钟
+                    阅读时长: 7 分钟
                 </time>
             </div>
         
@@ -1118,7 +1126,101 @@ external关键字：只有在合约外部才可以调用的方法，合约内部
 </code></pre></td></tr></table>
 </div>
 </div><p>在Solidity中定义结构体时，将相同的数据类型聚集在一起可以最小化所需的存储空间。即一个包含字段<code>uint c; uint32 a; uint32 b</code>;的结构体将比一个包含字段<code>uint32 a; uint c; uint32 b</code>;的结构体更省gas，因为<code>uint32</code>字段被聚集在一起。</p>
+<h3 id="view-function">view function</h3>
+<p>当用户从外部调用view函数时，不会消耗gas费。因为view函数不会修改区块链的数据，只是查看区块链的数据。</p>
+<p>注意：如果一个视图函数被另一个不是视图函数的函数内部调用，仍然需要花费 gas。这是因为另一个函数在以太坊上创建了一个交易，每个节点仍然需要验证该交易。因此，只有在外部调用视图函数时才是免费的。</p>
+<h3 id="storage">storage</h3>
+<p>Solidity中的存储操作是非常昂贵的，特别是写操作。每次写入或更改数据时，它都会永久写入区块链中，成为不可更改的数据。全球数千个节点需要在它们的硬盘驱动器上存储这些数据，并随着区块链的增长而不断增加。因此，这样做是有成本的。为了降低成本，我们希望除非绝对必要，否则避免将数据写入存储器。有时，这涉及看似低效的编程逻辑——例如，在每次调用函数时重新构建一个数组，而不是将该数组保存在变量中以进行快速查找。</p>
+<h3 id="关键字private-public-internal-external">关键字private, public, internal, external</h3>
+<ul>
+<li>
+<p>private修饰的函数只能被同一合约内的其他函数调用；</p>
+</li>
+<li>
+<p>internal修饰的函数除了可以被同一合约内的其他函数调用外，还可以被继承该合约的合约调用；</p>
+</li>
+<li>
+<p>external修饰的函数只能在合约外部被调用；</p>
+</li>
+<li>
+<p>public修饰的函数可以在合约内外任何地方被调用。这些修饰符用于控制函数的访问权限，从而提高合约的安全性和可维护性。</p>
+</li>
+</ul>
+<h3 id="关键字view-pure">关键字view, pure</h3>
+<p>view表示函数不会修改合约中的数据，而pure表示函数既不会修改数据也不会读取数据。这两个修饰符可以使函数在被外部调用时不消耗gas（燃料），但如果被内部函数调用则会消耗gas。这是因为在内部调用时，需要将数据从存储器（storage）中读取到内存（memory）中进行操作，这需要消耗gas。</p>
+<h3 id="payable-modifier">payable modifier</h3>
+<p>payable函数可以接受以太币。
+可以在调用智能合约函数的同时向合约支付以太币（Ether）。这是因为在以太坊中，货币、数据和合约代码都存在于区块链上，因此可以在调用函数时同时向合约发送货币。这种特性使得一些有趣的逻辑成为可能，比如要求在执行某个函数之前向合约支付一定的货币。</p>
+<p>交易就像是一个信封，将函数调用中的参数比作信封中的信件内容，而添加金额则相当于在信封里放入现金，一起发送给收件人。</p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre tabindex="0" class="chroma"><code><span class="lnt"> 1
+</span><span class="lnt"> 2
+</span><span class="lnt"> 3
+</span><span class="lnt"> 4
+</span><span class="lnt"> 5
+</span><span class="lnt"> 6
+</span><span class="lnt"> 7
+</span><span class="lnt"> 8
+</span><span class="lnt"> 9
+</span><span class="lnt">10
+</span><span class="lnt">11
+</span></code></pre></td>
+<td class="lntd">
+<pre tabindex="0" class="chroma"><code class="language-solidity" data-lang="solidity"><span class="kd">contract</span> <span class="nc">OnlineStore</span> <span class="p">{</span>
+  <span class="kd">function</span> <span class="nf">buySomething</span><span class="p">()</span> <span class="k">external</span> <span class="k">payable</span> <span class="p">{</span>
+    <span class="c1">// Check to make sure 0.001 ether was sent to the function call:
+</span><span class="c1"></span>    <span class="nb">require</span><span class="p">(</span><span class="nb">msg</span><span class="p">.</span><span class="nb">value</span> <span class="o">==</span> <span class="mi">0</span><span class="p">.</span><span class="mi">001</span> <span class="kc">ether</span><span class="p">);</span>
+    <span class="c1">// If so, some logic to transfer the digital item to the caller of the function:
+</span><span class="c1"></span>    <span class="n">transferThing</span><span class="p">(</span><span class="nb">msg</span><span class="p">.</span><span class="nb">sender</span><span class="p">);</span>
+  <span class="p">}</span>
+<span class="p">}</span>
 
+<span class="c1">// Assuming `OnlineStore` points to your contract on Ethereum:
+</span><span class="c1"></span><span class="n">OnlineStore</span><span class="p">.</span><span class="n">buySomething</span><span class="p">({</span><span class="k">from</span><span class="o">:</span> <span class="n">web3</span><span class="p">.</span><span class="n">eth</span><span class="p">.</span><span class="n">defaultAccount</span><span class="p">,</span> <span class="nb">value</span><span class="o">:</span> <span class="n">web3</span><span class="p">.</span><span class="n">utils</span><span class="p">.</span><span class="n">toWei</span><span class="p">(</span><span class="mi">0</span><span class="p">.</span><span class="mi">001</span><span class="p">)})</span>
+</code></pre></td></tr></table>
+</div>
+</div><p>注意：如果一个函数没有被标记为payable，你尝试去发送Ether，这个函数会拒绝你的交易。</p>
+<h3 id="msg">msg</h3>
+<p>msg.sender：调用函数的账户地址。
+msg.value：可以查看有多少割以太币被发送给合约。</p>
+<h3 id="withdraw函数">withdraw函数</h3>
+<p>当你向一个智能合约发送以太币时，它会被存储在合约的以太坊账户中，除非你添加一个提取以太币的函数，否则它将被永久锁定在合约中。</p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre tabindex="0" class="chroma"><code><span class="lnt">1
+</span><span class="lnt">2
+</span><span class="lnt">3
+</span><span class="lnt">4
+</span><span class="lnt">5
+</span><span class="lnt">6
+</span><span class="lnt">7
+</span></code></pre></td>
+<td class="lntd">
+<pre tabindex="0" class="chroma"><code class="language-solidity" data-lang="solidity"><span class="kd">contract</span> <span class="nc">GetPaid</span> <span class="k">is</span> <span class="n">Ownable</span> <span class="p">{</span>
+  <span class="kd">function</span> <span class="nf">withdraw</span><span class="p">()</span> <span class="k">external</span> <span class="n">onlyOwner</span> <span class="p">{</span>
+    <span class="kt">address</span> <span class="k">payable</span> <span class="n">_owner</span> <span class="o">=</span> <span class="kt">address</span><span class="p">(</span><span class="kt">uint160</span><span class="p">(</span><span class="n">owner</span><span class="p">()));</span>
+    <span class="n">_owner</span><span class="p">.</span><span class="nb">transfer</span><span class="p">(</span><span class="kt">address</span><span class="p">(</span><span class="nb">this</span><span class="p">).</span><span class="nb">balance</span><span class="p">);</span>
+  <span class="p">}</span>
+  <span class="c1">// address(this).balance可以返回存储在这个合约中的所有余额
+</span><span class="c1"></span><span class="p">}</span>
+</code></pre></td></tr></table>
+</div>
+</div><p>只有当一个地址是可支付地址类型时，才能向该地址转移以太币。同时，_owner变量是uint160类型的，因此我们必须显式地将其转换为可支付地址类型。</p>
+<h3 id="solidity可以多继承">solidity可以多继承</h3>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre tabindex="0" class="chroma"><code><span class="lnt">1
+</span><span class="lnt">2
+</span><span class="lnt">3
+</span></code></pre></td>
+<td class="lntd">
+<pre tabindex="0" class="chroma"><code class="language-solidity" data-lang="solidity"><span class="kd">contract</span> <span class="nc">SatoshiNakamoto</span> <span class="k">is</span> <span class="n">NickSzabo</span><span class="p">,</span> <span class="n">HalFinney</span> <span class="p">{</span>
+  <span class="c1">// Omg, the secrets of the universe revealed!
+</span><span class="c1"></span><span class="p">}</span>
+</code></pre></td></tr></table>
+</div>
+</div>
 </section>
 
 
@@ -1127,6 +1229,8 @@ external关键字：只有在合约外部才可以调用的方法，合约内部
     <section class="article-tags">
         
             <a href="/tags/solidity/">solidity</a>
+        
+            <a href="/tags/%E5%8C%BA%E5%9D%97%E9%93%BE/">区块链</a>
         
     </section>
 
@@ -1152,6 +1256,54 @@ external关键字：只有在合约外部才可以调用的方法，合约内部
     
 
     
+
+<aside class="related-content--wrapper">
+    <h2 class="section-title">相关文章</h2>
+    <div class="related-content">
+        <div class="flex article-list--tile">
+            
+                
+<article class="">
+    <a href="/p/%E5%8C%BA%E5%9D%97%E9%93%BE%E5%BC%80%E5%8F%91/">
+        
+        
+
+        <div class="article-details">
+            <h2 class="article-title">区块链开发</h2>
+        </div>
+    </a>
+</article>
+
+            
+                
+<article class="">
+    <a href="/p/%E8%B4%A7%E5%B8%81%E7%9A%84%E7%95%8C%E7%A2%91/">
+        
+        
+
+        <div class="article-details">
+            <h2 class="article-title">货币的界碑</h2>
+        </div>
+    </a>
+</article>
+
+            
+                
+<article class="">
+    <a href="/p/%E5%8C%BA%E5%9D%97%E9%93%BE/">
+        
+        
+
+        <div class="article-details">
+            <h2 class="article-title">区块链概念</h2>
+        </div>
+    </a>
+</article>
+
+            
+        </div>
+    </div>
+</aside>
 
      
     

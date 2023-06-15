@@ -261,6 +261,8 @@
             <li><a href="#abi">ABI</a></li>
             <li><a href="#erc-20">ERC-20</a></li>
             <li><a href="#智能合约的结构">智能合约的结构</a></li>
+            <li><a href="#zkrollup特性">zkRollup特性</a></li>
+            <li><a href="#erc721">ERC721</a></li>
           </ol>
         </li>
       </ol>
@@ -404,6 +406,31 @@
 <li>函数</li>
 <li>事件和日志</li>
 </ol>
+<h4 id="zkrollup特性">zkRollup特性</h4>
+<p>zkRollup 是一种在以太坊上扩展网络吞吐量和降低交易费用的第二层解决方案。它使用零知识证明 (zk-SNARKs) 技术来在链下聚合多笔交易，然后将它们的证明提交到链上。以下是 zkRollup 的一些主要特性：</p>
+<ul>
+<li>
+<p>安全性：zkRollup 继承了以太坊的安全性，因为它将所有数据都放在链上，并使用智能合约来验证和处理交易。这样，即使验证者集合（validator set）完全崩溃，用户也可以直接从链上恢复他们的资产。</p>
+</li>
+<li>
+<p>扩展性：zkRollup 可以显著提高以太坊的交易吞吐量。因为大部分计算工作在链下完成，每个以太坊区块能够包含数千笔 zkRollup 交易。这大大提高了以太坊的网络吞吐量。</p>
+</li>
+<li>
+<p>低成本：zkRollup 交易的费用比以太坊主链的费用低得多，因为它们在链下聚合并进行计算，只需将结果的证明提交到链上。此外，由于所有交易数据都存储在链上，所以存储成本也较低。</p>
+</li>
+<li>
+<p>互操作性：zkRollup 支持所有以太坊的智能合约和标准。这意味着开发者可以无缝地将他们的 dApps 移动到 zkRollup，用户也可以使用他们熟悉的工具（例如 Metamask）来与 zkRollup 进行交互。</p>
+</li>
+<li>
+<p>用户体验：zkRollup 交易的确认时间比以太坊主链快得多，因为它们在链下即时确认。这使得用户体验更接近于传统的支付系统。</p>
+</li>
+<li>
+<p>隐私：zkRollup 可以支持具有隐私特性的应用，因为它使用零知识证明，可以在不泄露任何关于交易的具体细节的情况下验证交易的有效性。</p>
+</li>
+</ul>
+<p>总的来说，zkRollup 是一个非常有潜力的扩容技术，它能够将以太坊扩展到全球范围的支付和智能合约平台，同时保持其去中心化和安全性的优点。</p>
+<h4 id="erc721">ERC721</h4>
+<p>非同质化代币标准，</p>
 
 </section>
 
@@ -443,6 +470,19 @@
     <h2 class="section-title">相关文章</h2>
     <div class="related-content">
         <div class="flex article-list--tile">
+            
+                
+<article class="">
+    <a href="/p/solidity/">
+        
+        
+
+        <div class="article-details">
+            <h2 class="article-title">solidity</h2>
+        </div>
+    </a>
+</article>
+
             
                 
 <article class="">

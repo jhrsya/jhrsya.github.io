@@ -768,7 +768,101 @@ external关键字：只有在合约外部才可以调用的方法，合约内部
 &lt;/code&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;
 &lt;/div&gt;
 &lt;/div&gt;&lt;p&gt;在Solidity中定义结构体时，将相同的数据类型聚集在一起可以最小化所需的存储空间。即一个包含字段&lt;code&gt;uint c; uint32 a; uint32 b&lt;/code&gt;;的结构体将比一个包含字段&lt;code&gt;uint32 a; uint c; uint32 b&lt;/code&gt;;的结构体更省gas，因为&lt;code&gt;uint32&lt;/code&gt;字段被聚集在一起。&lt;/p&gt;
-</description>
+&lt;h3 id=&#34;view-function&#34;&gt;view function&lt;/h3&gt;
+&lt;p&gt;当用户从外部调用view函数时，不会消耗gas费。因为view函数不会修改区块链的数据，只是查看区块链的数据。&lt;/p&gt;
+&lt;p&gt;注意：如果一个视图函数被另一个不是视图函数的函数内部调用，仍然需要花费 gas。这是因为另一个函数在以太坊上创建了一个交易，每个节点仍然需要验证该交易。因此，只有在外部调用视图函数时才是免费的。&lt;/p&gt;
+&lt;h3 id=&#34;storage&#34;&gt;storage&lt;/h3&gt;
+&lt;p&gt;Solidity中的存储操作是非常昂贵的，特别是写操作。每次写入或更改数据时，它都会永久写入区块链中，成为不可更改的数据。全球数千个节点需要在它们的硬盘驱动器上存储这些数据，并随着区块链的增长而不断增加。因此，这样做是有成本的。为了降低成本，我们希望除非绝对必要，否则避免将数据写入存储器。有时，这涉及看似低效的编程逻辑——例如，在每次调用函数时重新构建一个数组，而不是将该数组保存在变量中以进行快速查找。&lt;/p&gt;
+&lt;h3 id=&#34;关键字private-public-internal-external&#34;&gt;关键字private, public, internal, external&lt;/h3&gt;
+&lt;ul&gt;
+&lt;li&gt;
+&lt;p&gt;private修饰的函数只能被同一合约内的其他函数调用；&lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;internal修饰的函数除了可以被同一合约内的其他函数调用外，还可以被继承该合约的合约调用；&lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;external修饰的函数只能在合约外部被调用；&lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;public修饰的函数可以在合约内外任何地方被调用。这些修饰符用于控制函数的访问权限，从而提高合约的安全性和可维护性。&lt;/p&gt;
+&lt;/li&gt;
+&lt;/ul&gt;
+&lt;h3 id=&#34;关键字view-pure&#34;&gt;关键字view, pure&lt;/h3&gt;
+&lt;p&gt;view表示函数不会修改合约中的数据，而pure表示函数既不会修改数据也不会读取数据。这两个修饰符可以使函数在被外部调用时不消耗gas（燃料），但如果被内部函数调用则会消耗gas。这是因为在内部调用时，需要将数据从存储器（storage）中读取到内存（memory）中进行操作，这需要消耗gas。&lt;/p&gt;
+&lt;h3 id=&#34;payable-modifier&#34;&gt;payable modifier&lt;/h3&gt;
+&lt;p&gt;payable函数可以接受以太币。
+可以在调用智能合约函数的同时向合约支付以太币（Ether）。这是因为在以太坊中，货币、数据和合约代码都存在于区块链上，因此可以在调用函数时同时向合约发送货币。这种特性使得一些有趣的逻辑成为可能，比如要求在执行某个函数之前向合约支付一定的货币。&lt;/p&gt;
+&lt;p&gt;交易就像是一个信封，将函数调用中的参数比作信封中的信件内容，而添加金额则相当于在信封里放入现金，一起发送给收件人。&lt;/p&gt;
+&lt;div class=&#34;highlight&#34;&gt;&lt;div class=&#34;chroma&#34;&gt;
+&lt;table class=&#34;lntable&#34;&gt;&lt;tr&gt;&lt;td class=&#34;lntd&#34;&gt;
+&lt;pre tabindex=&#34;0&#34; class=&#34;chroma&#34;&gt;&lt;code&gt;&lt;span class=&#34;lnt&#34;&gt; 1
+&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt; 2
+&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt; 3
+&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt; 4
+&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt; 5
+&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt; 6
+&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt; 7
+&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt; 8
+&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt; 9
+&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt;10
+&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt;11
+&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/td&gt;
+&lt;td class=&#34;lntd&#34;&gt;
+&lt;pre tabindex=&#34;0&#34; class=&#34;chroma&#34;&gt;&lt;code class=&#34;language-solidity&#34; data-lang=&#34;solidity&#34;&gt;&lt;span class=&#34;kd&#34;&gt;contract&lt;/span&gt; &lt;span class=&#34;nc&#34;&gt;OnlineStore&lt;/span&gt; &lt;span class=&#34;p&#34;&gt;{&lt;/span&gt;
+  &lt;span class=&#34;kd&#34;&gt;function&lt;/span&gt; &lt;span class=&#34;nf&#34;&gt;buySomething&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;()&lt;/span&gt; &lt;span class=&#34;k&#34;&gt;external&lt;/span&gt; &lt;span class=&#34;k&#34;&gt;payable&lt;/span&gt; &lt;span class=&#34;p&#34;&gt;{&lt;/span&gt;
+    &lt;span class=&#34;c1&#34;&gt;// Check to make sure 0.001 ether was sent to the function call:
+&lt;/span&gt;&lt;span class=&#34;c1&#34;&gt;&lt;/span&gt;    &lt;span class=&#34;nb&#34;&gt;require&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;(&lt;/span&gt;&lt;span class=&#34;nb&#34;&gt;msg&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;.&lt;/span&gt;&lt;span class=&#34;nb&#34;&gt;value&lt;/span&gt; &lt;span class=&#34;o&#34;&gt;==&lt;/span&gt; &lt;span class=&#34;mi&#34;&gt;0&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;.&lt;/span&gt;&lt;span class=&#34;mi&#34;&gt;001&lt;/span&gt; &lt;span class=&#34;kc&#34;&gt;ether&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;);&lt;/span&gt;
+    &lt;span class=&#34;c1&#34;&gt;// If so, some logic to transfer the digital item to the caller of the function:
+&lt;/span&gt;&lt;span class=&#34;c1&#34;&gt;&lt;/span&gt;    &lt;span class=&#34;n&#34;&gt;transferThing&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;(&lt;/span&gt;&lt;span class=&#34;nb&#34;&gt;msg&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;.&lt;/span&gt;&lt;span class=&#34;nb&#34;&gt;sender&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;);&lt;/span&gt;
+  &lt;span class=&#34;p&#34;&gt;}&lt;/span&gt;
+&lt;span class=&#34;p&#34;&gt;}&lt;/span&gt;
+
+&lt;span class=&#34;c1&#34;&gt;// Assuming `OnlineStore` points to your contract on Ethereum:
+&lt;/span&gt;&lt;span class=&#34;c1&#34;&gt;&lt;/span&gt;&lt;span class=&#34;n&#34;&gt;OnlineStore&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;.&lt;/span&gt;&lt;span class=&#34;n&#34;&gt;buySomething&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;({&lt;/span&gt;&lt;span class=&#34;k&#34;&gt;from&lt;/span&gt;&lt;span class=&#34;o&#34;&gt;:&lt;/span&gt; &lt;span class=&#34;n&#34;&gt;web3&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;.&lt;/span&gt;&lt;span class=&#34;n&#34;&gt;eth&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;.&lt;/span&gt;&lt;span class=&#34;n&#34;&gt;defaultAccount&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;,&lt;/span&gt; &lt;span class=&#34;nb&#34;&gt;value&lt;/span&gt;&lt;span class=&#34;o&#34;&gt;:&lt;/span&gt; &lt;span class=&#34;n&#34;&gt;web3&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;.&lt;/span&gt;&lt;span class=&#34;n&#34;&gt;utils&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;.&lt;/span&gt;&lt;span class=&#34;n&#34;&gt;toWei&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;(&lt;/span&gt;&lt;span class=&#34;mi&#34;&gt;0&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;.&lt;/span&gt;&lt;span class=&#34;mi&#34;&gt;001&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;)})&lt;/span&gt;
+&lt;/code&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;
+&lt;/div&gt;
+&lt;/div&gt;&lt;p&gt;注意：如果一个函数没有被标记为payable，你尝试去发送Ether，这个函数会拒绝你的交易。&lt;/p&gt;
+&lt;h3 id=&#34;msg&#34;&gt;msg&lt;/h3&gt;
+&lt;p&gt;msg.sender：调用函数的账户地址。
+msg.value：可以查看有多少割以太币被发送给合约。&lt;/p&gt;
+&lt;h3 id=&#34;withdraw函数&#34;&gt;withdraw函数&lt;/h3&gt;
+&lt;p&gt;当你向一个智能合约发送以太币时，它会被存储在合约的以太坊账户中，除非你添加一个提取以太币的函数，否则它将被永久锁定在合约中。&lt;/p&gt;
+&lt;div class=&#34;highlight&#34;&gt;&lt;div class=&#34;chroma&#34;&gt;
+&lt;table class=&#34;lntable&#34;&gt;&lt;tr&gt;&lt;td class=&#34;lntd&#34;&gt;
+&lt;pre tabindex=&#34;0&#34; class=&#34;chroma&#34;&gt;&lt;code&gt;&lt;span class=&#34;lnt&#34;&gt;1
+&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt;2
+&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt;3
+&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt;4
+&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt;5
+&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt;6
+&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt;7
+&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/td&gt;
+&lt;td class=&#34;lntd&#34;&gt;
+&lt;pre tabindex=&#34;0&#34; class=&#34;chroma&#34;&gt;&lt;code class=&#34;language-solidity&#34; data-lang=&#34;solidity&#34;&gt;&lt;span class=&#34;kd&#34;&gt;contract&lt;/span&gt; &lt;span class=&#34;nc&#34;&gt;GetPaid&lt;/span&gt; &lt;span class=&#34;k&#34;&gt;is&lt;/span&gt; &lt;span class=&#34;n&#34;&gt;Ownable&lt;/span&gt; &lt;span class=&#34;p&#34;&gt;{&lt;/span&gt;
+  &lt;span class=&#34;kd&#34;&gt;function&lt;/span&gt; &lt;span class=&#34;nf&#34;&gt;withdraw&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;()&lt;/span&gt; &lt;span class=&#34;k&#34;&gt;external&lt;/span&gt; &lt;span class=&#34;n&#34;&gt;onlyOwner&lt;/span&gt; &lt;span class=&#34;p&#34;&gt;{&lt;/span&gt;
+    &lt;span class=&#34;kt&#34;&gt;address&lt;/span&gt; &lt;span class=&#34;k&#34;&gt;payable&lt;/span&gt; &lt;span class=&#34;n&#34;&gt;_owner&lt;/span&gt; &lt;span class=&#34;o&#34;&gt;=&lt;/span&gt; &lt;span class=&#34;kt&#34;&gt;address&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;(&lt;/span&gt;&lt;span class=&#34;kt&#34;&gt;uint160&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;(&lt;/span&gt;&lt;span class=&#34;n&#34;&gt;owner&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;()));&lt;/span&gt;
+    &lt;span class=&#34;n&#34;&gt;_owner&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;.&lt;/span&gt;&lt;span class=&#34;nb&#34;&gt;transfer&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;(&lt;/span&gt;&lt;span class=&#34;kt&#34;&gt;address&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;(&lt;/span&gt;&lt;span class=&#34;nb&#34;&gt;this&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;).&lt;/span&gt;&lt;span class=&#34;nb&#34;&gt;balance&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;);&lt;/span&gt;
+  &lt;span class=&#34;p&#34;&gt;}&lt;/span&gt;
+  &lt;span class=&#34;c1&#34;&gt;// address(this).balance可以返回存储在这个合约中的所有余额
+&lt;/span&gt;&lt;span class=&#34;c1&#34;&gt;&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;}&lt;/span&gt;
+&lt;/code&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;
+&lt;/div&gt;
+&lt;/div&gt;&lt;p&gt;只有当一个地址是可支付地址类型时，才能向该地址转移以太币。同时，_owner变量是uint160类型的，因此我们必须显式地将其转换为可支付地址类型。&lt;/p&gt;
+&lt;h3 id=&#34;solidity可以多继承&#34;&gt;solidity可以多继承&lt;/h3&gt;
+&lt;div class=&#34;highlight&#34;&gt;&lt;div class=&#34;chroma&#34;&gt;
+&lt;table class=&#34;lntable&#34;&gt;&lt;tr&gt;&lt;td class=&#34;lntd&#34;&gt;
+&lt;pre tabindex=&#34;0&#34; class=&#34;chroma&#34;&gt;&lt;code&gt;&lt;span class=&#34;lnt&#34;&gt;1
+&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt;2
+&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt;3
+&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/td&gt;
+&lt;td class=&#34;lntd&#34;&gt;
+&lt;pre tabindex=&#34;0&#34; class=&#34;chroma&#34;&gt;&lt;code class=&#34;language-solidity&#34; data-lang=&#34;solidity&#34;&gt;&lt;span class=&#34;kd&#34;&gt;contract&lt;/span&gt; &lt;span class=&#34;nc&#34;&gt;SatoshiNakamoto&lt;/span&gt; &lt;span class=&#34;k&#34;&gt;is&lt;/span&gt; &lt;span class=&#34;n&#34;&gt;NickSzabo&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;,&lt;/span&gt; &lt;span class=&#34;n&#34;&gt;HalFinney&lt;/span&gt; &lt;span class=&#34;p&#34;&gt;{&lt;/span&gt;
+  &lt;span class=&#34;c1&#34;&gt;// Omg, the secrets of the universe revealed!
+&lt;/span&gt;&lt;span class=&#34;c1&#34;&gt;&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;}&lt;/span&gt;
+&lt;/code&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;
+&lt;/div&gt;
+&lt;/div&gt;</description>
         </item>
         
     </channel>

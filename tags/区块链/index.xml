@@ -6,7 +6,865 @@
         <description>Recent content in 区块链 on steve lannister</description>
         <generator>Hugo -- gohugo.io</generator>
         <language>en-us</language>
-        <lastBuildDate>Tue, 23 May 2023 00:00:00 +0000</lastBuildDate><atom:link href="https://jhrsya.github.io/tags/%E5%8C%BA%E5%9D%97%E9%93%BE/index.xml" rel="self" type="application/rss+xml" /><item>
+        <lastBuildDate>Wed, 07 Jun 2023 00:00:00 +0000</lastBuildDate><atom:link href="https://jhrsya.github.io/tags/%E5%8C%BA%E5%9D%97%E9%93%BE/index.xml" rel="self" type="application/rss+xml" /><item>
+        <title>solidity</title>
+        <link>https://jhrsya.github.io/p/solidity/</link>
+        <pubDate>Wed, 07 Jun 2023 00:00:00 +0000</pubDate>
+        
+        <guid>https://jhrsya.github.io/p/solidity/</guid>
+        <description>&lt;h1 id=&#34;solidity&#34;&gt;solidity&lt;/h1&gt;
+&lt;h2 id=&#34;solidity-1&#34;&gt;solidity&lt;/h2&gt;
+&lt;h3 id=&#34;定义变量&#34;&gt;定义变量&lt;/h3&gt;
+&lt;div class=&#34;highlight&#34;&gt;&lt;div class=&#34;chroma&#34;&gt;
+&lt;table class=&#34;lntable&#34;&gt;&lt;tr&gt;&lt;td class=&#34;lntd&#34;&gt;
+&lt;pre tabindex=&#34;0&#34; class=&#34;chroma&#34;&gt;&lt;code&gt;&lt;span class=&#34;lnt&#34;&gt;1
+&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt;2
+&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt;3
+&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt;4
+&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt;5
+&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt;6
+&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/td&gt;
+&lt;td class=&#34;lntd&#34;&gt;
+&lt;pre tabindex=&#34;0&#34; class=&#34;chroma&#34;&gt;&lt;code class=&#34;language-solidity&#34; data-lang=&#34;solidity&#34;&gt;&lt;span class=&#34;c1&#34;&gt;// 无类型变量
+&lt;/span&gt;&lt;span class=&#34;c1&#34;&gt;&lt;/span&gt;&lt;span class=&#34;kd&#34;&gt;var&lt;/span&gt; &lt;span class=&#34;n&#34;&gt;variableName&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;;&lt;/span&gt;
+
+&lt;span class=&#34;c1&#34;&gt;// 声明和初始化有类型变量
+&lt;/span&gt;&lt;span class=&#34;c1&#34;&gt;&lt;/span&gt;&lt;span class=&#34;n&#34;&gt;type&lt;/span&gt; &lt;span class=&#34;n&#34;&gt;variableName&lt;/span&gt; &lt;span class=&#34;o&#34;&gt;=&lt;/span&gt; &lt;span class=&#34;nb&#34;&gt;value&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;;&lt;/span&gt;
+
+&lt;/code&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;
+&lt;/div&gt;
+&lt;/div&gt;&lt;p&gt;其中，type是变量的数据类型，例如uint、address、string等，variableName是变量的名称。&lt;/p&gt;
+&lt;h3 id=&#34;定义常量&#34;&gt;定义常量&lt;/h3&gt;
+&lt;p&gt;常量使用constant或immutable关键字声明，并在声明时进行初始化。它们的值在合约部署后无法修改。&lt;/p&gt;
+&lt;div class=&#34;highlight&#34;&gt;&lt;div class=&#34;chroma&#34;&gt;
+&lt;table class=&#34;lntable&#34;&gt;&lt;tr&gt;&lt;td class=&#34;lntd&#34;&gt;
+&lt;pre tabindex=&#34;0&#34; class=&#34;chroma&#34;&gt;&lt;code&gt;&lt;span class=&#34;lnt&#34;&gt;1
+&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt;2
+&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt;3
+&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt;4
+&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt;5
+&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/td&gt;
+&lt;td class=&#34;lntd&#34;&gt;
+&lt;pre tabindex=&#34;0&#34; class=&#34;chroma&#34;&gt;&lt;code class=&#34;language-solidity&#34; data-lang=&#34;solidity&#34;&gt;&lt;span class=&#34;c1&#34;&gt;// 常量声明和初始化
+&lt;/span&gt;&lt;span class=&#34;c1&#34;&gt;&lt;/span&gt;&lt;span class=&#34;k&#34;&gt;constant&lt;/span&gt; &lt;span class=&#34;n&#34;&gt;type&lt;/span&gt; &lt;span class=&#34;n&#34;&gt;constantName&lt;/span&gt; &lt;span class=&#34;o&#34;&gt;=&lt;/span&gt; &lt;span class=&#34;nb&#34;&gt;value&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;;&lt;/span&gt;
+
+&lt;span class=&#34;k&#34;&gt;constant&lt;/span&gt; &lt;span class=&#34;kt&#34;&gt;uint&lt;/span&gt; &lt;span class=&#34;n&#34;&gt;constantNumber&lt;/span&gt; &lt;span class=&#34;o&#34;&gt;=&lt;/span&gt; &lt;span class=&#34;mi&#34;&gt;42&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;;&lt;/span&gt;
+
+&lt;/code&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;
+&lt;/div&gt;
+&lt;/div&gt;&lt;h3 id=&#34;定义函数&#34;&gt;定义函数&lt;/h3&gt;
+&lt;div class=&#34;highlight&#34;&gt;&lt;div class=&#34;chroma&#34;&gt;
+&lt;table class=&#34;lntable&#34;&gt;&lt;tr&gt;&lt;td class=&#34;lntd&#34;&gt;
+&lt;pre tabindex=&#34;0&#34; class=&#34;chroma&#34;&gt;&lt;code&gt;&lt;span class=&#34;lnt&#34;&gt;1
+&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt;2
+&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt;3
+&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt;4
+&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt;5
+&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt;6
+&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/td&gt;
+&lt;td class=&#34;lntd&#34;&gt;
+&lt;pre tabindex=&#34;0&#34; class=&#34;chroma&#34;&gt;&lt;code class=&#34;language-solidity&#34; data-lang=&#34;solidity&#34;&gt;&lt;span class=&#34;c1&#34;&gt;// 函数声明
+&lt;/span&gt;&lt;span class=&#34;c1&#34;&gt;&lt;/span&gt;&lt;span class=&#34;kd&#34;&gt;function&lt;/span&gt; &lt;span class=&#34;nf&#34;&gt;functionName&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;(&lt;/span&gt;&lt;span class=&#34;n&#34;&gt;parameter1&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;,&lt;/span&gt; &lt;span class=&#34;n&#34;&gt;parameter2&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;,&lt;/span&gt; &lt;span class=&#34;p&#34;&gt;...)&lt;/span&gt; &lt;span class=&#34;p&#34;&gt;[&lt;/span&gt;&lt;span class=&#34;n&#34;&gt;visibility&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;]&lt;/span&gt; &lt;span class=&#34;p&#34;&gt;[&lt;/span&gt;&lt;span class=&#34;n&#34;&gt;modifiers&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;]&lt;/span&gt; &lt;span class=&#34;p&#34;&gt;[&lt;/span&gt;&lt;span class=&#34;k&#34;&gt;returns&lt;/span&gt; &lt;span class=&#34;p&#34;&gt;(&lt;/span&gt;&lt;span class=&#34;n&#34;&gt;type&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;)]&lt;/span&gt; &lt;span class=&#34;p&#34;&gt;{&lt;/span&gt;
+    &lt;span class=&#34;c1&#34;&gt;// 函数体
+&lt;/span&gt;&lt;span class=&#34;c1&#34;&gt;&lt;/span&gt;    &lt;span class=&#34;c1&#34;&gt;// 可选返回语句
+&lt;/span&gt;&lt;span class=&#34;c1&#34;&gt;&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;}&lt;/span&gt;
+
+&lt;/code&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;
+&lt;/div&gt;
+&lt;/div&gt;&lt;p&gt;其中，functionName是函数的名称，parameter1, parameter2, &amp;hellip;是函数的参数列表，visibility是函数的可见性（例如public、private、internal、external），modifiers是函数修饰符，用于修改函数行为（例如view、pure），returns (type)是函数的返回类型（可选）。
+例如：&lt;/p&gt;
+&lt;div class=&#34;highlight&#34;&gt;&lt;div class=&#34;chroma&#34;&gt;
+&lt;table class=&#34;lntable&#34;&gt;&lt;tr&gt;&lt;td class=&#34;lntd&#34;&gt;
+&lt;pre tabindex=&#34;0&#34; class=&#34;chroma&#34;&gt;&lt;code&gt;&lt;span class=&#34;lnt&#34;&gt;1
+&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt;2
+&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt;3
+&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt;4
+&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt;5
+&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/td&gt;
+&lt;td class=&#34;lntd&#34;&gt;
+&lt;pre tabindex=&#34;0&#34; class=&#34;chroma&#34;&gt;&lt;code class=&#34;language-solidity&#34; data-lang=&#34;solidity&#34;&gt;&lt;span class=&#34;c1&#34;&gt;// 声明一个公共函数add，接受两个uint类型的参数并返回它们的和
+&lt;/span&gt;&lt;span class=&#34;c1&#34;&gt;&lt;/span&gt;&lt;span class=&#34;kd&#34;&gt;function&lt;/span&gt; &lt;span class=&#34;nf&#34;&gt;add&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;(&lt;/span&gt;&lt;span class=&#34;kt&#34;&gt;uint&lt;/span&gt; &lt;span class=&#34;n&#34;&gt;a&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;,&lt;/span&gt; &lt;span class=&#34;kt&#34;&gt;uint&lt;/span&gt; &lt;span class=&#34;n&#34;&gt;b&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;)&lt;/span&gt; &lt;span class=&#34;k&#34;&gt;public&lt;/span&gt; &lt;span class=&#34;k&#34;&gt;returns&lt;/span&gt; &lt;span class=&#34;p&#34;&gt;(&lt;/span&gt;&lt;span class=&#34;kt&#34;&gt;uint&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;)&lt;/span&gt; &lt;span class=&#34;p&#34;&gt;{&lt;/span&gt;
+    &lt;span class=&#34;k&#34;&gt;return&lt;/span&gt; &lt;span class=&#34;n&#34;&gt;a&lt;/span&gt; &lt;span class=&#34;o&#34;&gt;+&lt;/span&gt; &lt;span class=&#34;n&#34;&gt;b&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;;&lt;/span&gt;
+&lt;span class=&#34;p&#34;&gt;}&lt;/span&gt;
+
+&lt;/code&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;
+&lt;/div&gt;
+&lt;/div&gt;&lt;h3 id=&#34;定义类合约&#34;&gt;定义类（合约）&lt;/h3&gt;
+&lt;p&gt;Solidity中的类通常被称为“合约”（Contracts），合约是包含状态变量、函数和事件等的代码单元。&lt;/p&gt;
+&lt;div class=&#34;highlight&#34;&gt;&lt;div class=&#34;chroma&#34;&gt;
+&lt;table class=&#34;lntable&#34;&gt;&lt;tr&gt;&lt;td class=&#34;lntd&#34;&gt;
+&lt;pre tabindex=&#34;0&#34; class=&#34;chroma&#34;&gt;&lt;code&gt;&lt;span class=&#34;lnt&#34;&gt; 1
+&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt; 2
+&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt; 3
+&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt; 4
+&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt; 5
+&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt; 6
+&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt; 7
+&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt; 8
+&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt; 9
+&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt;10
+&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt;11
+&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt;12
+&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt;13
+&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt;14
+&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt;15
+&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt;16
+&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/td&gt;
+&lt;td class=&#34;lntd&#34;&gt;
+&lt;pre tabindex=&#34;0&#34; class=&#34;chroma&#34;&gt;&lt;code class=&#34;language-solidity&#34; data-lang=&#34;solidity&#34;&gt;&lt;span class=&#34;c1&#34;&gt;// 合约声明
+&lt;/span&gt;&lt;span class=&#34;c1&#34;&gt;&lt;/span&gt;&lt;span class=&#34;kd&#34;&gt;contract&lt;/span&gt; &lt;span class=&#34;nc&#34;&gt;ContractName&lt;/span&gt; &lt;span class=&#34;p&#34;&gt;{&lt;/span&gt;
+    &lt;span class=&#34;c1&#34;&gt;// 状态变量
+&lt;/span&gt;&lt;span class=&#34;c1&#34;&gt;&lt;/span&gt;    &lt;span class=&#34;n&#34;&gt;type&lt;/span&gt; &lt;span class=&#34;k&#34;&gt;public&lt;/span&gt; &lt;span class=&#34;n&#34;&gt;variableName&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;;&lt;/span&gt;
+
+    &lt;span class=&#34;c1&#34;&gt;// 构造函数
+&lt;/span&gt;&lt;span class=&#34;c1&#34;&gt;&lt;/span&gt;    &lt;span class=&#34;kd&#34;&gt;constructor&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;(&lt;/span&gt;&lt;span class=&#34;n&#34;&gt;parameter1&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;,&lt;/span&gt; &lt;span class=&#34;n&#34;&gt;parameter2&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;,&lt;/span&gt; &lt;span class=&#34;p&#34;&gt;...)&lt;/span&gt; &lt;span class=&#34;p&#34;&gt;{&lt;/span&gt;
+        &lt;span class=&#34;c1&#34;&gt;// 构造函数体
+&lt;/span&gt;&lt;span class=&#34;c1&#34;&gt;&lt;/span&gt;    &lt;span class=&#34;p&#34;&gt;}&lt;/span&gt;
+
+    &lt;span class=&#34;c1&#34;&gt;// 函数
+&lt;/span&gt;&lt;span class=&#34;c1&#34;&gt;&lt;/span&gt;    &lt;span class=&#34;kd&#34;&gt;function&lt;/span&gt; &lt;span class=&#34;nf&#34;&gt;functionName&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;(&lt;/span&gt;&lt;span class=&#34;n&#34;&gt;parameter1&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;,&lt;/span&gt; &lt;span class=&#34;n&#34;&gt;parameter2&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;,&lt;/span&gt; &lt;span class=&#34;p&#34;&gt;...)&lt;/span&gt; &lt;span class=&#34;p&#34;&gt;[&lt;/span&gt;&lt;span class=&#34;n&#34;&gt;visibility&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;]&lt;/span&gt; &lt;span class=&#34;p&#34;&gt;[&lt;/span&gt;&lt;span class=&#34;n&#34;&gt;modifiers&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;]&lt;/span&gt; &lt;span class=&#34;p&#34;&gt;[&lt;/span&gt;&lt;span class=&#34;k&#34;&gt;returns&lt;/span&gt; &lt;span class=&#34;p&#34;&gt;(&lt;/span&gt;&lt;span class=&#34;n&#34;&gt;type&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;)]&lt;/span&gt; &lt;span class=&#34;p&#34;&gt;{&lt;/span&gt;
+        &lt;span class=&#34;c1&#34;&gt;// 函数体
+&lt;/span&gt;&lt;span class=&#34;c1&#34;&gt;&lt;/span&gt;        &lt;span class=&#34;c1&#34;&gt;// 可选返回语句
+&lt;/span&gt;&lt;span class=&#34;c1&#34;&gt;&lt;/span&gt;    &lt;span class=&#34;p&#34;&gt;}&lt;/span&gt;
+&lt;span class=&#34;p&#34;&gt;}&lt;/span&gt;
+&lt;/code&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;
+&lt;/div&gt;
+&lt;/div&gt;&lt;p&gt;其中，ContractName是合约的名称，variableName是合约的状态变量，constructor是合约的构造函数（可选），functionName是合约的函数。&lt;/p&gt;
+&lt;p&gt;例如：&lt;/p&gt;
+&lt;div class=&#34;highlight&#34;&gt;&lt;div class=&#34;chroma&#34;&gt;
+&lt;table class=&#34;lntable&#34;&gt;&lt;tr&gt;&lt;td class=&#34;lntd&#34;&gt;
+&lt;pre tabindex=&#34;0&#34; class=&#34;chroma&#34;&gt;&lt;code&gt;&lt;span class=&#34;lnt&#34;&gt; 1
+&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt; 2
+&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt; 3
+&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt; 4
+&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt; 5
+&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt; 6
+&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt; 7
+&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt; 8
+&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt; 9
+&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt;10
+&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt;11
+&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt;12
+&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/td&gt;
+&lt;td class=&#34;lntd&#34;&gt;
+&lt;pre tabindex=&#34;0&#34; class=&#34;chroma&#34;&gt;&lt;code class=&#34;language-solidity&#34; data-lang=&#34;solidity&#34;&gt;&lt;span class=&#34;kd&#34;&gt;contract&lt;/span&gt; &lt;span class=&#34;nc&#34;&gt;MyContract&lt;/span&gt; &lt;span class=&#34;p&#34;&gt;{&lt;/span&gt;
+    &lt;span class=&#34;kt&#34;&gt;uint&lt;/span&gt; &lt;span class=&#34;k&#34;&gt;public&lt;/span&gt; &lt;span class=&#34;n&#34;&gt;myVariable&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;;&lt;/span&gt;
+
+    &lt;span class=&#34;kd&#34;&gt;constructor&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;()&lt;/span&gt; &lt;span class=&#34;p&#34;&gt;{&lt;/span&gt;
+        &lt;span class=&#34;n&#34;&gt;myVariable&lt;/span&gt; &lt;span class=&#34;o&#34;&gt;=&lt;/span&gt; &lt;span class=&#34;mi&#34;&gt;10&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;;&lt;/span&gt;
+    &lt;span class=&#34;p&#34;&gt;}&lt;/span&gt;
+
+    &lt;span class=&#34;kd&#34;&gt;function&lt;/span&gt; &lt;span class=&#34;nf&#34;&gt;setVariable&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;(&lt;/span&gt;&lt;span class=&#34;kt&#34;&gt;uint&lt;/span&gt; &lt;span class=&#34;n&#34;&gt;newValue&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;)&lt;/span&gt; &lt;span class=&#34;k&#34;&gt;public&lt;/span&gt; &lt;span class=&#34;p&#34;&gt;{&lt;/span&gt;
+        &lt;span class=&#34;n&#34;&gt;myVariable&lt;/span&gt; &lt;span class=&#34;o&#34;&gt;=&lt;/span&gt; &lt;span class=&#34;n&#34;&gt;newValue&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;;&lt;/span&gt;
+    &lt;span class=&#34;p&#34;&gt;}&lt;/span&gt;
+&lt;span class=&#34;p&#34;&gt;}&lt;/span&gt;
+
+&lt;/code&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;
+&lt;/div&gt;
+&lt;/div&gt;&lt;h3 id=&#34;定义结构体&#34;&gt;定义结构体&lt;/h3&gt;
+&lt;div class=&#34;highlight&#34;&gt;&lt;div class=&#34;chroma&#34;&gt;
+&lt;table class=&#34;lntable&#34;&gt;&lt;tr&gt;&lt;td class=&#34;lntd&#34;&gt;
+&lt;pre tabindex=&#34;0&#34; class=&#34;chroma&#34;&gt;&lt;code&gt;&lt;span class=&#34;lnt&#34;&gt;1
+&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt;2
+&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt;3
+&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt;4
+&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/td&gt;
+&lt;td class=&#34;lntd&#34;&gt;
+&lt;pre tabindex=&#34;0&#34; class=&#34;chroma&#34;&gt;&lt;code class=&#34;language-solidity&#34; data-lang=&#34;solidity&#34;&gt;&lt;span class=&#34;kd&#34;&gt;struct&lt;/span&gt; &lt;span class=&#34;nc&#34;&gt;Person&lt;/span&gt; &lt;span class=&#34;p&#34;&gt;{&lt;/span&gt;
+    &lt;span class=&#34;kt&#34;&gt;uint&lt;/span&gt; &lt;span class=&#34;n&#34;&gt;age&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;;&lt;/span&gt;
+    &lt;span class=&#34;kt&#34;&gt;string&lt;/span&gt; &lt;span class=&#34;nb&#34;&gt;name&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;;&lt;/span&gt;
+&lt;span class=&#34;p&#34;&gt;}&lt;/span&gt;
+&lt;/code&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;
+&lt;/div&gt;
+&lt;/div&gt;&lt;h3 id=&#34;定义数组&#34;&gt;定义数组&lt;/h3&gt;
+&lt;div class=&#34;highlight&#34;&gt;&lt;div class=&#34;chroma&#34;&gt;
+&lt;table class=&#34;lntable&#34;&gt;&lt;tr&gt;&lt;td class=&#34;lntd&#34;&gt;
+&lt;pre tabindex=&#34;0&#34; class=&#34;chroma&#34;&gt;&lt;code&gt;&lt;span class=&#34;lnt&#34;&gt;1
+&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt;2
+&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt;3
+&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt;4
+&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt;5
+&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt;6
+&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/td&gt;
+&lt;td class=&#34;lntd&#34;&gt;
+&lt;pre tabindex=&#34;0&#34; class=&#34;chroma&#34;&gt;&lt;code class=&#34;language-solidity&#34; data-lang=&#34;solidity&#34;&gt;&lt;span class=&#34;kt&#34;&gt;uint&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;[]&lt;/span&gt; &lt;span class=&#34;k&#34;&gt;public&lt;/span&gt; &lt;span class=&#34;n&#34;&gt;myList&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;;&lt;/span&gt;
+&lt;span class=&#34;kt&#34;&gt;uint&lt;/span&gt; &lt;span class=&#34;nb&#34;&gt;value&lt;/span&gt; &lt;span class=&#34;o&#34;&gt;=&lt;/span&gt; &lt;span class=&#34;mi&#34;&gt;3&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;;&lt;/span&gt;
+&lt;span class=&#34;n&#34;&gt;myList&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;.&lt;/span&gt;&lt;span class=&#34;n&#34;&gt;push&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;(&lt;/span&gt;&lt;span class=&#34;nb&#34;&gt;value&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;);&lt;/span&gt; &lt;span class=&#34;c1&#34;&gt;// 往数组中添加元素的方法
+&lt;/span&gt;&lt;span class=&#34;c1&#34;&gt;&lt;/span&gt;
+&lt;span class=&#34;c1&#34;&gt;// 获取数组的下标
+&lt;/span&gt;&lt;span class=&#34;c1&#34;&gt;&lt;/span&gt;&lt;span class=&#34;kt&#34;&gt;uint&lt;/span&gt; &lt;span class=&#34;n&#34;&gt;id&lt;/span&gt; &lt;span class=&#34;o&#34;&gt;=&lt;/span&gt; &lt;span class=&#34;n&#34;&gt;myList&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;.&lt;/span&gt;&lt;span class=&#34;n&#34;&gt;push&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;(&lt;/span&gt;&lt;span class=&#34;nb&#34;&gt;value&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;)&lt;/span&gt; &lt;span class=&#34;o&#34;&gt;-&lt;/span&gt; &lt;span class=&#34;mi&#34;&gt;1&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;;&lt;/span&gt;
+&lt;/code&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;
+&lt;/div&gt;
+&lt;/div&gt;&lt;h3 id=&#34;定义字典&#34;&gt;定义字典&lt;/h3&gt;
+&lt;div class=&#34;highlight&#34;&gt;&lt;div class=&#34;chroma&#34;&gt;
+&lt;table class=&#34;lntable&#34;&gt;&lt;tr&gt;&lt;td class=&#34;lntd&#34;&gt;
+&lt;pre tabindex=&#34;0&#34; class=&#34;chroma&#34;&gt;&lt;code&gt;&lt;span class=&#34;lnt&#34;&gt;1
+&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt;2
+&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt;3
+&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/td&gt;
+&lt;td class=&#34;lntd&#34;&gt;
+&lt;pre tabindex=&#34;0&#34; class=&#34;chroma&#34;&gt;&lt;code class=&#34;language-solidity&#34; data-lang=&#34;solidity&#34;&gt;&lt;span class=&#34;kd&#34;&gt;mapping&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;(&lt;/span&gt;&lt;span class=&#34;kt&#34;&gt;string&lt;/span&gt; &lt;span class=&#34;o&#34;&gt;=&amp;gt;&lt;/span&gt; &lt;span class=&#34;kt&#34;&gt;uint&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;)&lt;/span&gt; &lt;span class=&#34;k&#34;&gt;public&lt;/span&gt; &lt;span class=&#34;n&#34;&gt;myDict&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;;&lt;/span&gt;
+&lt;span class=&#34;n&#34;&gt;unit&lt;/span&gt; &lt;span class=&#34;nb&#34;&gt;value&lt;/span&gt; &lt;span class=&#34;o&#34;&gt;=&lt;/span&gt; &lt;span class=&#34;mi&#34;&gt;4&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;;&lt;/span&gt;
+&lt;span class=&#34;n&#34;&gt;myDict&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;[&lt;/span&gt;&lt;span class=&#34;n&#34;&gt;key&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;]&lt;/span&gt; &lt;span class=&#34;o&#34;&gt;=&lt;/span&gt; &lt;span class=&#34;nb&#34;&gt;value&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;;&lt;/span&gt;
+&lt;/code&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;
+&lt;/div&gt;
+&lt;/div&gt;&lt;h3 id=&#34;memory关键字&#34;&gt;memory关键字&lt;/h3&gt;
+&lt;p&gt;memory是一个关键字，用于声明临时内存变量。它主要用于函数参数和临时变量，特别是在处理大量数据时非常有用。&lt;/p&gt;
+&lt;p&gt;当在函数参数中使用memory关键字时，表示该参数的值将被复制到临时内存中，并在函数执行完毕后被销毁。这对于字符串、数组和结构体等动态大小的数据类型非常有用，因为它们的大小在编译时是未知的。&lt;/p&gt;
+&lt;p&gt;以下是一些使用memory关键字的常见情况：&lt;/p&gt;
+&lt;ol&gt;
+&lt;li&gt;函数参数：对于需要传递大量数据的函数，将参数声明为memory类型可以避免将数据存储在存储器中，从而减少燃料消耗和交易成本。&lt;/li&gt;
+&lt;/ol&gt;
+&lt;div class=&#34;highlight&#34;&gt;&lt;div class=&#34;chroma&#34;&gt;
+&lt;table class=&#34;lntable&#34;&gt;&lt;tr&gt;&lt;td class=&#34;lntd&#34;&gt;
+&lt;pre tabindex=&#34;0&#34; class=&#34;chroma&#34;&gt;&lt;code&gt;&lt;span class=&#34;lnt&#34;&gt;1
+&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt;2
+&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt;3
+&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt;4
+&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt;5
+&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/td&gt;
+&lt;td class=&#34;lntd&#34;&gt;
+&lt;pre tabindex=&#34;0&#34; class=&#34;chroma&#34;&gt;&lt;code class=&#34;language-solidity&#34; data-lang=&#34;solidity&#34;&gt;&lt;span class=&#34;kd&#34;&gt;function&lt;/span&gt; &lt;span class=&#34;nf&#34;&gt;processArray&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;(&lt;/span&gt;&lt;span class=&#34;kt&#34;&gt;uint&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;[]&lt;/span&gt; &lt;span class=&#34;k&#34;&gt;memory&lt;/span&gt; &lt;span class=&#34;nb&#34;&gt;data&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;)&lt;/span&gt; &lt;span class=&#34;k&#34;&gt;public&lt;/span&gt; &lt;span class=&#34;p&#34;&gt;{&lt;/span&gt;
+    &lt;span class=&#34;c1&#34;&gt;// 在内存中处理数据
+&lt;/span&gt;&lt;span class=&#34;c1&#34;&gt;&lt;/span&gt;    &lt;span class=&#34;c1&#34;&gt;// ...
+&lt;/span&gt;&lt;span class=&#34;c1&#34;&gt;&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;}&lt;/span&gt;
+
+&lt;/code&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;
+&lt;/div&gt;
+&lt;/div&gt;&lt;ol start=&#34;2&#34;&gt;
+&lt;li&gt;结构体和数组临时变量：在函数内部声明结构体和数组时，可以使用memory关键字将其分配到临时内存中。&lt;/li&gt;
+&lt;/ol&gt;
+&lt;div class=&#34;highlight&#34;&gt;&lt;div class=&#34;chroma&#34;&gt;
+&lt;table class=&#34;lntable&#34;&gt;&lt;tr&gt;&lt;td class=&#34;lntd&#34;&gt;
+&lt;pre tabindex=&#34;0&#34; class=&#34;chroma&#34;&gt;&lt;code&gt;&lt;span class=&#34;lnt&#34;&gt;1
+&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt;2
+&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt;3
+&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt;4
+&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt;5
+&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/td&gt;
+&lt;td class=&#34;lntd&#34;&gt;
+&lt;pre tabindex=&#34;0&#34; class=&#34;chroma&#34;&gt;&lt;code class=&#34;language-solidity&#34; data-lang=&#34;solidity&#34;&gt;&lt;span class=&#34;kd&#34;&gt;function&lt;/span&gt; &lt;span class=&#34;nf&#34;&gt;processArray&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;(&lt;/span&gt;&lt;span class=&#34;kt&#34;&gt;uint&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;[]&lt;/span&gt; &lt;span class=&#34;k&#34;&gt;memory&lt;/span&gt; &lt;span class=&#34;nb&#34;&gt;data&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;)&lt;/span&gt; &lt;span class=&#34;k&#34;&gt;public&lt;/span&gt; &lt;span class=&#34;p&#34;&gt;{&lt;/span&gt;
+    &lt;span class=&#34;kt&#34;&gt;uint&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;[]&lt;/span&gt; &lt;span class=&#34;k&#34;&gt;memory&lt;/span&gt; &lt;span class=&#34;n&#34;&gt;tempArray&lt;/span&gt; &lt;span class=&#34;o&#34;&gt;=&lt;/span&gt; &lt;span class=&#34;k&#34;&gt;new&lt;/span&gt; &lt;span class=&#34;kt&#34;&gt;uint&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;[](&lt;/span&gt;&lt;span class=&#34;nb&#34;&gt;data&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;.&lt;/span&gt;&lt;span class=&#34;n&#34;&gt;length&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;);&lt;/span&gt;
+    &lt;span class=&#34;c1&#34;&gt;// 在内存中操作tempArray
+&lt;/span&gt;&lt;span class=&#34;c1&#34;&gt;&lt;/span&gt;    &lt;span class=&#34;c1&#34;&gt;// ...
+&lt;/span&gt;&lt;span class=&#34;c1&#34;&gt;&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;}&lt;/span&gt;
+&lt;/code&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;
+&lt;/div&gt;
+&lt;/div&gt;&lt;p&gt;需要注意的是，memory关键字只能用于值类型数据，而不能用于引用类型（例如storage）或指针类型。此外，memory中的数据无法在智能合约的不同函数之间保持持久性，因为它们在函数执行完毕后会被销毁。&lt;/p&gt;
+&lt;p&gt;总结：memory关键字在Solidity中用于声明临时内存变量，特别适用于处理动态大小的数据类型。它可以减少存储器使用、优化燃料消耗，并降低交易成本。&lt;/p&gt;
+&lt;h3 id=&#34;solidity中变量存储在存储器中的作用&#34;&gt;solidity中变量存储在存储器中的作用&lt;/h3&gt;
+&lt;p&gt;变量可以存储在不同的位置，包括存储器（storage）、内存（memory）和栈（stack）。每个位置都具有不同的特性和用途。&lt;/p&gt;
+&lt;p&gt;当变量存储在存储器中时，它具有以下特点和作用：&lt;/p&gt;
+&lt;ol&gt;
+&lt;li&gt;
+&lt;p&gt;持久性存储：存储器是永久性的，它的值会一直存在于智能合约的存储空间中，直到被显式地修改或删除。这意味着在不同的函数调用之间，存储在存储器中的变量的值是持久的。&lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;共享数据：存储器中的变量可以被智能合约的所有函数访问。这使得存储器非常适合存储合约状态、用户余额、合约配置等需要在整个合约中共享和持久化的数据。&lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;高成本：将变量存储在存储器中需要更高的燃料成本和交易成本，因为这涉及写入区块链的状态存储。对存储器的频繁读写操作可能会增加智能合约的执行成本。&lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;指针访问：通过引用（指针）方式访问存储器中的变量。这意味着在函数调用中传递存储器中的变量时，实际上是传递了一个指向该变量的指针，而不是复制整个变量的内容。这样可以节省内存和计算资源。&lt;/p&gt;
+&lt;/li&gt;
+&lt;/ol&gt;
+&lt;p&gt;存储器是Solidity中一种用于持久性存储和共享数据的位置。它适用于需要在整个合约中访问和修改的数据，但要注意高昂的成本和资源消耗。在选择变量存储位置时，需要根据具体需求平衡持久性、成本和访问速度等因素。&lt;/p&gt;
+&lt;h3 id=&#34;函数何时存储在存储器中&#34;&gt;函数何时存储在存储器中&lt;/h3&gt;
+&lt;p&gt;在Solidity中，变量的存储位置是根据其声明方式和上下文环境自动确定的。以下是一些影响变量存储位置的要点：&lt;/p&gt;
+&lt;ol&gt;
+&lt;li&gt;合约状态变量：合约中声明的状态变量（即合约级别的变量）默认存储在存储器中。例如：&lt;/li&gt;
+&lt;/ol&gt;
+&lt;div class=&#34;highlight&#34;&gt;&lt;div class=&#34;chroma&#34;&gt;
+&lt;table class=&#34;lntable&#34;&gt;&lt;tr&gt;&lt;td class=&#34;lntd&#34;&gt;
+&lt;pre tabindex=&#34;0&#34; class=&#34;chroma&#34;&gt;&lt;code&gt;&lt;span class=&#34;lnt&#34;&gt;1
+&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt;2
+&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt;3
+&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/td&gt;
+&lt;td class=&#34;lntd&#34;&gt;
+&lt;pre tabindex=&#34;0&#34; class=&#34;chroma&#34;&gt;&lt;code class=&#34;language-solidity&#34; data-lang=&#34;solidity&#34;&gt;&lt;span class=&#34;kd&#34;&gt;contract&lt;/span&gt; &lt;span class=&#34;nc&#34;&gt;MyContract&lt;/span&gt; &lt;span class=&#34;p&#34;&gt;{&lt;/span&gt;
+    &lt;span class=&#34;kt&#34;&gt;uint&lt;/span&gt; &lt;span class=&#34;k&#34;&gt;public&lt;/span&gt; &lt;span class=&#34;n&#34;&gt;myVariable&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;;&lt;/span&gt; &lt;span class=&#34;c1&#34;&gt;// 存储在存储器中，函数外
+&lt;/span&gt;&lt;span class=&#34;c1&#34;&gt;&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;}&lt;/span&gt;
+&lt;/code&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;
+&lt;/div&gt;
+&lt;/div&gt;&lt;ol start=&#34;2&#34;&gt;
+&lt;li&gt;函数参数和返回值：函数参数和返回值的存储位置可以使用关键字进行显式声明。&lt;/li&gt;
+&lt;/ol&gt;
+&lt;ul&gt;
+&lt;li&gt;memory关键字：使用memory关键字声明的参数和返回值存储在临时内存中，用于处理动态大小的数据类型（如字符串、数组和结构体）。&lt;/li&gt;
+&lt;/ul&gt;
+&lt;div class=&#34;highlight&#34;&gt;&lt;div class=&#34;chroma&#34;&gt;
+&lt;table class=&#34;lntable&#34;&gt;&lt;tr&gt;&lt;td class=&#34;lntd&#34;&gt;
+&lt;pre tabindex=&#34;0&#34; class=&#34;chroma&#34;&gt;&lt;code&gt;&lt;span class=&#34;lnt&#34;&gt;1
+&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt;2
+&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt;3
+&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt;4
+&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/td&gt;
+&lt;td class=&#34;lntd&#34;&gt;
+&lt;pre tabindex=&#34;0&#34; class=&#34;chroma&#34;&gt;&lt;code class=&#34;language-solidity&#34; data-lang=&#34;solidity&#34;&gt;&lt;span class=&#34;kd&#34;&gt;function&lt;/span&gt; &lt;span class=&#34;nf&#34;&gt;myFunction&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;(&lt;/span&gt;&lt;span class=&#34;kt&#34;&gt;uint&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;[]&lt;/span&gt; &lt;span class=&#34;k&#34;&gt;memory&lt;/span&gt; &lt;span class=&#34;n&#34;&gt;myArray&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;)&lt;/span&gt; &lt;span class=&#34;k&#34;&gt;public&lt;/span&gt; &lt;span class=&#34;k&#34;&gt;returns&lt;/span&gt; &lt;span class=&#34;p&#34;&gt;(&lt;/span&gt;&lt;span class=&#34;kt&#34;&gt;uint&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;[]&lt;/span&gt; &lt;span class=&#34;k&#34;&gt;memory&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;)&lt;/span&gt; &lt;span class=&#34;p&#34;&gt;{&lt;/span&gt;
+    &lt;span class=&#34;c1&#34;&gt;// 函数体
+&lt;/span&gt;&lt;span class=&#34;c1&#34;&gt;&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;}&lt;/span&gt;
+
+&lt;/code&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;
+&lt;/div&gt;
+&lt;/div&gt;&lt;ul&gt;
+&lt;li&gt;storage关键字：使用storage关键字声明的参数和返回值存储在存储器中，用于对状态变量进行引用。&lt;/li&gt;
+&lt;/ul&gt;
+&lt;div class=&#34;highlight&#34;&gt;&lt;div class=&#34;chroma&#34;&gt;
+&lt;table class=&#34;lntable&#34;&gt;&lt;tr&gt;&lt;td class=&#34;lntd&#34;&gt;
+&lt;pre tabindex=&#34;0&#34; class=&#34;chroma&#34;&gt;&lt;code&gt;&lt;span class=&#34;lnt&#34;&gt;1
+&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt;2
+&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt;3
+&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/td&gt;
+&lt;td class=&#34;lntd&#34;&gt;
+&lt;pre tabindex=&#34;0&#34; class=&#34;chroma&#34;&gt;&lt;code class=&#34;language-solidity&#34; data-lang=&#34;solidity&#34;&gt;&lt;span class=&#34;kd&#34;&gt;function&lt;/span&gt; &lt;span class=&#34;nf&#34;&gt;myFunction&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;(&lt;/span&gt;&lt;span class=&#34;kt&#34;&gt;uint&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;[]&lt;/span&gt; &lt;span class=&#34;k&#34;&gt;storage&lt;/span&gt; &lt;span class=&#34;n&#34;&gt;myArray&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;)&lt;/span&gt; &lt;span class=&#34;k&#34;&gt;public&lt;/span&gt; &lt;span class=&#34;k&#34;&gt;returns&lt;/span&gt; &lt;span class=&#34;p&#34;&gt;(&lt;/span&gt;&lt;span class=&#34;kt&#34;&gt;uint&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;[]&lt;/span&gt; &lt;span class=&#34;k&#34;&gt;storage&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;)&lt;/span&gt; &lt;span class=&#34;p&#34;&gt;{&lt;/span&gt;
+    &lt;span class=&#34;c1&#34;&gt;// 函数体
+&lt;/span&gt;&lt;span class=&#34;c1&#34;&gt;&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;}&lt;/span&gt;
+&lt;/code&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;
+&lt;/div&gt;
+&lt;/div&gt;&lt;ol start=&#34;3&#34;&gt;
+&lt;li&gt;局部变量：局部变量的存储位置在编译时自动确定，取决于其类型和使用方式。如果局部变量是引用类型（如结构体、数组或映射）并且没有使用关键字声明存储位置，它们将默认存储在存储器中。对于其他类型的局部变量，它们通常存储在栈上。&lt;/li&gt;
+&lt;/ol&gt;
+&lt;div class=&#34;highlight&#34;&gt;&lt;div class=&#34;chroma&#34;&gt;
+&lt;table class=&#34;lntable&#34;&gt;&lt;tr&gt;&lt;td class=&#34;lntd&#34;&gt;
+&lt;pre tabindex=&#34;0&#34; class=&#34;chroma&#34;&gt;&lt;code&gt;&lt;span class=&#34;lnt&#34;&gt;1
+&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt;2
+&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt;3
+&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt;4
+&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/td&gt;
+&lt;td class=&#34;lntd&#34;&gt;
+&lt;pre tabindex=&#34;0&#34; class=&#34;chroma&#34;&gt;&lt;code class=&#34;language-solidity&#34; data-lang=&#34;solidity&#34;&gt;&lt;span class=&#34;kd&#34;&gt;function&lt;/span&gt; &lt;span class=&#34;nf&#34;&gt;myFunction&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;()&lt;/span&gt; &lt;span class=&#34;k&#34;&gt;public&lt;/span&gt; &lt;span class=&#34;p&#34;&gt;{&lt;/span&gt;
+    &lt;span class=&#34;kt&#34;&gt;uint&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;[]&lt;/span&gt; &lt;span class=&#34;k&#34;&gt;memory&lt;/span&gt; &lt;span class=&#34;n&#34;&gt;myArray&lt;/span&gt; &lt;span class=&#34;o&#34;&gt;=&lt;/span&gt; &lt;span class=&#34;k&#34;&gt;new&lt;/span&gt; &lt;span class=&#34;kt&#34;&gt;uint&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;[](&lt;/span&gt;&lt;span class=&#34;mi&#34;&gt;5&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;);&lt;/span&gt; &lt;span class=&#34;c1&#34;&gt;// 存储在存储器中
+&lt;/span&gt;&lt;span class=&#34;c1&#34;&gt;&lt;/span&gt;    &lt;span class=&#34;kt&#34;&gt;uint&lt;/span&gt; &lt;span class=&#34;n&#34;&gt;myNumber&lt;/span&gt; &lt;span class=&#34;o&#34;&gt;=&lt;/span&gt; &lt;span class=&#34;mi&#34;&gt;10&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;;&lt;/span&gt; &lt;span class=&#34;c1&#34;&gt;// 存储在栈上
+&lt;/span&gt;&lt;span class=&#34;c1&#34;&gt;&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;}&lt;/span&gt;
+&lt;/code&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;
+&lt;/div&gt;
+&lt;/div&gt;&lt;p&gt;需要注意的是，在函数内部声明的局部变量在函数执行完毕后会被销毁，无法持久保存。&lt;/p&gt;
+&lt;p&gt;总结：变量的存储位置是根据声明方式和上下文环境自动确定的。合约状态变量默认存储在存储器中，函数参数和返回值可以使用memory和storage关键字显式声明存储位置，而局部变量的存储位置在编译时自动确定，通常根据类型和使用方式进行推断。&lt;/p&gt;
+&lt;h3 id=&#34;关键字view&#34;&gt;关键字view&lt;/h3&gt;
+&lt;p&gt;view function: 表示只能查看数据，不能修改数据。&lt;/p&gt;
+&lt;h3 id=&#34;关键字pure&#34;&gt;关键字pure&lt;/h3&gt;
+&lt;p&gt;pure function: 表示不能从app能访问数据。
+例如：&lt;/p&gt;
+&lt;div class=&#34;highlight&#34;&gt;&lt;div class=&#34;chroma&#34;&gt;
+&lt;table class=&#34;lntable&#34;&gt;&lt;tr&gt;&lt;td class=&#34;lntd&#34;&gt;
+&lt;pre tabindex=&#34;0&#34; class=&#34;chroma&#34;&gt;&lt;code&gt;&lt;span class=&#34;lnt&#34;&gt;1
+&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt;2
+&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt;3
+&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/td&gt;
+&lt;td class=&#34;lntd&#34;&gt;
+&lt;pre tabindex=&#34;0&#34; class=&#34;chroma&#34;&gt;&lt;code class=&#34;language-solidity&#34; data-lang=&#34;solidity&#34;&gt;&lt;span class=&#34;kd&#34;&gt;function&lt;/span&gt; &lt;span class=&#34;nf&#34;&gt;_multiply&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;(&lt;/span&gt;&lt;span class=&#34;kt&#34;&gt;uint&lt;/span&gt; &lt;span class=&#34;n&#34;&gt;a&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;,&lt;/span&gt; &lt;span class=&#34;kt&#34;&gt;uint&lt;/span&gt; &lt;span class=&#34;n&#34;&gt;b&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;)&lt;/span&gt; &lt;span class=&#34;k&#34;&gt;private&lt;/span&gt; &lt;span class=&#34;k&#34;&gt;pure&lt;/span&gt; &lt;span class=&#34;k&#34;&gt;returns&lt;/span&gt; &lt;span class=&#34;p&#34;&gt;(&lt;/span&gt;&lt;span class=&#34;kt&#34;&gt;uint&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;)&lt;/span&gt; &lt;span class=&#34;p&#34;&gt;{&lt;/span&gt;
+  &lt;span class=&#34;k&#34;&gt;return&lt;/span&gt; &lt;span class=&#34;n&#34;&gt;a&lt;/span&gt; &lt;span class=&#34;o&#34;&gt;*&lt;/span&gt; &lt;span class=&#34;n&#34;&gt;b&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;;&lt;/span&gt;
+&lt;span class=&#34;p&#34;&gt;}&lt;/span&gt;
+&lt;/code&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;
+&lt;/div&gt;
+&lt;/div&gt;&lt;h3 id=&#34;关键字event&#34;&gt;关键字event&lt;/h3&gt;
+&lt;p&gt;event关键字用于定义合约中的事件。事件是一种在合约中发生的、可以被外部观察的事情。通过定义事件，合约可以将重要的状态变化或操作结果通知给外部世界。&lt;/p&gt;
+&lt;p&gt;事件可以被视为合约与外部世界之间的通信机制。当某个合约中定义的事件被触发时，它将生成一个事件日志，该日志可以被其他合约、dApp或外部工具监听和读取。&lt;/p&gt;
+&lt;p&gt;事件通常用于以下几个方面：&lt;/p&gt;
+&lt;ol&gt;
+&lt;li&gt;
+&lt;p&gt;通知状态变化：当合约的某个状态发生变化时，通过触发事件可以通知其他合约或前端应用程序。这样，外部实体就可以及时获知合约中重要的状态变化，而无需主动轮询合约状态。&lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;事件溯源：通过在关键操作发生时触发事件，可以在区块链上创建一个不可篡改的事件日志。这对于审计和溯源非常有用，因为所有的事件都会被记录在区块链上，不可更改。&lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;前端通信：前端应用程序可以通过监听事件来响应合约中的变化，并及时更新用户界面。这样，用户可以实时获取合约的交互结果，提供更好的用户体验。&lt;/p&gt;
+&lt;/li&gt;
+&lt;/ol&gt;
+&lt;p&gt;以下是一个简单的Solidity事件定义的例子：&lt;/p&gt;
+&lt;div class=&#34;highlight&#34;&gt;&lt;div class=&#34;chroma&#34;&gt;
+&lt;table class=&#34;lntable&#34;&gt;&lt;tr&gt;&lt;td class=&#34;lntd&#34;&gt;
+&lt;pre tabindex=&#34;0&#34; class=&#34;chroma&#34;&gt;&lt;code&gt;&lt;span class=&#34;lnt&#34;&gt; 1
+&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt; 2
+&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt; 3
+&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt; 4
+&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt; 5
+&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt; 6
+&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt; 7
+&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt; 8
+&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt; 9
+&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt;10
+&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/td&gt;
+&lt;td class=&#34;lntd&#34;&gt;
+&lt;pre tabindex=&#34;0&#34; class=&#34;chroma&#34;&gt;&lt;code class=&#34;language-solidity&#34; data-lang=&#34;solidity&#34;&gt;&lt;span class=&#34;k&#34;&gt;pragma solidity&lt;/span&gt; &lt;span class=&#34;o&#34;&gt;^&lt;/span&gt;&lt;span class=&#34;mi&#34;&gt;0&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;.&lt;/span&gt;&lt;span class=&#34;mi&#34;&gt;8&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;.&lt;/span&gt;&lt;span class=&#34;mi&#34;&gt;0&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;;&lt;/span&gt;
+
+&lt;span class=&#34;kd&#34;&gt;contract&lt;/span&gt; &lt;span class=&#34;nc&#34;&gt;MyContract&lt;/span&gt; &lt;span class=&#34;p&#34;&gt;{&lt;/span&gt;
+    &lt;span class=&#34;kd&#34;&gt;event&lt;/span&gt; &lt;span class=&#34;nc&#34;&gt;MyEvent&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;(&lt;/span&gt;&lt;span class=&#34;kt&#34;&gt;address&lt;/span&gt; &lt;span class=&#34;k&#34;&gt;indexed&lt;/span&gt; &lt;span class=&#34;nb&#34;&gt;sender&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;,&lt;/span&gt; &lt;span class=&#34;kt&#34;&gt;uint256&lt;/span&gt; &lt;span class=&#34;nb&#34;&gt;value&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;);&lt;/span&gt;
+    
+    &lt;span class=&#34;kd&#34;&gt;function&lt;/span&gt; &lt;span class=&#34;nf&#34;&gt;myFunction&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;(&lt;/span&gt;&lt;span class=&#34;kt&#34;&gt;uint256&lt;/span&gt; &lt;span class=&#34;n&#34;&gt;_value&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;)&lt;/span&gt; &lt;span class=&#34;k&#34;&gt;public&lt;/span&gt; &lt;span class=&#34;p&#34;&gt;{&lt;/span&gt;
+        &lt;span class=&#34;c1&#34;&gt;// 执行一些操作
+&lt;/span&gt;&lt;span class=&#34;c1&#34;&gt;&lt;/span&gt;        &lt;span class=&#34;n&#34;&gt;emit&lt;/span&gt; &lt;span class=&#34;n&#34;&gt;MyEvent&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;(&lt;/span&gt;&lt;span class=&#34;nb&#34;&gt;msg&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;.&lt;/span&gt;&lt;span class=&#34;nb&#34;&gt;sender&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;,&lt;/span&gt; &lt;span class=&#34;n&#34;&gt;_value&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;);&lt;/span&gt;
+    &lt;span class=&#34;p&#34;&gt;}&lt;/span&gt;
+&lt;span class=&#34;p&#34;&gt;}&lt;/span&gt;
+&lt;/code&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;
+&lt;/div&gt;
+&lt;/div&gt;&lt;p&gt;在上述示例中，MyEvent是一个事件，它有两个参数：sender和value。emit关键字用于触发事件，并将相关参数的值传递给事件日志。在该合约中，每当myFunction函数被调用时，都会触发MyEvent事件，并记录调用者的地址和传入的值。&lt;/p&gt;
+&lt;p&gt;请注意，事件的定义并不会被调用方执行，它只是一个定义，用于指定事件的结构和参数。事件的触发必须在合约的函数中通过emit关键字显式调用。&lt;/p&gt;
+&lt;h3 id=&#34;msgsender&#34;&gt;msg.sender&lt;/h3&gt;
+&lt;p&gt;是地址的引用，哪个账户调用这个函数，msg.sender就是这个账户的地址。&lt;/p&gt;
+&lt;h3 id=&#34;关键字require&#34;&gt;关键字require&lt;/h3&gt;
+&lt;div class=&#34;highlight&#34;&gt;&lt;div class=&#34;chroma&#34;&gt;
+&lt;table class=&#34;lntable&#34;&gt;&lt;tr&gt;&lt;td class=&#34;lntd&#34;&gt;
+&lt;pre tabindex=&#34;0&#34; class=&#34;chroma&#34;&gt;&lt;code&gt;&lt;span class=&#34;lnt&#34;&gt;1
+&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt;2
+&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt;3
+&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt;4
+&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt;5
+&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt;6
+&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt;7
+&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt;8
+&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/td&gt;
+&lt;td class=&#34;lntd&#34;&gt;
+&lt;pre tabindex=&#34;0&#34; class=&#34;chroma&#34;&gt;&lt;code class=&#34;language-solidity&#34; data-lang=&#34;solidity&#34;&gt;&lt;span class=&#34;kd&#34;&gt;function&lt;/span&gt; &lt;span class=&#34;nf&#34;&gt;sayHiToVitalik&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;(&lt;/span&gt;&lt;span class=&#34;kt&#34;&gt;string&lt;/span&gt; &lt;span class=&#34;k&#34;&gt;memory&lt;/span&gt; &lt;span class=&#34;n&#34;&gt;_name&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;)&lt;/span&gt; &lt;span class=&#34;k&#34;&gt;public&lt;/span&gt; &lt;span class=&#34;k&#34;&gt;returns&lt;/span&gt; &lt;span class=&#34;p&#34;&gt;(&lt;/span&gt;&lt;span class=&#34;kt&#34;&gt;string&lt;/span&gt; &lt;span class=&#34;k&#34;&gt;memory&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;)&lt;/span&gt; &lt;span class=&#34;p&#34;&gt;{&lt;/span&gt;
+  &lt;span class=&#34;c1&#34;&gt;// Compares if _name equals &amp;#34;Vitalik&amp;#34;. Throws an error and exits if not true.
+&lt;/span&gt;&lt;span class=&#34;c1&#34;&gt;&lt;/span&gt;  &lt;span class=&#34;c1&#34;&gt;// (Side note: Solidity doesn&amp;#39;t have native string comparison, so we
+&lt;/span&gt;&lt;span class=&#34;c1&#34;&gt;&lt;/span&gt;  &lt;span class=&#34;c1&#34;&gt;// compare their keccak256 hashes to see if the strings are equal)
+&lt;/span&gt;&lt;span class=&#34;c1&#34;&gt;&lt;/span&gt;  &lt;span class=&#34;nb&#34;&gt;require&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;(&lt;/span&gt;&lt;span class=&#34;nb&#34;&gt;keccak256&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;(&lt;/span&gt;&lt;span class=&#34;nb&#34;&gt;abi&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;.&lt;/span&gt;&lt;span class=&#34;nb&#34;&gt;encodePacked&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;(&lt;/span&gt;&lt;span class=&#34;n&#34;&gt;_name&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;))&lt;/span&gt; &lt;span class=&#34;o&#34;&gt;==&lt;/span&gt; &lt;span class=&#34;nb&#34;&gt;keccak256&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;(&lt;/span&gt;&lt;span class=&#34;nb&#34;&gt;abi&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;.&lt;/span&gt;&lt;span class=&#34;nb&#34;&gt;encodePacked&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;(&lt;/span&gt;&lt;span class=&#34;s&#34;&gt;&amp;#34;Vitalik&amp;#34;&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;)));&lt;/span&gt;
+  &lt;span class=&#34;c1&#34;&gt;// If it&amp;#39;s true, proceed with the function:
+&lt;/span&gt;&lt;span class=&#34;c1&#34;&gt;&lt;/span&gt;  &lt;span class=&#34;k&#34;&gt;return&lt;/span&gt; &lt;span class=&#34;s&#34;&gt;&amp;#34;Hi!&amp;#34;&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;;&lt;/span&gt;
+&lt;span class=&#34;p&#34;&gt;}&lt;/span&gt;
+&lt;/code&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;
+&lt;/div&gt;
+&lt;/div&gt;&lt;p&gt;require可以用于验证require(condition)中condition条件是否成立，成立即可以调用该函数，否则会报错。&lt;/p&gt;
+&lt;h3 id=&#34;继承&#34;&gt;继承&lt;/h3&gt;
+&lt;div class=&#34;highlight&#34;&gt;&lt;div class=&#34;chroma&#34;&gt;
+&lt;table class=&#34;lntable&#34;&gt;&lt;tr&gt;&lt;td class=&#34;lntd&#34;&gt;
+&lt;pre tabindex=&#34;0&#34; class=&#34;chroma&#34;&gt;&lt;code&gt;&lt;span class=&#34;lnt&#34;&gt; 1
+&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt; 2
+&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt; 3
+&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt; 4
+&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt; 5
+&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt; 6
+&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt; 7
+&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt; 8
+&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt; 9
+&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt;10
+&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt;11
+&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/td&gt;
+&lt;td class=&#34;lntd&#34;&gt;
+&lt;pre tabindex=&#34;0&#34; class=&#34;chroma&#34;&gt;&lt;code class=&#34;language-solidity&#34; data-lang=&#34;solidity&#34;&gt;&lt;span class=&#34;kd&#34;&gt;contract&lt;/span&gt; &lt;span class=&#34;nc&#34;&gt;Doge&lt;/span&gt; &lt;span class=&#34;p&#34;&gt;{&lt;/span&gt;
+  &lt;span class=&#34;kd&#34;&gt;function&lt;/span&gt; &lt;span class=&#34;nf&#34;&gt;catchphrase&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;()&lt;/span&gt; &lt;span class=&#34;k&#34;&gt;public&lt;/span&gt; &lt;span class=&#34;k&#34;&gt;returns&lt;/span&gt; &lt;span class=&#34;p&#34;&gt;(&lt;/span&gt;&lt;span class=&#34;kt&#34;&gt;string&lt;/span&gt; &lt;span class=&#34;k&#34;&gt;memory&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;)&lt;/span&gt; &lt;span class=&#34;p&#34;&gt;{&lt;/span&gt;
+    &lt;span class=&#34;k&#34;&gt;return&lt;/span&gt; &lt;span class=&#34;s&#34;&gt;&amp;#34;So Wow CryptoDoge&amp;#34;&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;;&lt;/span&gt;
+  &lt;span class=&#34;p&#34;&gt;}&lt;/span&gt;
+&lt;span class=&#34;p&#34;&gt;}&lt;/span&gt;
+
+&lt;span class=&#34;kd&#34;&gt;contract&lt;/span&gt; &lt;span class=&#34;nc&#34;&gt;BabyDoge&lt;/span&gt; &lt;span class=&#34;k&#34;&gt;is&lt;/span&gt; &lt;span class=&#34;n&#34;&gt;Doge&lt;/span&gt; &lt;span class=&#34;p&#34;&gt;{&lt;/span&gt;
+  &lt;span class=&#34;kd&#34;&gt;function&lt;/span&gt; &lt;span class=&#34;nf&#34;&gt;anotherCatchphrase&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;()&lt;/span&gt; &lt;span class=&#34;k&#34;&gt;public&lt;/span&gt; &lt;span class=&#34;k&#34;&gt;returns&lt;/span&gt; &lt;span class=&#34;p&#34;&gt;(&lt;/span&gt;&lt;span class=&#34;kt&#34;&gt;string&lt;/span&gt; &lt;span class=&#34;k&#34;&gt;memory&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;)&lt;/span&gt; &lt;span class=&#34;p&#34;&gt;{&lt;/span&gt;
+    &lt;span class=&#34;k&#34;&gt;return&lt;/span&gt; &lt;span class=&#34;s&#34;&gt;&amp;#34;Such Moon BabyDoge&amp;#34;&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;;&lt;/span&gt;
+  &lt;span class=&#34;p&#34;&gt;}&lt;/span&gt;
+&lt;span class=&#34;p&#34;&gt;}&lt;/span&gt;
+&lt;/code&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;
+&lt;/div&gt;
+&lt;/div&gt;&lt;h3 id=&#34;关键字internal-和-external&#34;&gt;关键字internal 和 external&lt;/h3&gt;
+&lt;p&gt;internal关键字：子合约可以调用父合约中的internal方法。类似与private，但如果是private函数，那么子合约不能调用父合约中的private方法。
+external关键字：只有在合约外部才可以调用的方法，合约内部不可以调用。类似于public。&lt;/p&gt;
+&lt;h3 id=&#34;interface&#34;&gt;interface&lt;/h3&gt;
+&lt;ol&gt;
+&lt;li&gt;只调用被人的合约，只声明需要交互的函数，不需要涉及其他函数和状态变量。&lt;/li&gt;
+&lt;li&gt;只定义函数名，不定义函数体。
+名称中函数有interface。&lt;/li&gt;
+&lt;/ol&gt;
+&lt;div class=&#34;highlight&#34;&gt;&lt;div class=&#34;chroma&#34;&gt;
+&lt;table class=&#34;lntable&#34;&gt;&lt;tr&gt;&lt;td class=&#34;lntd&#34;&gt;
+&lt;pre tabindex=&#34;0&#34; class=&#34;chroma&#34;&gt;&lt;code&gt;&lt;span class=&#34;lnt&#34;&gt;1
+&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt;2
+&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt;3
+&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/td&gt;
+&lt;td class=&#34;lntd&#34;&gt;
+&lt;pre tabindex=&#34;0&#34; class=&#34;chroma&#34;&gt;&lt;code class=&#34;language-solidity&#34; data-lang=&#34;solidity&#34;&gt;&lt;span class=&#34;kd&#34;&gt;contract&lt;/span&gt; &lt;span class=&#34;nc&#34;&gt;NumberInterface&lt;/span&gt; &lt;span class=&#34;p&#34;&gt;{&lt;/span&gt;
+  &lt;span class=&#34;kd&#34;&gt;function&lt;/span&gt; &lt;span class=&#34;nf&#34;&gt;getNum&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;(&lt;/span&gt;&lt;span class=&#34;kt&#34;&gt;address&lt;/span&gt; &lt;span class=&#34;n&#34;&gt;_myAddress&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;)&lt;/span&gt; &lt;span class=&#34;k&#34;&gt;public&lt;/span&gt; &lt;span class=&#34;k&#34;&gt;view&lt;/span&gt; &lt;span class=&#34;k&#34;&gt;returns&lt;/span&gt; &lt;span class=&#34;p&#34;&gt;(&lt;/span&gt;&lt;span class=&#34;kt&#34;&gt;uint&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;);&lt;/span&gt;
+&lt;span class=&#34;p&#34;&gt;}&lt;/span&gt;
+&lt;/code&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;
+&lt;/div&gt;
+&lt;/div&gt;&lt;h3 id=&#34;immutability-of-contract&#34;&gt;immutability of contract&lt;/h3&gt;
+&lt;p&gt;合约的不可变性，一旦合约部署在以太坊，合约就不能修改或者更新。&lt;/p&gt;
+&lt;h4 id=&#34;openzeppelin库&#34;&gt;OpenZeppelin库&lt;/h4&gt;
+&lt;p&gt;它是一个安全的智能合约库，由社区审核，可以在自己的DApps中使用。&lt;/p&gt;
+&lt;div class=&#34;highlight&#34;&gt;&lt;div class=&#34;chroma&#34;&gt;
+&lt;table class=&#34;lntable&#34;&gt;&lt;tr&gt;&lt;td class=&#34;lntd&#34;&gt;
+&lt;pre tabindex=&#34;0&#34; class=&#34;chroma&#34;&gt;&lt;code&gt;&lt;span class=&#34;lnt&#34;&gt; 1
+&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt; 2
+&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt; 3
+&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt; 4
+&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt; 5
+&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt; 6
+&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt; 7
+&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt; 8
+&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt; 9
+&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt;10
+&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt;11
+&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt;12
+&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt;13
+&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt;14
+&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt;15
+&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt;16
+&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt;17
+&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt;18
+&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt;19
+&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt;20
+&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt;21
+&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt;22
+&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt;23
+&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt;24
+&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt;25
+&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt;26
+&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt;27
+&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt;28
+&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt;29
+&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt;30
+&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt;31
+&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt;32
+&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt;33
+&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt;34
+&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt;35
+&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt;36
+&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt;37
+&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt;38
+&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt;39
+&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt;40
+&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt;41
+&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt;42
+&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt;43
+&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt;44
+&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt;45
+&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt;46
+&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt;47
+&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt;48
+&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt;49
+&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt;50
+&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt;51
+&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt;52
+&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt;53
+&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt;54
+&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt;55
+&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt;56
+&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt;57
+&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt;58
+&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt;59
+&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt;60
+&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt;61
+&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt;62
+&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt;63
+&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt;64
+&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt;65
+&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt;66
+&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt;67
+&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt;68
+&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt;69
+&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt;70
+&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt;71
+&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt;72
+&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt;73
+&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/td&gt;
+&lt;td class=&#34;lntd&#34;&gt;
+&lt;pre tabindex=&#34;0&#34; class=&#34;chroma&#34;&gt;&lt;code class=&#34;language-solidity&#34; data-lang=&#34;solidity&#34;&gt;&lt;span class=&#34;cm&#34;&gt;/**
+&lt;/span&gt;&lt;span class=&#34;cm&#34;&gt; * @title Ownable
+&lt;/span&gt;&lt;span class=&#34;cm&#34;&gt; * @dev The Ownable contract has an owner address, and provides basic authorization control
+&lt;/span&gt;&lt;span class=&#34;cm&#34;&gt; * functions, this simplifies the implementation of &amp;#34;user permissions&amp;#34;.
+&lt;/span&gt;&lt;span class=&#34;cm&#34;&gt; */&lt;/span&gt;
+&lt;span class=&#34;kd&#34;&gt;contract&lt;/span&gt; &lt;span class=&#34;nc&#34;&gt;Ownable&lt;/span&gt; &lt;span class=&#34;p&#34;&gt;{&lt;/span&gt;
+  &lt;span class=&#34;kt&#34;&gt;address&lt;/span&gt; &lt;span class=&#34;k&#34;&gt;private&lt;/span&gt; &lt;span class=&#34;n&#34;&gt;_owner&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;;&lt;/span&gt;
+
+  &lt;span class=&#34;kd&#34;&gt;event&lt;/span&gt; &lt;span class=&#34;nc&#34;&gt;OwnershipTransferred&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;(&lt;/span&gt;
+    &lt;span class=&#34;kt&#34;&gt;address&lt;/span&gt; &lt;span class=&#34;k&#34;&gt;indexed&lt;/span&gt; &lt;span class=&#34;n&#34;&gt;previousOwner&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;,&lt;/span&gt;
+    &lt;span class=&#34;kt&#34;&gt;address&lt;/span&gt; &lt;span class=&#34;k&#34;&gt;indexed&lt;/span&gt; &lt;span class=&#34;n&#34;&gt;newOwner&lt;/span&gt;
+  &lt;span class=&#34;p&#34;&gt;);&lt;/span&gt;
+
+  &lt;span class=&#34;cm&#34;&gt;/**
+&lt;/span&gt;&lt;span class=&#34;cm&#34;&gt;   * @dev The Ownable constructor sets the original `owner` of the contract to the sender
+&lt;/span&gt;&lt;span class=&#34;cm&#34;&gt;   * account.
+&lt;/span&gt;&lt;span class=&#34;cm&#34;&gt;   */&lt;/span&gt;
+  &lt;span class=&#34;kd&#34;&gt;constructor&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;()&lt;/span&gt; &lt;span class=&#34;k&#34;&gt;internal&lt;/span&gt; &lt;span class=&#34;p&#34;&gt;{&lt;/span&gt;
+    &lt;span class=&#34;n&#34;&gt;_owner&lt;/span&gt; &lt;span class=&#34;o&#34;&gt;=&lt;/span&gt; &lt;span class=&#34;nb&#34;&gt;msg&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;.&lt;/span&gt;&lt;span class=&#34;nb&#34;&gt;sender&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;;&lt;/span&gt;
+    &lt;span class=&#34;n&#34;&gt;emit&lt;/span&gt; &lt;span class=&#34;n&#34;&gt;OwnershipTransferred&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;(&lt;/span&gt;&lt;span class=&#34;kt&#34;&gt;address&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;(&lt;/span&gt;&lt;span class=&#34;mi&#34;&gt;0&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;),&lt;/span&gt; &lt;span class=&#34;n&#34;&gt;_owner&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;);&lt;/span&gt;
+  &lt;span class=&#34;p&#34;&gt;}&lt;/span&gt;
+
+  &lt;span class=&#34;cm&#34;&gt;/**
+&lt;/span&gt;&lt;span class=&#34;cm&#34;&gt;   * @return the address of the owner.
+&lt;/span&gt;&lt;span class=&#34;cm&#34;&gt;   */&lt;/span&gt;
+  &lt;span class=&#34;kd&#34;&gt;function&lt;/span&gt; &lt;span class=&#34;nf&#34;&gt;owner&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;()&lt;/span&gt; &lt;span class=&#34;k&#34;&gt;public&lt;/span&gt; &lt;span class=&#34;k&#34;&gt;view&lt;/span&gt; &lt;span class=&#34;k&#34;&gt;returns&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;(&lt;/span&gt;&lt;span class=&#34;kt&#34;&gt;address&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;)&lt;/span&gt; &lt;span class=&#34;p&#34;&gt;{&lt;/span&gt;
+    &lt;span class=&#34;k&#34;&gt;return&lt;/span&gt; &lt;span class=&#34;n&#34;&gt;_owner&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;;&lt;/span&gt;
+  &lt;span class=&#34;p&#34;&gt;}&lt;/span&gt;
+
+  &lt;span class=&#34;cm&#34;&gt;/**
+&lt;/span&gt;&lt;span class=&#34;cm&#34;&gt;   * @dev Throws if called by any account other than the owner.
+&lt;/span&gt;&lt;span class=&#34;cm&#34;&gt;   */&lt;/span&gt;
+  &lt;span class=&#34;kd&#34;&gt;modifier&lt;/span&gt; &lt;span class=&#34;nf&#34;&gt;onlyOwner&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;()&lt;/span&gt; &lt;span class=&#34;p&#34;&gt;{&lt;/span&gt;
+    &lt;span class=&#34;nb&#34;&gt;require&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;(&lt;/span&gt;&lt;span class=&#34;n&#34;&gt;isOwner&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;());&lt;/span&gt;
+    &lt;span class=&#34;k&#34;&gt;_&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;;&lt;/span&gt;
+  &lt;span class=&#34;p&#34;&gt;}&lt;/span&gt;
+
+  &lt;span class=&#34;cm&#34;&gt;/**
+&lt;/span&gt;&lt;span class=&#34;cm&#34;&gt;   * @return true if `msg.sender` is the owner of the contract.
+&lt;/span&gt;&lt;span class=&#34;cm&#34;&gt;   */&lt;/span&gt;
+  &lt;span class=&#34;kd&#34;&gt;function&lt;/span&gt; &lt;span class=&#34;nf&#34;&gt;isOwner&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;()&lt;/span&gt; &lt;span class=&#34;k&#34;&gt;public&lt;/span&gt; &lt;span class=&#34;k&#34;&gt;view&lt;/span&gt; &lt;span class=&#34;k&#34;&gt;returns&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;(&lt;/span&gt;&lt;span class=&#34;kt&#34;&gt;bool&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;)&lt;/span&gt; &lt;span class=&#34;p&#34;&gt;{&lt;/span&gt;
+    &lt;span class=&#34;k&#34;&gt;return&lt;/span&gt; &lt;span class=&#34;nb&#34;&gt;msg&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;.&lt;/span&gt;&lt;span class=&#34;nb&#34;&gt;sender&lt;/span&gt; &lt;span class=&#34;o&#34;&gt;==&lt;/span&gt; &lt;span class=&#34;n&#34;&gt;_owner&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;;&lt;/span&gt;
+  &lt;span class=&#34;p&#34;&gt;}&lt;/span&gt;
+
+  &lt;span class=&#34;cm&#34;&gt;/**
+&lt;/span&gt;&lt;span class=&#34;cm&#34;&gt;   * @dev Allows the current owner to relinquish control of the contract.
+&lt;/span&gt;&lt;span class=&#34;cm&#34;&gt;   * @notice Renouncing to ownership will leave the contract without an owner.
+&lt;/span&gt;&lt;span class=&#34;cm&#34;&gt;   * It will not be possible to call the functions with the `onlyOwner`
+&lt;/span&gt;&lt;span class=&#34;cm&#34;&gt;   * modifier anymore.
+&lt;/span&gt;&lt;span class=&#34;cm&#34;&gt;   */&lt;/span&gt;
+  &lt;span class=&#34;kd&#34;&gt;function&lt;/span&gt; &lt;span class=&#34;nf&#34;&gt;renounceOwnership&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;()&lt;/span&gt; &lt;span class=&#34;k&#34;&gt;public&lt;/span&gt; &lt;span class=&#34;n&#34;&gt;onlyOwner&lt;/span&gt; &lt;span class=&#34;p&#34;&gt;{&lt;/span&gt;
+    &lt;span class=&#34;n&#34;&gt;emit&lt;/span&gt; &lt;span class=&#34;n&#34;&gt;OwnershipTransferred&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;(&lt;/span&gt;&lt;span class=&#34;n&#34;&gt;_owner&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;,&lt;/span&gt; &lt;span class=&#34;kt&#34;&gt;address&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;(&lt;/span&gt;&lt;span class=&#34;mi&#34;&gt;0&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;));&lt;/span&gt;
+    &lt;span class=&#34;n&#34;&gt;_owner&lt;/span&gt; &lt;span class=&#34;o&#34;&gt;=&lt;/span&gt; &lt;span class=&#34;kt&#34;&gt;address&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;(&lt;/span&gt;&lt;span class=&#34;mi&#34;&gt;0&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;);&lt;/span&gt;
+  &lt;span class=&#34;p&#34;&gt;}&lt;/span&gt;
+
+  &lt;span class=&#34;cm&#34;&gt;/**
+&lt;/span&gt;&lt;span class=&#34;cm&#34;&gt;   * @dev Allows the current owner to transfer control of the contract to a newOwner.
+&lt;/span&gt;&lt;span class=&#34;cm&#34;&gt;   * @param newOwner The address to transfer ownership to.
+&lt;/span&gt;&lt;span class=&#34;cm&#34;&gt;   */&lt;/span&gt;
+  &lt;span class=&#34;kd&#34;&gt;function&lt;/span&gt; &lt;span class=&#34;nf&#34;&gt;transferOwnership&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;(&lt;/span&gt;&lt;span class=&#34;kt&#34;&gt;address&lt;/span&gt; &lt;span class=&#34;n&#34;&gt;newOwner&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;)&lt;/span&gt; &lt;span class=&#34;k&#34;&gt;public&lt;/span&gt; &lt;span class=&#34;n&#34;&gt;onlyOwner&lt;/span&gt; &lt;span class=&#34;p&#34;&gt;{&lt;/span&gt;
+    &lt;span class=&#34;n&#34;&gt;_transferOwnership&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;(&lt;/span&gt;&lt;span class=&#34;n&#34;&gt;newOwner&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;);&lt;/span&gt;
+  &lt;span class=&#34;p&#34;&gt;}&lt;/span&gt;
+
+  &lt;span class=&#34;cm&#34;&gt;/**
+&lt;/span&gt;&lt;span class=&#34;cm&#34;&gt;   * @dev Transfers control of the contract to a newOwner.
+&lt;/span&gt;&lt;span class=&#34;cm&#34;&gt;   * @param newOwner The address to transfer ownership to.
+&lt;/span&gt;&lt;span class=&#34;cm&#34;&gt;   */&lt;/span&gt;
+  &lt;span class=&#34;kd&#34;&gt;function&lt;/span&gt; &lt;span class=&#34;nf&#34;&gt;_transferOwnership&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;(&lt;/span&gt;&lt;span class=&#34;kt&#34;&gt;address&lt;/span&gt; &lt;span class=&#34;n&#34;&gt;newOwner&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;)&lt;/span&gt; &lt;span class=&#34;k&#34;&gt;internal&lt;/span&gt; &lt;span class=&#34;p&#34;&gt;{&lt;/span&gt;
+    &lt;span class=&#34;nb&#34;&gt;require&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;(&lt;/span&gt;&lt;span class=&#34;n&#34;&gt;newOwner&lt;/span&gt; &lt;span class=&#34;o&#34;&gt;!=&lt;/span&gt; &lt;span class=&#34;kt&#34;&gt;address&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;(&lt;/span&gt;&lt;span class=&#34;mi&#34;&gt;0&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;));&lt;/span&gt;
+    &lt;span class=&#34;n&#34;&gt;emit&lt;/span&gt; &lt;span class=&#34;n&#34;&gt;OwnershipTransferred&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;(&lt;/span&gt;&lt;span class=&#34;n&#34;&gt;_owner&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;,&lt;/span&gt; &lt;span class=&#34;n&#34;&gt;newOwner&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;);&lt;/span&gt;
+    &lt;span class=&#34;n&#34;&gt;_owner&lt;/span&gt; &lt;span class=&#34;o&#34;&gt;=&lt;/span&gt; &lt;span class=&#34;n&#34;&gt;newOwner&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;;&lt;/span&gt;
+  &lt;span class=&#34;p&#34;&gt;}&lt;/span&gt;
+&lt;span class=&#34;p&#34;&gt;}&lt;/span&gt;
+&lt;/code&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;
+&lt;/div&gt;
+&lt;/div&gt;&lt;h4 id=&#34;onlyowner&#34;&gt;onlyOwner&lt;/h4&gt;
+&lt;p&gt;可以设置只有owner才有能调用的函数。&lt;/p&gt;
+&lt;div class=&#34;highlight&#34;&gt;&lt;div class=&#34;chroma&#34;&gt;
+&lt;table class=&#34;lntable&#34;&gt;&lt;tr&gt;&lt;td class=&#34;lntd&#34;&gt;
+&lt;pre tabindex=&#34;0&#34; class=&#34;chroma&#34;&gt;&lt;code&gt;&lt;span class=&#34;lnt&#34;&gt; 1
+&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt; 2
+&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt; 3
+&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt; 4
+&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt; 5
+&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt; 6
+&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt; 7
+&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt; 8
+&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt; 9
+&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt;10
+&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt;11
+&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt;12
+&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt;13
+&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt;14
+&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt;15
+&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt;16
+&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt;17
+&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt;18
+&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt;19
+&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt;20
+&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt;21
+&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt;22
+&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt;23
+&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/td&gt;
+&lt;td class=&#34;lntd&#34;&gt;
+&lt;pre tabindex=&#34;0&#34; class=&#34;chroma&#34;&gt;&lt;code class=&#34;language-solidity&#34; data-lang=&#34;solidity&#34;&gt;&lt;span class=&#34;kd&#34;&gt;modifier&lt;/span&gt; &lt;span class=&#34;nf&#34;&gt;onlyOwner&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;()&lt;/span&gt; &lt;span class=&#34;p&#34;&gt;{&lt;/span&gt;
+    &lt;span class=&#34;nb&#34;&gt;require&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;(&lt;/span&gt;&lt;span class=&#34;n&#34;&gt;isOwner&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;());&lt;/span&gt;
+    &lt;span class=&#34;k&#34;&gt;_&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;;&lt;/span&gt;
+  &lt;span class=&#34;p&#34;&gt;}&lt;/span&gt;
+
+&lt;span class=&#34;cm&#34;&gt;/**
+&lt;/span&gt;&lt;span class=&#34;cm&#34;&gt;   * @dev Allows the current owner to relinquish control of the contract.
+&lt;/span&gt;&lt;span class=&#34;cm&#34;&gt;   * @notice Renouncing to ownership will leave the contract without an owner.
+&lt;/span&gt;&lt;span class=&#34;cm&#34;&gt;   * It will not be possible to call the functions with the `onlyOwner`
+&lt;/span&gt;&lt;span class=&#34;cm&#34;&gt;   * modifier anymore.
+&lt;/span&gt;&lt;span class=&#34;cm&#34;&gt;   */&lt;/span&gt;
+  &lt;span class=&#34;kd&#34;&gt;function&lt;/span&gt; &lt;span class=&#34;nf&#34;&gt;renounceOwnership&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;()&lt;/span&gt; &lt;span class=&#34;k&#34;&gt;public&lt;/span&gt; &lt;span class=&#34;n&#34;&gt;onlyOwner&lt;/span&gt; &lt;span class=&#34;p&#34;&gt;{&lt;/span&gt;
+    &lt;span class=&#34;n&#34;&gt;emit&lt;/span&gt; &lt;span class=&#34;n&#34;&gt;OwnershipTransferred&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;(&lt;/span&gt;&lt;span class=&#34;n&#34;&gt;_owner&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;,&lt;/span&gt; &lt;span class=&#34;kt&#34;&gt;address&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;(&lt;/span&gt;&lt;span class=&#34;mi&#34;&gt;0&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;));&lt;/span&gt;
+    &lt;span class=&#34;n&#34;&gt;_owner&lt;/span&gt; &lt;span class=&#34;o&#34;&gt;=&lt;/span&gt; &lt;span class=&#34;kt&#34;&gt;address&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;(&lt;/span&gt;&lt;span class=&#34;mi&#34;&gt;0&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;);&lt;/span&gt;
+  &lt;span class=&#34;p&#34;&gt;}&lt;/span&gt;
+
+  &lt;span class=&#34;cm&#34;&gt;/**
+&lt;/span&gt;&lt;span class=&#34;cm&#34;&gt;   * @dev Allows the current owner to transfer control of the contract to a newOwner.
+&lt;/span&gt;&lt;span class=&#34;cm&#34;&gt;   * @param newOwner The address to transfer ownership to.
+&lt;/span&gt;&lt;span class=&#34;cm&#34;&gt;   */&lt;/span&gt;
+  &lt;span class=&#34;kd&#34;&gt;function&lt;/span&gt; &lt;span class=&#34;nf&#34;&gt;transferOwnership&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;(&lt;/span&gt;&lt;span class=&#34;kt&#34;&gt;address&lt;/span&gt; &lt;span class=&#34;n&#34;&gt;newOwner&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;)&lt;/span&gt; &lt;span class=&#34;k&#34;&gt;public&lt;/span&gt; &lt;span class=&#34;n&#34;&gt;onlyOwner&lt;/span&gt; &lt;span class=&#34;p&#34;&gt;{&lt;/span&gt;
+    &lt;span class=&#34;n&#34;&gt;_transferOwnership&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;(&lt;/span&gt;&lt;span class=&#34;n&#34;&gt;newOwner&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;);&lt;/span&gt;
+  &lt;span class=&#34;p&#34;&gt;}&lt;/span&gt;
+&lt;/code&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;
+&lt;/div&gt;
+&lt;/div&gt;&lt;p&gt;调用函数&lt;code&gt;renounceOwnership&lt;/code&gt;时，会先执行&lt;code&gt;onlyOwner&lt;/code&gt;函数中的代码，然后再回到&lt;code&gt;renounceOwnership&lt;/code&gt;函数中执行其余代码。&lt;code&gt;onlyOwner&lt;/code&gt;函数是一个修饰器函数，用于限制只有合约拥有者才能调用某些函数。在这里，它被用于确保只有合约拥有者才能调用&lt;code&gt;renounceOwnership&lt;/code&gt;函数。&lt;/p&gt;
+&lt;h3 id=&#34;构造函数&#34;&gt;构造函数&lt;/h3&gt;
+&lt;p&gt;solidity构造函数定义方式:&lt;/p&gt;
+&lt;div class=&#34;highlight&#34;&gt;&lt;div class=&#34;chroma&#34;&gt;
+&lt;table class=&#34;lntable&#34;&gt;&lt;tr&gt;&lt;td class=&#34;lntd&#34;&gt;
+&lt;pre tabindex=&#34;0&#34; class=&#34;chroma&#34;&gt;&lt;code&gt;&lt;span class=&#34;lnt&#34;&gt;1
+&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt;2
+&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt;3
+&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt;4
+&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/td&gt;
+&lt;td class=&#34;lntd&#34;&gt;
+&lt;pre tabindex=&#34;0&#34; class=&#34;chroma&#34;&gt;&lt;code class=&#34;language-solidity&#34; data-lang=&#34;solidity&#34;&gt;&lt;span class=&#34;kd&#34;&gt;constructor&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;()&lt;/span&gt; &lt;span class=&#34;k&#34;&gt;internal&lt;/span&gt; &lt;span class=&#34;p&#34;&gt;{&lt;/span&gt;
+    &lt;span class=&#34;n&#34;&gt;_owner&lt;/span&gt; &lt;span class=&#34;o&#34;&gt;=&lt;/span&gt; &lt;span class=&#34;nb&#34;&gt;msg&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;.&lt;/span&gt;&lt;span class=&#34;nb&#34;&gt;sender&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;;&lt;/span&gt;
+    &lt;span class=&#34;n&#34;&gt;emit&lt;/span&gt; &lt;span class=&#34;n&#34;&gt;OwnershipTransferred&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;(&lt;/span&gt;&lt;span class=&#34;kt&#34;&gt;address&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;(&lt;/span&gt;&lt;span class=&#34;mi&#34;&gt;0&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;),&lt;/span&gt; &lt;span class=&#34;n&#34;&gt;_owner&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;);&lt;/span&gt;
+  &lt;span class=&#34;p&#34;&gt;}&lt;/span&gt;
+&lt;/code&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;
+&lt;/div&gt;
+&lt;/div&gt;&lt;p&gt;它只会在合约被创建的时候执行，并只执行一次。&lt;/p&gt;
+&lt;h3 id=&#34;modifier-function&#34;&gt;modifier function&lt;/h3&gt;
+&lt;div class=&#34;highlight&#34;&gt;&lt;div class=&#34;chroma&#34;&gt;
+&lt;table class=&#34;lntable&#34;&gt;&lt;tr&gt;&lt;td class=&#34;lntd&#34;&gt;
+&lt;pre tabindex=&#34;0&#34; class=&#34;chroma&#34;&gt;&lt;code&gt;&lt;span class=&#34;lnt&#34;&gt;1
+&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt;2
+&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt;3
+&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt;4
+&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/td&gt;
+&lt;td class=&#34;lntd&#34;&gt;
+&lt;pre tabindex=&#34;0&#34; class=&#34;chroma&#34;&gt;&lt;code class=&#34;language-solidity&#34; data-lang=&#34;solidity&#34;&gt;&lt;span class=&#34;kd&#34;&gt;modifier&lt;/span&gt; &lt;span class=&#34;nf&#34;&gt;onlyOwner&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;()&lt;/span&gt; &lt;span class=&#34;p&#34;&gt;{&lt;/span&gt;
+    &lt;span class=&#34;nb&#34;&gt;require&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;(&lt;/span&gt;&lt;span class=&#34;n&#34;&gt;isOwner&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;());&lt;/span&gt;
+    &lt;span class=&#34;k&#34;&gt;_&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;;&lt;/span&gt;
+  &lt;span class=&#34;p&#34;&gt;}&lt;/span&gt;
+&lt;/code&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;
+&lt;/div&gt;
+&lt;/div&gt;&lt;p&gt;modifier函数用于修改其他函数，通常需要一些先验的检查。&lt;/p&gt;
+&lt;h3 id=&#34;gas&#34;&gt;gas&lt;/h3&gt;
+&lt;p&gt;gas费的高低取决于函数的复杂程度和和计算资源的大小。总的gas费是每个操作gas费的总和。&lt;/p&gt;
+&lt;p&gt;因为用户需要为每次函数调用支付gas费，所以优化代码在dapp上显得非常重要。&lt;/p&gt;
+&lt;h4 id=&#34;为什么gas费是必要的&#34;&gt;为什么gas费是必要的？&lt;/h4&gt;
+&lt;p&gt;以太坊是一个巨大的，很慢的但是极度安全的计算机。当你执行一个函数时，在网络上的每一个单一节点都需要验证这个函数的输出。正是因为成千上万个节点验证函数的输出保证了以太坊的去中心化和数据不可篡改以及抗审查。&lt;/p&gt;
+&lt;p&gt;以太坊的创建者们想要确保网络不会被无限循环的代码或者过于密集的计算所占用，所以他们让交易不是免费的，而且用户必须为计算时间和存储付费。&lt;/p&gt;
+&lt;h4 id=&#34;节省gas费的方法&#34;&gt;节省gas费的方法&lt;/h4&gt;
+&lt;p&gt;一般情况下solidity中使用uint8和uint256消耗的gas费是等价的，但是有一种例外，就是在使用struct结构体中使用uint8相对于使用uint256是更节省gas费的。
+例如：&lt;/p&gt;
+&lt;div class=&#34;highlight&#34;&gt;&lt;div class=&#34;chroma&#34;&gt;
+&lt;table class=&#34;lntable&#34;&gt;&lt;tr&gt;&lt;td class=&#34;lntd&#34;&gt;
+&lt;pre tabindex=&#34;0&#34; class=&#34;chroma&#34;&gt;&lt;code&gt;&lt;span class=&#34;lnt&#34;&gt; 1
+&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt; 2
+&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt; 3
+&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt; 4
+&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt; 5
+&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt; 6
+&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt; 7
+&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt; 8
+&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt; 9
+&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt;10
+&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt;11
+&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt;12
+&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt;13
+&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt;14
+&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt;15
+&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/td&gt;
+&lt;td class=&#34;lntd&#34;&gt;
+&lt;pre tabindex=&#34;0&#34; class=&#34;chroma&#34;&gt;&lt;code class=&#34;language-solidity&#34; data-lang=&#34;solidity&#34;&gt;&lt;span class=&#34;kd&#34;&gt;struct&lt;/span&gt; &lt;span class=&#34;nc&#34;&gt;NormalStruct&lt;/span&gt; &lt;span class=&#34;p&#34;&gt;{&lt;/span&gt;
+  &lt;span class=&#34;kt&#34;&gt;uint&lt;/span&gt; &lt;span class=&#34;n&#34;&gt;a&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;;&lt;/span&gt;
+  &lt;span class=&#34;kt&#34;&gt;uint&lt;/span&gt; &lt;span class=&#34;n&#34;&gt;b&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;;&lt;/span&gt;
+  &lt;span class=&#34;kt&#34;&gt;uint&lt;/span&gt; &lt;span class=&#34;n&#34;&gt;c&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;;&lt;/span&gt;
+&lt;span class=&#34;p&#34;&gt;}&lt;/span&gt;
+
+&lt;span class=&#34;kd&#34;&gt;struct&lt;/span&gt; &lt;span class=&#34;nc&#34;&gt;MiniMe&lt;/span&gt; &lt;span class=&#34;p&#34;&gt;{&lt;/span&gt;
+  &lt;span class=&#34;kt&#34;&gt;uint32&lt;/span&gt; &lt;span class=&#34;n&#34;&gt;a&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;;&lt;/span&gt;
+  &lt;span class=&#34;kt&#34;&gt;uint32&lt;/span&gt; &lt;span class=&#34;n&#34;&gt;b&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;;&lt;/span&gt;
+  &lt;span class=&#34;kt&#34;&gt;uint&lt;/span&gt; &lt;span class=&#34;n&#34;&gt;c&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;;&lt;/span&gt;
+&lt;span class=&#34;p&#34;&gt;}&lt;/span&gt;
+
+&lt;span class=&#34;c1&#34;&gt;// `mini` will cost less gas than `normal` because of struct packing
+&lt;/span&gt;&lt;span class=&#34;c1&#34;&gt;&lt;/span&gt;&lt;span class=&#34;n&#34;&gt;NormalStruct&lt;/span&gt; &lt;span class=&#34;n&#34;&gt;normal&lt;/span&gt; &lt;span class=&#34;o&#34;&gt;=&lt;/span&gt; &lt;span class=&#34;n&#34;&gt;NormalStruct&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;(&lt;/span&gt;&lt;span class=&#34;mi&#34;&gt;10&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;,&lt;/span&gt; &lt;span class=&#34;mi&#34;&gt;20&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;,&lt;/span&gt; &lt;span class=&#34;mi&#34;&gt;30&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;);&lt;/span&gt;
+&lt;span class=&#34;n&#34;&gt;MiniMe&lt;/span&gt; &lt;span class=&#34;n&#34;&gt;mini&lt;/span&gt; &lt;span class=&#34;o&#34;&gt;=&lt;/span&gt; &lt;span class=&#34;n&#34;&gt;MiniMe&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;(&lt;/span&gt;&lt;span class=&#34;mi&#34;&gt;10&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;,&lt;/span&gt; &lt;span class=&#34;mi&#34;&gt;20&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;,&lt;/span&gt; &lt;span class=&#34;mi&#34;&gt;30&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;);&lt;/span&gt; 
+&lt;/code&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;
+&lt;/div&gt;
+&lt;/div&gt;&lt;p&gt;在Solidity中定义结构体时，将相同的数据类型聚集在一起可以最小化所需的存储空间。即一个包含字段&lt;code&gt;uint c; uint32 a; uint32 b&lt;/code&gt;;的结构体将比一个包含字段&lt;code&gt;uint32 a; uint c; uint32 b&lt;/code&gt;;的结构体更省gas，因为&lt;code&gt;uint32&lt;/code&gt;字段被聚集在一起。&lt;/p&gt;
+&lt;h3 id=&#34;view-function&#34;&gt;view function&lt;/h3&gt;
+&lt;p&gt;当用户从外部调用view函数时，不会消耗gas费。因为view函数不会修改区块链的数据，只是查看区块链的数据。&lt;/p&gt;
+&lt;p&gt;注意：如果一个视图函数被另一个不是视图函数的函数内部调用，仍然需要花费 gas。这是因为另一个函数在以太坊上创建了一个交易，每个节点仍然需要验证该交易。因此，只有在外部调用视图函数时才是免费的。&lt;/p&gt;
+&lt;h3 id=&#34;storage&#34;&gt;storage&lt;/h3&gt;
+&lt;p&gt;Solidity中的存储操作是非常昂贵的，特别是写操作。每次写入或更改数据时，它都会永久写入区块链中，成为不可更改的数据。全球数千个节点需要在它们的硬盘驱动器上存储这些数据，并随着区块链的增长而不断增加。因此，这样做是有成本的。为了降低成本，我们希望除非绝对必要，否则避免将数据写入存储器。有时，这涉及看似低效的编程逻辑——例如，在每次调用函数时重新构建一个数组，而不是将该数组保存在变量中以进行快速查找。&lt;/p&gt;
+&lt;h3 id=&#34;关键字private-public-internal-external&#34;&gt;关键字private, public, internal, external&lt;/h3&gt;
+&lt;ul&gt;
+&lt;li&gt;
+&lt;p&gt;private修饰的函数只能被同一合约内的其他函数调用；&lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;internal修饰的函数除了可以被同一合约内的其他函数调用外，还可以被继承该合约的合约调用；&lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;external修饰的函数只能在合约外部被调用；&lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;public修饰的函数可以在合约内外任何地方被调用。这些修饰符用于控制函数的访问权限，从而提高合约的安全性和可维护性。&lt;/p&gt;
+&lt;/li&gt;
+&lt;/ul&gt;
+&lt;h3 id=&#34;关键字view-pure&#34;&gt;关键字view, pure&lt;/h3&gt;
+&lt;p&gt;view表示函数不会修改合约中的数据，而pure表示函数既不会修改数据也不会读取数据。这两个修饰符可以使函数在被外部调用时不消耗gas（燃料），但如果被内部函数调用则会消耗gas。这是因为在内部调用时，需要将数据从存储器（storage）中读取到内存（memory）中进行操作，这需要消耗gas。&lt;/p&gt;
+&lt;h3 id=&#34;payable-modifier&#34;&gt;payable modifier&lt;/h3&gt;
+&lt;p&gt;payable函数可以接受以太币。
+可以在调用智能合约函数的同时向合约支付以太币（Ether）。这是因为在以太坊中，货币、数据和合约代码都存在于区块链上，因此可以在调用函数时同时向合约发送货币。这种特性使得一些有趣的逻辑成为可能，比如要求在执行某个函数之前向合约支付一定的货币。&lt;/p&gt;
+&lt;p&gt;交易就像是一个信封，将函数调用中的参数比作信封中的信件内容，而添加金额则相当于在信封里放入现金，一起发送给收件人。&lt;/p&gt;
+&lt;div class=&#34;highlight&#34;&gt;&lt;div class=&#34;chroma&#34;&gt;
+&lt;table class=&#34;lntable&#34;&gt;&lt;tr&gt;&lt;td class=&#34;lntd&#34;&gt;
+&lt;pre tabindex=&#34;0&#34; class=&#34;chroma&#34;&gt;&lt;code&gt;&lt;span class=&#34;lnt&#34;&gt; 1
+&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt; 2
+&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt; 3
+&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt; 4
+&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt; 5
+&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt; 6
+&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt; 7
+&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt; 8
+&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt; 9
+&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt;10
+&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt;11
+&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/td&gt;
+&lt;td class=&#34;lntd&#34;&gt;
+&lt;pre tabindex=&#34;0&#34; class=&#34;chroma&#34;&gt;&lt;code class=&#34;language-solidity&#34; data-lang=&#34;solidity&#34;&gt;&lt;span class=&#34;kd&#34;&gt;contract&lt;/span&gt; &lt;span class=&#34;nc&#34;&gt;OnlineStore&lt;/span&gt; &lt;span class=&#34;p&#34;&gt;{&lt;/span&gt;
+  &lt;span class=&#34;kd&#34;&gt;function&lt;/span&gt; &lt;span class=&#34;nf&#34;&gt;buySomething&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;()&lt;/span&gt; &lt;span class=&#34;k&#34;&gt;external&lt;/span&gt; &lt;span class=&#34;k&#34;&gt;payable&lt;/span&gt; &lt;span class=&#34;p&#34;&gt;{&lt;/span&gt;
+    &lt;span class=&#34;c1&#34;&gt;// Check to make sure 0.001 ether was sent to the function call:
+&lt;/span&gt;&lt;span class=&#34;c1&#34;&gt;&lt;/span&gt;    &lt;span class=&#34;nb&#34;&gt;require&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;(&lt;/span&gt;&lt;span class=&#34;nb&#34;&gt;msg&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;.&lt;/span&gt;&lt;span class=&#34;nb&#34;&gt;value&lt;/span&gt; &lt;span class=&#34;o&#34;&gt;==&lt;/span&gt; &lt;span class=&#34;mi&#34;&gt;0&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;.&lt;/span&gt;&lt;span class=&#34;mi&#34;&gt;001&lt;/span&gt; &lt;span class=&#34;kc&#34;&gt;ether&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;);&lt;/span&gt;
+    &lt;span class=&#34;c1&#34;&gt;// If so, some logic to transfer the digital item to the caller of the function:
+&lt;/span&gt;&lt;span class=&#34;c1&#34;&gt;&lt;/span&gt;    &lt;span class=&#34;n&#34;&gt;transferThing&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;(&lt;/span&gt;&lt;span class=&#34;nb&#34;&gt;msg&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;.&lt;/span&gt;&lt;span class=&#34;nb&#34;&gt;sender&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;);&lt;/span&gt;
+  &lt;span class=&#34;p&#34;&gt;}&lt;/span&gt;
+&lt;span class=&#34;p&#34;&gt;}&lt;/span&gt;
+
+&lt;span class=&#34;c1&#34;&gt;// Assuming `OnlineStore` points to your contract on Ethereum:
+&lt;/span&gt;&lt;span class=&#34;c1&#34;&gt;&lt;/span&gt;&lt;span class=&#34;n&#34;&gt;OnlineStore&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;.&lt;/span&gt;&lt;span class=&#34;n&#34;&gt;buySomething&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;({&lt;/span&gt;&lt;span class=&#34;k&#34;&gt;from&lt;/span&gt;&lt;span class=&#34;o&#34;&gt;:&lt;/span&gt; &lt;span class=&#34;n&#34;&gt;web3&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;.&lt;/span&gt;&lt;span class=&#34;n&#34;&gt;eth&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;.&lt;/span&gt;&lt;span class=&#34;n&#34;&gt;defaultAccount&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;,&lt;/span&gt; &lt;span class=&#34;nb&#34;&gt;value&lt;/span&gt;&lt;span class=&#34;o&#34;&gt;:&lt;/span&gt; &lt;span class=&#34;n&#34;&gt;web3&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;.&lt;/span&gt;&lt;span class=&#34;n&#34;&gt;utils&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;.&lt;/span&gt;&lt;span class=&#34;n&#34;&gt;toWei&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;(&lt;/span&gt;&lt;span class=&#34;mi&#34;&gt;0&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;.&lt;/span&gt;&lt;span class=&#34;mi&#34;&gt;001&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;)})&lt;/span&gt;
+&lt;/code&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;
+&lt;/div&gt;
+&lt;/div&gt;&lt;p&gt;注意：如果一个函数没有被标记为payable，你尝试去发送Ether，这个函数会拒绝你的交易。&lt;/p&gt;
+&lt;h3 id=&#34;msg&#34;&gt;msg&lt;/h3&gt;
+&lt;p&gt;msg.sender：调用函数的账户地址。
+msg.value：可以查看有多少割以太币被发送给合约。&lt;/p&gt;
+&lt;h3 id=&#34;withdraw函数&#34;&gt;withdraw函数&lt;/h3&gt;
+&lt;p&gt;当你向一个智能合约发送以太币时，它会被存储在合约的以太坊账户中，除非你添加一个提取以太币的函数，否则它将被永久锁定在合约中。&lt;/p&gt;
+&lt;div class=&#34;highlight&#34;&gt;&lt;div class=&#34;chroma&#34;&gt;
+&lt;table class=&#34;lntable&#34;&gt;&lt;tr&gt;&lt;td class=&#34;lntd&#34;&gt;
+&lt;pre tabindex=&#34;0&#34; class=&#34;chroma&#34;&gt;&lt;code&gt;&lt;span class=&#34;lnt&#34;&gt;1
+&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt;2
+&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt;3
+&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt;4
+&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt;5
+&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt;6
+&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt;7
+&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/td&gt;
+&lt;td class=&#34;lntd&#34;&gt;
+&lt;pre tabindex=&#34;0&#34; class=&#34;chroma&#34;&gt;&lt;code class=&#34;language-solidity&#34; data-lang=&#34;solidity&#34;&gt;&lt;span class=&#34;kd&#34;&gt;contract&lt;/span&gt; &lt;span class=&#34;nc&#34;&gt;GetPaid&lt;/span&gt; &lt;span class=&#34;k&#34;&gt;is&lt;/span&gt; &lt;span class=&#34;n&#34;&gt;Ownable&lt;/span&gt; &lt;span class=&#34;p&#34;&gt;{&lt;/span&gt;
+  &lt;span class=&#34;kd&#34;&gt;function&lt;/span&gt; &lt;span class=&#34;nf&#34;&gt;withdraw&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;()&lt;/span&gt; &lt;span class=&#34;k&#34;&gt;external&lt;/span&gt; &lt;span class=&#34;n&#34;&gt;onlyOwner&lt;/span&gt; &lt;span class=&#34;p&#34;&gt;{&lt;/span&gt;
+    &lt;span class=&#34;kt&#34;&gt;address&lt;/span&gt; &lt;span class=&#34;k&#34;&gt;payable&lt;/span&gt; &lt;span class=&#34;n&#34;&gt;_owner&lt;/span&gt; &lt;span class=&#34;o&#34;&gt;=&lt;/span&gt; &lt;span class=&#34;kt&#34;&gt;address&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;(&lt;/span&gt;&lt;span class=&#34;kt&#34;&gt;uint160&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;(&lt;/span&gt;&lt;span class=&#34;n&#34;&gt;owner&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;()));&lt;/span&gt;
+    &lt;span class=&#34;n&#34;&gt;_owner&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;.&lt;/span&gt;&lt;span class=&#34;nb&#34;&gt;transfer&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;(&lt;/span&gt;&lt;span class=&#34;kt&#34;&gt;address&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;(&lt;/span&gt;&lt;span class=&#34;nb&#34;&gt;this&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;).&lt;/span&gt;&lt;span class=&#34;nb&#34;&gt;balance&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;);&lt;/span&gt;
+  &lt;span class=&#34;p&#34;&gt;}&lt;/span&gt;
+  &lt;span class=&#34;c1&#34;&gt;// address(this).balance可以返回存储在这个合约中的所有余额
+&lt;/span&gt;&lt;span class=&#34;c1&#34;&gt;&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;}&lt;/span&gt;
+&lt;/code&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;
+&lt;/div&gt;
+&lt;/div&gt;&lt;p&gt;只有当一个地址是可支付地址类型时，才能向该地址转移以太币。同时，_owner变量是uint160类型的，因此我们必须显式地将其转换为可支付地址类型。&lt;/p&gt;
+&lt;h3 id=&#34;solidity可以多继承&#34;&gt;solidity可以多继承&lt;/h3&gt;
+&lt;div class=&#34;highlight&#34;&gt;&lt;div class=&#34;chroma&#34;&gt;
+&lt;table class=&#34;lntable&#34;&gt;&lt;tr&gt;&lt;td class=&#34;lntd&#34;&gt;
+&lt;pre tabindex=&#34;0&#34; class=&#34;chroma&#34;&gt;&lt;code&gt;&lt;span class=&#34;lnt&#34;&gt;1
+&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt;2
+&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt;3
+&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/td&gt;
+&lt;td class=&#34;lntd&#34;&gt;
+&lt;pre tabindex=&#34;0&#34; class=&#34;chroma&#34;&gt;&lt;code class=&#34;language-solidity&#34; data-lang=&#34;solidity&#34;&gt;&lt;span class=&#34;kd&#34;&gt;contract&lt;/span&gt; &lt;span class=&#34;nc&#34;&gt;SatoshiNakamoto&lt;/span&gt; &lt;span class=&#34;k&#34;&gt;is&lt;/span&gt; &lt;span class=&#34;n&#34;&gt;NickSzabo&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;,&lt;/span&gt; &lt;span class=&#34;n&#34;&gt;HalFinney&lt;/span&gt; &lt;span class=&#34;p&#34;&gt;{&lt;/span&gt;
+  &lt;span class=&#34;c1&#34;&gt;// Omg, the secrets of the universe revealed!
+&lt;/span&gt;&lt;span class=&#34;c1&#34;&gt;&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;}&lt;/span&gt;
+&lt;/code&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;
+&lt;/div&gt;
+&lt;/div&gt;</description>
+        </item>
+        <item>
         <title>区块链开发</title>
         <link>https://jhrsya.github.io/p/%E5%8C%BA%E5%9D%97%E9%93%BE%E5%BC%80%E5%8F%91/</link>
         <pubDate>Tue, 23 May 2023 00:00:00 +0000</pubDate>
@@ -98,6 +956,31 @@
 &lt;li&gt;函数&lt;/li&gt;
 &lt;li&gt;事件和日志&lt;/li&gt;
 &lt;/ol&gt;
+&lt;h4 id=&#34;zkrollup特性&#34;&gt;zkRollup特性&lt;/h4&gt;
+&lt;p&gt;zkRollup 是一种在以太坊上扩展网络吞吐量和降低交易费用的第二层解决方案。它使用零知识证明 (zk-SNARKs) 技术来在链下聚合多笔交易，然后将它们的证明提交到链上。以下是 zkRollup 的一些主要特性：&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;
+&lt;p&gt;安全性：zkRollup 继承了以太坊的安全性，因为它将所有数据都放在链上，并使用智能合约来验证和处理交易。这样，即使验证者集合（validator set）完全崩溃，用户也可以直接从链上恢复他们的资产。&lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;扩展性：zkRollup 可以显著提高以太坊的交易吞吐量。因为大部分计算工作在链下完成，每个以太坊区块能够包含数千笔 zkRollup 交易。这大大提高了以太坊的网络吞吐量。&lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;低成本：zkRollup 交易的费用比以太坊主链的费用低得多，因为它们在链下聚合并进行计算，只需将结果的证明提交到链上。此外，由于所有交易数据都存储在链上，所以存储成本也较低。&lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;互操作性：zkRollup 支持所有以太坊的智能合约和标准。这意味着开发者可以无缝地将他们的 dApps 移动到 zkRollup，用户也可以使用他们熟悉的工具（例如 Metamask）来与 zkRollup 进行交互。&lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;用户体验：zkRollup 交易的确认时间比以太坊主链快得多，因为它们在链下即时确认。这使得用户体验更接近于传统的支付系统。&lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;隐私：zkRollup 可以支持具有隐私特性的应用，因为它使用零知识证明，可以在不泄露任何关于交易的具体细节的情况下验证交易的有效性。&lt;/p&gt;
+&lt;/li&gt;
+&lt;/ul&gt;
+&lt;p&gt;总的来说，zkRollup 是一个非常有潜力的扩容技术，它能够将以太坊扩展到全球范围的支付和智能合约平台，同时保持其去中心化和安全性的优点。&lt;/p&gt;
+&lt;h4 id=&#34;erc721&#34;&gt;ERC721&lt;/h4&gt;
+&lt;p&gt;非同质化代币标准，&lt;/p&gt;
 </description>
         </item>
         
