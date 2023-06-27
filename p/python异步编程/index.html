@@ -1,18 +1,18 @@
 <!DOCTYPE html>
 <html lang="en-us" dir="ltr">
     <head><meta charset='utf-8'>
-<meta name='viewport' content='width=device-width, initial-scale=1'><meta name='description' content='区块链相关概念'>
-<title>区块链概念</title>
+<meta name='viewport' content='width=device-width, initial-scale=1'><meta name='description' content='python异步编程介绍'>
+<title>python异步编程</title>
 
-<link rel='canonical' href='https://jhrsya.github.io/p/%E5%8C%BA%E5%9D%97%E9%93%BE/'>
+<link rel='canonical' href='https://jhrsya.github.io/p/python%E5%BC%82%E6%AD%A5%E7%BC%96%E7%A8%8B/'>
 
-<link rel="stylesheet" href="/scss/style.min.8191399262444ab68b72a18c97392f5349be20a1615d77445be51e974c144cff.css"><meta property='og:title' content='区块链概念'>
-<meta property='og:description' content='区块链相关概念'>
-<meta property='og:url' content='https://jhrsya.github.io/p/%E5%8C%BA%E5%9D%97%E9%93%BE/'>
+<link rel="stylesheet" href="/scss/style.min.8191399262444ab68b72a18c97392f5349be20a1615d77445be51e974c144cff.css"><meta property='og:title' content='python异步编程'>
+<meta property='og:description' content='python异步编程介绍'>
+<meta property='og:url' content='https://jhrsya.github.io/p/python%E5%BC%82%E6%AD%A5%E7%BC%96%E7%A8%8B/'>
 <meta property='og:site_name' content='steve lannister'>
-<meta property='og:type' content='article'><meta property='article:section' content='Post' /><meta property='article:tag' content='区块链' /><meta property='article:published_time' content='2023-04-23T00:00:00&#43;00:00'/><meta property='article:modified_time' content='2023-04-23T00:00:00&#43;00:00'/>
-<meta name="twitter:title" content="区块链概念">
-<meta name="twitter:description" content="区块链相关概念">
+<meta property='og:type' content='article'><meta property='article:section' content='Post' /><meta property='article:tag' content='python异步编程' /><meta property='article:tag' content='python' /><meta property='article:published_time' content='2023-06-26T00:00:00&#43;00:00'/><meta property='article:modified_time' content='2023-06-26T00:00:00&#43;00:00'/>
+<meta name="twitter:title" content="python异步编程">
+<meta name="twitter:description" content="python异步编程介绍">
     </head>
     <body class="
     article-page
@@ -243,28 +243,13 @@
         <div class="widget--toc">
             <nav id="TableOfContents">
   <ol>
-    <li>
+    <li><a href="#asyncio模块">asyncio模块</a>
       <ol>
-        <li>
-          <ol>
-            <li><a href="#交易哈希">交易哈希</a></li>
-            <li><a href="#发送方地址和接收方地址">发送方地址和接收方地址</a></li>
-            <li><a href="#零知识证明">零知识证明</a></li>
-            <li><a href="#女巫攻击">女巫攻击</a></li>
-            <li><a href="#共识机制">共识机制</a></li>
-            <li><a href="#挖矿">挖矿</a></li>
-            <li><a href="#工作量证明pow">工作量证明(PoW)</a></li>
-            <li><a href="#权益证明">权益证明</a></li>
-            <li><a href="#智能合约">智能合约</a></li>
-            <li><a href="#gasper">GASPER</a></li>
-            <li><a href="#erc20">ERC20</a></li>
-            <li><a href="#abi">ABI</a></li>
-            <li><a href="#erc-20">ERC-20</a></li>
-            <li><a href="#智能合约的结构">智能合约的结构</a></li>
-            <li><a href="#zkrollup特性">zkRollup特性</a></li>
-            <li><a href="#erc721">ERC721</a></li>
-          </ol>
-        </li>
+        <li><a href="#async">async</a></li>
+        <li><a href="#await">await</a></li>
+        <li><a href="#asyncrun">async.run()</a></li>
+        <li><a href="#示例">示例</a></li>
+        <li><a href="#pyppeteer">pyppeteer</a></li>
       </ol>
     </li>
   </ol>
@@ -285,8 +270,8 @@
     
     <header class="article-category">
         
-            <a href="/categories/%E5%8C%BA%E5%9D%97%E9%93%BE/" >
-                区块链
+            <a href="/categories/python/" >
+                python
             </a>
         
     </header>
@@ -294,12 +279,12 @@
 
     <div class="article-title-wrapper">
         <h2 class="article-title">
-            <a href="/p/%E5%8C%BA%E5%9D%97%E9%93%BE/">区块链概念</a>
+            <a href="/p/python%E5%BC%82%E6%AD%A5%E7%BC%96%E7%A8%8B/">python异步编程</a>
         </h2>
     
         
         <h3 class="article-subtitle">
-            区块链相关概念
+            python异步编程介绍
         </h3>
         
     </div>
@@ -320,7 +305,7 @@
   <path d="M3 11h16" />
   <path d="M18 16.496v1.504l1 1" />
 </svg>
-                <time class="article-time--published">Apr 23, 2023</time>
+                <time class="article-time--published">Jun 26, 2023</time>
             </div>
         
 
@@ -350,87 +335,62 @@
     <section class="article-content">
     
     
-    <h1 id="区块链概念">区块链概念</h1>
-<h4 id="交易哈希">交易哈希</h4>
-<p>在区块链中，交易哈希（Transaction Hash）是对一笔交易进行哈希计算得到的结果。交易哈希是一个固定长度的字符串，通常是一个64个字符的十六进制字符串。64 * 4 = 256 bit。</p>
-<p>交易哈希是区块链中的一个重要概念，因为它可以唯一地标识一笔交易。在区块链中，每个交易都会被广播到网络中，然后由矿工进行打包，并最终被加入到区块链上。在这个过程中，交易哈希起到了关键的作用。</p>
-<p>每个区块链节点都可以通过交易哈希来验证一笔交易的合法性。当一个节点接收到一个新的交易时，它会首先对这个交易进行哈希计算，然后将计算出的哈希值与已有的交易哈希进行比对，来判断这笔交易是否已经存在于区块链上。</p>
-<p>交易哈希还可以用来追踪一笔交易的状态。在区块链上，每一笔交易都有一个对应的交易哈希，并且交易哈希会被写入到区块链上。当一笔交易被确认并加入到区块链上时，它的交易哈希也会被写入到区块链中，并且成为区块链中的一部分。这样，任何人都可以通过交易哈希来查看一笔交易的状态，并且确认这笔交易是否已经被确认并写入到区块链上。</p>
-<h4 id="发送方地址和接收方地址">发送方地址和接收方地址</h4>
-<p>在区块链中，发送方地址是由公钥经过哈希运算得到的。具体来说，发送方会使用自己的私钥对交易信息进行数字签名，并将签名和公钥一起发送给网络。接收方可以使用公钥来验证数字签名的有效性，并确认这笔交易确实是由发送方发起的。发送方地址就是通过对公钥进行哈希运算得到的，它可以用来标识发送方。</p>
-<p>和交易哈希一样，也是一个64个字符的十六进制串，共256bit。</p>
-<h4 id="零知识证明">零知识证明</h4>
-<p>零知识证明是在不披露声明本身的情况下，验证声明有效性的一种方法。
-证明者是试图证明声明的一方，而验证者负责验证声明。</p>
-<p>零知识证明来保护数字版权：</p>
-<ul>
-<li>音乐家创建一个数字签名，将其作为证明。</li>
-<li>音乐家使用离散对数算法生成一个随机数，将其作为挑战。</li>
-<li>音乐家使用随机数和签名计算出响应，响应是一个整数。</li>
-<li>音乐家将签名、挑战和响应发送给验证者。</li>
-<li>验证者使用公钥和挑战计算出响应的期望值，并比较期望值和实际响应是否一致。如果一致，就认为签名有效，否则认为签名无效。</li>
-</ul>
-<h4 id="女巫攻击">女巫攻击</h4>
-<p>女巫攻击是指一个用户或一个用户群体假装成许多用户。</p>
-<h4 id="共识机制">共识机制</h4>
-<p>共识机制分为工作量证明和权益证明。</p>
-<h4 id="挖矿">挖矿</h4>
-<p>向区块链中添加现有区块。</p>
-<h4 id="工作量证明pow">工作量证明(PoW)</h4>
-<p>proof of work.
-工作量证明是一种基础性算法，它为矿工在工作量证明区块链上的工作设置难度和规则。</p>
-<h4 id="权益证明">权益证明</h4>
-<p>在权益证明机制下，验证者明确的通过以太币将资本质押到以太币的智能合约中。这些质押的以太币充当抵押品，如果验证者有失信行为或消极怠工，那么可以销毁抵押品。</p>
-<h4 id="智能合约">智能合约</h4>
-<h4 id="gasper">GASPER</h4>
-<p>Gasper是一种定义验证者如何受到奖惩的机制，决定要接受和拒绝哪个区块，以及将区块建在哪个区块链分叉上。</p>
-<h4 id="erc20">ERC20</h4>
-<p>ERC20是以太坊（Ethereum）上的一种智能合约标准，它规定了代币合约必须实现的一组函数接口。这些接口包括代币总量、转账功能、余额查询等。使用这些标准化接口可以确保代币合约之间的互操作性，使得不同的代币合约可以在以太坊上无缝地交互。</p>
-<p>ERC20标准的实现非常简单，因此成为大量代币合约实现的首选标准。目前市场上绝大多数的代币合约都是基于ERC20标准实现的。使用ERC20标准可以方便钱包、交易所等服务对代币进行支持，也可以降低开发者的开发难度和成本。</p>
-<h4 id="abi">ABI</h4>
-<p>合约的应用程序二进制接口 (ABI)</p>
-<h4 id="erc-20">ERC-20</h4>
-<p>ERC-20 提出了一个同质化代币的标准，换句话说，它们具有一种属性，使得每个代币都与另一个代币（在类型和价值上）完全相同。 例如，一个 ERC-20 代币就像以太币一样，意味着一个代币会并永远会与其他代币一样。</p>
-<p>ERC-20 的功能示例包括：</p>
-<ul>
-<li>将代币从一个帐户转到另一个帐户</li>
-<li>获取帐户的当前代币余额</li>
-<li>获取网络上可用代币的总供应量</li>
-<li>批准一个帐户中一定的代币金额由第三方帐户使用</li>
-</ul>
-<h4 id="智能合约的结构">智能合约的结构</h4>
-<ol>
-<li>数据
-任何合约数据必须分配到一个位置：要么是存储，要么是内存。</li>
-<li>环境变量</li>
-<li>函数</li>
-<li>事件和日志</li>
-</ol>
-<h4 id="zkrollup特性">zkRollup特性</h4>
-<p>zkRollup 是一种在以太坊上扩展网络吞吐量和降低交易费用的第二层解决方案。它使用零知识证明 (zk-SNARKs) 技术来在链下聚合多笔交易，然后将它们的证明提交到链上。以下是 zkRollup 的一些主要特性：</p>
-<ul>
-<li>
-<p>安全性：zkRollup 继承了以太坊的安全性，因为它将所有数据都放在链上，并使用智能合约来验证和处理交易。这样，即使验证者集合（validator set）完全崩溃，用户也可以直接从链上恢复他们的资产。</p>
-</li>
-<li>
-<p>扩展性：zkRollup 可以显著提高以太坊的交易吞吐量。因为大部分计算工作在链下完成，每个以太坊区块能够包含数千笔 zkRollup 交易。这大大提高了以太坊的网络吞吐量。</p>
-</li>
-<li>
-<p>低成本：zkRollup 交易的费用比以太坊主链的费用低得多，因为它们在链下聚合并进行计算，只需将结果的证明提交到链上。此外，由于所有交易数据都存储在链上，所以存储成本也较低。</p>
-</li>
-<li>
-<p>互操作性：zkRollup 支持所有以太坊的智能合约和标准。这意味着开发者可以无缝地将他们的 dApps 移动到 zkRollup，用户也可以使用他们熟悉的工具（例如 Metamask）来与 zkRollup 进行交互。</p>
-</li>
-<li>
-<p>用户体验：zkRollup 交易的确认时间比以太坊主链快得多，因为它们在链下即时确认。这使得用户体验更接近于传统的支付系统。</p>
-</li>
-<li>
-<p>隐私：zkRollup 可以支持具有隐私特性的应用，因为它使用零知识证明，可以在不泄露任何关于交易的具体细节的情况下验证交易的有效性。</p>
-</li>
-</ul>
-<p>总的来说，zkRollup 是一个非常有潜力的扩容技术，它能够将以太坊扩展到全球范围的支付和智能合约平台，同时保持其去中心化和安全性的优点。</p>
-<h4 id="erc721">ERC721</h4>
-<p>非同质化代币标准。</p>
+    <h1 id="python-异步编程">Python 异步编程</h1>
+<h2 id="asyncio模块">asyncio模块</h2>
+<p>asyncio 模块在单线程上启动一个事件循环（event loop），时刻监听新进入循环的事件，加以处理，并不断重复这个过程，直到异步任务结束。</p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre tabindex="0" class="chroma"><code><span class="lnt">1
+</span><span class="lnt">2
+</span></code></pre></td>
+<td class="lntd">
+<pre tabindex="0" class="chroma"><code class="language-python" data-lang="python"><span class="kn">import</span> <span class="nn">asyncio</span>
+<span class="k">async</span> <span class="k">def</span> <span class="nf">main</span><span class="p">():</span>
+</code></pre></td></tr></table>
+</div>
+</div><h3 id="async">async</h3>
+<p>函数前面加上<code>async</code>关键字，就变成了异步函数。这种函数最大的特点就是 执行可以暂停，交出执行权。</p>
+<h3 id="await">await</h3>
+<p>在异步函数内部的异步任务前面，加上await命令。
+<code>await asyncio.sleep(1)</code> asyncio.sleep(1)可以生成一个异步任务，休眠1秒钟，然后结束。</p>
+<p>执行引擎遇到<code>await</code>命令，就会在异步任务开始执行之后，暂停当前 async 函数的执行，把执行权交给其他任务。等到异步任务结束，再把执行权交回 async 函数，继续往下执行。</p>
+<h3 id="asyncrun">async.run()</h3>
+<p>async.run()用于加载async函数，启动事件循环。
+<code>asyncio.run(main())</code></p>
+<p>上面代码中，asyncio.run() 在事件循环上监听 async 函数main的执行。等到 main 执行完了，事件循环才会终止。</p>
+<h3 id="示例">示例</h3>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre tabindex="0" class="chroma"><code><span class="lnt"> 1
+</span><span class="lnt"> 2
+</span><span class="lnt"> 3
+</span><span class="lnt"> 4
+</span><span class="lnt"> 5
+</span><span class="lnt"> 6
+</span><span class="lnt"> 7
+</span><span class="lnt"> 8
+</span><span class="lnt"> 9
+</span><span class="lnt">10
+</span><span class="lnt">11
+</span><span class="lnt">12
+</span></code></pre></td>
+<td class="lntd">
+<pre tabindex="0" class="chroma"><code class="language-python" data-lang="python"><span class="kn">import</span> <span class="nn">asyncio</span>
+
+<span class="k">async</span> <span class="k">def</span> <span class="nf">count</span><span class="p">():</span>
+    <span class="nb">print</span><span class="p">(</span><span class="s2">&#34;One&#34;</span><span class="p">)</span>
+    <span class="k">await</span> <span class="n">asyncio</span><span class="o">.</span><span class="n">sleep</span><span class="p">(</span><span class="mi">1</span><span class="p">)</span>
+    <span class="nb">print</span><span class="p">(</span><span class="s2">&#34;Two&#34;</span><span class="p">)</span>
+
+<span class="k">async</span> <span class="k">def</span> <span class="nf">main</span><span class="p">():</span>
+    <span class="k">await</span> <span class="n">asyncio</span><span class="o">.</span><span class="n">gather</span><span class="p">(</span><span class="n">count</span><span class="p">(),</span> <span class="n">count</span><span class="p">(),</span> <span class="n">count</span><span class="p">())</span>
+
+<span class="n">asyncio</span><span class="o">.</span><span class="n">run</span><span class="p">(</span><span class="n">main</span><span class="p">())</span>
+
+</code></pre></td></tr></table>
+</div>
+</div><p>上面脚本中，在 <code>async</code> 函数<code>main</code>的里面，<code>asyncio.gather()</code> 方法将多个异步任务（三个 <code>count()</code>）包装成一个新的异步任务，必须等到内部的多个异步任务都执行结束，这个新的异步任务才会结束。</p>
+<p>脚本的运行结果如下：</p>
 <div class="highlight"><div class="chroma">
 <table class="lntable"><tr><td class="lntd">
 <pre tabindex="0" class="chroma"><code><span class="lnt">1
@@ -439,20 +399,116 @@
 </span><span class="lnt">4
 </span><span class="lnt">5
 </span><span class="lnt">6
-</span><span class="lnt">7
-</span><span class="lnt">8
-</span><span class="lnt">9
 </span></code></pre></td>
 <td class="lntd">
-<pre tabindex="0" class="chroma"><code class="language-solidity" data-lang="solidity"><span class="kd">contract</span> <span class="nc">ERC721</span> <span class="p">{</span>
-  <span class="kd">event</span> <span class="nc">Transfer</span><span class="p">(</span><span class="kt">address</span> <span class="k">indexed</span> <span class="n">_from</span><span class="p">,</span> <span class="kt">address</span> <span class="k">indexed</span> <span class="n">_to</span><span class="p">,</span> <span class="kt">uint256</span> <span class="k">indexed</span> <span class="n">_tokenId</span><span class="p">);</span>
-  <span class="kd">event</span> <span class="nc">Approval</span><span class="p">(</span><span class="kt">address</span> <span class="k">indexed</span> <span class="n">_owner</span><span class="p">,</span> <span class="kt">address</span> <span class="k">indexed</span> <span class="n">_approved</span><span class="p">,</span> <span class="kt">uint256</span> <span class="k">indexed</span> <span class="n">_tokenId</span><span class="p">);</span>
-  <span class="kd">function</span> <span class="nf">balanceOf</span><span class="p">(</span><span class="kt">address</span> <span class="n">_owner</span><span class="p">)</span> <span class="k">external</span> <span class="k">view</span> <span class="k">returns</span> <span class="p">(</span><span class="kt">uint256</span><span class="p">);</span>
-  <span class="kd">function</span> <span class="nf">ownerOf</span><span class="p">(</span><span class="kt">uint256</span> <span class="n">_tokenId</span><span class="p">)</span> <span class="k">external</span> <span class="k">view</span> <span class="k">returns</span> <span class="p">(</span><span class="kt">address</span><span class="p">);</span>
-  <span class="kd">function</span> <span class="nf">transferFrom</span><span class="p">(</span><span class="kt">address</span> <span class="n">_from</span><span class="p">,</span> <span class="kt">address</span> <span class="n">_to</span><span class="p">,</span> <span class="kt">uint256</span> <span class="n">_tokenId</span><span class="p">)</span>  <span class="k">external</span> <span class="k">payable</span><span class="p">;</span>
-  <span class="kd">function</span> <span class="nf">approve</span><span class="p">(</span><span class="kt">address</span> <span class="n">_approved</span><span class="p">,</span> <span class="kt">uint256</span> <span class="n">_tokenId</span><span class="p">)</span> <span class="k">external</span> <span class="k">payable</span><span class="p">;</span>
-<span class="p">}</span>
+<pre tabindex="0" class="chroma"><code class="language-fallback" data-lang="fallback">One
+One
+One
+Two
+Two
+Two
+</code></pre></td></tr></table>
+</div>
+</div><p>上面运行结果的原因是，三个 <code>count()</code> 依次执行，打印完 <code>One</code>，就休眠1秒钟，把执行权交给下一个 <code>count()</code>，所以先连续打印出三个 <code>One</code>。等到1秒钟休眠结束，执行权重新交回第一个 <code>count()</code>，开始执行 <code>await</code> 命令下一行的语句，所以会接着打印出三个<code>Two</code>。脚本总的运行时间是1秒。</p>
+<p>作为对比，下面的同步版本：</p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre tabindex="0" class="chroma"><code><span class="lnt"> 1
+</span><span class="lnt"> 2
+</span><span class="lnt"> 3
+</span><span class="lnt"> 4
+</span><span class="lnt"> 5
+</span><span class="lnt"> 6
+</span><span class="lnt"> 7
+</span><span class="lnt"> 8
+</span><span class="lnt"> 9
+</span><span class="lnt">10
+</span><span class="lnt">11
+</span><span class="lnt">12
+</span></code></pre></td>
+<td class="lntd">
+<pre tabindex="0" class="chroma"><code class="language-python" data-lang="python"><span class="kn">import</span> <span class="nn">time</span>
 
+<span class="k">def</span> <span class="nf">count</span><span class="p">():</span>
+    <span class="nb">print</span><span class="p">(</span><span class="s2">&#34;One&#34;</span><span class="p">)</span>
+    <span class="n">time</span><span class="o">.</span><span class="n">sleep</span><span class="p">(</span><span class="mi">1</span><span class="p">)</span>
+    <span class="nb">print</span><span class="p">(</span><span class="s2">&#34;Two&#34;</span><span class="p">)</span>
+
+<span class="k">def</span> <span class="nf">main</span><span class="p">():</span>
+    <span class="k">for</span> <span class="n">_</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="mi">3</span><span class="p">):</span>
+        <span class="n">count</span><span class="p">()</span>
+
+<span class="n">main</span><span class="p">()</span>
+</code></pre></td></tr></table>
+</div>
+</div><p>上面脚本的运行结果如下:</p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre tabindex="0" class="chroma"><code><span class="lnt">1
+</span><span class="lnt">2
+</span><span class="lnt">3
+</span><span class="lnt">4
+</span><span class="lnt">5
+</span><span class="lnt">6
+</span></code></pre></td>
+<td class="lntd">
+<pre tabindex="0" class="chroma"><code class="language-fallback" data-lang="fallback">One
+Two
+One
+Two
+One
+Two
+</code></pre></td></tr></table>
+</div>
+</div><p>上面运行结果的原因是，三个 count() 都是同步执行，必须等到前一个执行完，才能执行后一个。脚本总的运行时间是3秒。</p>
+<h3 id="pyppeteer">pyppeteer</h3>
+<p>执行多个函数中的多个异步任务时，异步任务切换时，你不知道会切换到哪个函数中的异步任务。</p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre tabindex="0" class="chroma"><code><span class="lnt"> 1
+</span><span class="lnt"> 2
+</span><span class="lnt"> 3
+</span><span class="lnt"> 4
+</span><span class="lnt"> 5
+</span><span class="lnt"> 6
+</span><span class="lnt"> 7
+</span><span class="lnt"> 8
+</span><span class="lnt"> 9
+</span><span class="lnt">10
+</span><span class="lnt">11
+</span><span class="lnt">12
+</span><span class="lnt">13
+</span><span class="lnt">14
+</span><span class="lnt">15
+</span><span class="lnt">16
+</span><span class="lnt">17
+</span><span class="lnt">18
+</span><span class="lnt">19
+</span><span class="lnt">20
+</span><span class="lnt">21
+</span></code></pre></td>
+<td class="lntd">
+<pre tabindex="0" class="chroma"><code class="language-python" data-lang="python"><span class="kn">import</span> <span class="nn">asyncio</span>
+<span class="kn">from</span> <span class="nn">pyppeteer</span> <span class="kn">import</span> <span class="n">launch</span>
+
+<span class="k">async</span> <span class="k">def</span> <span class="nf">screen_shot_1</span><span class="p">():</span>
+    <span class="n">browser</span> <span class="o">=</span> <span class="k">await</span> <span class="n">launch</span><span class="p">()</span>
+    <span class="n">page</span> <span class="o">=</span> <span class="k">await</span> <span class="n">browser</span><span class="o">.</span><span class="n">newPage</span><span class="p">()</span>
+    <span class="k">await</span> <span class="n">page</span><span class="o">.</span><span class="n">goto</span><span class="p">(</span><span class="s1">&#39;https://fastapi.tiangolo.com/zh/tutorial/middleware/&#39;</span><span class="p">)</span>
+    <span class="k">await</span> <span class="n">page</span><span class="o">.</span><span class="n">screenshot</span><span class="p">({</span><span class="s1">&#39;path&#39;</span><span class="p">:</span> <span class="s1">&#39;1.png&#39;</span><span class="p">})</span>
+    <span class="k">await</span> <span class="n">browser</span><span class="o">.</span><span class="n">close</span><span class="p">()</span>
+
+<span class="k">async</span> <span class="k">def</span> <span class="nf">screen_shot_2</span><span class="p">():</span>
+    <span class="n">browser</span> <span class="o">=</span> <span class="k">await</span> <span class="n">launch</span><span class="p">()</span>
+    <span class="n">page</span> <span class="o">=</span> <span class="k">await</span> <span class="n">browser</span><span class="o">.</span><span class="n">newPage</span><span class="p">()</span>
+    <span class="k">await</span> <span class="n">page</span><span class="o">.</span><span class="n">goto</span><span class="p">(</span><span class="s1">&#39;https://www.ruanyifeng.com/blog/2019/11/python-asyncio.html&#39;</span><span class="p">)</span>
+    <span class="k">await</span> <span class="n">page</span><span class="o">.</span><span class="n">screenshot</span><span class="p">({</span><span class="s1">&#39;path&#39;</span><span class="p">:</span> <span class="s1">&#39;2.png&#39;</span><span class="p">})</span>
+    <span class="k">await</span> <span class="n">browser</span><span class="o">.</span><span class="n">close</span><span class="p">()</span>
+
+<span class="k">async</span> <span class="k">def</span> <span class="nf">main</span><span class="p">():</span>
+    <span class="k">await</span> <span class="n">asyncio</span><span class="o">.</span><span class="n">gather</span><span class="p">(</span><span class="n">screen_shot_1</span><span class="p">(),</span> <span class="n">screen_shot_2</span><span class="p">())</span>
+
+<span class="n">asyncio</span><span class="o">.</span><span class="n">run</span><span class="p">(</span><span class="n">main</span><span class="p">())</span>
 </code></pre></td></tr></table>
 </div>
 </div>
@@ -463,7 +519,9 @@
     
     <section class="article-tags">
         
-            <a href="/tags/%E5%8C%BA%E5%9D%97%E9%93%BE/">区块链</a>
+            <a href="/tags/python%E5%BC%82%E6%AD%A5%E7%BC%96%E7%A8%8B/">python异步编程</a>
+        
+            <a href="/tags/python/">python</a>
         
     </section>
 
@@ -497,38 +555,12 @@
             
                 
 <article class="">
-    <a href="/p/solidity/">
+    <a href="/p/python/">
         
         
 
         <div class="article-details">
-            <h2 class="article-title">solidity</h2>
-        </div>
-    </a>
-</article>
-
-            
-                
-<article class="">
-    <a href="/p/%E5%8C%BA%E5%9D%97%E9%93%BE%E5%BC%80%E5%8F%91/">
-        
-        
-
-        <div class="article-details">
-            <h2 class="article-title">区块链开发</h2>
-        </div>
-    </a>
-</article>
-
-            
-                
-<article class="">
-    <a href="/p/%E8%B4%A7%E5%B8%81%E7%9A%84%E7%95%8C%E7%A2%91/">
-        
-        
-
-        <div class="article-details">
-            <h2 class="article-title">货币的界碑</h2>
+            <h2 class="article-title">python库介绍</h2>
         </div>
     </a>
 </article>
