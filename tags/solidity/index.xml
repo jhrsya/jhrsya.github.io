@@ -862,7 +862,43 @@ msg.value：可以查看有多少割以太币被发送给合约。&lt;/p&gt;
 &lt;/span&gt;&lt;span class=&#34;c1&#34;&gt;&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;}&lt;/span&gt;
 &lt;/code&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;
 &lt;/div&gt;
-&lt;/div&gt;</description>
+&lt;/div&gt;&lt;h3 id=&#34;abi&#34;&gt;ABI&lt;/h3&gt;
+&lt;p&gt;ABI即应用程序二进制接口(Application Binary Interface)。ABI是以JSON格式表示合约方法的一种方式，告诉Web3.js如何以合约能理解的方式格式化函数调用。当你编译要部署到以太坊的合约时，Solidity编译器会给出ABI，因此你需要将其复制并保存，以便在部署后调用合约。&lt;/p&gt;
+&lt;h2 id=&#34;部署合约框架truffle&#34;&gt;部署合约框架truffle&lt;/h2&gt;
+&lt;h3 id=&#34;安装&#34;&gt;安装&lt;/h3&gt;
+&lt;p&gt;&lt;code&gt;npm install truffle -g&lt;/code&gt;&lt;/p&gt;
+&lt;h3 id=&#34;目录结构&#34;&gt;目录结构&lt;/h3&gt;
+&lt;p&gt;&lt;img src=&#34;https://fvector.oss-cn-hangzhou.aliyuncs.com/202307021832363.png&#34;
+	
+	
+	
+	loading=&#34;lazy&#34;
+	
+	
+&gt;&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;
+&lt;p&gt;contracts: 智能合约通常被组织在一个名为 contracts 的文件夹中。为了保持代码的组织结构，我们甚至可以创建嵌套文件夹，例如 contracts/tokens。&lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;migrations: 是一个 JavaScript 文件，告诉 Truffle 如何部署智能合约。&lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;test: 在 test 文件夹中，我们需要放置单元测试，这些测试可以是 JavaScript 或 Solidity 文件。请记住，一旦部署了合约，就无法更改它，因此在部署之前测试智能合约非常重要。&lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;truffle.js 和 truffle-config.js 是用于存储部署的网络设置的配置文件。Truffle 需要两个配置文件，因为在 Windows 上，在同一个文件夹中同时拥有 truffle.js 和 truffle.exe 可能会产生冲突。长话短说 - 如果您正在运行 Windows，则建议删除 truffle.js 并使用 truffle-config.js 作为默认配置文件。请查看 Truffle 的官方文档以进一步了解。&lt;/p&gt;
+&lt;/li&gt;
+&lt;/ul&gt;
+&lt;h3 id=&#34;编译&#34;&gt;编译&lt;/h3&gt;
+&lt;p&gt;&lt;code&gt;truffle compile&lt;/code&gt;&lt;/p&gt;
+&lt;h3 id=&#34;测试&#34;&gt;测试&lt;/h3&gt;
+&lt;p&gt;在部署到以太坊上前，一般会进行测试，可以使用测试工具Ganache。&lt;/p&gt;
+&lt;p&gt;把合约部署到测试网络
+&lt;code&gt;truffle migrate --network rinkeby&lt;/code&gt;&lt;/p&gt;
+&lt;p&gt;把合约部署到主网
+&lt;code&gt;truffle migrate --network mainnet&lt;/code&gt;&lt;/p&gt;
+</description>
         </item>
         
     </channel>

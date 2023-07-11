@@ -285,6 +285,15 @@
         <li><a href="#msg">msg</a></li>
         <li><a href="#withdraw函数">withdraw函数</a></li>
         <li><a href="#solidity可以多继承">solidity可以多继承</a></li>
+        <li><a href="#abi">ABI</a></li>
+      </ol>
+    </li>
+    <li><a href="#部署合约框架truffle">部署合约框架truffle</a>
+      <ol>
+        <li><a href="#安装">安装</a></li>
+        <li><a href="#目录结构">目录结构</a></li>
+        <li><a href="#编译">编译</a></li>
+        <li><a href="#测试">测试</a></li>
       </ol>
     </li>
   </ol>
@@ -1220,7 +1229,43 @@ msg.value：可以查看有多少割以太币被发送给合约。</p>
 </span><span class="c1"></span><span class="p">}</span>
 </code></pre></td></tr></table>
 </div>
-</div>
+</div><h3 id="abi">ABI</h3>
+<p>ABI即应用程序二进制接口(Application Binary Interface)。ABI是以JSON格式表示合约方法的一种方式，告诉Web3.js如何以合约能理解的方式格式化函数调用。当你编译要部署到以太坊的合约时，Solidity编译器会给出ABI，因此你需要将其复制并保存，以便在部署后调用合约。</p>
+<h2 id="部署合约框架truffle">部署合约框架truffle</h2>
+<h3 id="安装">安装</h3>
+<p><code>npm install truffle -g</code></p>
+<h3 id="目录结构">目录结构</h3>
+<p><img src="https://fvector.oss-cn-hangzhou.aliyuncs.com/202307021832363.png"
+	
+	
+	
+	loading="lazy"
+	
+	
+></p>
+<ul>
+<li>
+<p>contracts: 智能合约通常被组织在一个名为 contracts 的文件夹中。为了保持代码的组织结构，我们甚至可以创建嵌套文件夹，例如 contracts/tokens。</p>
+</li>
+<li>
+<p>migrations: 是一个 JavaScript 文件，告诉 Truffle 如何部署智能合约。</p>
+</li>
+<li>
+<p>test: 在 test 文件夹中，我们需要放置单元测试，这些测试可以是 JavaScript 或 Solidity 文件。请记住，一旦部署了合约，就无法更改它，因此在部署之前测试智能合约非常重要。</p>
+</li>
+<li>
+<p>truffle.js 和 truffle-config.js 是用于存储部署的网络设置的配置文件。Truffle 需要两个配置文件，因为在 Windows 上，在同一个文件夹中同时拥有 truffle.js 和 truffle.exe 可能会产生冲突。长话短说 - 如果您正在运行 Windows，则建议删除 truffle.js 并使用 truffle-config.js 作为默认配置文件。请查看 Truffle 的官方文档以进一步了解。</p>
+</li>
+</ul>
+<h3 id="编译">编译</h3>
+<p><code>truffle compile</code></p>
+<h3 id="测试">测试</h3>
+<p>在部署到以太坊上前，一般会进行测试，可以使用测试工具Ganache。</p>
+<p>把合约部署到测试网络
+<code>truffle migrate --network rinkeby</code></p>
+<p>把合约部署到主网
+<code>truffle migrate --network mainnet</code></p>
+
 </section>
 
 
@@ -1261,6 +1306,19 @@ msg.value：可以查看有多少割以太币被发送给合约。</p>
     <h2 class="section-title">相关文章</h2>
     <div class="related-content">
         <div class="flex article-list--tile">
+            
+                
+<article class="">
+    <a href="/p/chainlink/">
+        
+        
+
+        <div class="article-details">
+            <h2 class="article-title">chainlink</h2>
+        </div>
+    </a>
+</article>
+
             
                 
 <article class="">

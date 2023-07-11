@@ -6,7 +6,65 @@
         <description>Recent content in 区块链 on steve lannister</description>
         <generator>Hugo -- gohugo.io</generator>
         <language>en-us</language>
-        <lastBuildDate>Wed, 07 Jun 2023 00:00:00 +0000</lastBuildDate><atom:link href="https://jhrsya.github.io/categories/%E5%8C%BA%E5%9D%97%E9%93%BE/index.xml" rel="self" type="application/rss+xml" /><item>
+        <lastBuildDate>Sun, 02 Jul 2023 00:00:00 +0000</lastBuildDate><atom:link href="https://jhrsya.github.io/categories/%E5%8C%BA%E5%9D%97%E9%93%BE/index.xml" rel="self" type="application/rss+xml" /><item>
+        <title>chainlink</title>
+        <link>https://jhrsya.github.io/p/chainlink/</link>
+        <pubDate>Sun, 02 Jul 2023 00:00:00 +0000</pubDate>
+        
+        <guid>https://jhrsya.github.io/p/chainlink/</guid>
+        <description>&lt;h1 id=&#34;chainlink&#34;&gt;chainlink&lt;/h1&gt;
+&lt;p&gt;Chainlink 是一个开源的区块链项目，它的目标是将现实世界的数据与区块链网络连接起来，实现智能合约与外部数据源的互操作性。智能合约是区块链上的自动化合约，但是由于区块链的封闭性，它们通常无法直接访问外部数据，例如天气数据、股票价格或体育比分等。&lt;/p&gt;
+&lt;p&gt;Chainlink 的主要目标是解决这个问题，它提供了一个去中心化的数据交互协议，允许智能合约从外部数据源中获取数据，并将其安全地引入到区块链网络中。它通过使用链外的节点（称为“链下节点”）来获取外部数据，并将其传输到智能合约中。这些链下节点由数据提供商运营，它们为智能合约提供可信赖的数据源。&lt;/p&gt;
+&lt;p&gt;Chainlink 使用一种称为“链下即时公证（Off-Chain Reporting）”的机制来实现数据的获取和验证。这个机制通过多个链下节点对外部数据进行获取、汇总和验证，然后将结果提交到区块链上。这种设计可以确保数据的可信度和安全性，并且可以避免单点故障。&lt;/p&gt;
+&lt;p&gt;通过使用 Chainlink，智能合约可以从各种外部数据源获取数据，并基于这些数据执行各种操作，从而实现更加复杂和功能强大的应用场景。Chainlink 在金融领域、供应链管理、保险、游戏和预测市场等领域都有广泛的应用。&lt;/p&gt;
+&lt;h2 id=&#34;chainlink如何保证外部数据的准确性&#34;&gt;chainlink如何保证外部数据的准确性？&lt;/h2&gt;
+&lt;p&gt;Chainlink 采用了一系列机制来保证外部数据的准确性和可信度。下面是一些主要的机制：&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;
+&lt;p&gt;去中心化的链下节点网络：Chainlink 使用去中心化的链下节点网络来获取和验证外部数据。这些链下节点由数据提供商运营，它们通过自己的数据源获取数据，并将其提交到区块链上。由于节点是分散的，不存在单点故障，这提高了数据的可靠性和防止操纵的能力。&lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;多节点数据聚合：Chainlink 使用多个链下节点对相同的外部数据进行获取和验证。这些节点独立地获取数据，并将结果汇总在一起，以提高数据的准确性和可信度。这种多节点数据聚合机制可以排除异常值和错误数据，确保数据的一致性和可靠性。&lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;数据签名和验证：Chainlink 使用数字签名技术来保证数据的完整性和真实性。链下节点获取的数据会使用数字签名进行标记，确保数据没有被篡改。智能合约可以验证签名，以确保数据来源的可信度。&lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;闪电网络：Chainlink 还采用了基于闪电网络的支付通道，以提高数据服务的速度和效率。通过使用支付通道，智能合约可以与链下节点进行快速的、低成本的数据交互，减少了区块链上的交易费用和延迟。&lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;奖励和惩罚机制：Chainlink 引入了一个奖励和惩罚机制，激励链下节点按照协议的规定提供准确的数据。节点需要抵押一定数量的链上代币作为保证金，并且如果节点提供错误的数据或不按时提供数据，它们可能会失去一部分保证金或被从网络中移除。&lt;/p&gt;
+&lt;/li&gt;
+&lt;/ul&gt;
+&lt;p&gt;这些机制的结合使得 Chainlink 能够提供高度可信的外部数据，供智能合约使用。然而，尽管 Chainlink 采取了多种措施来确保数据的准确性，用户在使用外部数据时仍然需要审慎验证，并考虑可能存在的数据源风险和不确定性。&lt;/p&gt;
+&lt;h2 id=&#34;什么是rinkeby&#34;&gt;什么是Rinkeby?&lt;/h2&gt;
+&lt;p&gt;Rinkeby 是以太坊区块链网络上的一个测试网络，它被广泛用于开发、测试和演示以太坊 DApp（去中心化应用程序）和智能合约。Rinkeby 测试网络的目的是让开发人员和用户能够在真实的环境中测试他们的应用，而无需使用真正的以太币（ETH）。&lt;/p&gt;
+&lt;p&gt;与以太坊的主网（Mainnet）相比，Rinkeby 是一个开发者友好的网络，具有以下特点：&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;
+&lt;p&gt;测试用途：Rinkeby 是一个专门用于测试和开发的网络，不会使用真实的以太币进行交易。这意味着你可以在 Rinkeby 上部署智能合约、创建交易和进行各种操作，而不会产生真正的经济损失。&lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;快速验证：Rinkeby 的区块确认速度相对较快，通常在几秒钟内就能得到确认。这样可以加快开发和测试的速度，减少等待时间。&lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;免费以太币：在 Rinkeby 上，你可以通过测试网站或社区提供的水龙头（Faucet）获得免费的 Rinkeby 以太币。这些以太币只在 Rinkeby 测试网络中有效，可以用于测试智能合约、模拟交易和进行其他实验。&lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;公共网络：Rinkeby 是一个公共测试网络，可以与其他开发者和测试者共享和交流。这样可以更好地模拟真实环境中的网络效应和交互。&lt;/p&gt;
+&lt;/li&gt;
+&lt;/ul&gt;
+&lt;p&gt;Rinkeby 的存在使得开发人员能够在真实的环境中测试和调试他们的以太坊应用，以确保其在主网上的安全和可靠运行。同时，它也为用户提供了一种尝试和体验以太坊 DApp 的方式，而无需在真实的区块链网络上进行操作。&lt;/p&gt;
+&lt;h2 id=&#34;什么是decentralized-oracle-networkdon&#34;&gt;什么是decentralized oracle network(DON)?&lt;/h2&gt;
+&lt;p&gt;去中心化预言机网络（Decentralized Oracle Network）是指由多个节点组成的去中心化网络，旨在为区块链智能合约提供外部数据和实时事件的信任和验证。&lt;/p&gt;
+&lt;p&gt;预言机是连接区块链与现实世界的桥梁，它们提供区块链无法直接获取的外部数据，例如天气信息、股票价格、体育比分等。智能合约通常需要这些外部数据来进行条件判断、执行操作或进行与现实世界相关的业务逻辑。&lt;/p&gt;
+&lt;p&gt;传统的预言机通常是集中化的，由单一实体或组织提供数据，并将其上链。然而，这样的中心化预言机存在单点故障和潜在的信任问题，因为它们的数据源和运营由一个实体控制。&lt;/p&gt;
+&lt;p&gt;为了解决这些问题，去中心化预言机网络应运而生。它通过引入多个节点和共识机制来实现数据的分散获取和验证，提供更高的安全性和可靠性。这些节点可以是个人、企业或其他参与者，它们从各种数据源获取数据，并使用共识算法对数据进行验证和聚合。&lt;/p&gt;
+&lt;p&gt;在去中心化预言机网络中，节点通过数据签名和共识机制来保证数据的准确性和一致性。智能合约可以从多个节点获取数据，并使用共识算法来确定最终的数据结果。这种分散化的验证机制消除了单点故障，并增加了对恶意节点的防护能力。&lt;/p&gt;
+&lt;p&gt;去中心化预言机网络在许多应用场景中发挥重要作用，特别是在金融领域、保险、供应链管理、预测市场和游戏等需要可信外部数据的领域。它们为智能合约提供了可靠的数据源，使得区块链应用能够与现实世界更深入地互动和整合。&lt;/p&gt;
+</description>
+        </item>
+        <item>
         <title>solidity</title>
         <link>https://jhrsya.github.io/p/solidity/</link>
         <pubDate>Wed, 07 Jun 2023 00:00:00 +0000</pubDate>
@@ -862,7 +920,43 @@ msg.value：可以查看有多少割以太币被发送给合约。&lt;/p&gt;
 &lt;/span&gt;&lt;span class=&#34;c1&#34;&gt;&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;}&lt;/span&gt;
 &lt;/code&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;
 &lt;/div&gt;
-&lt;/div&gt;</description>
+&lt;/div&gt;&lt;h3 id=&#34;abi&#34;&gt;ABI&lt;/h3&gt;
+&lt;p&gt;ABI即应用程序二进制接口(Application Binary Interface)。ABI是以JSON格式表示合约方法的一种方式，告诉Web3.js如何以合约能理解的方式格式化函数调用。当你编译要部署到以太坊的合约时，Solidity编译器会给出ABI，因此你需要将其复制并保存，以便在部署后调用合约。&lt;/p&gt;
+&lt;h2 id=&#34;部署合约框架truffle&#34;&gt;部署合约框架truffle&lt;/h2&gt;
+&lt;h3 id=&#34;安装&#34;&gt;安装&lt;/h3&gt;
+&lt;p&gt;&lt;code&gt;npm install truffle -g&lt;/code&gt;&lt;/p&gt;
+&lt;h3 id=&#34;目录结构&#34;&gt;目录结构&lt;/h3&gt;
+&lt;p&gt;&lt;img src=&#34;https://fvector.oss-cn-hangzhou.aliyuncs.com/202307021832363.png&#34;
+	
+	
+	
+	loading=&#34;lazy&#34;
+	
+	
+&gt;&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;
+&lt;p&gt;contracts: 智能合约通常被组织在一个名为 contracts 的文件夹中。为了保持代码的组织结构，我们甚至可以创建嵌套文件夹，例如 contracts/tokens。&lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;migrations: 是一个 JavaScript 文件，告诉 Truffle 如何部署智能合约。&lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;test: 在 test 文件夹中，我们需要放置单元测试，这些测试可以是 JavaScript 或 Solidity 文件。请记住，一旦部署了合约，就无法更改它，因此在部署之前测试智能合约非常重要。&lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;truffle.js 和 truffle-config.js 是用于存储部署的网络设置的配置文件。Truffle 需要两个配置文件，因为在 Windows 上，在同一个文件夹中同时拥有 truffle.js 和 truffle.exe 可能会产生冲突。长话短说 - 如果您正在运行 Windows，则建议删除 truffle.js 并使用 truffle-config.js 作为默认配置文件。请查看 Truffle 的官方文档以进一步了解。&lt;/p&gt;
+&lt;/li&gt;
+&lt;/ul&gt;
+&lt;h3 id=&#34;编译&#34;&gt;编译&lt;/h3&gt;
+&lt;p&gt;&lt;code&gt;truffle compile&lt;/code&gt;&lt;/p&gt;
+&lt;h3 id=&#34;测试&#34;&gt;测试&lt;/h3&gt;
+&lt;p&gt;在部署到以太坊上前，一般会进行测试，可以使用测试工具Ganache。&lt;/p&gt;
+&lt;p&gt;把合约部署到测试网络
+&lt;code&gt;truffle migrate --network rinkeby&lt;/code&gt;&lt;/p&gt;
+&lt;p&gt;把合约部署到主网
+&lt;code&gt;truffle migrate --network mainnet&lt;/code&gt;&lt;/p&gt;
+</description>
         </item>
         <item>
         <title>区块链开发</title>
