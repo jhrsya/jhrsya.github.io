@@ -1359,9 +1359,515 @@ msg.value：可以查看有多少割以太币被发送给合约。&lt;/p&gt;
 
 &lt;/code&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;
 &lt;/div&gt;
+&lt;/div&gt;&lt;h3 id=&#34;定义对象object&#34;&gt;定义对象(object)&lt;/h3&gt;
+&lt;p&gt;javascript中的对象类似C++中的结构体map，python中的字典。&lt;/p&gt;
+&lt;div class=&#34;highlight&#34;&gt;&lt;div class=&#34;chroma&#34;&gt;
+&lt;table class=&#34;lntable&#34;&gt;&lt;tr&gt;&lt;td class=&#34;lntd&#34;&gt;
+&lt;pre tabindex=&#34;0&#34; class=&#34;chroma&#34;&gt;&lt;code&gt;&lt;span class=&#34;lnt&#34;&gt;1
+&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt;2
+&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/td&gt;
+&lt;td class=&#34;lntd&#34;&gt;
+&lt;pre tabindex=&#34;0&#34; class=&#34;chroma&#34;&gt;&lt;code class=&#34;language-fallback&#34; data-lang=&#34;fallback&#34;&gt;var person = {&amp;#34;name&amp;#34;: hugo, &amp;#34;age&amp;#34;: 20}
+// 可以使用person.name访问对象中的元素
+&lt;/code&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;
+&lt;/div&gt;
 &lt;/div&gt;&lt;h3 id=&#34;定义元组&#34;&gt;定义元组&lt;/h3&gt;
 &lt;p&gt;javascript中无内置的元组类型，可以用列表来模拟。
 &lt;code&gt;const tuple = [element1, element2, ...];&lt;/code&gt;&lt;/p&gt;
+&lt;h3 id=&#34;var和let的区别&#34;&gt;var和let的区别&lt;/h3&gt;
+&lt;p&gt;js的块级作用域:
+使用 var 关键字声明的变量不具备块级作用域的特性，它在 {} 外依然能被访问到。&lt;/p&gt;
+&lt;div class=&#34;highlight&#34;&gt;&lt;div class=&#34;chroma&#34;&gt;
+&lt;table class=&#34;lntable&#34;&gt;&lt;tr&gt;&lt;td class=&#34;lntd&#34;&gt;
+&lt;pre tabindex=&#34;0&#34; class=&#34;chroma&#34;&gt;&lt;code&gt;&lt;span class=&#34;lnt&#34;&gt;1
+&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt;2
+&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt;3
+&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt;4
+&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/td&gt;
+&lt;td class=&#34;lntd&#34;&gt;
+&lt;pre tabindex=&#34;0&#34; class=&#34;chroma&#34;&gt;&lt;code class=&#34;language-fallback&#34; data-lang=&#34;fallback&#34;&gt;{ 
+    var x = 2; 
+}
+// 这里可以使用 x 变量
+&lt;/code&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;
+&lt;/div&gt;
+&lt;/div&gt;&lt;p&gt;let 声明的变量只在 let 命令所在的代码块 {} 内有效，在 {} 之外不能访问。&lt;/p&gt;
+&lt;div class=&#34;highlight&#34;&gt;&lt;div class=&#34;chroma&#34;&gt;
+&lt;table class=&#34;lntable&#34;&gt;&lt;tr&gt;&lt;td class=&#34;lntd&#34;&gt;
+&lt;pre tabindex=&#34;0&#34; class=&#34;chroma&#34;&gt;&lt;code&gt;&lt;span class=&#34;lnt&#34;&gt;1
+&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt;2
+&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt;3
+&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt;4
+&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/td&gt;
+&lt;td class=&#34;lntd&#34;&gt;
+&lt;pre tabindex=&#34;0&#34; class=&#34;chroma&#34;&gt;&lt;code class=&#34;language-fallback&#34; data-lang=&#34;fallback&#34;&gt;{ 
+    let x = 2;
+}
+// 这里不能使用 x 变量
+&lt;/code&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;
+&lt;/div&gt;
+&lt;/div&gt;&lt;h2 id=&#34;javascript交互&#34;&gt;javascript交互&lt;/h2&gt;
+&lt;h3 id=&#34;javascript显示数据&#34;&gt;javascript显示数据&lt;/h3&gt;
+&lt;p&gt;JavaScript 没有任何打印或者输出的函数。&lt;/p&gt;
+&lt;p&gt;JavaScript 可以通过不同的方式来输出数据：&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;使用 window.alert() 弹出警告框。&lt;/li&gt;
+&lt;li&gt;使用 document.write() 方法将内容写到 HTML 文档中。&lt;/li&gt;
+&lt;li&gt;使用 innerHTML 写入到 HTML 元素。&lt;/li&gt;
+&lt;li&gt;使用 console.log() 写入到浏览器的控制台。&lt;/li&gt;
+&lt;/ul&gt;
+&lt;h3 id=&#34;html事件&#34;&gt;HTML事件&lt;/h3&gt;
+&lt;p&gt;HTML 事件是发生在 HTML 元素上的事情。
+HTML 事件可以是浏览器行为，也可以是用户行为。&lt;/p&gt;
+&lt;p&gt;以下是 HTML 事件的实例：&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;HTML 页面完成加载&lt;/li&gt;
+&lt;li&gt;HTML input 字段改变时&lt;/li&gt;
+&lt;li&gt;HTML 按钮被点击&lt;/li&gt;
+&lt;/ul&gt;
+&lt;p&gt;在事件触发时 JavaScript 可以执行一些代码。如：
+&lt;code&gt;&amp;lt;button onclick=&amp;quot;getElementById(&#39;demo&#39;).innerHTML=Date()&amp;quot;&amp;gt;现在的时间是?&amp;lt;/button&amp;gt;&lt;/code&gt;
+注意onclick后的字符串是要执行的代码。&lt;/p&gt;
+&lt;h3 id=&#34;表单验证&#34;&gt;表单验证&lt;/h3&gt;
+&lt;p&gt;JavaScript 可用来在数据被送往服务器前对 HTML 表单中的这些输入数据进行验证。&lt;/p&gt;
+&lt;p&gt;表单数据经常需要使用 JavaScript 来验证其正确性：&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;验证表单数据是否为空？&lt;/li&gt;
+&lt;li&gt;验证输入是否是一个正确的email地址？&lt;/li&gt;
+&lt;li&gt;验证日期是否输入正确？&lt;/li&gt;
+&lt;li&gt;验证表单输入内容是否为数字型？&lt;/li&gt;
+&lt;/ul&gt;
+&lt;h3 id=&#34;json字符串与javascript对象相互转换&#34;&gt;JSON字符串与Javascript对象相互转换&lt;/h3&gt;
+&lt;div class=&#34;highlight&#34;&gt;&lt;div class=&#34;chroma&#34;&gt;
+&lt;table class=&#34;lntable&#34;&gt;&lt;tr&gt;&lt;td class=&#34;lntd&#34;&gt;
+&lt;pre tabindex=&#34;0&#34; class=&#34;chroma&#34;&gt;&lt;code&gt;&lt;span class=&#34;lnt&#34;&gt;1
+&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt;2
+&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/td&gt;
+&lt;td class=&#34;lntd&#34;&gt;
+&lt;pre tabindex=&#34;0&#34; class=&#34;chroma&#34;&gt;&lt;code class=&#34;language-fallback&#34; data-lang=&#34;fallback&#34;&gt;var obj = JSON.parse(text);
+var text = JSON.stringify();
+&lt;/code&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;
+&lt;/div&gt;
+&lt;/div&gt;&lt;h2 id=&#34;javascript异步编程&#34;&gt;javascript异步编程&lt;/h2&gt;
+&lt;p&gt;异步就是从主线程发射一个子线程来执行任务。
+简单来理解就是：同步按你的代码顺序执行，异步不按照代码顺序执行，异步的执行效率更高。
+&lt;img src=&#34;https://fvector.oss-cn-hangzhou.aliyuncs.com/202307111550753.png&#34;
+	
+	
+	
+	loading=&#34;lazy&#34;
+	
+	
+&gt;&lt;/p&gt;
+&lt;h3 id=&#34;回调函数&#34;&gt;回调函数&lt;/h3&gt;
+&lt;p&gt;回调函数就是一个函数，它是在我们启动一个异步任务的时候就告诉它：等你完成了这个任务之后要干什么。这样一来主线程几乎不用关心异步任务的状态了，他自己会善始善终。&lt;/p&gt;
+&lt;div class=&#34;highlight&#34;&gt;&lt;div class=&#34;chroma&#34;&gt;
+&lt;table class=&#34;lntable&#34;&gt;&lt;tr&gt;&lt;td class=&#34;lntd&#34;&gt;
+&lt;pre tabindex=&#34;0&#34; class=&#34;chroma&#34;&gt;&lt;code&gt;&lt;span class=&#34;lnt&#34;&gt;1
+&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt;2
+&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt;3
+&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt;4
+&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/td&gt;
+&lt;td class=&#34;lntd&#34;&gt;
+&lt;pre tabindex=&#34;0&#34; class=&#34;chroma&#34;&gt;&lt;code class=&#34;language-fallback&#34; data-lang=&#34;fallback&#34;&gt;function print() {
+    document.getElementById(&amp;#34;demo&amp;#34;).innerHTML=&amp;#34;RUNOOB!&amp;#34;;
+}
+setTimeout(print, 3000);
+&lt;/code&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;
+&lt;/div&gt;
+&lt;/div&gt;&lt;p&gt;这段程序中的 setTimeout 就是一个消耗时间较长（3 秒）的过程，它的第一个参数是个回调函数，第二个参数是毫秒数，这个函数执行之后会产生一个子线程，子线程会等待 3 秒，然后执行回调函数 &amp;ldquo;print&amp;rdquo;，在命令行输出 &amp;ldquo;RUNOOB!&amp;quot;。&lt;/p&gt;
+&lt;h3 id=&#34;ajax&#34;&gt;AJAX&lt;/h3&gt;
+&lt;p&gt;AJAX 最大的优点是在不重新加载整个页面的情况下，可以与服务器交换数据并更新部分网页内容。&lt;/p&gt;
+&lt;h3 id=&#34;js-promise&#34;&gt;js promise&lt;/h3&gt;
+&lt;p&gt;Promise是一个类，目的是更加优雅地书写复杂的异步任务。
+想象这样一个场景，需要多次调用异步函数，例如：分三次输出字符串，第一次间隔 1 秒，第二次间隔 4 秒，第三次间隔 3 秒。
+普通方法：&lt;/p&gt;
+&lt;div class=&#34;highlight&#34;&gt;&lt;div class=&#34;chroma&#34;&gt;
+&lt;table class=&#34;lntable&#34;&gt;&lt;tr&gt;&lt;td class=&#34;lntd&#34;&gt;
+&lt;pre tabindex=&#34;0&#34; class=&#34;chroma&#34;&gt;&lt;code&gt;&lt;span class=&#34;lnt&#34;&gt;1
+&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt;2
+&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt;3
+&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt;4
+&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt;5
+&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt;6
+&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt;7
+&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt;8
+&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt;9
+&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/td&gt;
+&lt;td class=&#34;lntd&#34;&gt;
+&lt;pre tabindex=&#34;0&#34; class=&#34;chroma&#34;&gt;&lt;code class=&#34;language-fallback&#34; data-lang=&#34;fallback&#34;&gt;setTimeout(function () {
+    console.log(&amp;#34;First&amp;#34;);
+    setTimeout(function () {
+        console.log(&amp;#34;Second&amp;#34;);
+        setTimeout(function () {
+            console.log(&amp;#34;Third&amp;#34;);
+        }, 3000);
+    }, 4000);
+}, 1000);
+&lt;/code&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;
+&lt;/div&gt;
+&lt;/div&gt;&lt;p&gt;上面这段代码是使用函数瀑布实现的，难以维护且异常处理困难。&lt;/p&gt;
+&lt;p&gt;现在使用Promise来实现同样的功能：&lt;/p&gt;
+&lt;div class=&#34;highlight&#34;&gt;&lt;div class=&#34;chroma&#34;&gt;
+&lt;table class=&#34;lntable&#34;&gt;&lt;tr&gt;&lt;td class=&#34;lntd&#34;&gt;
+&lt;pre tabindex=&#34;0&#34; class=&#34;chroma&#34;&gt;&lt;code&gt;&lt;span class=&#34;lnt&#34;&gt; 1
+&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt; 2
+&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt; 3
+&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt; 4
+&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt; 5
+&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt; 6
+&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt; 7
+&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt; 8
+&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt; 9
+&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt;10
+&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt;11
+&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt;12
+&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt;13
+&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt;14
+&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt;15
+&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt;16
+&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt;17
+&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/td&gt;
+&lt;td class=&#34;lntd&#34;&gt;
+&lt;pre tabindex=&#34;0&#34; class=&#34;chroma&#34;&gt;&lt;code class=&#34;language-fallback&#34; data-lang=&#34;fallback&#34;&gt;new Promise(function (resolve, reject) {
+    setTimeout(function () {
+        console.log(&amp;#34;First&amp;#34;);
+        resolve();
+    }, 1000);
+}).then(function () {
+    return new Promise(function (resolve, reject) {
+        setTimeout(function () {
+            console.log(&amp;#34;Second&amp;#34;);
+            resolve();
+        }, 4000);
+    });
+}).then(function () {
+    setTimeout(function () {
+        console.log(&amp;#34;Third&amp;#34;);
+    }, 3000);
+});
+&lt;/code&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;
+&lt;/div&gt;
+&lt;/div&gt;&lt;p&gt;Promise 使用.then将嵌套格式的代码变成了顺序格式的代码。&lt;/p&gt;
+&lt;h4 id=&#34;promise-的构造函数&#34;&gt;Promise 的构造函数&lt;/h4&gt;
+&lt;p&gt;Promise 构造函数是 JavaScript 中用于创建 Promise 对象的内置构造函数。&lt;/p&gt;
+&lt;p&gt;Promise 构造函数接受一个函数作为参数，该函数是同步的并且会被立即执行，所以我们称之为起始函数。起始函数包含两个参数 resolve 和 reject，分别表示 Promise 成功和失败的状态。&lt;/p&gt;
+&lt;p&gt;起始函数执行成功时，它应该调用 resolve 函数并传递成功的结果。当起始函数执行失败时，它应该调用 reject 函数并传递失败的原因。&lt;/p&gt;
+&lt;p&gt;Promise 构造函数返回一个 Promise 对象，该对象具有以下几个方法：&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;then：用于处理 Promise 成功状态的回调函数。&lt;/li&gt;
+&lt;li&gt;catch：用于处理 Promise 失败状态的回调函数。&lt;/li&gt;
+&lt;li&gt;finally：无论 Promise 是成功还是失败，都会执行的回调函数。&lt;/li&gt;
+&lt;/ul&gt;
+&lt;p&gt;例子：&lt;/p&gt;
+&lt;div class=&#34;highlight&#34;&gt;&lt;div class=&#34;chroma&#34;&gt;
+&lt;table class=&#34;lntable&#34;&gt;&lt;tr&gt;&lt;td class=&#34;lntd&#34;&gt;
+&lt;pre tabindex=&#34;0&#34; class=&#34;chroma&#34;&gt;&lt;code&gt;&lt;span class=&#34;lnt&#34;&gt; 1
+&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt; 2
+&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt; 3
+&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt; 4
+&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt; 5
+&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt; 6
+&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt; 7
+&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt; 8
+&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt; 9
+&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt;10
+&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt;11
+&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt;12
+&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/td&gt;
+&lt;td class=&#34;lntd&#34;&gt;
+&lt;pre tabindex=&#34;0&#34; class=&#34;chroma&#34;&gt;&lt;code class=&#34;language-fallback&#34; data-lang=&#34;fallback&#34;&gt;new Promise(function (resolve, reject) {
+    var a = 0;
+    var b = 1;
+    if (b == 0) reject(&amp;#34;Divide zero&amp;#34;);
+    else resolve(a / b);
+}).then(function (value) {
+    console.log(&amp;#34;a / b = &amp;#34; + value);
+}).catch(function (err) {
+    console.log(err);
+}).finally(function () {
+    console.log(&amp;#34;End&amp;#34;);
+});
+&lt;/code&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;
+&lt;/div&gt;
+&lt;/div&gt;&lt;p&gt;这段程序执行结果是:&lt;/p&gt;
+&lt;div class=&#34;highlight&#34;&gt;&lt;div class=&#34;chroma&#34;&gt;
+&lt;table class=&#34;lntable&#34;&gt;&lt;tr&gt;&lt;td class=&#34;lntd&#34;&gt;
+&lt;pre tabindex=&#34;0&#34; class=&#34;chroma&#34;&gt;&lt;code&gt;&lt;span class=&#34;lnt&#34;&gt;1
+&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt;2
+&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/td&gt;
+&lt;td class=&#34;lntd&#34;&gt;
+&lt;pre tabindex=&#34;0&#34; class=&#34;chroma&#34;&gt;&lt;code class=&#34;language-fallback&#34; data-lang=&#34;fallback&#34;&gt;a / b = 0
+End
+&lt;/code&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;
+&lt;/div&gt;
+&lt;/div&gt;&lt;h4 id=&#34;promise函数&#34;&gt;Promise函数&lt;/h4&gt;
+&lt;p&gt;可以使用Promise函数改造最初的计时器代码：&lt;/p&gt;
+&lt;div class=&#34;highlight&#34;&gt;&lt;div class=&#34;chroma&#34;&gt;
+&lt;table class=&#34;lntable&#34;&gt;&lt;tr&gt;&lt;td class=&#34;lntd&#34;&gt;
+&lt;pre tabindex=&#34;0&#34; class=&#34;chroma&#34;&gt;&lt;code&gt;&lt;span class=&#34;lnt&#34;&gt; 1
+&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt; 2
+&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt; 3
+&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt; 4
+&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt; 5
+&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt; 6
+&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt; 7
+&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt; 8
+&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt; 9
+&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt;10
+&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt;11
+&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt;12
+&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt;13
+&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt;14
+&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/td&gt;
+&lt;td class=&#34;lntd&#34;&gt;
+&lt;pre tabindex=&#34;0&#34; class=&#34;chroma&#34;&gt;&lt;code class=&#34;language-fallback&#34; data-lang=&#34;fallback&#34;&gt;function print(delay, message) {
+    return new Promise(function (resolve, reject) {
+        setTimeout(function () {
+            console.log(message);
+            resolve();
+        }, delay);
+    });
+}
+
+print(1000, &amp;#34;First&amp;#34;).then(function () {
+    return print(4000, &amp;#34;Second&amp;#34;);
+}).then(function () {
+    print(3000, &amp;#34;Third&amp;#34;);
+});
+&lt;/code&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;
+&lt;/div&gt;
+&lt;/div&gt;&lt;p&gt;这种返回值为一个 Promise 对象的函数称作 Promise 函数，它常常用于开发基于异步操作的库。&lt;/p&gt;
+&lt;h4 id=&#34;qa&#34;&gt;QA&lt;/h4&gt;
+&lt;ol&gt;
+&lt;li&gt;
+&lt;p&gt;什么时候适合用 Promise 而不是传统回调函数？
+当需要多次顺序执行异步操作的时候，例如，如果想通过异步方法先后检测用户名和密码，需要先异步检测用户名，然后再异步检测密码的情况下就很适合 Promise。&lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;Promise 是一种将异步转换为同步的方法吗？
+完全不是。Promise 只不过是一种更良好的编程风格。&lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;什么时候我们需要再写一个 then 而不是在当前的 then 接着编程？
+当你又需要调用一个异步任务的时候。&lt;/p&gt;
+&lt;/li&gt;
+&lt;/ol&gt;
+&lt;h3 id=&#34;异步函数&#34;&gt;异步函数&lt;/h3&gt;
+&lt;p&gt;使用异步函数可以对上面的计时器功能的Promise进行改造：&lt;/p&gt;
+&lt;div class=&#34;highlight&#34;&gt;&lt;div class=&#34;chroma&#34;&gt;
+&lt;table class=&#34;lntable&#34;&gt;&lt;tr&gt;&lt;td class=&#34;lntd&#34;&gt;
+&lt;pre tabindex=&#34;0&#34; class=&#34;chroma&#34;&gt;&lt;code&gt;&lt;span class=&#34;lnt&#34;&gt;1
+&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt;2
+&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt;3
+&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt;4
+&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt;5
+&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt;6
+&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/td&gt;
+&lt;td class=&#34;lntd&#34;&gt;
+&lt;pre tabindex=&#34;0&#34; class=&#34;chroma&#34;&gt;&lt;code class=&#34;language-fallback&#34; data-lang=&#34;fallback&#34;&gt;async function asyncFunc() {
+    await print(1000, &amp;#34;First&amp;#34;);
+    await print(4000, &amp;#34;Second&amp;#34;);
+    await print(3000, &amp;#34;Third&amp;#34;);
+}
+asyncFunc();
+&lt;/code&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;
+&lt;/div&gt;
+&lt;/div&gt;&lt;p&gt;这样可以使得异步操作变得和同步操作一样容易。&lt;/p&gt;
+&lt;h2 id=&#34;javascript-函数&#34;&gt;javascript 函数&lt;/h2&gt;
+&lt;h3 id=&#34;js-匿名函数&#34;&gt;js 匿名函数&lt;/h3&gt;
+&lt;div class=&#34;highlight&#34;&gt;&lt;div class=&#34;chroma&#34;&gt;
+&lt;table class=&#34;lntable&#34;&gt;&lt;tr&gt;&lt;td class=&#34;lntd&#34;&gt;
+&lt;pre tabindex=&#34;0&#34; class=&#34;chroma&#34;&gt;&lt;code&gt;&lt;span class=&#34;lnt&#34;&gt;1
+&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt;2
+&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/td&gt;
+&lt;td class=&#34;lntd&#34;&gt;
+&lt;pre tabindex=&#34;0&#34; class=&#34;chroma&#34;&gt;&lt;code class=&#34;language-fallback&#34; data-lang=&#34;fallback&#34;&gt;var x = function (a, b) {return a * b};  // 匿名函数
+var z = x(4, 3);
+&lt;/code&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;
+&lt;/div&gt;
+&lt;/div&gt;&lt;h3 id=&#34;箭头函数&#34;&gt;箭头函数&lt;/h3&gt;
+&lt;p&gt;箭头函数表达式的语法比普通函数表达式更简洁。&lt;/p&gt;
+&lt;div class=&#34;highlight&#34;&gt;&lt;div class=&#34;chroma&#34;&gt;
+&lt;table class=&#34;lntable&#34;&gt;&lt;tr&gt;&lt;td class=&#34;lntd&#34;&gt;
+&lt;pre tabindex=&#34;0&#34; class=&#34;chroma&#34;&gt;&lt;code&gt;&lt;span class=&#34;lnt&#34;&gt; 1
+&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt; 2
+&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt; 3
+&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt; 4
+&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt; 5
+&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt; 6
+&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt; 7
+&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt; 8
+&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt; 9
+&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt;10
+&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt;11
+&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt;12
+&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt;13
+&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/td&gt;
+&lt;td class=&#34;lntd&#34;&gt;
+&lt;pre tabindex=&#34;0&#34; class=&#34;chroma&#34;&gt;&lt;code class=&#34;language-fallback&#34; data-lang=&#34;fallback&#34;&gt;(参数1, 参数2, …, 参数N) =&amp;gt; { 函数声明 }
+
+(参数1, 参数2, …, 参数N) =&amp;gt; 表达式(单一)
+// 相当于：(参数1, 参数2, …, 参数N) =&amp;gt;{ return 表达式; }
+
+// 当只有一个参数时，圆括号是可选的：
+(单一参数) =&amp;gt; {函数声明}
+单一参数 =&amp;gt; {函数声明}
+
+// 没有参数的函数应该写成一对圆括号:
+() =&amp;gt; {函数声明}
+
+const x = (x, y) =&amp;gt; x * y;
+&lt;/code&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;
+&lt;/div&gt;
+&lt;/div&gt;&lt;h2 id=&#34;javascript-闭包&#34;&gt;javascript 闭包&lt;/h2&gt;
+&lt;p&gt;闭包是一种保护私有变量的机制，在函数执行时形成私有的作用域，保护里面的私有变量不受外界干扰。直观的说就是形成一个不销毁的栈环境。&lt;/p&gt;
+&lt;h3 id=&#34;javascript-内嵌函数&#34;&gt;javascript 内嵌函数&lt;/h3&gt;
+&lt;p&gt;嵌套函数可以访问上一层的函数变量。&lt;/p&gt;
+&lt;div class=&#34;highlight&#34;&gt;&lt;div class=&#34;chroma&#34;&gt;
+&lt;table class=&#34;lntable&#34;&gt;&lt;tr&gt;&lt;td class=&#34;lntd&#34;&gt;
+&lt;pre tabindex=&#34;0&#34; class=&#34;chroma&#34;&gt;&lt;code&gt;&lt;span class=&#34;lnt&#34;&gt;1
+&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt;2
+&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt;3
+&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt;4
+&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt;5
+&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt;6
+&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/td&gt;
+&lt;td class=&#34;lntd&#34;&gt;
+&lt;pre tabindex=&#34;0&#34; class=&#34;chroma&#34;&gt;&lt;code class=&#34;language-fallback&#34; data-lang=&#34;fallback&#34;&gt;function add() {
+    var counter = 0;
+    function plus() {counter += 1;}
+    plus();    
+    return counter; 
+}
+&lt;/code&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;
+&lt;/div&gt;
+&lt;/div&gt;&lt;p&gt;在plus函数中的counter使用的是上一层add中定义的counter，如果能在add函数外部访问到plus函数，则可以实现counter的闭包，保证counter不被其他所影响。&lt;/p&gt;
+&lt;h3 id=&#34;闭包&#34;&gt;闭包&lt;/h3&gt;
+&lt;p&gt;闭包是通过一个函数返回这个函数的内嵌函数的函数名来实现的，然后在外部调用这个函数。&lt;/p&gt;
+&lt;div class=&#34;highlight&#34;&gt;&lt;div class=&#34;chroma&#34;&gt;
+&lt;table class=&#34;lntable&#34;&gt;&lt;tr&gt;&lt;td class=&#34;lntd&#34;&gt;
+&lt;pre tabindex=&#34;0&#34; class=&#34;chroma&#34;&gt;&lt;code&gt;&lt;span class=&#34;lnt&#34;&gt; 1
+&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt; 2
+&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt; 3
+&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt; 4
+&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt; 5
+&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt; 6
+&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt; 7
+&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt; 8
+&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt; 9
+&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt;10
+&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt;11
+&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt;12
+&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt;13
+&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/td&gt;
+&lt;td class=&#34;lntd&#34;&gt;
+&lt;pre tabindex=&#34;0&#34; class=&#34;chroma&#34;&gt;&lt;code class=&#34;language-fallback&#34; data-lang=&#34;fallback&#34;&gt;function outerFunction() {
+  var outerVariable = &amp;#39;I am outside!&amp;#39;;
+
+  function innerFunction() {
+    console.log(outerVariable);
+  }
+
+  return innerFunction;
+}
+
+var closure = outerFunction();
+closure(); // 输出：&amp;#39;I am outside!&amp;#39;
+
+&lt;/code&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;
+&lt;/div&gt;
+&lt;/div&gt;&lt;h2 id=&#34;javascript-html-dom&#34;&gt;javascript HTML DOM&lt;/h2&gt;
+&lt;p&gt;DOM(document object model)
+通过可编程的对象模型，JavaScript 获得了足够的能力来创建动态的 HTML。&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;JavaScript 能够改变页面中的所有 HTML 元素&lt;/li&gt;
+&lt;li&gt;JavaScript 能够改变页面中的所有 HTML 属性&lt;/li&gt;
+&lt;li&gt;JavaScript 能够改变页面中的所有 CSS 样式&lt;/li&gt;
+&lt;li&gt;JavaScript 能够对页面中的所有事件做出反应&lt;/li&gt;
+&lt;/ul&gt;
+&lt;h3 id=&#34;查找html元素&#34;&gt;查找HTML元素&lt;/h3&gt;
+&lt;h4 id=&#34;通过-id-找到-html-元素&#34;&gt;通过 id 找到 HTML 元素&lt;/h4&gt;
+&lt;p&gt;本例查找 id=&amp;ldquo;intro&amp;rdquo; 元素：
+&lt;code&gt;var x=document.getElementById(&amp;quot;intro&amp;quot;);&lt;/code&gt;&lt;/p&gt;
+&lt;h4 id=&#34;通过标签名查找-html-元素&#34;&gt;通过标签名查找 HTML 元素&lt;/h4&gt;
+&lt;p&gt;本例查找 id=&amp;ldquo;main&amp;rdquo; 的元素，然后查找 id=&amp;ldquo;main&amp;rdquo; 元素中的所有 &lt;!-- raw HTML omitted --&gt; 元素：&lt;/p&gt;
+&lt;div class=&#34;highlight&#34;&gt;&lt;div class=&#34;chroma&#34;&gt;
+&lt;table class=&#34;lntable&#34;&gt;&lt;tr&gt;&lt;td class=&#34;lntd&#34;&gt;
+&lt;pre tabindex=&#34;0&#34; class=&#34;chroma&#34;&gt;&lt;code&gt;&lt;span class=&#34;lnt&#34;&gt;1
+&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt;2
+&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/td&gt;
+&lt;td class=&#34;lntd&#34;&gt;
+&lt;pre tabindex=&#34;0&#34; class=&#34;chroma&#34;&gt;&lt;code class=&#34;language-fallback&#34; data-lang=&#34;fallback&#34;&gt;var x=document.getElementById(&amp;#34;main&amp;#34;);
+var y=x.getElementsByTagName(&amp;#34;p&amp;#34;);
+&lt;/code&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;
+&lt;/div&gt;
+&lt;/div&gt;&lt;h4 id=&#34;通过类名找到-html-元素&#34;&gt;通过类名找到 HTML 元素&lt;/h4&gt;
+&lt;p&gt;本例通过 getElementsByClassName 函数来查找 class=&amp;ldquo;intro&amp;rdquo; 的元素：
+&lt;code&gt;var x=document.getElementsByClassName(&amp;quot;intro&amp;quot;);&lt;/code&gt;&lt;/p&gt;
+&lt;h3 id=&#34;改变html&#34;&gt;改变HTML&lt;/h3&gt;
+&lt;h4 id=&#34;改变-html-输出流&#34;&gt;改变 HTML 输出流&lt;/h4&gt;
+&lt;p&gt;&lt;code&gt;document.write(Date());&lt;/code&gt;&lt;/p&gt;
+&lt;h4 id=&#34;改变-html-内容&#34;&gt;改变 HTML 内容&lt;/h4&gt;
+&lt;p&gt;&lt;code&gt;document.getElementById(id).innerHTML=新的 HTML&lt;/code&gt;&lt;/p&gt;
+&lt;h4 id=&#34;改变-html-属性&#34;&gt;改变 HTML 属性&lt;/h4&gt;
+&lt;p&gt;&lt;code&gt;document.getElementById(id).attribute=新属性值&lt;/code&gt;
+&lt;code&gt;document.getElementById(&amp;quot;image&amp;quot;).src=&amp;quot;landscape.jpg&amp;quot;;&lt;/code&gt;&lt;/p&gt;
+&lt;h3 id=&#34;改变css&#34;&gt;改变CSS&lt;/h3&gt;
+&lt;h4 id=&#34;改变-html-样式&#34;&gt;改变 HTML 样式&lt;/h4&gt;
+&lt;div class=&#34;highlight&#34;&gt;&lt;div class=&#34;chroma&#34;&gt;
+&lt;table class=&#34;lntable&#34;&gt;&lt;tr&gt;&lt;td class=&#34;lntd&#34;&gt;
+&lt;pre tabindex=&#34;0&#34; class=&#34;chroma&#34;&gt;&lt;code&gt;&lt;span class=&#34;lnt&#34;&gt;1
+&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt;2
+&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt;3
+&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/td&gt;
+&lt;td class=&#34;lntd&#34;&gt;
+&lt;pre tabindex=&#34;0&#34; class=&#34;chroma&#34;&gt;&lt;code class=&#34;language-fallback&#34; data-lang=&#34;fallback&#34;&gt;document.getElementById(&amp;#34;p2&amp;#34;).style.color=&amp;#34;blue&amp;#34;;
+document.getElementById(&amp;#34;p2&amp;#34;).style.fontFamily=&amp;#34;Arial&amp;#34;;
+document.getElementById(&amp;#34;p2&amp;#34;).style.fontSize=&amp;#34;larger&amp;#34;;
+&lt;/code&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;
+&lt;/div&gt;
+&lt;/div&gt;&lt;h4 id=&#34;使用事件&#34;&gt;使用事件&lt;/h4&gt;
+&lt;p&gt;HTML DOM 允许我们通过触发事件来执行代码。&lt;/p&gt;
+&lt;div class=&#34;highlight&#34;&gt;&lt;div class=&#34;chroma&#34;&gt;
+&lt;table class=&#34;lntable&#34;&gt;&lt;tr&gt;&lt;td class=&#34;lntd&#34;&gt;
+&lt;pre tabindex=&#34;0&#34; class=&#34;chroma&#34;&gt;&lt;code&gt;&lt;span class=&#34;lnt&#34;&gt;1
+&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt;2
+&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt;3
+&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/td&gt;
+&lt;td class=&#34;lntd&#34;&gt;
+&lt;pre tabindex=&#34;0&#34; class=&#34;chroma&#34;&gt;&lt;code class=&#34;language-fallback&#34; data-lang=&#34;fallback&#34;&gt;&amp;lt;button type=&amp;#34;button&amp;#34;
+onclick=&amp;#34;document.getElementById(&amp;#39;id1&amp;#39;).style.color=&amp;#39;red&amp;#39;&amp;#34;&amp;gt;
+点我!&amp;lt;/button&amp;gt;
+&lt;/code&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;
+&lt;/div&gt;
+&lt;/div&gt;&lt;h3 id=&#34;javascript-html-dom-事件&#34;&gt;JavaScript HTML DOM 事件&lt;/h3&gt;
+&lt;h4 id=&#34;对事件做出反应&#34;&gt;对事件做出反应&lt;/h4&gt;
+&lt;p&gt;&lt;code&gt;&amp;lt;h1 onclick=&amp;quot;this.innerHTML=&#39;Ooops!&#39;&amp;quot;&amp;gt;点击文本!&amp;lt;/h1&amp;gt;&lt;/code&gt;&lt;/p&gt;
+&lt;h4 id=&#34;html-事件属性&#34;&gt;HTML 事件属性&lt;/h4&gt;
+&lt;p&gt;&lt;code&gt;&amp;lt;button onclick=&amp;quot;displayDate()&amp;quot;&amp;gt;点这里&amp;lt;/button&amp;gt;&lt;/code&gt;&lt;/p&gt;
+&lt;h4 id=&#34;使用-html-dom-来分配事件&#34;&gt;使用 HTML DOM 来分配事件&lt;/h4&gt;
+&lt;p&gt;HTML DOM 允许您使用 JavaScript 来向 HTML 元素分配事件：&lt;/p&gt;
+&lt;div class=&#34;highlight&#34;&gt;&lt;div class=&#34;chroma&#34;&gt;
+&lt;table class=&#34;lntable&#34;&gt;&lt;tr&gt;&lt;td class=&#34;lntd&#34;&gt;
+&lt;pre tabindex=&#34;0&#34; class=&#34;chroma&#34;&gt;&lt;code&gt;&lt;span class=&#34;lnt&#34;&gt;1
+&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/td&gt;
+&lt;td class=&#34;lntd&#34;&gt;
+&lt;pre tabindex=&#34;0&#34; class=&#34;chroma&#34;&gt;&lt;code class=&#34;language-fallback&#34; data-lang=&#34;fallback&#34;&gt;document.getElementById(&amp;#34;myBtn&amp;#34;).onclick=function(){displayDate()};
+&lt;/code&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;
+&lt;/div&gt;
+&lt;/div&gt;&lt;p&gt;在上面的例子中，名为 displayDate 的函数被分配给 id=&amp;ldquo;myBtn&amp;rdquo; 的 HTML 元素。&lt;/p&gt;
+&lt;h4 id=&#34;nload-和-onunload-事件&#34;&gt;nload 和 onunload 事件&lt;/h4&gt;
+&lt;p&gt;onload 和 onunload 事件会在用户进入或离开页面时被触发。&lt;/p&gt;
+&lt;p&gt;onload 事件可用于检测访问者的浏览器类型和浏览器版本，并基于这些信息来加载网页的正确版本。&lt;/p&gt;
+&lt;p&gt;onload 和 onunload 事件可用于处理 cookie。
+&lt;code&gt;&amp;lt;body onload=&amp;quot;checkCookies()&amp;quot;&amp;gt;&lt;/code&gt;&lt;/p&gt;
+&lt;h4 id=&#34;onchange-事件&#34;&gt;onchange 事件&lt;/h4&gt;
+&lt;p&gt;onchange 事件常结合对输入字段的验证来使用。&lt;/p&gt;
+&lt;h4 id=&#34;onmouseover-和-onmouseout-事件&#34;&gt;onmouseover 和 onmouseout 事件&lt;/h4&gt;
+&lt;p&gt;onmouseover 和 onmouseout 事件可用于在用户的鼠标移至 HTML 元素上方或移出元素时触发函数。&lt;/p&gt;
+&lt;h4 id=&#34;onmousedownonmouseup-以及-onclick-事件&#34;&gt;onmousedown、onmouseup 以及 onclick 事件&lt;/h4&gt;
+&lt;p&gt;onmousedown, onmouseup 以及 onclick 构成了鼠标点击事件的所有部分。首先当点击鼠标按钮时，会触发 onmousedown 事件，当释放鼠标按钮时，会触发 onmouseup 事件，最后，当完成鼠标点击时，会触发 onclick 事件。&lt;/p&gt;
 </description>
         </item>
         <item>

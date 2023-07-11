@@ -252,7 +252,78 @@
         <li><a href="#使用-nodejs-中的-commonjs-模块系统进行模块导入的语法">使用 Node.js 中的 CommonJS 模块系统进行模块导入的语法</a></li>
         <li><a href="#定义列表">定义列表</a></li>
         <li><a href="#定义字典">定义字典</a></li>
+        <li><a href="#定义对象object">定义对象(object)</a></li>
         <li><a href="#定义元组">定义元组</a></li>
+        <li><a href="#var和let的区别">var和let的区别</a></li>
+      </ol>
+    </li>
+    <li><a href="#javascript交互">javascript交互</a>
+      <ol>
+        <li><a href="#javascript显示数据">javascript显示数据</a></li>
+        <li><a href="#html事件">HTML事件</a></li>
+        <li><a href="#表单验证">表单验证</a></li>
+        <li><a href="#json字符串与javascript对象相互转换">JSON字符串与Javascript对象相互转换</a></li>
+      </ol>
+    </li>
+    <li><a href="#javascript异步编程">javascript异步编程</a>
+      <ol>
+        <li><a href="#回调函数">回调函数</a></li>
+        <li><a href="#ajax">AJAX</a></li>
+        <li><a href="#js-promise">js promise</a>
+          <ol>
+            <li><a href="#promise-的构造函数">Promise 的构造函数</a></li>
+            <li><a href="#promise函数">Promise函数</a></li>
+            <li><a href="#qa">QA</a></li>
+          </ol>
+        </li>
+        <li><a href="#异步函数">异步函数</a></li>
+      </ol>
+    </li>
+    <li><a href="#javascript-函数">javascript 函数</a>
+      <ol>
+        <li><a href="#js-匿名函数">js 匿名函数</a></li>
+        <li><a href="#箭头函数">箭头函数</a></li>
+      </ol>
+    </li>
+    <li><a href="#javascript-闭包">javascript 闭包</a>
+      <ol>
+        <li><a href="#javascript-内嵌函数">javascript 内嵌函数</a></li>
+        <li><a href="#闭包">闭包</a></li>
+      </ol>
+    </li>
+    <li><a href="#javascript-html-dom">javascript HTML DOM</a>
+      <ol>
+        <li><a href="#查找html元素">查找HTML元素</a>
+          <ol>
+            <li><a href="#通过-id-找到-html-元素">通过 id 找到 HTML 元素</a></li>
+            <li><a href="#通过标签名查找-html-元素">通过标签名查找 HTML 元素</a></li>
+            <li><a href="#通过类名找到-html-元素">通过类名找到 HTML 元素</a></li>
+          </ol>
+        </li>
+        <li><a href="#改变html">改变HTML</a>
+          <ol>
+            <li><a href="#改变-html-输出流">改变 HTML 输出流</a></li>
+            <li><a href="#改变-html-内容">改变 HTML 内容</a></li>
+            <li><a href="#改变-html-属性">改变 HTML 属性</a></li>
+          </ol>
+        </li>
+        <li><a href="#改变css">改变CSS</a>
+          <ol>
+            <li><a href="#改变-html-样式">改变 HTML 样式</a></li>
+            <li><a href="#使用事件">使用事件</a></li>
+          </ol>
+        </li>
+        <li><a href="#javascript-html-dom-事件">JavaScript HTML DOM 事件</a>
+          <ol>
+            <li><a href="#对事件做出反应">对事件做出反应</a></li>
+            <li><a href="#html-事件属性">HTML 事件属性</a></li>
+            <li><a href="#使用-html-dom-来分配事件">使用 HTML DOM 来分配事件</a></li>
+            <li><a href="#nload-和-onunload-事件">nload 和 onunload 事件</a></li>
+            <li><a href="#onchange-事件">onchange 事件</a></li>
+            <li><a href="#onmouseover-和-onmouseout-事件">onmouseover 和 onmouseout 事件</a></li>
+            <li><a href="#onmousedownonmouseup-以及-onclick-事件">onmousedown、onmouseup 以及 onclick 事件</a></li>
+          </ol>
+        </li>
       </ol>
     </li>
   </ol>
@@ -323,7 +394,7 @@
 
 
                 <time class="article-time--reading">
-                    阅读时长: 2 分钟
+                    阅读时长: 5 分钟
                 </time>
             </div>
         
@@ -523,9 +594,515 @@
 
 </code></pre></td></tr></table>
 </div>
+</div><h3 id="定义对象object">定义对象(object)</h3>
+<p>javascript中的对象类似C++中的结构体map，python中的字典。</p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre tabindex="0" class="chroma"><code><span class="lnt">1
+</span><span class="lnt">2
+</span></code></pre></td>
+<td class="lntd">
+<pre tabindex="0" class="chroma"><code class="language-fallback" data-lang="fallback">var person = {&#34;name&#34;: hugo, &#34;age&#34;: 20}
+// 可以使用person.name访问对象中的元素
+</code></pre></td></tr></table>
+</div>
 </div><h3 id="定义元组">定义元组</h3>
 <p>javascript中无内置的元组类型，可以用列表来模拟。
 <code>const tuple = [element1, element2, ...];</code></p>
+<h3 id="var和let的区别">var和let的区别</h3>
+<p>js的块级作用域:
+使用 var 关键字声明的变量不具备块级作用域的特性，它在 {} 外依然能被访问到。</p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre tabindex="0" class="chroma"><code><span class="lnt">1
+</span><span class="lnt">2
+</span><span class="lnt">3
+</span><span class="lnt">4
+</span></code></pre></td>
+<td class="lntd">
+<pre tabindex="0" class="chroma"><code class="language-fallback" data-lang="fallback">{ 
+    var x = 2; 
+}
+// 这里可以使用 x 变量
+</code></pre></td></tr></table>
+</div>
+</div><p>let 声明的变量只在 let 命令所在的代码块 {} 内有效，在 {} 之外不能访问。</p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre tabindex="0" class="chroma"><code><span class="lnt">1
+</span><span class="lnt">2
+</span><span class="lnt">3
+</span><span class="lnt">4
+</span></code></pre></td>
+<td class="lntd">
+<pre tabindex="0" class="chroma"><code class="language-fallback" data-lang="fallback">{ 
+    let x = 2;
+}
+// 这里不能使用 x 变量
+</code></pre></td></tr></table>
+</div>
+</div><h2 id="javascript交互">javascript交互</h2>
+<h3 id="javascript显示数据">javascript显示数据</h3>
+<p>JavaScript 没有任何打印或者输出的函数。</p>
+<p>JavaScript 可以通过不同的方式来输出数据：</p>
+<ul>
+<li>使用 window.alert() 弹出警告框。</li>
+<li>使用 document.write() 方法将内容写到 HTML 文档中。</li>
+<li>使用 innerHTML 写入到 HTML 元素。</li>
+<li>使用 console.log() 写入到浏览器的控制台。</li>
+</ul>
+<h3 id="html事件">HTML事件</h3>
+<p>HTML 事件是发生在 HTML 元素上的事情。
+HTML 事件可以是浏览器行为，也可以是用户行为。</p>
+<p>以下是 HTML 事件的实例：</p>
+<ul>
+<li>HTML 页面完成加载</li>
+<li>HTML input 字段改变时</li>
+<li>HTML 按钮被点击</li>
+</ul>
+<p>在事件触发时 JavaScript 可以执行一些代码。如：
+<code>&lt;button onclick=&quot;getElementById('demo').innerHTML=Date()&quot;&gt;现在的时间是?&lt;/button&gt;</code>
+注意onclick后的字符串是要执行的代码。</p>
+<h3 id="表单验证">表单验证</h3>
+<p>JavaScript 可用来在数据被送往服务器前对 HTML 表单中的这些输入数据进行验证。</p>
+<p>表单数据经常需要使用 JavaScript 来验证其正确性：</p>
+<ul>
+<li>验证表单数据是否为空？</li>
+<li>验证输入是否是一个正确的email地址？</li>
+<li>验证日期是否输入正确？</li>
+<li>验证表单输入内容是否为数字型？</li>
+</ul>
+<h3 id="json字符串与javascript对象相互转换">JSON字符串与Javascript对象相互转换</h3>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre tabindex="0" class="chroma"><code><span class="lnt">1
+</span><span class="lnt">2
+</span></code></pre></td>
+<td class="lntd">
+<pre tabindex="0" class="chroma"><code class="language-fallback" data-lang="fallback">var obj = JSON.parse(text);
+var text = JSON.stringify();
+</code></pre></td></tr></table>
+</div>
+</div><h2 id="javascript异步编程">javascript异步编程</h2>
+<p>异步就是从主线程发射一个子线程来执行任务。
+简单来理解就是：同步按你的代码顺序执行，异步不按照代码顺序执行，异步的执行效率更高。
+<img src="https://fvector.oss-cn-hangzhou.aliyuncs.com/202307111550753.png"
+	
+	
+	
+	loading="lazy"
+	
+	
+></p>
+<h3 id="回调函数">回调函数</h3>
+<p>回调函数就是一个函数，它是在我们启动一个异步任务的时候就告诉它：等你完成了这个任务之后要干什么。这样一来主线程几乎不用关心异步任务的状态了，他自己会善始善终。</p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre tabindex="0" class="chroma"><code><span class="lnt">1
+</span><span class="lnt">2
+</span><span class="lnt">3
+</span><span class="lnt">4
+</span></code></pre></td>
+<td class="lntd">
+<pre tabindex="0" class="chroma"><code class="language-fallback" data-lang="fallback">function print() {
+    document.getElementById(&#34;demo&#34;).innerHTML=&#34;RUNOOB!&#34;;
+}
+setTimeout(print, 3000);
+</code></pre></td></tr></table>
+</div>
+</div><p>这段程序中的 setTimeout 就是一个消耗时间较长（3 秒）的过程，它的第一个参数是个回调函数，第二个参数是毫秒数，这个函数执行之后会产生一个子线程，子线程会等待 3 秒，然后执行回调函数 &ldquo;print&rdquo;，在命令行输出 &ldquo;RUNOOB!&quot;。</p>
+<h3 id="ajax">AJAX</h3>
+<p>AJAX 最大的优点是在不重新加载整个页面的情况下，可以与服务器交换数据并更新部分网页内容。</p>
+<h3 id="js-promise">js promise</h3>
+<p>Promise是一个类，目的是更加优雅地书写复杂的异步任务。
+想象这样一个场景，需要多次调用异步函数，例如：分三次输出字符串，第一次间隔 1 秒，第二次间隔 4 秒，第三次间隔 3 秒。
+普通方法：</p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre tabindex="0" class="chroma"><code><span class="lnt">1
+</span><span class="lnt">2
+</span><span class="lnt">3
+</span><span class="lnt">4
+</span><span class="lnt">5
+</span><span class="lnt">6
+</span><span class="lnt">7
+</span><span class="lnt">8
+</span><span class="lnt">9
+</span></code></pre></td>
+<td class="lntd">
+<pre tabindex="0" class="chroma"><code class="language-fallback" data-lang="fallback">setTimeout(function () {
+    console.log(&#34;First&#34;);
+    setTimeout(function () {
+        console.log(&#34;Second&#34;);
+        setTimeout(function () {
+            console.log(&#34;Third&#34;);
+        }, 3000);
+    }, 4000);
+}, 1000);
+</code></pre></td></tr></table>
+</div>
+</div><p>上面这段代码是使用函数瀑布实现的，难以维护且异常处理困难。</p>
+<p>现在使用Promise来实现同样的功能：</p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre tabindex="0" class="chroma"><code><span class="lnt"> 1
+</span><span class="lnt"> 2
+</span><span class="lnt"> 3
+</span><span class="lnt"> 4
+</span><span class="lnt"> 5
+</span><span class="lnt"> 6
+</span><span class="lnt"> 7
+</span><span class="lnt"> 8
+</span><span class="lnt"> 9
+</span><span class="lnt">10
+</span><span class="lnt">11
+</span><span class="lnt">12
+</span><span class="lnt">13
+</span><span class="lnt">14
+</span><span class="lnt">15
+</span><span class="lnt">16
+</span><span class="lnt">17
+</span></code></pre></td>
+<td class="lntd">
+<pre tabindex="0" class="chroma"><code class="language-fallback" data-lang="fallback">new Promise(function (resolve, reject) {
+    setTimeout(function () {
+        console.log(&#34;First&#34;);
+        resolve();
+    }, 1000);
+}).then(function () {
+    return new Promise(function (resolve, reject) {
+        setTimeout(function () {
+            console.log(&#34;Second&#34;);
+            resolve();
+        }, 4000);
+    });
+}).then(function () {
+    setTimeout(function () {
+        console.log(&#34;Third&#34;);
+    }, 3000);
+});
+</code></pre></td></tr></table>
+</div>
+</div><p>Promise 使用.then将嵌套格式的代码变成了顺序格式的代码。</p>
+<h4 id="promise-的构造函数">Promise 的构造函数</h4>
+<p>Promise 构造函数是 JavaScript 中用于创建 Promise 对象的内置构造函数。</p>
+<p>Promise 构造函数接受一个函数作为参数，该函数是同步的并且会被立即执行，所以我们称之为起始函数。起始函数包含两个参数 resolve 和 reject，分别表示 Promise 成功和失败的状态。</p>
+<p>起始函数执行成功时，它应该调用 resolve 函数并传递成功的结果。当起始函数执行失败时，它应该调用 reject 函数并传递失败的原因。</p>
+<p>Promise 构造函数返回一个 Promise 对象，该对象具有以下几个方法：</p>
+<ul>
+<li>then：用于处理 Promise 成功状态的回调函数。</li>
+<li>catch：用于处理 Promise 失败状态的回调函数。</li>
+<li>finally：无论 Promise 是成功还是失败，都会执行的回调函数。</li>
+</ul>
+<p>例子：</p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre tabindex="0" class="chroma"><code><span class="lnt"> 1
+</span><span class="lnt"> 2
+</span><span class="lnt"> 3
+</span><span class="lnt"> 4
+</span><span class="lnt"> 5
+</span><span class="lnt"> 6
+</span><span class="lnt"> 7
+</span><span class="lnt"> 8
+</span><span class="lnt"> 9
+</span><span class="lnt">10
+</span><span class="lnt">11
+</span><span class="lnt">12
+</span></code></pre></td>
+<td class="lntd">
+<pre tabindex="0" class="chroma"><code class="language-fallback" data-lang="fallback">new Promise(function (resolve, reject) {
+    var a = 0;
+    var b = 1;
+    if (b == 0) reject(&#34;Divide zero&#34;);
+    else resolve(a / b);
+}).then(function (value) {
+    console.log(&#34;a / b = &#34; + value);
+}).catch(function (err) {
+    console.log(err);
+}).finally(function () {
+    console.log(&#34;End&#34;);
+});
+</code></pre></td></tr></table>
+</div>
+</div><p>这段程序执行结果是:</p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre tabindex="0" class="chroma"><code><span class="lnt">1
+</span><span class="lnt">2
+</span></code></pre></td>
+<td class="lntd">
+<pre tabindex="0" class="chroma"><code class="language-fallback" data-lang="fallback">a / b = 0
+End
+</code></pre></td></tr></table>
+</div>
+</div><h4 id="promise函数">Promise函数</h4>
+<p>可以使用Promise函数改造最初的计时器代码：</p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre tabindex="0" class="chroma"><code><span class="lnt"> 1
+</span><span class="lnt"> 2
+</span><span class="lnt"> 3
+</span><span class="lnt"> 4
+</span><span class="lnt"> 5
+</span><span class="lnt"> 6
+</span><span class="lnt"> 7
+</span><span class="lnt"> 8
+</span><span class="lnt"> 9
+</span><span class="lnt">10
+</span><span class="lnt">11
+</span><span class="lnt">12
+</span><span class="lnt">13
+</span><span class="lnt">14
+</span></code></pre></td>
+<td class="lntd">
+<pre tabindex="0" class="chroma"><code class="language-fallback" data-lang="fallback">function print(delay, message) {
+    return new Promise(function (resolve, reject) {
+        setTimeout(function () {
+            console.log(message);
+            resolve();
+        }, delay);
+    });
+}
+
+print(1000, &#34;First&#34;).then(function () {
+    return print(4000, &#34;Second&#34;);
+}).then(function () {
+    print(3000, &#34;Third&#34;);
+});
+</code></pre></td></tr></table>
+</div>
+</div><p>这种返回值为一个 Promise 对象的函数称作 Promise 函数，它常常用于开发基于异步操作的库。</p>
+<h4 id="qa">QA</h4>
+<ol>
+<li>
+<p>什么时候适合用 Promise 而不是传统回调函数？
+当需要多次顺序执行异步操作的时候，例如，如果想通过异步方法先后检测用户名和密码，需要先异步检测用户名，然后再异步检测密码的情况下就很适合 Promise。</p>
+</li>
+<li>
+<p>Promise 是一种将异步转换为同步的方法吗？
+完全不是。Promise 只不过是一种更良好的编程风格。</p>
+</li>
+<li>
+<p>什么时候我们需要再写一个 then 而不是在当前的 then 接着编程？
+当你又需要调用一个异步任务的时候。</p>
+</li>
+</ol>
+<h3 id="异步函数">异步函数</h3>
+<p>使用异步函数可以对上面的计时器功能的Promise进行改造：</p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre tabindex="0" class="chroma"><code><span class="lnt">1
+</span><span class="lnt">2
+</span><span class="lnt">3
+</span><span class="lnt">4
+</span><span class="lnt">5
+</span><span class="lnt">6
+</span></code></pre></td>
+<td class="lntd">
+<pre tabindex="0" class="chroma"><code class="language-fallback" data-lang="fallback">async function asyncFunc() {
+    await print(1000, &#34;First&#34;);
+    await print(4000, &#34;Second&#34;);
+    await print(3000, &#34;Third&#34;);
+}
+asyncFunc();
+</code></pre></td></tr></table>
+</div>
+</div><p>这样可以使得异步操作变得和同步操作一样容易。</p>
+<h2 id="javascript-函数">javascript 函数</h2>
+<h3 id="js-匿名函数">js 匿名函数</h3>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre tabindex="0" class="chroma"><code><span class="lnt">1
+</span><span class="lnt">2
+</span></code></pre></td>
+<td class="lntd">
+<pre tabindex="0" class="chroma"><code class="language-fallback" data-lang="fallback">var x = function (a, b) {return a * b};  // 匿名函数
+var z = x(4, 3);
+</code></pre></td></tr></table>
+</div>
+</div><h3 id="箭头函数">箭头函数</h3>
+<p>箭头函数表达式的语法比普通函数表达式更简洁。</p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre tabindex="0" class="chroma"><code><span class="lnt"> 1
+</span><span class="lnt"> 2
+</span><span class="lnt"> 3
+</span><span class="lnt"> 4
+</span><span class="lnt"> 5
+</span><span class="lnt"> 6
+</span><span class="lnt"> 7
+</span><span class="lnt"> 8
+</span><span class="lnt"> 9
+</span><span class="lnt">10
+</span><span class="lnt">11
+</span><span class="lnt">12
+</span><span class="lnt">13
+</span></code></pre></td>
+<td class="lntd">
+<pre tabindex="0" class="chroma"><code class="language-fallback" data-lang="fallback">(参数1, 参数2, …, 参数N) =&gt; { 函数声明 }
+
+(参数1, 参数2, …, 参数N) =&gt; 表达式(单一)
+// 相当于：(参数1, 参数2, …, 参数N) =&gt;{ return 表达式; }
+
+// 当只有一个参数时，圆括号是可选的：
+(单一参数) =&gt; {函数声明}
+单一参数 =&gt; {函数声明}
+
+// 没有参数的函数应该写成一对圆括号:
+() =&gt; {函数声明}
+
+const x = (x, y) =&gt; x * y;
+</code></pre></td></tr></table>
+</div>
+</div><h2 id="javascript-闭包">javascript 闭包</h2>
+<p>闭包是一种保护私有变量的机制，在函数执行时形成私有的作用域，保护里面的私有变量不受外界干扰。直观的说就是形成一个不销毁的栈环境。</p>
+<h3 id="javascript-内嵌函数">javascript 内嵌函数</h3>
+<p>嵌套函数可以访问上一层的函数变量。</p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre tabindex="0" class="chroma"><code><span class="lnt">1
+</span><span class="lnt">2
+</span><span class="lnt">3
+</span><span class="lnt">4
+</span><span class="lnt">5
+</span><span class="lnt">6
+</span></code></pre></td>
+<td class="lntd">
+<pre tabindex="0" class="chroma"><code class="language-fallback" data-lang="fallback">function add() {
+    var counter = 0;
+    function plus() {counter += 1;}
+    plus();    
+    return counter; 
+}
+</code></pre></td></tr></table>
+</div>
+</div><p>在plus函数中的counter使用的是上一层add中定义的counter，如果能在add函数外部访问到plus函数，则可以实现counter的闭包，保证counter不被其他所影响。</p>
+<h3 id="闭包">闭包</h3>
+<p>闭包是通过一个函数返回这个函数的内嵌函数的函数名来实现的，然后在外部调用这个函数。</p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre tabindex="0" class="chroma"><code><span class="lnt"> 1
+</span><span class="lnt"> 2
+</span><span class="lnt"> 3
+</span><span class="lnt"> 4
+</span><span class="lnt"> 5
+</span><span class="lnt"> 6
+</span><span class="lnt"> 7
+</span><span class="lnt"> 8
+</span><span class="lnt"> 9
+</span><span class="lnt">10
+</span><span class="lnt">11
+</span><span class="lnt">12
+</span><span class="lnt">13
+</span></code></pre></td>
+<td class="lntd">
+<pre tabindex="0" class="chroma"><code class="language-fallback" data-lang="fallback">function outerFunction() {
+  var outerVariable = &#39;I am outside!&#39;;
+
+  function innerFunction() {
+    console.log(outerVariable);
+  }
+
+  return innerFunction;
+}
+
+var closure = outerFunction();
+closure(); // 输出：&#39;I am outside!&#39;
+
+</code></pre></td></tr></table>
+</div>
+</div><h2 id="javascript-html-dom">javascript HTML DOM</h2>
+<p>DOM(document object model)
+通过可编程的对象模型，JavaScript 获得了足够的能力来创建动态的 HTML。</p>
+<ul>
+<li>JavaScript 能够改变页面中的所有 HTML 元素</li>
+<li>JavaScript 能够改变页面中的所有 HTML 属性</li>
+<li>JavaScript 能够改变页面中的所有 CSS 样式</li>
+<li>JavaScript 能够对页面中的所有事件做出反应</li>
+</ul>
+<h3 id="查找html元素">查找HTML元素</h3>
+<h4 id="通过-id-找到-html-元素">通过 id 找到 HTML 元素</h4>
+<p>本例查找 id=&ldquo;intro&rdquo; 元素：
+<code>var x=document.getElementById(&quot;intro&quot;);</code></p>
+<h4 id="通过标签名查找-html-元素">通过标签名查找 HTML 元素</h4>
+<p>本例查找 id=&ldquo;main&rdquo; 的元素，然后查找 id=&ldquo;main&rdquo; 元素中的所有 <!-- raw HTML omitted --> 元素：</p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre tabindex="0" class="chroma"><code><span class="lnt">1
+</span><span class="lnt">2
+</span></code></pre></td>
+<td class="lntd">
+<pre tabindex="0" class="chroma"><code class="language-fallback" data-lang="fallback">var x=document.getElementById(&#34;main&#34;);
+var y=x.getElementsByTagName(&#34;p&#34;);
+</code></pre></td></tr></table>
+</div>
+</div><h4 id="通过类名找到-html-元素">通过类名找到 HTML 元素</h4>
+<p>本例通过 getElementsByClassName 函数来查找 class=&ldquo;intro&rdquo; 的元素：
+<code>var x=document.getElementsByClassName(&quot;intro&quot;);</code></p>
+<h3 id="改变html">改变HTML</h3>
+<h4 id="改变-html-输出流">改变 HTML 输出流</h4>
+<p><code>document.write(Date());</code></p>
+<h4 id="改变-html-内容">改变 HTML 内容</h4>
+<p><code>document.getElementById(id).innerHTML=新的 HTML</code></p>
+<h4 id="改变-html-属性">改变 HTML 属性</h4>
+<p><code>document.getElementById(id).attribute=新属性值</code>
+<code>document.getElementById(&quot;image&quot;).src=&quot;landscape.jpg&quot;;</code></p>
+<h3 id="改变css">改变CSS</h3>
+<h4 id="改变-html-样式">改变 HTML 样式</h4>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre tabindex="0" class="chroma"><code><span class="lnt">1
+</span><span class="lnt">2
+</span><span class="lnt">3
+</span></code></pre></td>
+<td class="lntd">
+<pre tabindex="0" class="chroma"><code class="language-fallback" data-lang="fallback">document.getElementById(&#34;p2&#34;).style.color=&#34;blue&#34;;
+document.getElementById(&#34;p2&#34;).style.fontFamily=&#34;Arial&#34;;
+document.getElementById(&#34;p2&#34;).style.fontSize=&#34;larger&#34;;
+</code></pre></td></tr></table>
+</div>
+</div><h4 id="使用事件">使用事件</h4>
+<p>HTML DOM 允许我们通过触发事件来执行代码。</p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre tabindex="0" class="chroma"><code><span class="lnt">1
+</span><span class="lnt">2
+</span><span class="lnt">3
+</span></code></pre></td>
+<td class="lntd">
+<pre tabindex="0" class="chroma"><code class="language-fallback" data-lang="fallback">&lt;button type=&#34;button&#34;
+onclick=&#34;document.getElementById(&#39;id1&#39;).style.color=&#39;red&#39;&#34;&gt;
+点我!&lt;/button&gt;
+</code></pre></td></tr></table>
+</div>
+</div><h3 id="javascript-html-dom-事件">JavaScript HTML DOM 事件</h3>
+<h4 id="对事件做出反应">对事件做出反应</h4>
+<p><code>&lt;h1 onclick=&quot;this.innerHTML='Ooops!'&quot;&gt;点击文本!&lt;/h1&gt;</code></p>
+<h4 id="html-事件属性">HTML 事件属性</h4>
+<p><code>&lt;button onclick=&quot;displayDate()&quot;&gt;点这里&lt;/button&gt;</code></p>
+<h4 id="使用-html-dom-来分配事件">使用 HTML DOM 来分配事件</h4>
+<p>HTML DOM 允许您使用 JavaScript 来向 HTML 元素分配事件：</p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre tabindex="0" class="chroma"><code><span class="lnt">1
+</span></code></pre></td>
+<td class="lntd">
+<pre tabindex="0" class="chroma"><code class="language-fallback" data-lang="fallback">document.getElementById(&#34;myBtn&#34;).onclick=function(){displayDate()};
+</code></pre></td></tr></table>
+</div>
+</div><p>在上面的例子中，名为 displayDate 的函数被分配给 id=&ldquo;myBtn&rdquo; 的 HTML 元素。</p>
+<h4 id="nload-和-onunload-事件">nload 和 onunload 事件</h4>
+<p>onload 和 onunload 事件会在用户进入或离开页面时被触发。</p>
+<p>onload 事件可用于检测访问者的浏览器类型和浏览器版本，并基于这些信息来加载网页的正确版本。</p>
+<p>onload 和 onunload 事件可用于处理 cookie。
+<code>&lt;body onload=&quot;checkCookies()&quot;&gt;</code></p>
+<h4 id="onchange-事件">onchange 事件</h4>
+<p>onchange 事件常结合对输入字段的验证来使用。</p>
+<h4 id="onmouseover-和-onmouseout-事件">onmouseover 和 onmouseout 事件</h4>
+<p>onmouseover 和 onmouseout 事件可用于在用户的鼠标移至 HTML 元素上方或移出元素时触发函数。</p>
+<h4 id="onmousedownonmouseup-以及-onclick-事件">onmousedown、onmouseup 以及 onclick 事件</h4>
+<p>onmousedown, onmouseup 以及 onclick 构成了鼠标点击事件的所有部分。首先当点击鼠标按钮时，会触发 onmousedown 事件，当释放鼠标按钮时，会触发 onmouseup 事件，最后，当完成鼠标点击时，会触发 onclick 事件。</p>
 
 </section>
 
